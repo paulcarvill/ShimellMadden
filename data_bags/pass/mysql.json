@@ -1,0 +1,15 @@
+{
+  "id": "mysql",
+  "root": {
+    "encrypted_data": "VPCAsZBkSbmorXK4418RJe2nZwFLe0Q/5/YmE1g+RXo=\n",
+    "iv": "ZA1CvW51fUcQuiIKAIlo+Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "railsuser": {
+    "encrypted_data": "+Lk/mQu2zBUu/JihHhR/Wd0vIRff37/+0vpsl57PpEg=\n",
+    "iv": "Vy4eaQ3ng8IyVoar9deeQw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

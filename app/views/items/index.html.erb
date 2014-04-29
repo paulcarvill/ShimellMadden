@@ -1,0 +1,45 @@
+<h1>Listing items</h1>
+
+<nav>
+  <li><a href="/">Home</a></li>
+  <li><a href="/items">Items</a></li>
+  <li><a href="/collections">Collections</a></li>
+  <li><a href="archives">Archive</a></li>
+  <li><a href="projects">Projects</a></li>
+</nav>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Shipping</th>
+      <th>Shopifyid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.image %></td>
+        <td><%= item.price %></td>
+        <td><%= item.shipping %></td>
+        <td><%= item.shopifyid %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
