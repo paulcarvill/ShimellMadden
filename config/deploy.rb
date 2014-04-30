@@ -13,6 +13,7 @@ set :scm, :git
 set :use_sudo, false
 set :deploy_via, :copy
 set :keep_releases, 2
+set :rails_env, 'production'
 #set :tmp_dir, "/home/deployer/tmp"
 
 # Default branch is :master
