@@ -35,7 +35,7 @@ set :keep_releases, 2
 
 # set up symlink for database connection details, so we don't have to store
 # them in version control (they're added manually to the server)
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
