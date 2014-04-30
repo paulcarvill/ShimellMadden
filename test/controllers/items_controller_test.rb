@@ -57,4 +57,9 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select 'li', "Archive"
     end
   end
+
+  test "non-javascript heading is in place" do
+    get :index
+    assert_select 'h1', "Listing items"
+  end
 end

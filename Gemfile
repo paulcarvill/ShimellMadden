@@ -15,6 +15,11 @@ group :development do
 	gem 'capistrano-bundler', '~> 1.1', require: false
 end
 
+group :development, :test do
+	gem 'capybara_minitest_spec'
+	gem 'selenium-webdriver'
+end
+
 group :production do
     gem 'mysql2', '>= 0.3'
     gem 'unicorn'
@@ -39,3 +44,5 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'json', '1.5.5'
+
+gem "rails-backbone"
