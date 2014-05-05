@@ -8,6 +8,9 @@ class CreateItems < ActiveRecord::Migration
       t.float :shipping
       t.string :shopifyid
 
+      t.integer :collection_id
+      t.integer :project_id
+
       t.timestamps
     end
   end

@@ -1,0 +1,12 @@
+<div id="items">
+	<h1>Homepage</h1>
+</div>
+
+<!-- Backbone shizzle -->
+<script type="text/javascript">
+  $(function() {
+    window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>
+<!-- end Backbone shizzle -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422204326) do
+ActiveRecord::Schema.define(version: 20140505121918) do
 
   create_table "collections", force: true do |t|
     t.string   "name"
@@ -26,10 +26,15 @@ ActiveRecord::Schema.define(version: 20140422204326) do
     t.float    "price"
     t.float    "shipping"
     t.string   "shopifyid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "collection_id"
     t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "homepage"
+    t.string   "mainImage_file_name"
+    t.string   "mainImage_content_type"
+    t.integer  "mainImage_file_size"
+    t.datetime "mainImage_updated_at"
   end
 
   create_table "projects", force: true do |t|

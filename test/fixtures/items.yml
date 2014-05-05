@@ -1,6 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-<% 0..333.times do |n| %>
+<% 0.upto(10) do |n| %>
+user_<%= n %>:
+  name: <%= "user#{n}" %>
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+<% end %>
+
+<% 10.upto(333) do |n| %>
 user_<%= n %>:
   name: <%= "user#{n}" %>
   description: "foo"
@@ -11,7 +23,7 @@ user_<%= n %>:
   collection: collection_one
 <% end %>
 
-<% 334..666.times do |n| %>
+<% 333.upto(666) do |n| %>
 user_<%= n %>:
   name: <%= "user#{n}" %>
   description: "foo"
@@ -22,7 +34,7 @@ user_<%= n %>:
   project: project_one
 <% end %>
 
-<% 667..999.times do |n| %>
+<% 667.upto(999) do |n| %>
 user_<%= n %>:
   name: <%= "user#{n}" %>
   description: "foo"

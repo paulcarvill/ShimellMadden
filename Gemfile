@@ -46,3 +46,5 @@ gem 'jbuilder', '~> 1.2'
 gem 'json', '1.5.5'
 
 gem "rails-backbone"
+
+gem 'paperclip', github: 'thoughtbot/paperclip'

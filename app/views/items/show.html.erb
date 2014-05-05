@@ -40,5 +40,10 @@
   <%= @item.project %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @item.mainImage.url %>
+</p>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

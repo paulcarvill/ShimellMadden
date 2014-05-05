@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.limit(10)
+    @items = Item.all().limit(10)
   end
 
   # GET /items/1
@@ -69,6 +69,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :image, :price, :shipping, :shopifyid)
+      params.require(:item).permit(:name, :description, :image, :price, :shipping, :shopifyid, :mainImage)
     end
 end
