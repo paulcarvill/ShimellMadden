@@ -1,6 +1,7 @@
 class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
   initialize: (options) ->
     @items = new ShimellMadden.Collections.ItemsCollection()
+
     @items.reset options.items
 
   routes:

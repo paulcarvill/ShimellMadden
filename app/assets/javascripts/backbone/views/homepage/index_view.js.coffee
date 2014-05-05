@@ -17,4 +17,6 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     $(@el).html(@template(homepage: @options.items.toJSON() ))
     @addAll()
 
+    # make a carousel out of the homepage images here
+
     return this

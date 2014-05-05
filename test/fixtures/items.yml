@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 <% 0.upto(10) do |n| %>
-user_<%= n %>:
-  name: <%= "user#{n}" %>
+item_<%= n %>:
+  name: <%= "item#{n}" %>
   description: "foo"
   image: 
   price: 3.5
@@ -13,8 +13,8 @@ user_<%= n %>:
 <% end %>
 
 <% 10.upto(333) do |n| %>
-user_<%= n %>:
-  name: <%= "user#{n}" %>
+item_<%= n %>:
+  name: <%= "item#{n}" %>
   description: "foo"
   image: 
   price: 1.5
@@ -24,8 +24,8 @@ user_<%= n %>:
 <% end %>
 
 <% 333.upto(666) do |n| %>
-user_<%= n %>:
-  name: <%= "user#{n}" %>
+item_<%= n %>:
+  name: <%= "item#{n}" %>
   description: "foo"
   image: 
   price: 1.5
@@ -35,8 +35,8 @@ user_<%= n %>:
 <% end %>
 
 <% 667.upto(999) do |n| %>
-user_<%= n %>:
-  name: <%= "user#{n}" %>
+item_<%= n %>:
+  name: <%= "item#{n}" %>
   description: "foo"
   image: 
   price: 1.5
