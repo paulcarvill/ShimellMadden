@@ -1,12 +1,23 @@
 ShimellMadden.Views.Items ||= {}
 
 class ShimellMadden.Views.Homepage.ItemView extends Backbone.View
-  template: JST["backbone/templates/items/item"]
+  template: JST["backbone/templates/homepage/item"]
 
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
+  tagName: "div"
+
+  show: ->
+    $(@el).show()
+
+  fadeOut: ->
+    $(@el).fadeOut()
+
+  fadeIn: ->
+    $(@el).fadeIn()
+
+  className: "carousel-item"
 
   destroy: () ->
     @model.destroy()
@@ -15,5 +26,6 @@ class ShimellMadden.Views.Homepage.ItemView extends Backbone.View
     return false
 
   render: ->
+    console.log('eee');
     $(@el).html(@template(@model.toJSON() ))
     return this

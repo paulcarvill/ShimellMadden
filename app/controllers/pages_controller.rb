@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-  	@items = Item.where(homepage: true).limit(3).order("created_at DESC")
+  	@items = Item.all().limit(10).order("id ASC")
   end
 end

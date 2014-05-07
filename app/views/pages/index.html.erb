@@ -1,5 +1,34 @@
 <div id="items">
 	<h1>Homepage</h1>
+
+	<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Shipping</th>
+      <th>Shopifyid</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.image %></td>
+        <td><%= item.price %></td>
+        <td><%= item.shipping %></td>
+        <td><%= item.shopifyid %></td>
+        <td><%= item.mainImage.url %></td>
+        <td><%= link_to 'Show', item %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
 
 <!-- Backbone shizzle -->

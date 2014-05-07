@@ -1,8 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-<% 0.upto(10) do |n| %>
-item_<%= n %>:
-  name: <%= "item#{n}" %>
+item_0:
+  name: "item0"
   description: "foo"
   image: 
   price: 3.5
@@ -10,7 +9,106 @@ item_<%= n %>:
   shopifyid: MyShopifyIdString
   collection: collection_one
   homepage: true
-<% end %>
+  mainImage_file_name: "1800x1286-black.gif"
+
+item_1:
+  name: "item1"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-orange.gif"
+
+item_2:
+  name: "item2"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-green.gif"
+
+item_3:
+  name: "item3"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-deepblue.gif"
+
+item_4:
+  name: "item4"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "ED_S_Mstill_R04F13.jpg"
+
+item_5:
+  name: "item5"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-pink.gif"
+
+item_6:
+  name: "item6"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-olive.gif"
+
+item_7:
+  name: "item7"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-cherry.gif"
+
+item_8:
+  name: "item8"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-charcoal.gif"
+
+item_9:
+  name: "item9"
+  description: "foo"
+  image: 
+  price: 3.5
+  shipping: 3.5
+  shopifyid: MyShopifyIdString
+  collection: collection_one
+  homepage: true
+  mainImage_file_name: "1800x1286-purple.gif"
 
 <% 10.upto(333) do |n| %>
 item_<%= n %>:
