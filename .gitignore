@@ -17,3 +17,4 @@ config/initializers/secret_token.rb
 /cookbooks/
 /tmp/librarian/
 /config/database.yml
+vendor/ruby
