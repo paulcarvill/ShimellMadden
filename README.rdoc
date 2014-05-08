@@ -57,5 +57,63 @@ Do DB migrations
 
 
 ## Develop on a VM (Ubuntu 13.04 on Vagrant)
-todo...
 
+`$ vagrant up`
+
+`$ vagrant ssh`
+
+`$ sudo groupadd deployers`
+
+`$ sudo adduser --home /home/deployer --shell /bin/bash --ingroup deployers deployer`
+
+Enter a password, confirm password, accept default values for new user
+
+`$ sudo visudo`
+
+Edit the sudoers file to add the right permissions. Add the following at the end of the file:
+
+`deployer    ALL=NOPASSWD: ALL`
+
+ctrl-X to exit, save the file
+
+`$ exit`
+
+Login as the new deployer user, and create your .ssh directory:
+
+`$ ssh -p 2222 deployer@127.0.0.1`
+
+Enter the password you set up
+
+`$ mkdir .ssh`
+
+`$ exit`
+
+Put your public key on the VM:
+
+`$ cat ~/.ssh/id_rsa.pub | ssh -p 2222 deployer@127.0.0.1 "cat >> ~/.ssh/authorized_keys"`
+
+Test you can login without a password:
+
+`$ ssh -p 2222 deployer@127.0.0.1`
+
+TODO: Add mysql user/pass into config/database.yml
+
+TODO: Put the database config on the VM:
+
+`$ scp -P 2222 ./config/database.yml deployer@127.0.0.1:/home/deployer/shared/config/database.yml`
+
+`$ gem install librarian-chef`
+
+Install required cookbooks for the VM into chef library:
+
+`$ librarian-chef install`
+
+Install Knife Solo, which we use to deploy cookbooks onto the VM:
+
+`$ gem install knife-solo`
+
+Install cookbooks onto the VM (this may take some time...):
+
+`$ knife solo bootstrap --bootstrap-version 11.8.2-1 -p 2222 deployer@127.0.0.1`
+
+TODO: describe how encrypted databags work…
