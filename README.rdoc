@@ -1,28 +1,61 @@
-== README
+## # Requirements
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* RVM
+* Ruby 2.1.1
+* Vagrant
 
-Things you may want to cover:
+## Develop locally (Mac)
 
-* Ruby version
+`$ \curl -sSL https://get.rvm.io | bash -s stable`
 
-* System dependencies
+`$ source ~/.rvm/scripts/rvm`
 
-* Configuration
+`$ rvm install ruby-2.1.1`
 
-* Database creation
+`$ git clone this_repo`
 
-* Database initialization
+`$ cd this_repo`
 
-* How to run the test suite
+You should see something like:
 
-* Services (job queues, cache servers, search engines, etc.)
+`ruby-2.1.1 - #gemset created ~/.rvm/gems/`
 
-* Deployment instructions
+`ruby-2.1.1@ShimellMadden`
 
-* ...
+`ruby-2.1.1 - #generating ShimellMadden wrappers……….`
+
+Then install gems into the gemset
+
+`$ bundle install --without production`
+
+Now setup the application and run it locally
+
+`$ echo "development:`
+
+`>   secret_key_base: $(rake secret)" >> config/secrets.yml`
+
+Create the DB config
+
+`$ echo "development:`
+
+`> adapter: sqlite3`
+  
+`> database: db/development.sqlite3`
+  
+`> pool: 5`
+  
+`> timeout: 5000" >> config/database.yml`
+  
+Do DB migrations
+
+`$ rake db:migrate`
+
+`$ rake db:seed`
+
+`$ rails s`
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+## Develop on a VM (Ubuntu 13.04 on Vagrant)
+todo...
+

@@ -1,13 +1,13 @@
 {
   	"rvm": {
-	    "rubies": ["2.0.0-p0"],
-	    "default_ruby": "2.0.0-p0",
+	    "rubies": ["2.1.1"],
+	    "default_ruby": "2.1.1",
 	    "vagrant": { "system_chef_solo" : "/opt/chef/bin/chef-solo" },
 	    "gems": {
-	      "2.0.0-p0": [
+	      "2.1.1": [
 	        {"name": "bundler"},
 	        {"name": "rake"},
-	        {"name": "rails", "version": "4.0.4" },
+	        {"name": "rails", "version": "4.1.0" },
           {"name": "unicorn" }
 	      ]
 	  	}

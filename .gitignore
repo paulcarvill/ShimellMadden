@@ -13,6 +13,7 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 .vagrant
 .chef/
+config/secrets.yml
 
 /cookbooks/
 /tmp/librarian/
