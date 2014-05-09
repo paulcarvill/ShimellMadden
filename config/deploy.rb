@@ -1,8 +1,8 @@
 # Ensure that bundle is used for rake tasks
 SSHKit.config.command_map[:rake] = "bundle exec rake"
 
-# config valid only for Capistrano 3.1
-lock '3.1.0'
+# config valid only for Capistrano 3.2.1
+lock '3.2.1'
 
 
 set :application, "ShimellMadden"
@@ -36,7 +36,7 @@ set :rails_env, 'production'
 
 # set up symlink for database connection details, so we don't have to store
 # them in version control (they're added manually to the server)
-set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

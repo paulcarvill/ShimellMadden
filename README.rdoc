@@ -98,9 +98,15 @@ Test you can login without a password:
 
 TODO: Add mysql user/pass into config/database.yml
 
-TODO: Put the database config on the VM:
+Put the database config on the VM:
 
 `$ scp -P 2222 ./config/database.yml deployer@127.0.0.1:/home/deployer/shared/config/database.yml`
+
+Put the Rails secret on the VM:
+
+`$ scp -P 2222 ./config/secrets.yml deployer@127.0.0.1:/home/deployer/shared/config/secrets.yml`
+
+Install librarian, for working with Chef solo:
 
 `$ gem install librarian-chef`
 
@@ -112,8 +118,68 @@ Install Knife Solo, which we use to deploy cookbooks onto the VM:
 
 `$ gem install knife-solo`
 
+Create a secret to encrypt our Chef data bags with. You need to keep this file somewhere safe. Do not put it in version control.
+
+`$ openssl rand -base64 512 | tr -d '\r\n' > ~/encrypted_data_bag_secret`
+
+Install a Knife gem for dealing with data bags in Chef Solo:
+
+`$ gem install knife-solo_data_bag`
+
+Create our encrypted MySQL user/pass. This will open an editor where you can enter the user pass details (if you get an editor error, do: `export EDITOR=vim`)
+
+`$ knife solo data bag create pass mysql --secret-file ~/encrypted_data_bag_secret`
+
+Enter the user/pass in this format:
+
+`{`
+  
+  `"id": "mysql",`
+  
+`  "root": "***ADD_YOUR_ROOT_USER_PASS_HERE***",`
+  
+`  "railsuser": "***ADD_YOUR_RAILS_USER_PASS_HERE***"`
+  
+`}`
+
+These keys are used in the recipe site-cookbooks/ShimellMadden/recipes/default.rb, and should reflect the values in your config/database.yml file:
+
+`mysql_creds = Chef::EncryptedDataBagItem.load("pass", "mysql")`
+
+`root_pw = mysql_creds["root"]`
+
+`railuser_pw = mysql_creds["railsuser"]`
+
+After saving the file you should see the response:
+
+`$ Created data_bag_item[mysql]`
+
+You can check it has been created and encrypted using:
+
+`$ knife solo data bag show pass mysql`
+
+To view unencrypted use:
+
+`$ knife solo data bag show pass mysql --secret-file ~/encrypted_data_bag_secret`
+
+Add the path to your encrypted_data_bag_secret file to knife.rb:
+
+encrypted_data_bag_secret_key_path '~/encrypted_data_bag_secret'
+
 Install cookbooks onto the VM (this may take some time...):
 
 `$ knife solo bootstrap --bootstrap-version 11.8.2-1 -p 2222 deployer@127.0.0.1`
 
-TODO: describe how encrypted databags work…
+You should see:
+
+`$ Chef Client finished, 74 resources updated`
+
+TODO: how to deal with forwarding correct key to VM to connect to github…? Options include: putting a private key on the VM; or forward private key through Vagrant.
+
+Do a Capistrano deploy check:
+
+`$ cap staging deploy:check`
+
+If no errors, do a full deploy:
+
+`$ cap staging deploy`
