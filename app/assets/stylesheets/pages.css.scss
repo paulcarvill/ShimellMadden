@@ -14,6 +14,13 @@ div, h1 {
 	margin: 0
 }
 
+#my-carousel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
 #centerer {
 	position: absolute;
 	height: 100%;
@@ -35,14 +42,14 @@ h1 {
 	color: #fff;
 }
 
-h2 {
+#centerer h2 {
 	display: inline-block;
 	color: #fff;
 	border: 1px solid #fff;
 	padding: 5px;
 }
 
-.carousel-item { display: none; position: absolute; left: 0; top: 0;}
+.carousel-item { display: none; position: relative;}
 .carousel-item .carousel-prev { position: absolute; left: 0; top: 0; z-index: 100;}
 .carousel-item .carousel-next { position: absolute; right: 0; top: 0; z-index: 100;}
 

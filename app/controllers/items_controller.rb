@@ -7,6 +7,11 @@ class ItemsController < ApplicationController
     @items = Item.all().limit(10)
   end
 
+  def archive
+    @items = Item.where(archive: true)
+    render "items/index"
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show

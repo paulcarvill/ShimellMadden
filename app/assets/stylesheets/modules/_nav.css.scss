@@ -1,0 +1,30 @@
+header {
+	text-align: center;
+}
+
+header img {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+nav {
+	display: inline;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+header nav {
+	border-bottom: 1px solid gray;
+	padding-bottom: 10px;
+}
+
+nav a,
+nav a:active,
+nav a:visited {
+	color: #aeaeae
+}
+
+nav a {
+	margin-left: 10px;
+	margin-right: 10px;
+}

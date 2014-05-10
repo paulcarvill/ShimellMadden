@@ -6,8 +6,12 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
 
   routes:
     "index"    : "index"
+    "items"	   : "items"
     ".*"        : "index"
 
   index: ->
     @view = new ShimellMadden.Views.Homepage.IndexView(items: @items)
     $("#items").html(@view.render().el)
+
+  items: ->
+  	console.log('shoe items init')

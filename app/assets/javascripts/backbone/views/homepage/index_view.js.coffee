@@ -5,13 +5,12 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
 
   events: {
     'click .carousel-prev': 'prev',
-    'click .carousel-next': 'next'
+    'click .carousel-next': 'next',
+    'click #centerer': 'navigate'
   }
 
   initialize: () ->
-    #_.bindAll(this);
     @options.items.bind('reset', @addAll)
-    #this.items = _.map(this.$('.carousel-item').hide(), (i) -> i );
     this.current = 0;
     this.items = [];
     $(window).on("load resize", @centerImage);
@@ -38,6 +37,7 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     return this
 
   prev: () ->
+    alert('wee')
     this.items[this.current].fadeOut()
     this.current--
     if this.current == -1
@@ -50,3 +50,15 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     if this.current == this.items.length
       this.current = 0
     this.items[this.current].fadeIn()
+
+  navigate: () ->
+    console.log('navi')
+    @$("#my-carousel").animate({height: "0"}, 750)
+    window.router.navigate("items", {trigger: true});
+
+
+
+
+
+
+

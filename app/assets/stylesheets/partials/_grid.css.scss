@@ -1,0 +1,39 @@
+@import "bourbon";
+@import "grid-settings";
+@import "neat";
+
+body {
+  @include outer-container;
+
+  nav {
+  	@include span-columns(12);
+  }
+
+  section.blog {
+  	@include span-columns(12);
+  }
+
+  header {
+  	@include span-columns(12);
+  }
+  aside {
+    @include span-columns(3);
+  }
+
+  article {
+    @include span-columns(9);
+  }
+
+  article img {
+    @include span-columns(9 of 9);
+  }
+
+  footer {
+  	@include span-columns(12);
+  }
+
+  footer>div {
+  	@include span-columns(3 of 12);
+  }
+
+}

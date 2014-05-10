@@ -5,5 +5,21 @@
   <%= @project.name %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+items in this project:
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>link</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= link_to 'Show', item %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

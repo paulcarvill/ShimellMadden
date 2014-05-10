@@ -10,6 +10,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
+    @items = Item.where(collection_id: params[:id])
   end
 
   # GET /collections/new
