@@ -1,13 +1,10 @@
-<body>
- <section class="blog">
-
- 	<header>
- 		<img src="assets/logo.svg" />
+<section class="blog">
+	<header>
  		<%= render "shared/nav" %>
  	</header>
-
- 	<div><%= render "shared/subnav" %></div>
- 	
+ 	<div>
+ 		<%= render "shared/subnav" %>
+ 	</div>
  	<aside>
  		<h2>About</h2>
  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -18,29 +15,9 @@
  		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
  		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
  	</aside>
-
  	<article>
  		<img src="/assets/about.jpg" />
  	</article>
  </section>
 
- <footer>
- 	<div>&copy; Shimell and Madden 2014</div>
- 	<div>
- 		<p><a href="mailto:emma@shimellandmadden.com">emma@shimellandmadden.com</a></p>
- 		<p>Mobile: +44 (0)7548 887832</p>
- 		<p><a href="mailto:luke@shimellandmadden.com">luke@shimellandmadden.com</a></p>
- 		<p>Mobile: +44 (0)7970 075071</p>
- 	</div>
- 	<div>
- 		<p><a href="#">Facebook</a></p>
- 		<p><a href="#">Twitter</a></p>
- 		<p><a href="#">Instagram</a></p>
- 		<p><a href="#">Tumblr</a></p>
- 	</div>
- 	<div>
- 		<p><a href="#">Back to top</a></p>
- 	</div>
- </footer>
-
-</body>
+ <%= render "shared/footer" %>

@@ -16,8 +16,14 @@ body {
   header {
   	@include span-columns(12);
   }
+
   aside {
     @include span-columns(3);
+  }
+
+  .news-item {
+    @include span-columns(12);
+    margin-bottom: 20px;
   }
 
   article {

@@ -22,7 +22,14 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'DIN Next Pro Regular';
+  // font-family: 'DIN Next Pro Bold';
+  // font-family: 'DIN Next Pro UltraLight';
+  // font-family: 'DIN Next Pro Medium';
+}
+
+em {
+  font-family: 'DIN Next Pro Bold';
 }
 
 body {

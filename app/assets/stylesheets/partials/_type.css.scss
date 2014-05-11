@@ -17,6 +17,7 @@ h2 {
 	border-top: 1px solid #ccc;
 	padding-top: 8px;
 	margin-bottom: 20px;
+	font-size: 1.1em;
 }
 
 aside p:nth-of-type(1) {
@@ -27,4 +28,12 @@ aside p {
 	padding-top: 8px;
 	font-size: 1.1em;
 	line-height: 1.3em;
+}
+
+aside h2,
+aside p {
+	// font-family: 'Freight Text Medium';
+	// font-family: 'Freight Text Light';
+	font-family: 'Freight Text Book';
+	// font-family: 'Freight Text Bold';
 }
