@@ -21,7 +21,11 @@ header nav {
 nav a,
 nav a:active,
 nav a:visited {
-	color: #aeaeae
+	color: #222;
+}
+
+nav a.current {
+	color: #999;
 }
 
 nav a {

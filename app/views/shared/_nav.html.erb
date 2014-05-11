@@ -1,10 +1,10 @@
 <img src="assets/logo.svg" />
 <nav>
-  <a href="/">Home</a>
-  <a href="/items">Items</a>
-  <a href="/collections">Collections</a>
-  <a href="/archive">Archive</a>
-  <a href="/projects">Projects</a>
-  <a href="/about">Information</a>
-  <a href="/shop">Shop</a>
+  <a href="/"<%= if controller?("pages") && action?("index", "show") then " class=current" end %>>Home</a>
+  <a href="/items"<%= if controller?("items") && action?("index", "show") then " class=current" end %>>Items</a>
+  <a href="/collections"<%= if controller?("collections") && action?("index", "show") then " class=current" end %>>Collections</a>
+  <a href="/archive"<%= if controller?("pages") && action?("index", "show") then " class=current" end %>>Archive</a>
+  <a href="/projects"<%= if controller?("projects") && action?("index", "show") then " class=current" end %>>Projects</a>
+  <a href="/about"<%= if controller?("pages") && action?("about", "show") then " class=current" end %>>Information</a>
+  <a href="/shop"<%= if controller?("shop") && action?("index", "show") then " class=current" end %>>Shop</a>
 </nav>

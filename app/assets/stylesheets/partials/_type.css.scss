@@ -1,9 +1,26 @@
+* {
+	color: #222;
+}
+
+em {
+	color: #222;
+}
+
 nav {
 	font-size: 0.9em;
 }
 
 footer {
 	font-size: 0.8em;
+}
+
+footer,
+aside a {
+	color: #808080;
+}
+
+footer em {
+	color: #333;
 }
 
 footer,
@@ -31,9 +48,19 @@ aside p {
 }
 
 aside h2,
-aside p {
+aside p,
+aside a {
 	// font-family: 'Freight Text Medium';
 	// font-family: 'Freight Text Light';
 	font-family: 'Freight Text Book';
 	// font-family: 'Freight Text Bold';
+}
+
+aside em {
+	font-family: 'Freight Text Book';
+	font-style: italic;
+}
+
+aside .tel em {
+	font-style: normal;
 }
