@@ -42,4 +42,50 @@ body {
   	@include span-columns(3 of 12);
   }
 
+  .items article {
+    @include span-columns(12);
+  }
+
+  .item {
+    @include span-columns(6);
+    height: 300px;
+    margin-bottom: 15px;
+  }
+
+  .item-one {
+    background: yellow;
+  }
+
+  .item-two {
+    background: orange;
+    height: 450px;
+    @include omega();
+  }
+
+  .item-three {
+    background: red;
+    height: 615px;
+    margin-top: -150px;
+  }
+
+  .item-four {
+    background: purple;
+    @include span-columns(3 of 12);
+    height: 225px;
+  }
+
+  .item-five {
+    background: green;
+    @include span-columns(3 of 12);
+    @include omega();
+    
+    height: 225px;
+  }
+
+  .item-six {
+    background: blue;
+    @include span-columns(6 of 12);
+    @include omega();
+    height: 225px;
+  }
 }

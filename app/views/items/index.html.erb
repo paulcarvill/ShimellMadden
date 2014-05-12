@@ -1,39 +1,43 @@
 <div id="items">
-<h1>Listing items</h1>
 
-<%= render "shared/nav" %>
+<section class="blog items">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <article>
+    <% @items.each_with_index do |item, index| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Price</th>
-      <th>Shipping</th>
-      <th>Shopifyid</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <% if index == 0 %>
+        <div class="item item-one"></div>
+      <% elsif index == 1 %>
+        <div class="item item-two"></div>
+      <% elsif index == 2 %>
+        <div class="item item-three"></div>
+      <% elsif index == 3 %>
+        <div class="item item-four"></div>
+      <% elsif index == 4 %>
+        <div class="item item-five"></div>
+      <% elsif index == 5 %>
+        <div class="item item-six"></div>
+      <% else %>
+        
+      <% end %>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= item.description %></td>
-        <td><%= item.image %></td>
-        <td><%= item.price %></td>
-        <td><%= item.shipping %></td>
-        <td><%= item.shopifyid %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+       <!--  <p style="display:none">
+          <%= item.name %> / 
+          <%= item.description %> / 
+          <%= item.image %> / 
+          <%= item.price %> / 
+          <%= item.shipping %> / 
+          <%= item.shopifyid %> / 
+          <%= link_to 'Show', item %>
+          <%= image_tag item.mainImage.url %>
+        </p> -->
     <% end %>
-  </tbody>
-</table>
+  </article>
+ </section>
+
+ <%= render "shared/footer" %>
 
 <!-- Backbone shizzle -->
 <script type="text/javascript">
