@@ -8,31 +8,35 @@
     <% @items.each_with_index do |item, index| %>
 
       <% if index == 0 %>
-        <div class="item item-one"></div>
+        <div class="item item-one">
       <% elsif index == 1 %>
-        <div class="item item-two"></div>
+        <div class="item item-two">
       <% elsif index == 2 %>
-        <div class="item item-three"></div>
+        <div class="item item-three">
       <% elsif index == 3 %>
-        <div class="item item-four"></div>
+        <div class="item item-four">
       <% elsif index == 4 %>
-        <div class="item item-five"></div>
+        <div class="item item-five">
       <% elsif index == 5 %>
-        <div class="item item-six"></div>
-      <% else %>
-        
+        <div class="item item-six">
       <% end %>
-
-       <!--  <p style="display:none">
-          <%= item.name %> / 
-          <%= item.description %> / 
-          <%= item.image %> / 
-          <%= item.price %> / 
-          <%= item.shipping %> / 
-          <%= item.shopifyid %> / 
-          <%= link_to 'Show', item %>
-          <%= image_tag item.mainImage.url %>
-        </p> -->
+      <%= image_tag item.mainImage.url, height: '100%' %>
+          <% if item.collection then %>
+          <%= link_to item.collection do %>
+            <div style="width: 100%; height: 100%; background-color: #999; opacity: 0.7;">
+            <% if item.collection then %><%= item.collection.name %> /<% end %>
+            <%= item.name %>
+            </div>
+          <% end %>
+          <% elsif item.project then %>
+            <%= link_to item.project do %>
+            <div style="width: 100%; height: 100%; background-color: #999; opacity: 0.7;">
+            <% if item.project then %><%= item.project.name %> /<% end %>
+            <%= item.name %>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
     <% end %>
   </article>
  </section>

@@ -44,12 +44,20 @@ body {
 
   .items article {
     @include span-columns(12);
+    @include media($mobile) {
+      @include span-columns(4);
+    }
   }
 
   .item {
     @include span-columns(6);
     height: 300px;
     margin-bottom: 15px;
+
+    @include media($mobile) {
+      @include span-columns(4);
+      height: 225px;
+    }
   }
 
   .item-one {
@@ -60,26 +68,41 @@ body {
     background: orange;
     height: 450px;
     @include omega();
+    @include media($mobile) {
+      height: 225px;
+    }
   }
 
   .item-three {
     background: red;
     height: 615px;
     margin-top: -150px;
+
+    @include media($mobile) {
+      height: 225px;
+      margin-top: 0;
+    }
   }
 
   .item-four {
     background: purple;
     @include span-columns(3 of 12);
     height: 225px;
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
   }
 
   .item-five {
     background: green;
     @include span-columns(3 of 12);
     @include omega();
-    
     height: 225px;
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
   }
 
   .item-six {
@@ -87,5 +110,9 @@ body {
     @include span-columns(6 of 12);
     @include omega();
     height: 225px;
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
   }
 }

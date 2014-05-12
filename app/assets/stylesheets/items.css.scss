@@ -1,4 +1,14 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body .item {
+	overflow: hidden;
+	position: relative;
+}
 
+.item div {
+	display: none;
+}
+
+.item:hover div {
+	display: block;
+	text-align: center;
+	position: absolute;
+}

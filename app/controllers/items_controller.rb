@@ -4,7 +4,15 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all().limit(10)
+    # TODO add pagination to items
+    respond_to do |format|
+        format.html {
+          @items = Item.all().limit(6)
+        }
+        format.json {
+          @items = Item.all()
+        }
+    end
   end
 
   def archive
