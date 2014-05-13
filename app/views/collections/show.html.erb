@@ -1,25 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @collection.name %>
-</p>
-
-items in this collection:
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>link</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= link_to 'Show', item %></td>
-      </tr>
+<%= @collection.id %>
+<section class="blog collections">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <div>
+  <nav>
+    <% @collections.each do |coll| %>
+      <a href="/collections/<%= coll.id %>" <%= if coll.id == @collection.id then "class=current" end %>><%= coll.name %></a>
     <% end %>
-  </tbody>
-</table>
+  </nav>
+  </div>
+  <article style="position: relative">
+    <div style="position: absolute; top: 0; left: 0;">
+      <%= @items.name %></h2>
+      <p>Show info</p>
+    </div>
+
+    <% @items.each do |item| %>
+      <%= image_tag item.mainImage.url %>
+    <% end %>
+    
+  </article>
+ </section>
+
+ <%= render "shared/footer" %>

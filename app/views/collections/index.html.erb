@@ -1,29 +1,21 @@
-<h1>Listing collections</h1>
-
-<%= render "shared/nav" %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<section class="blog collections">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <div>
+  <nav>
     <% @collections.each do |collection| %>
-      <tr>
-        <td><%= collection.name %></td>
-        <td><%= link_to 'Show', collection %></td>
-        <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
-        <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
     <% end %>
-  </tbody>
-</table>
+  </nav>
+  </div>
+  <article style="position: relative">
+    <div style="position: absolute; top: 0; left: 0;">
+      <%= @collections.first.name %></h2>
+      <p><%= link_to 'View collection', @collections.first %></p>
+    </div>
+    <img src="/assets/about.jpg" />
+  </article>
+ </section>
 
-<br>
-
-<%= link_to 'New Collection', new_collection_path %>
+ <%= render "shared/footer" %>
