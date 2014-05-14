@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     # TODO add pagination to items
     respond_to do |format|
         format.html {
-          @items = Item.all().limit(6)
+          @items = Item.paginate(:page => params[:page])
         }
         format.json {
           @items = Item.all()

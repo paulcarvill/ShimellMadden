@@ -53,3 +53,5 @@ gem 'json', '1.7.7'
 gem "rails-backbone"
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
+
+gem 'will_paginate', '~> 3.0'

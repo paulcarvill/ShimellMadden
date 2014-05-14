@@ -103,6 +103,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-olive.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1010-yellow.gif")),
 	collection_id: collections[1].id
 	},
 	{
@@ -112,6 +113,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-orange.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1286x1286-orange.gif")),
 	collection_id: collections[1].id
 	},
 	{
@@ -120,7 +122,8 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
-	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-pink.gif")),
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-cherry.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	collection_id: collections[2].id
 	},
 	{
@@ -130,6 +133,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
 	project_id: projects[0].id
 	}
 
