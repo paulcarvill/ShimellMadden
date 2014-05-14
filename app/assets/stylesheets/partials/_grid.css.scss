@@ -51,7 +51,7 @@ body {
 
   .item {
     @include span-columns(6);
-    height: 300px;
+    height: 267px;
     margin-bottom: 15px;
 
     @include media($mobile) {
@@ -66,7 +66,7 @@ body {
 
   .item-two {
     background: orange;
-    height: 450px;
+    height: 429px;
     @include omega();
     @include media($mobile) {
       height: 225px;
@@ -75,8 +75,8 @@ body {
 
   .item-three {
     background: red;
-    height: 615px;
-    margin-top: -150px;
+    height: 627px;
+    margin-top: -164px;
 
     @include media($mobile) {
       height: 225px;
@@ -87,7 +87,7 @@ body {
   .item-four {
     background: purple;
     @include span-columns(3 of 12);
-    height: 225px;
+    height: 146px;
 
     @include media($mobile) {
       @include span-columns(4);
@@ -98,7 +98,7 @@ body {
     background: green;
     @include span-columns(3 of 12);
     @include omega();
-    height: 225px;
+    height: 146px;
 
     @include media($mobile) {
       @include span-columns(4);
@@ -109,7 +109,7 @@ body {
     background: blue;
     @include span-columns(6 of 12);
     @include omega();
-    height: 225px;
+    height: 301px;
 
     @include media($mobile) {
       @include span-columns(4);

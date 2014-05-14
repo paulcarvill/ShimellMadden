@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140510115130) do
     t.string   "mainImage_content_type"
     t.integer  "mainImage_file_size"
     t.datetime "mainImage_updated_at"
+    t.string   "squareImage_file_name"
+    t.string   "squareImage_content_type"
+    t.integer  "squareImage_file_size"
+    t.datetime "squareImage_updated_at"
+    t.string   "itemsImage_file_name"
+    t.string   "itemsImage_content_type"
+    t.integer  "itemsImage_file_size"
+    t.datetime "itemsImage_updated_at"
     t.boolean  "archive"
   end
 
