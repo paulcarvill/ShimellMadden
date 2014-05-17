@@ -43,13 +43,36 @@ categories = Category.create([
 
 projects = Project.create([
 	{
-		name: "Project One"
+		name: "Project One",
+		description: "Simple symbols of dimension and perspective."
 	},
 	{
-		name: "Project Two"
+		name: "Project Two",
+		description: "Ecord creation seeded lorem ipsum contain all the re."
 	},
 	{
-		name: "Project Three"
+		name: "Project Three",
+		description: "Lorem ipsum contain all the record creation needed to seed."
+	},
+	{
+		name: "Project Four",
+		description: "Loreord creaed to seeon needin all the recum ipsum contatid."
+	},
+	{
+		name: "Project Five",
+		description: "Lorem ipsum contain all the record creation needed to seed."
+	},
+	{
+		name: "Project Six",
+		description: "Loreord creaed to seeon needin all the recum ipsum contatid."
+	},
+	{
+		name: "Project Seven",
+		description: "Ecord creation seeded lorem ipsum contain all the re."
+	},
+	{
+		name: "Project Eight",
+		description: "Loreord creaed to seeon needin all the recum ipsum contatid."
 	}
 ])
 
@@ -221,7 +244,7 @@ Item.create([
 	categories: [categories[1]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
-	project_id: projects[0].id
+	project_id: projects[7].id
 	},
 	{
 	name: "Item 17",
@@ -232,7 +255,7 @@ Item.create([
 	categories: [categories[2]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
-	project_id: projects[0].id
+	project_id: projects[6].id
 	},
 	{
 	name: "Item 18",
@@ -243,7 +266,7 @@ Item.create([
 	categories: [categories[1]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-orange.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1010-yellow.gif")),
-	project_id: projects[0].id
+	project_id: projects[5].id
 	},
 	{
 	name: "Item 19",
@@ -254,7 +277,7 @@ Item.create([
 	categories: [categories[3]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
-	project_id: projects[0].id
+	project_id: projects[4].id
 	},
 	{
 	name: "Item 20",
@@ -265,7 +288,7 @@ Item.create([
 	categories: [categories[2]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-cherry.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
-	project_id: projects[0].id
+	project_id: projects[3].id
 	},
 	{
 	name: "Item 21",
@@ -276,7 +299,7 @@ Item.create([
 	categories: [categories[2]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
-	project_id: projects[0].id
+	project_id: projects[2].id
 	},
 	{
 	name: "Item 22",
@@ -287,7 +310,7 @@ Item.create([
 	categories: [categories[2]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-green.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
-	project_id: projects[0].id
+	project_id: projects[1].id
 	},
 	{
 	name: "Item 23",
@@ -298,7 +321,7 @@ Item.create([
 	categories: [categories[1]],
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
-	project_id: projects[0].id
+	project_id: projects[1].id
 	}
 
 

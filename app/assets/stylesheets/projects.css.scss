@@ -1,3 +1,27 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.projects .item-one,
+.projects .item-three,
+.projects .item-five {
+	@include span-columns(6);
+	height: 267px;
+	margin-bottom: 15px;
+}
+
+.projects .item-four {
+	@include span-columns(6 of 12);
+    background: red;
+    height: 627px;
+    @include omega();
+}
+
+.projects .item-five {
+	margin-top: -525px;
+}
+
+.projectitem aside h2 {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.projectitem article img {
+	margin-bottom: 15px;
+}

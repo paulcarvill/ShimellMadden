@@ -1,25 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-
-items in this project:
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>link</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= link_to 'Show', item %></td>
-      </tr>
+<section class="blog projectitem">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <aside>
+    <h2><%= @project.name %></h2>
+    <p class="desc"><%= @project.description %></p>
+    <p><%= link_to 'Back to projects', archive_path %></p>
+  </aside>
+  <article>
+    <% @project.items.each do |item|%>
+      <%= image_tag item.itemsImage.url %>
     <% end %>
-  </tbody>
-</table>
+  </article>
+ </section>
+
+ <%= render "shared/footer" %>
