@@ -1,5 +1,7 @@
 ShimellMadden::Application.routes.draw do
   
+  resources :blogs
+
   root "pages#index"
 
   get '/about', to: 'pages#about'
@@ -15,6 +17,7 @@ ShimellMadden::Application.routes.draw do
 
   get '/archive', to: 'items#archive'
   get '/archive/:id', to: 'items#show'
+  get '/news/', to: 'pages#news'
 
 
 end
