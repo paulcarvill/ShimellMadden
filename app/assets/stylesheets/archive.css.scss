@@ -1,0 +1,21 @@
+.archive aside h2 {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.archive-item {
+	height: 150px;
+	text-align: center;
+}
+
+.archive-item img {
+	max-height: 100%;
+	width: auto;
+
+	max-width: 100%;
+	height: auto;
+
+	float: none;
+	display: inline;
+	margin-right: 0;
+}

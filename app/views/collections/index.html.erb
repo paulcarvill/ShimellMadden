@@ -10,8 +10,8 @@
   </nav>
   </div>
   <article style="position: relative">
-    <div style="position: absolute; top: 0; left: 0;">
-      <%= @collections.first.name %></h2>
+    <div class="collections-info">
+      <h2><%= @collections.first.name %></h2>
       <p><%= link_to 'View collection', @collections.first %></p>
     </div>
     <img src="/assets/about.jpg" />

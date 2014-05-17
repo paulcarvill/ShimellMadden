@@ -122,4 +122,10 @@ body {
     //   @include span-columns(4);
     // }
   }
+
+  .archive-item {
+    @include span-columns(3 of 9);
+    @include omega(3n);
+    margin-bottom: 15px;
+  }
 }

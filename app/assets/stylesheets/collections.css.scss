@@ -7,3 +7,32 @@
 .collections article div p a {
 	color: #fff;
 }
+
+.collections-info,
+.collection-info {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 15px 15px;
+	color: #fff;
+	width: 250px;
+}
+
+.collections-info h2,
+.collection-info h2,
+.collections-info p,
+.collection-info p {
+	border-top: 1px solid #fff;
+}
+
+.collections-info p,
+.collection-info p {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #fff;
+	font-size: 0.8em;
+}
+
+.collection-info p {
+	font-size: 1em;
+}

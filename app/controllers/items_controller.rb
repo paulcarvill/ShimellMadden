@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    # TODO add pagination to items
     respond_to do |format|
         format.html {
           @items = Item.paginate(:page => params[:page])
@@ -16,8 +15,8 @@ class ItemsController < ApplicationController
   end
 
   def archive
-    @items = Item.where(archive: true)
-    render "items/index"
+    @items = Item.where(archive: true).paginate(:page => params[:page], :per_page => 9)
+    render "items/archive"
   end
 
   # GET /items/1

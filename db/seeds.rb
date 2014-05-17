@@ -13,13 +13,16 @@
 
 collections = Collection.create([
 	{
-		name: "Collection One"
+		name: "Cuboid",
+		description: "Simple symbols of dimension and perspective."
 	},
 	{
-		name: "Collection Two"
+		name: "Collection Two",
+		description: "Lorem ipsum contain all the record creation needed to seed."
 	},
 	{
-		name: "Collection Three"
+		name: "Collection Three",
+		description: "Ecord creation seeded lorem ipsum contain all the re."
 	}
 ])
 
@@ -135,7 +138,138 @@ Item.create([
 	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
 	project_id: projects[0].id
-	}
+	},
+	{
+	name: "Item 11",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 12",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 13",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 14",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 15",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 16",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 17",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 18",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-orange.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1010-yellow.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 19",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 20",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-cherry.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 21",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 22",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-green.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
+	project_id: projects[0].id
+	},
+	{
+	name: "Item 23",
+	description: "foo",
+	price: 3.5, shipping: 3.5,
+	shopifyid: "MyShopifyIdString",
+	archive: true,
+	mainImage: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	itemsImage: File.open(Rails.root.join("db/seeds","1800x1139-purple.gif")),
+	project_id: projects[0].id
+	},
+
 
 
 ])
