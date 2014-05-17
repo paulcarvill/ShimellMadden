@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def index
     respond_to do |format|
         format.html {
-          @items = Item.paginate(:page => params[:page])
+          @items = Item.where(archive: false).paginate(:page => params[:page])
         }
         format.json {
           @items = Item.all()
@@ -15,7 +15,12 @@ class ItemsController < ApplicationController
   end
 
   def archive
-    @items = Item.where(archive: true).paginate(:page => params[:page], :per_page => 9)
+    @categories = Category.all()
+    if params['category']
+      @items = Category.find(params['category']).items.where(archive: true).paginate(:page => params[:page], :per_page => 9)
+    else
+      @items = Item.where(archive: true).paginate(:page => params[:page], :per_page => 9)
+    end
     render "items/archive"
   end
 

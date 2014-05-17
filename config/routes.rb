@@ -14,6 +14,7 @@ ShimellMadden::Application.routes.draw do
   resources :items
 
   get '/archive', to: 'items#archive'
+  get '/archive/:id', to: 'items#show'
 
 
 end

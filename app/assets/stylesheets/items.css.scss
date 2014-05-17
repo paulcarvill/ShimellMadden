@@ -12,3 +12,20 @@ body .item {
 	text-align: center;
 	position: absolute;
 }
+
+.archiveitem aside h2 {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.archiveitem aside p.desc {
+	font-size: 1em;
+	padding-bottom: 1em;
+}
+
+.archiveitem aside p {
+	font-size: 0.8em;
+	border-bottom: 1px solid #ccc;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
