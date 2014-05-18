@@ -1,25 +1,27 @@
-<section class="blog">
-
-  <div id="items">
-  
-	<div id="centerer">
-    <div id="centerer-inner">
-      <h1><img src="/assets/logotype.svg" /></h1>
-      <h2>View collections</h2>
+<!-- #items div is used by backbone to put stuff in -->
+<div id="items"> 
+  <a href="/collections"> 
+  <section class="blog">
+  	<div id="centerer">
+      <div id="centerer-inner">
+        <h1><img src="/assets/logotype.svg" /></h1>
+        <h2>View collections</h2>
+      </div>
     </div>
-  </div>
-  <div id="my-carousel">
-    <% @items.each do |item| %>
-    <a href="/items"><img class="slide" src="<%= item.image_url %>" width="100%" height="100%" /></a>
-    <% end %>
-  </div>
-</div>
+    <div id="my-carousel">
+      <% @items.each do |item| %>
+      <a href="/items"><img class="slide" src="<%= item.image_url %>" width="100%" height="100%" /></a>
+      <% end %>
+    </div>
+  </section>
+  </a>
 
-<!-- Backbone shizzle -->
-<script type="text/javascript">
-  $(function() {
-    window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
-    Backbone.history.start();
-  });
-</script>
-<!-- end Backbone shizzle -->
+  <!-- Backbone shizzle -->
+  <script type="text/javascript">
+    $(function() {
+      window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
+      Backbone.history.start();
+    });
+  </script>
+  <!-- end Backbone shizzle -->
+</div>

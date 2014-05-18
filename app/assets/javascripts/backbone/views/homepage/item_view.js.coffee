@@ -26,6 +26,5 @@ class ShimellMadden.Views.Homepage.ItemView extends Backbone.View
     return false
 
   render: ->
-    console.log('eee');
     $(@el).html(@template(@model.toJSON() ))
     return this

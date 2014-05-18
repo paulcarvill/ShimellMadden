@@ -37,7 +37,6 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     return this
 
   prev: () ->
-    alert('wee')
     this.items[this.current].fadeOut()
     this.current--
     if this.current == -1
@@ -52,9 +51,7 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     this.items[this.current].fadeIn()
 
   navigate: () ->
-    console.log('navi')
-    @$("#my-carousel").animate({height: "0"}, 750)
-    window.router.navigate("items", {trigger: true});
+    @$("#my-carousel").animate({top: -window.innerHeight}, 750, () -> window.router.navigate("items", {trigger: true}))
 
 
 

@@ -11,7 +11,7 @@ class ShimellMadden.Views.Items.IndexView extends Backbone.View
 
   addOne: (item) =>
     view = new ShimellMadden.Views.Items.ItemView({model : item})
-    @$("tbody").append(view.render().el)
+    @$("article").append(view.render().el)
 
   render: =>
     $(@el).html(@template(items: @options.items.toJSON() ))

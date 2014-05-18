@@ -6,7 +6,7 @@ class ShimellMadden.Views.Items.ItemView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
+  tagName: "div"
 
   destroy: () ->
     @model.destroy()
