@@ -1,19 +1,19 @@
-.projects .item-one,
-.projects .item-three,
-.projects .item-five {
+.projects .item-1,
+.projects .item-3,
+.projects .item-5 {
 	@include span-columns(6);
 	height: 267px;
 	margin-bottom: 15px;
 }
 
-.projects .item-four {
+.projects .item-4 {
 	@include span-columns(6 of 12);
     background: red;
     height: 627px;
     @include omega();
 }
 
-.projects .item-five {
+.projects .item-5 {
 	margin-top: -525px;
 }
 

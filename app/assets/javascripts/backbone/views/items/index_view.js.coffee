@@ -9,7 +9,9 @@ class ShimellMadden.Views.Items.IndexView extends Backbone.View
   addAll: () =>
     @options.items.each(@addOne)
 
-  addOne: (item) =>
+  addOne: (item, index) =>
+    index++;
+    item.set({"itemNo" : index})
     view = new ShimellMadden.Views.Items.ItemView({model : item})
     @$("article").append(view.render().el)
 

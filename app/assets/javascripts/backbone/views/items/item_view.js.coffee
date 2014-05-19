@@ -8,6 +8,8 @@ class ShimellMadden.Views.Items.ItemView extends Backbone.View
 
   tagName: "div"
 
+  className: "item"
+
   destroy: () ->
     @model.destroy()
     this.remove()
@@ -15,5 +17,6 @@ class ShimellMadden.Views.Items.ItemView extends Backbone.View
     return false
 
   render: ->
+    $(@el).addClass("item-"+@model.get('itemNo'))
     $(@el).html(@template(@model.toJSON() ))
     return this
