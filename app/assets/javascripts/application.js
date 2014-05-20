@@ -17,5 +17,6 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require backbone/backbone.paginator
 //= require backbone/shimell_madden
 //= require_tree .

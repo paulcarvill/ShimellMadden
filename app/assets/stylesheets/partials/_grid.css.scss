@@ -129,4 +129,9 @@ body {
     @include omega(3n);
     margin-bottom: 15px;
   }
+
+  #pagination-tools {
+     @include span-columns(12);
+  }
+
 }
