@@ -16,6 +16,6 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     
 
   items: ->
-    console.log(@items)
+    $("body").removeClass("home");
     @view = new ShimellMadden.Views.Items.IndexView(items: @items)
     $("#items").html(@view.render().el)

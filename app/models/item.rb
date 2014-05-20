@@ -24,8 +24,4 @@ class Item < ActiveRecord::Base
 	def items_image_url
     	itemsImage.url
 	end
-
-  	def as_json(options)
-  		super(:methods =>[:image_url])
-	end
 end
