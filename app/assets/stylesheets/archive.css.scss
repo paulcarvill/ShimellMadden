@@ -16,6 +16,11 @@
 .item-overlay {
 	display: none;
 	
+}
+
+.shop .item-overlay,
+.archive .item-overlay {
+	position: absolute;
 	top: 0;
 	left: 0;
 }
