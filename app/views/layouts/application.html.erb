@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body<%= if controller?("pages") && action?("index") then raw(" class='home'") end %>>
+<body<%= if controller?("pages") && action?("index") then raw(" class='home'") end %><%= if controller?("pages") && action?("shop") then raw(" class='shoppage'") end %>>
 
 <%= yield %>
 

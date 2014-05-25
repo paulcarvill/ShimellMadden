@@ -61,12 +61,7 @@ body {
     }
   }
 
-  .item-1 {
-    background: yellow;
-  }
-
   .item-2 {
-    background: orange;
     height: 429px;
     @include omega();
     @include media($mobile) {
@@ -75,7 +70,6 @@ body {
   }
 
   .item-3 {
-    background: red;
     height: 627px;
     margin-top: -164px;
 
@@ -86,17 +80,14 @@ body {
   }
 
   .item-4 {
-    background: purple;
     @include span-columns(3 of 12);
     height: 146px;
-
     @include media($mobile) {
       @include span-columns(4);
     }
   }
 
   .item-5 {
-    background: green;
     @include span-columns(3 of 12);
     @include omega();
     height: 146px;
@@ -107,11 +98,9 @@ body {
   }
 
   .item-6 {
-    background: blue;
     @include span-columns(6 of 12);
     @include omega();
     height: 301px;
-
     @include media($mobile) {
       @include span-columns(4);
     }
@@ -127,7 +116,7 @@ body {
   .archive-item {
     @include span-columns(3 of 9);
     @include omega(3n);
-    margin-bottom: 45px;
+    margin-bottom: 5px;
     display: table;
     text-align: center;
   }

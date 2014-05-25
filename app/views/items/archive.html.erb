@@ -8,11 +8,16 @@
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    <% @categories.each do |category| %>
-      <p><a href="?category=<%= category.id %>"><%= category.name %></a></p>
-    <% end %>
-
-    <p>Date</p>
+    <ul class="category-nav">
+    <li>Category
+      <ul>
+      <% @categories.each do |category| %>
+        <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a></li>
+      <% end %>
+      </ul>
+    </li>
+    <li>Date</li>
+    </ul>
 
   </aside>
   <article>

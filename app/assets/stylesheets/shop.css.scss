@@ -3,16 +3,21 @@
 	border: 0;
 }
 
+.shop aside h2,
+.category-nav {
+	margin-left: 10px;
+}
+
 .shop aside,
 .shop article {
 	padding-top: 20px;
 }
 
-footer {
+.shoppage footer {
 	margin-top: 0;
 }
 
 .shop,
-footer {
+.shoppage footer {
 	background: #dedede;
 }

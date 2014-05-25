@@ -28,6 +28,15 @@ aside a {
 	color: #808080;
 }
 
+aside ul li,
+aside ul li a {
+	color: #808080;
+}
+
+a.current {
+	color: #f90;
+}
+
 footer em {
 	color: #333;
 }

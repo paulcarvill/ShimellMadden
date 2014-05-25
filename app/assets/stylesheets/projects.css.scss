@@ -8,7 +8,6 @@
 
 .projects .item-4 {
 	@include span-columns(6 of 12);
-    background: red;
     height: 627px;
     @include omega();
 }
