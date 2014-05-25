@@ -6,5 +6,5 @@
   <a href="/archive"<%= if controller?("items") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
   <a href="/projects"<%= if controller?("projects") && action?("index", "show") then " class=current" end %>>Projects</a>
   <a href="/about"<%= if controller?("pages") && action?("about", "show") then " class=current" end %>>Information</a>
-  <a href="/shop"<%= if controller?("shop") && action?("index", "show") then " class=current" end %>>Shop</a>
+  <a href="/shop"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
 </nav>

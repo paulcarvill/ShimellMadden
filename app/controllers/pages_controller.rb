@@ -14,8 +14,10 @@ class PagesController < ApplicationController
   def news
   	@blogs = Blog.all.paginate(:page => params[:page], :per_page => 3)
   end
+  
+  def contact	
+  end
 
-  def contact
-  	
+  def shop
   end
 end

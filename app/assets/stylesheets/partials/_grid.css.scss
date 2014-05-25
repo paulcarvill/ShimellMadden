@@ -145,6 +145,14 @@ body {
   .projectitem article img {
     @include span-columns(6 of 9);
   }
+
+  .shop .archive-item {
+    margin-bottom: 10px
+  }
+
+  .shop .archive-item .inside {
+    height: auto
+  }
 }
 
 

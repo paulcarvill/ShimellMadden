@@ -18,6 +18,7 @@ ShimellMadden::Application.routes.draw do
   get '/archive', to: 'items#archive'
   get '/archive/:id', to: 'items#archiveshow'
   get '/news/', to: 'pages#news'
+  get '/shop/', to: 'pages#shop'
 
 
 end
