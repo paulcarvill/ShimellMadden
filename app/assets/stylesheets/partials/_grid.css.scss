@@ -128,8 +128,13 @@ body {
     @include span-columns(3 of 9);
     @include omega(3n);
     margin-bottom: 45px;
-    display: table-cell;
+    display: table;
+  }
+
+  .inside {
     vertical-align: middle;
+    display: table-cell;
+    height: 250px;
   }
 
   #pagination-tools {
