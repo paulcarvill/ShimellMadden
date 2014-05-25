@@ -21,17 +21,20 @@
     <% @items.each_with_index do |item, index| %>
       <div class="archive-item">
         <span class="inside">
-          <% if index == 2 || index == 4 %>
-            <%= image_tag item.image_style_three_url %>
-          <% else %>
-            <%= image_tag item.image_style_one_url %>
-          <% end %>
-          <a href="/archive/<%= item.id %>">
-            <div class="item-overlay">
-              <%= item.description %>
-              <%= item.name %>
-            </div>
-          </a>
+          <div class="inside-inside">
+            <% if index == 2 || index == 4 %>
+              <%= image_tag item.image_style_three_url %>
+            <% else %>
+              <%= image_tag item.image_style_one_url %>
+            <% end %>
+            <a href="/archive/<%= item.id %>">
+              <div class="item-overlay">
+                <img class="down-triangle" src="/assets/down-triangle.svg" />
+                <p>Archive item</p>
+                <%= item.name %>
+              </div>
+            </a>
+          </div>
         </span>
       </div>
     <% end %>

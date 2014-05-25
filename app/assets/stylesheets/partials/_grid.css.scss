@@ -129,16 +129,25 @@ body {
     @include omega(3n);
     margin-bottom: 45px;
     display: table;
+    text-align: center;
   }
 
   .inside {
     vertical-align: middle;
     display: table-cell;
-    height: 250px;
+    height: 220px;
   }
 
   #pagination-tools {
      @include span-columns(12);
   }
 
+  .projectitem article img {
+    @include span-columns(6 of 9);
+  }
 }
+
+
+
+
+

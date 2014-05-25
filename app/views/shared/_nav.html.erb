@@ -3,7 +3,7 @@
   <a href="/"<%= if controller?("pages") && action?("index", "show") then " class=current" end %>>Home</a>
   <a href="/items"<%= if controller?("items") && action?("index", "show") then " class=current" end %>>Items</a>
   <a href="/collections"<%= if controller?("collections") && action?("index", "show") then " class=current" end %>>Collections</a>
-  <a href="/archive"<%= if controller?("items") && action?("archive", "show") then " class=current" end %>>Archive</a>
+  <a href="/archive"<%= if controller?("items") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
   <a href="/projects"<%= if controller?("projects") && action?("index", "show") then " class=current" end %>>Projects</a>
   <a href="/about"<%= if controller?("pages") && action?("about", "show") then " class=current" end %>>Information</a>
   <a href="/shop"<%= if controller?("shop") && action?("index", "show") then " class=current" end %>>Shop</a>

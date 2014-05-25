@@ -21,11 +21,18 @@ body .item {
 .archiveitem aside h2 {
 	border-top: 0;
 	padding-top: 0;
+	margin: 0;
+}
+
+.archiveitem .carousel-prev span,
+.archiveitem .carousel-next span {
+	display: none;
 }
 
 .archiveitem aside p.desc {
 	font-size: 1em;
 	padding-bottom: 1em;
+	margin-top: 8px;
 }
 
 .archiveitem aside p {

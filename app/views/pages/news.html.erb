@@ -1,4 +1,4 @@
-<section class="blog">
+<section class="blog news">
   <header>
     <%= render "shared/nav" %>
   </header>
@@ -14,7 +14,11 @@
         <%= blog.body.html_safe %> 
       </aside>
       <article>
-        <img src="/assets/about.jpg" />
+        <% if blog.blogImage_file_name %>
+          <%= image_tag blog.image_style_one_url %>
+        <% else %>
+          <img src="/assets/about.jpg" />
+        <% end %>
       </article>
     </div>
   <% end %>

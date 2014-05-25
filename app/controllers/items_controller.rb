@@ -29,6 +29,10 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def archiveshow
+    @item = Item.where(archive: true).find(params[:id])
+  end
+
   # GET /items/new
   def new
     @item = Item.new

@@ -3,13 +3,6 @@
 	padding-top: 0;
 }
 
-.archive-item {
-	height: 250px;
-	text-align: center;
-	position: relative;
-	overflow: hidden;
-}
-
 .archive-item img {
 	max-height: 100%;
 	width: auto;
@@ -20,13 +13,17 @@
 	margin-right: 0;
 }
 
-.archive-item div {
+.item-overlay {
 	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
 }
 
-.archive-item:hover div {
-	display: block;
+.archive-item:hover .item-overlay {
+	display: table-cell;
+}
+
+.inside-inside {
+	position: relative;
 }

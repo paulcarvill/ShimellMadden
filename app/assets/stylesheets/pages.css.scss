@@ -63,7 +63,7 @@ h1 img {
 	position: relative;
 }
 
-.carousel-item .carousel-prev {
+.carousel-prev {
 	position: absolute;
 	left: 18px;
 	top: 50%;
@@ -72,7 +72,7 @@ h1 img {
 	margin-top: -12px;
 }
 
-.carousel-item .carousel-next {
+.carousel-next {
 	position: absolute;
 	right: 18px;
 	top: 50%;
@@ -81,6 +81,25 @@ h1 img {
 	margin-top: -12px;
 }
 
+.news aside h2 {
+	margin: 0;
+}
+
+.news aside h2:nth-of-type(2) {
+	border-top: 0;
+	margin-bottom: 16px;
+	padding-top: 0px;
+	color: #333;
+}
+
+.contact aside p:nth-of-type(1) {
+	padding-top: 8px;
+}
+
+.contact aside p {
+	margin: 0;
+	padding: 0;
+}
 
 @media screen and (max-width: 949px) {
 	.carousel-item {
