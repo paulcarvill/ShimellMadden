@@ -256,6 +256,7 @@ Item.create([
 	archive: true,
 	categories: [categories[2]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[0].id
 	},
@@ -267,6 +268,7 @@ Item.create([
 	archive: true,
 	categories: [categories[3], categories[2]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[0].id
 	},
@@ -278,6 +280,7 @@ Item.create([
 	archive: true,
 	categories: [categories[3]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[0].id
 	},
@@ -289,6 +292,7 @@ Item.create([
 	archive: true,
 	categories: [categories[1]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[0].id
 	},
@@ -300,6 +304,7 @@ Item.create([
 	archive: true,
 	categories: [categories[1]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[7].id
 	},
@@ -311,6 +316,7 @@ Item.create([
 	archive: true,
 	categories: [categories[2]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[6].id
 	},
@@ -322,6 +328,7 @@ Item.create([
 	archive: true,
 	categories: [categories[1]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-orange.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[5].id
 	},
@@ -333,6 +340,7 @@ Item.create([
 	archive: true,
 	categories: [categories[3]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[4].id
 	},
@@ -344,6 +352,7 @@ Item.create([
 	archive: true,
 	categories: [categories[2]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-cherry.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[3].id
 	},
@@ -355,6 +364,7 @@ Item.create([
 	archive: true,
 	categories: [categories[2]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[2].id
 	},
@@ -366,7 +376,7 @@ Item.create([
 	archive: true,
 	categories: [categories[2]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-green.gif")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[1].id
 	},
@@ -378,6 +388,7 @@ Item.create([
 	archive: true,
 	categories: [categories[1]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
+	imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[1].id
 	}
