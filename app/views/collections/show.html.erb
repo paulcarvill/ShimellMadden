@@ -15,7 +15,7 @@
       <p><%= @collection.description %></p>
     </div>
     <% @items.each do |item| %>
-      <%= image_tag item.mainImage.url %>
+      <%= image_tag item.image_style_one_url %>
     <% end %>
     
     <div style="position: absolute; top: 0; right: 0; border: 1px solid #fff; padding: 5px; margin: 15px; font-size: 0.8em;">

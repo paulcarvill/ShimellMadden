@@ -9,13 +9,19 @@
     <% end %>
   </nav>
   </div>
+  <% @collections.each do |collection| %>
+
   <article style="position: relative">
     <div class="collections-info">
-      <h2><%= @collections.first.name %></h2>
-      <p><%= link_to 'View collection', @collections.first %></p>
+      <h2><%= collection.name %></h2>
+      <p><%= link_to 'View collection', collection %></p>
     </div>
-    <img src="/assets/about.jpg" />
+    
+    <%= image_tag collection.items.first.image_style_one_url %>
   </article>
+
+  <% end %>
+
  </section>
 
  <%= render "shared/footer" %>

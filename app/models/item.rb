@@ -5,23 +5,25 @@ class Item < ActiveRecord::Base
 	belongs_to :collection
 	belongs_to :project
 
-	has_attached_file :mainImage
-	has_attached_file :squareImage
-	has_attached_file :itemsImage
+	has_attached_file :imageStyleOne
+	has_attached_file :imageStyleTwo
+	has_attached_file :imageStyleThree
 	
 	self.per_page = 6
   	
-  	validates_attachment_content_type :mainImage, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
+  	validates_attachment_content_type :imageStyleOne, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
+  	validates_attachment_content_type :imageStyleTwo, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
+  	validates_attachment_content_type :imageStyleThree, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
 
-  	def image_url
-    	mainImage.url
+  	def image_style_one_url
+    	imageStyleOne.url
 	end
 
-	def square_image_url
-    	squareImage.url
+	def image_style_two_url
+    	imageStyleTwo.url
 	end
 
-	def items_image_url
-    	itemsImage.url
+	def image_style_three_url
+    	imageStyleThree.url
 	end
 end

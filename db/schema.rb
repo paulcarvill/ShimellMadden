@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20140517155648) do
   create_table "items", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.binary   "image"
     t.float    "price"
     t.float    "shipping"
     t.string   "shopifyid"
@@ -54,19 +53,19 @@ ActiveRecord::Schema.define(version: 20140517155648) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "homepage"
-    t.string   "mainImage_file_name"
-    t.string   "mainImage_content_type"
-    t.integer  "mainImage_file_size"
-    t.datetime "mainImage_updated_at"
-    t.string   "squareImage_file_name"
-    t.string   "squareImage_content_type"
-    t.integer  "squareImage_file_size"
-    t.datetime "squareImage_updated_at"
-    t.string   "itemsImage_file_name"
-    t.string   "itemsImage_content_type"
-    t.integer  "itemsImage_file_size"
-    t.datetime "itemsImage_updated_at"
-    t.boolean  "archive",                  default: false, null: false
+    t.string   "imageStyleOne_file_name"
+    t.string   "imageStyleOne_content_type"
+    t.integer  "imageStyleOne_file_size"
+    t.datetime "imageStyleOne_updated_at"
+    t.string   "imageStyleTwo_file_name"
+    t.string   "imageStyleTwo_content_type"
+    t.integer  "imageStyleTwo_file_size"
+    t.datetime "imageStyleTwo_updated_at"
+    t.string   "imageStyleThree_file_name"
+    t.string   "imageStyleThree_content_type"
+    t.integer  "imageStyleThree_file_size"
+    t.datetime "imageStyleThree_updated_at"
+    t.boolean  "archive",                      default: false, null: false
   end
 
   create_table "projects", force: true do |t|

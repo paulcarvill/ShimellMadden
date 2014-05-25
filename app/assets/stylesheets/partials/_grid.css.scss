@@ -127,7 +127,9 @@ body {
   .archive-item {
     @include span-columns(3 of 9);
     @include omega(3n);
-    margin-bottom: 15px;
+    margin-bottom: 45px;
+    display: table-cell;
+    vertical-align: middle;
   }
 
   #pagination-tools {

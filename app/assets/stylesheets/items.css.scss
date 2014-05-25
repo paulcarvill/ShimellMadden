@@ -1,16 +1,21 @@
+#items {
+	display: table
+}
+
 body .item {
 	overflow: hidden;
 	position: relative;
 }
 
-.item div {
-	display: none;
+.item a {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: table;
 }
 
 .item:hover div {
-	display: block;
-	text-align: center;
-	position: absolute;
+	display: table-cell;
 }
 
 .archiveitem aside h2 {
@@ -29,3 +34,29 @@ body .item {
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
+
+.item-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: #f60;
+	opacity: 0.8;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+	display: none;
+}
+
+.item-overlay p {
+	color: #fff;
+}
+
+.down-triangle {
+	width: 10px;
+	float: none;
+	display: inline;
+	margin: 0;
+}
+
+
+
+

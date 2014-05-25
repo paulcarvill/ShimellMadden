@@ -9,41 +9,45 @@
 
       <% if index == 0 %>
         <div class="item item-1">
-        <%= image_tag item.itemsImage.url, height: '100%' %>
+        <%= image_tag item.image_style_one_url, height: '100%' %>
       <% elsif index == 1 %>
         <div class="item item-2">
-        <%= image_tag item.itemsImage.url, height: '100%' %>
+        <%= image_tag item.image_style_two_url, height: '100%' %>
       <% elsif index == 2 %>
         <div class="item item-3">
-        <%= image_tag item.itemsImage.url, height: '100%' %>
+        <%= image_tag item.image_style_three_url, height: '100%' %>
       <% elsif index == 3 %>
         <div class="item item-4">
-        <%= image_tag item.itemsImage.url, height: '100%' %>
+        <%= image_tag item.image_style_one_url, height: '100%' %>
       <% elsif index == 4 %>
         <div class="item item-5">
-        <%= image_tag item.itemsImage.url, height: '100%' %>
+        <%= image_tag item.image_style_one_url, height: '100%' %>
       <% elsif index == 5 %>
         <div class="item item-6">
-        <%= image_tag item.itemsImage.url, height: '100%' %>
+        <%= image_tag item.image_style_one_url, height: '100%' %>
       <% end %>
           
       <% if item.collection then %>
         <%= link_to item.collection do %>
-          <div style="width: 100%; height: 100%; background-color: #999; opacity: 0.7;">
-            <% if item.collection then %><%= item.collection.name %> /<% end %>
+          <div class="item-overlay">
+            <img class="down-triangle" src="/assets/down-triangle.svg" />
+            <p>Collections</p>
+            <%= item.collection.name %>
             <%= item.name %>
-            </div>
-          <% end %>
-          <% elsif item.project then %>
-            <%= link_to item.project do %>
-            <div style="width: 100%; height: 100%; background-color: #999; opacity: 0.7;">
-            <% if item.project then %><%= item.project.name %> /<% end %>
+          </div>
+        <% end %>
+      <% elsif item.project then %>
+        <%= link_to item.project do %>
+          <div class="item-overlay">
+            <img class="down-triangle" src="/assets/down-triangle.svg" />
+            <p>Projects</p>
+            <%= item.project.name %>
             <%= item.name %>
-            </div>
-            <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
+      </div>
+    <% end %>
   </article>
  </section>
 
