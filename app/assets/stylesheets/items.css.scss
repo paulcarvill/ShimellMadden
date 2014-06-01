@@ -1,5 +1,8 @@
 #items {
-	display: table
+	display: table;
+	@include media($mobile) {
+      padding: 10px;
+    }
 }
 
 body .item {

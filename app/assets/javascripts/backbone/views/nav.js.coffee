@@ -13,16 +13,18 @@ class ShimellMadden.Views.NavView extends Backbone.View
 # <a id="shop" href="/shop">Shop</a>
 
   events: {
-    'click #nav-home': 'home',
-    'click #nav-items': 'items',
-    'click #nav-collections': 'collections',
-    'click #nav-archive': 'archive',
-    'click #nav-projects': 'projects',
-    'click #nav-info': 'info',
-    'click #nav-shop': 'shop'
+    'click #nav-home'        : 'home',
+    'click #nav-items'       : 'items',
+    'click #nav-collections' : 'collections',
+    'click #nav-archive'     : 'archive',
+    'click #nav-projects'    : 'projects',
+    'click #nav-info'        : 'info',
+    'click #nav-shop'        : 'shop',
+    'click .nav-header'      : 'revealNav'
   }
 
   initialize: () ->
+    @revealed = false;
     
   render: =>
     $(@el).html(@template())
@@ -50,7 +52,13 @@ class ShimellMadden.Views.NavView extends Backbone.View
   shop: () ->
   	window.router.navigate("shop", {trigger: true})
 
-
+  revealNav: () ->
+    if @revealed
+      $('nav').slideUp("fast")
+      @revealed = false
+    else
+      $('nav').slideDown()
+      @revealed = true
 
 
 
