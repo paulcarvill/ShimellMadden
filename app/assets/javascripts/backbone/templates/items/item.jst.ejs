@@ -1,2 +1,39 @@
+<% if (itemNo == 1) { %>
 <img src="<%= image_style_one_url %>" />
-<a href="#"><div class="item-overlay"><%= name %> / <%= name %></div></a>
+<% } %>
+
+<% if (itemNo == 2) { %>
+<img src="<%= image_style_two_url %>" />
+<% } %>
+
+<% if (itemNo == 3) { %>
+<img src="<%= image_style_three_url %>" />
+<% } %>
+
+<% if (itemNo == 4) { %>
+<img src="<%= image_style_one_url %>" />
+<% } %>
+
+<% if (itemNo == 5) { %>
+<img src="<%= image_style_one_url %>" />
+<% } %>
+
+<% if (itemNo == 6) { %>
+<img src="<%= image_style_one_url %>" />
+<% } %>
+
+<% if (isCollection) { %>
+	<a href="#collections/<%= collectionId %>"><div class="item-overlay">
+	<img class="down-triangle" src="/assets/down-triangle.svg" />
+	<p>Collections</p>
+	<%= collectionName %>
+</div></a>
+<% } %>
+
+<% if (isProject) { %>
+	<a href="#projects/<%= projectId %>"><div class="item-overlay">
+	<img class="down-triangle" src="/assets/down-triangle.svg" />
+	<p>Projects</p>
+	<%= projectName %>
+</div></a>
+<% } %>

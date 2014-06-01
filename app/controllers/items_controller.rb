@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
           @items = Item.where(archive: false).paginate(:page => params[:page])
         }
         format.json {
-          @items = Item.all()
+          @items = Item.where(archive: false)
         }
     end
   end
@@ -90,6 +90,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :image, :price, :shipping, :shopifyid, :imageStyleOne, :imageStyleTwo, :imageStyleThree)
+      params.require(:item).permit(:name, :description, :image, :price, :shipping, :shopifyid, :image_style_one_url, :imageStyleTwo, :imageStyleThree)
     end
 end

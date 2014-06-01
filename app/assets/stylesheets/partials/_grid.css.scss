@@ -43,6 +43,7 @@ body {
   }
 
   .items article,
+  .collections article,
   .projects article {
     @include span-columns(12);
     @include media($mobile) {

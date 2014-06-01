@@ -127,7 +127,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item1","item_1_ed_3000x1679_style1.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/item1","item_1_ed_3000x2144_style1_sq.jpg")),
 	imageStyleTwo: File.open(Rails.root.join("db/seeds/item1","item_1_ed_2990x2698_style2.jpg")),
 	imageStyleThree: File.open(Rails.root.join("db/seeds/item1","item_1_ed_2279x3000_style3.jpg")),
 	collection_id: collections[0].id

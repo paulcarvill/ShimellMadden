@@ -20,7 +20,7 @@
   <script type="text/javascript">
     $(function() {
       window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
-      Backbone.history.start();
+      Backbone.history.start({pushState: true});
     });
   </script>
   <!-- end Backbone shizzle -->

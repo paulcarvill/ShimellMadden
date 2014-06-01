@@ -5,9 +5,9 @@ a {
 	text-decoration: none;
 }
 
-#mfPreviewBar {
-	position: absolute;
-	z-index: 300;
+#mfPreviewBar,
+#mfPreviewBarShow {
+	display: none !important;
 }
 
 @import "reset";

@@ -19,13 +19,14 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     imageHeight = $(".slide").height();
     wrapperHeight = $('#centerer').height();
     overlap = (wrapperHeight - imageHeight) / 2;
-    $(".slide").css('margin-top', overlap);
+    if overlap < 0
+      $(".slide").css('margin-top', overlap);
 
   addAll: () =>
     @options.items.each(@addOne)
 
   addOne: (item) =>
-    view = new ShimellMadden.Views.Homepage.ItemView({model : item})
+    view = new ShimellMadden.Views.Shared.CarouselItemView({model : item})
     @$("#my-carousel").append(view.render().el)
     this.items.push(view)
 

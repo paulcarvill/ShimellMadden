@@ -1,3 +1,5 @@
+<div id="items">
+
 <section class="blog collections">
   <header>
     <%= render "shared/nav" %>
@@ -9,6 +11,7 @@
     <% end %>
   </nav>
   </div>
+  
   <article style="position: relative">
     <div class="collection-info">
       <h2><%= @collection.name %></h2>
@@ -26,3 +29,14 @@
  </section>
 
  <%= render "shared/footer" %>
+
+<!-- Backbone shizzle -->
+<script type="text/javascript">
+  $(function() {
+    window.router = new ShimellMadden.Routers.HomepageRouter({items: []});
+    Backbone.history.start({pushState: true});
+  });
+</script>
+<!-- end Backbone shizzle -->
+
+</div>

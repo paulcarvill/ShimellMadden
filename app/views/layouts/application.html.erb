@@ -36,5 +36,12 @@
     })();
 </script>
 
+<script type="text/javascript">
+    window.portrait = ((window.innerHeight / window.innerWidth) > 1.15);
+
+    if (window.portrait) {
+        document.documentElement.className = "portrait";
+    }
+</script>
 </body>
 </html>
