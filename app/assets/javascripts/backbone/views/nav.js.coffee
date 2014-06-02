@@ -54,10 +54,10 @@ class ShimellMadden.Views.NavView extends Backbone.View
 
   revealNav: () ->
     if @revealed
-      $('nav').slideUp("fast")
+      $('nav').toggleClass('woop');
       @revealed = false
     else
-      $('nav').slideDown()
+      $('nav').toggleClass('woop');
       @revealed = true
 
 

@@ -13,7 +13,10 @@ body nav {
 	margin-bottom: 10px;
 
 	@include media($mobile) {
-      display: none
+      display: block;
+      max-height: 0px;
+      -webkit-transition: max-height 1s;
+      transition: max-height 1s;
     }
 }
 
@@ -62,4 +65,12 @@ nav a {
       padding: 15px 0;
       border-top: 1px solid #aaa;
     }
+}
+
+@include media($mobile) {
+ .woop {
+ 	-webkit-transition: max-height 1s 0ms;
+	transition: max-height 1s 0ms;
+ 	max-height: 400px;
+ }
 }
