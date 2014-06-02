@@ -22,7 +22,8 @@ class ShimellMadden.Views.Collections.ShowView extends Backbone.View
     this.items.push(view)
 
   render: =>
-    @$el.html(@template(model: @options.model.toJSON() ))
+    console.log(@options.model.toJSON())
+    @$el.html(@template(@options.model.toJSON() ))
     @addAll()
     this.items[this.current].show()
     return this

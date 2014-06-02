@@ -41,6 +41,24 @@
 	float: none;
 }
 
+.collection .back,
+.collection .desc {
+	display: none;
+}
+
+.collection article .collections-info {
+	position: absolute;
+	top: auto;
+	left: auto;
+	z-index: 1000;
+}
+
+.collection article .collections-info p,
+.collection article .collections-info a,
+.collection article .collections-info a:visited {
+	color: #fff;
+}
+
 @include media($mobile) {
 	.collections .carousel-item {
 		display: block;
@@ -51,15 +69,59 @@
 		display: none;
 	}
 
-	.collections article .carousel-item .collections-info {
+	.collections article .carousel-item .collections-info,
+	.collection article .collections-info {
 		display: block;
 		position: static;
 		padding: 0;
+		width: auto;
 	}
 
-	.collections article .carousel-item .collections-info h2 {
+	.collections article .carousel-item .collections-info h2,
+	.collection article .collections-info h2 {
 		color: #f90;
 		margin-bottom: 10px;
+		border-bottom: 1px solid #aaa;
+		display: block;
+		font-size: 1.3em;
+		font-family: 'Freight Text Book';
+		padding-bottom: 10px;
+	}
+
+	.collections article .carousel-item .collections-info h2 a,
+	.collection article .collections-info h2 a,
+	.collection article .collections-info h2 a:visited {
+		color: #f90;
+		font-family: 'Freight Text Book';
+	}
+
+	.collection article .collections-info p {
+		color: #333;
+	}
+
+	.collection article h2 {
+		border-top: 0;
+		border-bottom: 1px solid #aaa;
+		padding-bottom: 20px;
+		font-family: 'Freight Text Book';
+		font-size: 1.3em;
+		margin-bottom: 10px;
+	}
+
+	.collection article p {
+		font-family: 'Freight Text Book';
+		font-size: 1.3em;
+		margin-bottom: 15px;
+	}
+
+	.collection .back {
+		font-family: 'DIN Next Pro Regular';
+		border-top: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+		margin-top: 10px;
+		font-size: 1.0em;
+		padding: 10px 0;
+		color: #aaa;
 	}
 }
 
@@ -77,10 +139,21 @@
 		display: block;
 		position: static;
 		padding: 0;
+		width: auto;
 	}
 
 	.collections article .carousel-item .collections-info h2 {
 		color: #f90;
 		margin-bottom: 10px;
+		border-bottom: 1px solid #aaa;
+		display: block;
+		font-size: 1.3em;
+		font-family: 'Freight Text Book';
+		padding-bottom: 10px;
+	}
+
+	.collections article .carousel-item .collections-info h2 a {
+		color: #f90;
+		font-family: 'Freight Text Book';
 	}
 }

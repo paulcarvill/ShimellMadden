@@ -35,6 +35,7 @@ body header nav {
 	@include media($mobile) {
       display: block;
       border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
       padding-top: 7px;
       padding-bottom: 7px;
       line-height: 28px;
@@ -70,6 +71,12 @@ nav a {
       line-height: 28px;
       margin-left: 0;
       margin-right: 0;
+    }
+}
+
+nav a:nth-child(1) {
+	@include media($mobile) {
+      border-top: none;
     }
 }
 

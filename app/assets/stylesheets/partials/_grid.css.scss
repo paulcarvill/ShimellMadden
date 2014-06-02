@@ -44,6 +44,7 @@ body {
 
   .items article,
   .collections article,
+  .collection article,
   .projects article {
     @include span-columns(12);
     @include media($mobile) {
@@ -143,10 +144,10 @@ body {
     }
   }
 
-  .collections article .carousel-item img {
+  .collections article .carousel-item img,
+  .collection article .carousel-item img {
     @include media($mobile) {
       margin: 0;
-      
     }
 
     @include media($tablet) {
