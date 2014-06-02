@@ -40,3 +40,47 @@
 #m-carousel img {
 	float: none;
 }
+
+@include media($mobile) {
+	.collections .carousel-item {
+		display: block;
+		margin: 0 0 15px 0;
+	}
+
+	.collections .carousel-item p {
+		display: none;
+	}
+
+	.collections article .carousel-item .collections-info {
+		display: block;
+		position: static;
+		padding: 0;
+	}
+
+	.collections article .carousel-item .collections-info h2 {
+		color: #f90;
+		margin-bottom: 10px;
+	}
+}
+
+@include media($tablet) {
+	.collections .carousel-item {
+		display: block;
+		margin: 0 0 15px 0;
+	}
+
+	.collections .carousel-item p {
+		display: none;
+	}
+
+	.collections article .carousel-item .collections-info {
+		display: block;
+		position: static;
+		padding: 0;
+	}
+
+	.collections article .carousel-item .collections-info h2 {
+		color: #f90;
+		margin-bottom: 10px;
+	}
+}

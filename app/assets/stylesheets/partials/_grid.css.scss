@@ -143,11 +143,16 @@ body {
     }
   }
 
-  .collections article {
-    @include span-columns(12);
-    // @include media($mobile) {
-    //   @include span-columns(4);
-    // }
+  .collections article .carousel-item img {
+    @include media($mobile) {
+      margin: 0;
+      
+    }
+
+    @include media($tablet) {
+      margin: 0;
+      
+    }
   }
 
   .archive-item {
