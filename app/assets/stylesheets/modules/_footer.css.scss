@@ -5,3 +5,21 @@ footer {
 footer div {
 	border-top: 2px solid #ccc
 }
+
+@include media($mobile) {
+	body footer {
+		padding: 10px;
+	}
+
+	body footer div {
+		float: none;
+		display: block;
+		width: auto;
+		font-size: 1.4em;
+		padding-bottom: 10px;
+	}
+
+	body footer div em {
+		font-family: "DIN Next Pro Regular";
+	}
+}

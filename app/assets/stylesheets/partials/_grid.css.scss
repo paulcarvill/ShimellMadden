@@ -9,8 +9,16 @@ body {
   	@include span-columns(12);
   }
 
+  
   section.blog {
   	@include span-columns(12);
+    width: $max-width;
+    @include media($tablet) {
+      width: 100%;
+    }
+    @include media($mobile) {
+      width: 100%;
+    }
   }
 
   header {

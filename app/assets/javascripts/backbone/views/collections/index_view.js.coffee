@@ -28,6 +28,7 @@ class ShimellMadden.Views.Collections.IndexView extends Backbone.View
 
   prev: () ->
     this.items[this.current].fadeOut()
+
     this.current--
     if this.current == -1
       this.current = this.items.length - 1

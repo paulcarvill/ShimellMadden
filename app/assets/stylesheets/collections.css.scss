@@ -37,6 +37,10 @@
 	font-size: 1em;
 }
 
+#m-carousel {
+	position: relative;
+}
+
 #m-carousel img {
 	float: none;
 }
@@ -55,7 +59,8 @@
 
 .collection article .collections-info p,
 .collection article .collections-info a,
-.collection article .collections-info a:visited {
+.collection article .collections-info a:visited,
+.collections-info h2 a {
 	color: #fff;
 }
 
