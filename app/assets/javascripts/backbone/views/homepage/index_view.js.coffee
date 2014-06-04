@@ -19,6 +19,7 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     imageHeight = $(".slide").height();
     wrapperHeight = $('#centerer').height();
     overlap = (wrapperHeight - imageHeight) / 2;
+    console.log(overlap)
     if overlap < 0
       $(".slide").css('margin-top', overlap);
 

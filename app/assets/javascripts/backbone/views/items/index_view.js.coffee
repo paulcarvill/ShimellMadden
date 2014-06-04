@@ -9,9 +9,16 @@ class ShimellMadden.Views.Items.IndexView extends Backbone.View
   }
 
   initialize: () ->
+    @paginating = false
     @options.items.bind('reset', @addAll)
+    $(window).scroll(() =>
+        if $(window).scrollTop() + $(window).height() >= ( $(document).height() - 200 )
+          @paginating = true
+          @next();
+    )
 
   addAll: () =>
+    @paginating = false
     @options.items.each(@addOne)
 
   addOne: (item, index) =>
@@ -28,4 +35,7 @@ class ShimellMadden.Views.Items.IndexView extends Backbone.View
   prev: () ->
 
   next: () ->
-    @options.items.getNextPage()
+    if @options.items.hasNextPage()
+      @options.items.getNextPage()
+    else
+      $(window).unbind('scroll');
