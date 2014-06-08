@@ -19,7 +19,8 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
       @homepageItems = new ShimellMadden.Collections.ItemsCollection(@items.where({ "homepage" : true }))
       @view = new ShimellMadden.Views.Homepage.IndexView(items: @homepageItems)
       $("#items").html(@view.render().el)
-      @view.centerImage();
+      # fullscreenFix();
+      backgroundResize();
     );
 
   items: ->

@@ -60,7 +60,6 @@ h1 img {
 
 .carousel-item { 
 	display: none;
-	
 }
 
 .carousel-prev {
@@ -101,19 +100,17 @@ h1 img {
 	padding: 0;
 }
 
-@media screen and (max-width: 949px) {
-	body.home .carousel-item {
-		height: 100%;
-		width: 100%;
-		text-align: center;
-		overflow: hidden;
-	}
+body.home .carousel-item {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
 
-	body.home .carousel-item img {
-		height: 100%;
-		width: auto;
-		margin: 0 -100%;
-	}
+body.home .carousel-item img {
+	height: 100%;
+	width: auto;
+	margin: 0 -100%;
 }
 
 @media screen and (max-width: 599px) {

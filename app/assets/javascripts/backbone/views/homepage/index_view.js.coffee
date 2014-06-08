@@ -13,15 +13,6 @@ class ShimellMadden.Views.Homepage.IndexView extends Backbone.View
     @options.items.bind('reset', @addAll)
     this.current = 0;
     this.items = [];
-    $(window).on("load resize", @centerImage);
-
-  centerImage: () ->
-    imageHeight = $(".slide").height();
-    wrapperHeight = $('#centerer').height();
-    overlap = (wrapperHeight - imageHeight) / 2;
-    console.log(overlap)
-    if overlap < 0
-      $(".slide").css('margin-top', overlap);
 
   addAll: () =>
     @options.items.each(@addOne)
