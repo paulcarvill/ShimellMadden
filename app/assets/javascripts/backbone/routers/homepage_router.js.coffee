@@ -19,7 +19,11 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
       @homepageItems = new ShimellMadden.Collections.ItemsCollection(@items.where({ "homepage" : true }))
       @view = new ShimellMadden.Views.Homepage.IndexView(items: @homepageItems)
       $("#items").html(@view.render().el)
-      # fullscreenFix();
+
+      @nav = new ShimellMadden.Views.Shared.NavView()
+      $("#navigation").html(@nav.render().el)    
+
+      # resize/centre carousel images
       backgroundResize();
     );
 
@@ -28,8 +32,9 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     @items.fetch().done( () =>
       @view = new ShimellMadden.Views.Items.IndexView(items: @items)
       $("#items").html(@view.render().el)
-      @nav = new ShimellMadden.Views.NavView()
-      $("header").html(@nav.render().el)
+
+      @nav = new ShimellMadden.Views.Shared.NavView()
+      $("#navigation").html(@nav.render().el)
     )
 
   collections: ->
@@ -37,8 +42,8 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     @collections.fetch().done( () =>
       @view = new ShimellMadden.Views.Collections.IndexView(collections: @collections)
       $("#items").html(@view.render().el)
-      @nav = new ShimellMadden.Views.NavView()
-      $("header").html(@nav.render().el)
+      @nav = new ShimellMadden.Views.Shared.NavView()
+      $("#navigation").html(@nav.render().el)    
     )
 
   collection: (id) ->

@@ -1,3 +1,7 @@
+<div id="navigation">
+
+</div>
+
 <!-- #items div is used by backbone to put stuff in -->
 <div id="items"> 
   <a href="/collections"> 
@@ -9,8 +13,10 @@
       </div>
     </div>
     <div id="my-carousel">
-      <% @items.each do |item| %>
-      <a href="/items"><img class="slide" src="<%= item.image_style_one_url %>" width="100%" height="100%" /></a>
+      <% @items.each_with_index do |item, index| %>
+        <% if index == 0 %>
+          <a href="/items"><img class="slide" src="<%= item.image_style_one_url %>" width="100%" height="100%" /></a>
+        <% end %>
       <% end %>
     </div>
   </section>

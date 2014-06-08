@@ -1,9 +1,11 @@
-<div id="items">
+<header>
+  <%= render "shared/nav" %>
+</header>
+
+  <div id="items">
 
 <section class="blog projects">
-  <header>
-    <%= render "shared/nav" %>
-  </header>
+  
   <article>
     <% @projects.each_with_index do |project, index| %>
       <% if index == 0 %>

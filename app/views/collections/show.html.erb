@@ -1,42 +1,39 @@
+<header>
+  <%= render "shared/nav" %>
+</header>
+<div>
+<nav>
+  <% @collections.each do |coll| %>
+    <a href="/collections/<%= coll.id %>" <%= if coll.id == @collection.id then "class=current" end %>><%= coll.name %></a>
+  <% end %>
+</nav>
+</div>
+
 <div id="items">
-
-<section class="blog collections">
-  <header>
-    <%= render "shared/nav" %>
-  </header>
-  <div>
-  <nav>
-    <% @collections.each do |coll| %>
-      <a href="/collections/<%= coll.id %>" <%= if coll.id == @collection.id then "class=current" end %>><%= coll.name %></a>
-    <% end %>
-  </nav>
-  </div>
-  
-  <article style="position: relative">
-    <div class="collection-info">
-      <h2><%= @collection.name %></h2>
-      <p><%= @collection.description %></p>
-    </div>
-    <% @items.each do |item| %>
-      <%= image_tag item.image_style_one_url %>
-    <% end %>
+  <section class="blog collections">
+    <article style="position: relative">
+      <div class="collection-info">
+        <h2><%= @collection.name %></h2>
+        <p><%= @collection.description %></p>
+      </div>
+      <% @items.each do |item| %>
+        <%= image_tag item.image_style_one_url %>
+      <% end %>
     
-    <div style="position: absolute; top: 0; right: 0; border: 1px solid #fff; padding: 5px; margin: 15px; font-size: 0.8em;">
-      <p><a href="#">Shop this item</a></p>
-    </div>
+      <div style="position: absolute; top: 0; right: 0; border: 1px solid #fff; padding: 5px; margin: 15px; font-size: 0.8em;">
+        <p><a href="#">Shop this item</a></p>
+      </div>
+    </article>
+  </section>
 
-  </article>
- </section>
-
-<!-- Backbone shizzle -->
-<script type="text/javascript">
-  $(function() {
-    window.router = new ShimellMadden.Routers.HomepageRouter({items: []});
-    Backbone.history.start({pushState: true});
-  });
-</script>
-<!-- end Backbone shizzle -->
-
+  <!-- Backbone shizzle -->
+  <script type="text/javascript">
+    $(function() {
+      window.router = new ShimellMadden.Routers.HomepageRouter({items: []});
+      Backbone.history.start({pushState: true});
+    });
+  </script>
+  <!-- end Backbone shizzle -->
 </div>
 
 <%= render "shared/footer" %>

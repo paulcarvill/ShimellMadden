@@ -1,16 +1,19 @@
 header {
 	text-align: center;
+  z-index: 100;
 }
 
 header img {
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 6px;
 }
 
 body nav {
 	display: inline;
 	text-align: center;
 	margin-bottom: 10px;
+  background: #fff;
+
 
 	@include media($mobile) {
       display: block;
@@ -46,6 +49,7 @@ body header nav {
 header nav {
 	border-bottom: 1px solid #939393;
 	padding-bottom: 10px;
+  padding-top: 14px;
 }
 
 nav a,
@@ -86,4 +90,15 @@ nav a:nth-child(1) {
 	transition: max-height 1s 0ms;
  	max-height: 400px;
  }
+}
+
+
+.sticky {
+  position: fixed !important;
+  top: -74px;
+  left: 0;
+}
+
+.stickypadding {
+  padding-top: 122px;
 }
