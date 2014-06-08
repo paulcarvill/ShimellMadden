@@ -7,6 +7,7 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
   routes:
     "index"           : "index"
     "items"	          : "items"
+    "archive"         : "archive"
     "collections"     : "collections"
     "collections/:id" : "collection"
     "projects"        : "projects"
@@ -32,6 +33,10 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     @items.fetch().done( () =>
       @view = new ShimellMadden.Views.Items.IndexView(items: @items)
       $("#items").html(@view.render().el)
+
+      if !@nav 
+        @nav = new ShimellMadden.Views.Shared.NavView()
+        $("#navigation").html(@nav.render().el)
     )
 
   collections: ->
@@ -55,6 +60,15 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
       # resize/centre carousel images
       backgroundResize();
     )
+
+  archive: ->
+    $("body").removeClass("home");
+    @view = new ShimellMadden.Views.Archive.IndexView(items: @items)
+    $("#items").html(@view.render().el)
+
+    if !@nav 
+      @nav = new ShimellMadden.Views.Shared.NavView()
+      $("#navigation").html(@nav.render().el)
 
   projects: ->
     $("body").removeClass("home");

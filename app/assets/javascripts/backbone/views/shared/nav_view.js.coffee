@@ -71,7 +71,9 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
   projects: () ->
     window.router.navigate("projects", {trigger: true})
 
-  archive: () ->
+  archive: (e) ->
+    e.preventDefault()
+    @revealNav()
     window.router.navigate("archive", {trigger: true})
 
   info: () ->
