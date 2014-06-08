@@ -32,9 +32,6 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     @items.fetch().done( () =>
       @view = new ShimellMadden.Views.Items.IndexView(items: @items)
       $("#items").html(@view.render().el)
-
-      @nav = new ShimellMadden.Views.Shared.NavView()
-      $("#navigation").html(@nav.render().el)
     )
 
   collections: ->
@@ -51,8 +48,12 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     @collections.fetch().done( () =>
       view = new ShimellMadden.Views.Collections.ShowView(model: @collections.get(id))
       $("#items").html(view.render().el)
+      
       @nav = new ShimellMadden.Views.NavView()
-      $("header").html(@nav.render().el)
+      $("navigation").html(@nav.render().el)
+
+      # resize/centre carousel images
+      backgroundResize();
     )
 
   projects: ->

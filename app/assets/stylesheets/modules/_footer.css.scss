@@ -3,7 +3,7 @@ footer {
 }
 
 footer div {
-	border-top: 2px solid #ccc
+	border-top: 1px solid #ccc
 }
 
 @include media($mobile) {
@@ -16,10 +16,15 @@ footer div {
 		display: block;
 		width: auto;
 		font-size: 1.4em;
-		padding-bottom: 10px;
+		padding-top: 8px;
+		padding-bottom: 20px;
 	}
 
 	body footer div em {
 		font-family: "DIN Next Pro Regular";
+	}
+
+	footer div:nth-child(2) p:nth-child(3) {
+		margin-top: 20px;
 	}
 }

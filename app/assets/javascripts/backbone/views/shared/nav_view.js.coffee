@@ -3,33 +3,42 @@ ShimellMadden.Views.Shared ||= {}
 class ShimellMadden.Views.Shared.NavView extends Backbone.View
   template: JST["backbone/templates/shared/nav"]
 
+  events: {
+    'click #nav-home'        : 'home',
+    'click #nav-items'       : 'items',
+    'click #nav-collections' : 'collections',
+    'click #nav-archive'     : 'archive',
+    'click #nav-projects'    : 'projects',
+    'click #nav-info'        : 'info',
+    'click #nav-shop'        : 'shop',
+    'click .nav-header'      : 'revealNav'
+  }
+
   tagName: "div"
 
   initialize: () ->
+    @revealed = false;
     @didScroll = false
     @changeHeaderOn = 74
-
-    window.addEventListener( 'scroll', (event) =>
-      if !@didScroll
-        @didScroll = true
-        setTimeout( @scrollPage, 250 )
-    , false );
+    @doNav = false 
+    if !Modernizr.touch && @doNav
+      window.addEventListener( 'scroll', (event) =>
+        if !@didScroll
+          @didScroll = true
+          setTimeout( @scrollPage, 250 )
+      , false );
 
   scrollPage: () =>
     sy = @scrollY();
-    console.log(sy)
     if sy >= @changeHeaderOn
-      # $(@el).addClass('shrink')
       $('header').addClass('sticky');
       $('#items').addClass('stickypadding');
     else
-      # $(@el).removeClass('shrink')
       $('header').removeClass('sticky');
       $('#items').removeClass('stickypadding');
     @didScroll = false;
 
   scrollY: () ->
-    console.log('here');
     return window.pageYOffset || $(@el).scrollTop;
 
   show: ->
@@ -48,3 +57,37 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
   navigate: (e) ->
     e.preventDefault()
     window.router.navigate("collections/"+@model.id, {trigger: true})
+
+  home: () ->
+    window.router.navigate("index", {trigger: true})
+
+  items: () ->
+    window.router.navigate("items", {trigger: true})
+
+  collections: (e) ->
+    e.preventDefault()
+    window.router.navigate("collections", {trigger: true})
+
+  projects: () ->
+    window.router.navigate("projects", {trigger: true})
+
+  archive: () ->
+    window.router.navigate("archive", {trigger: true})
+
+  info: () ->
+    window.router.navigate("info", {trigger: true})
+
+  shop: () ->
+    window.router.navigate("shop", {trigger: true})
+
+  revealNav: () ->
+    if @revealed
+      $('nav').toggleClass('woop');
+      @revealed = false
+      $('.nav-header img').attr('src', '/assets/menu-closed.svg');
+    else
+      $('nav').toggleClass('woop');
+      $('.nav-header img').attr('src', '/assets/menu-open.svg');
+      @revealed = true
+
+

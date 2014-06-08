@@ -23,7 +23,7 @@
 <% } %>
 
 <% if (isCollection) { %>
-	<a href="#collections/<%= collectionId %>"><div class="item-overlay">
+	<a href="/collections/<%= collectionId %>"><div class="item-overlay">
 	<img class="down-triangle" src="/assets/down-triangle.svg" />
 	<p>Collections</p>
 	<%= collectionName %>
@@ -31,7 +31,7 @@
 <% } %>
 
 <% if (isProject) { %>
-	<a href="#projects/<%= projectId %>"><div class="item-overlay">
+	<a href="/projects/<%= projectId %>"><div class="item-overlay">
 	<img class="down-triangle" src="/assets/down-triangle.svg" />
 	<p>Projects</p>
 	<%= projectName %>

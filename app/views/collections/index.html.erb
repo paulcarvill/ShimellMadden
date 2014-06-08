@@ -1,15 +1,15 @@
 <div id="navigation">
-<header>
-  <%= render "shared/nav" %>
-</header>
-<div>
-  <nav>
-    <% @collections.each do |collection| %>
-      <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
-    <% end %>
-  </nav>
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <div>
+    <nav>
+      <% @collections.each do |collection| %>
+        <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
+      <% end %>
+    </nav>
+  </div>
 </div>
-</div
 
 <div id="items">
   <section class="blog collections">

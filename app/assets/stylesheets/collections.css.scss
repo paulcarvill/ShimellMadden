@@ -37,13 +37,19 @@
 	font-size: 1em;
 }
 
-#m-carousel {
+.collection #my-carousel {
 	position: relative;
+	border: 0;
 }
 
-#m-carousel img {
-	float: none;
-}
+// #m-carousel {
+// 	position: relative;
+// }
+
+// #m-carousel img {
+// 	float: none;
+// }
+
 
 .collection .back,
 .collection .desc {
@@ -84,7 +90,7 @@
 
 	.collections article .carousel-item .collections-info h2,
 	.collection article .collections-info h2 {
-		color: #f90;
+		color: #ff7e15;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #aaa;
 		display: block;
@@ -96,7 +102,7 @@
 	.collections article .carousel-item .collections-info h2 a,
 	.collection article .collections-info h2 a,
 	.collection article .collections-info h2 a:visited {
-		color: #f90;
+		color: #ff715;
 		font-family: 'Freight Text Book';
 	}
 
@@ -148,7 +154,7 @@
 	}
 
 	.collections article .carousel-item .collections-info h2 {
-		color: #f90;
+		color: #ff7e15;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #aaa;
 		display: block;
@@ -158,7 +164,7 @@
 	}
 
 	.collections article .carousel-item .collections-info h2 a {
-		color: #f90;
+		color: #ff7e15;
 		font-family: 'Freight Text Book';
 	}
 }

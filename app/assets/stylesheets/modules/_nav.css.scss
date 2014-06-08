@@ -14,7 +14,6 @@ body nav {
 	margin-bottom: 10px;
   background: #fff;
 
-
 	@include media($mobile) {
       display: block;
       max-height: 0px;
@@ -101,4 +100,8 @@ nav a:nth-child(1) {
 
 .stickypadding {
   padding-top: 122px;
+}
+
+#navigation {
+  padding: 0 10px;
 }

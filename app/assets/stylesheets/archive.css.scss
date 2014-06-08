@@ -61,3 +61,28 @@ ul li {
 ul:nth-of-type(2) {
 	border-bottom: 1px solid #aaa;
 }
+
+@include media($mobile) {
+	.archive article {
+		@include span-columns(4);
+	}
+
+	body .archive-item,
+	.inside,
+	.inside img {
+		@include span-columns(4 of 4);
+		float: none;
+	}
+
+	.archive aside,
+	.archive article {
+		padding: 0 10px;
+	}
+
+	.inside-inside > img {
+		height: auto;
+		max-height: none;
+	}
+}
+
+

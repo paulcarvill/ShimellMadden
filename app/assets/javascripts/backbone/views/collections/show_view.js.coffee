@@ -17,12 +17,11 @@ class ShimellMadden.Views.Collections.ShowView extends Backbone.View
     @itemsForCarousel.each(@addOne)
 
   addOne: (collectionItem) =>
-    view = new ShimellMadden.Views.Shared.CarouselItemView({model : collectionItem})
-    @$("#m-carousel").append(view.render().el)
+    view = new ShimellMadden.Views.Shared.CarouselItemNonFullView({model : collectionItem})
+    @$("#my-carousel").append(view.render().el)
     this.items.push(view)
 
   render: =>
-    console.log(@options.model.toJSON())
     @$el.html(@template(@options.model.toJSON() ))
     @addAll()
     this.items[this.current].show()

@@ -62,6 +62,10 @@ h1 img {
 	display: none;
 }
 
+.collection .carousel-item {
+	position: absolute;
+}
+
 .carousel-prev {
 	position: absolute;
 	left: 18px;
@@ -123,6 +127,22 @@ body.home .carousel-item img {
 		width: 80%;
 	}
 }
+
+@include media($mobile) {
+	.info {
+		padding: 0 10px;
+	}
+
+	.info aside p {
+		font-family: 'Freight Text Book';
+		font-size: 1.3em;
+		margin-bottom: 15px;
+	}
+
+	.info aside h2 {
+		font-size: 1.3em;
+	}
+} 
 
 
 

@@ -1,12 +1,14 @@
-<header>
-  <%= render "shared/nav" %>
-</header>
-<div>
-<nav>
-  <% @collections.each do |coll| %>
-    <a href="/collections/<%= coll.id %>" <%= if coll.id == @collection.id then "class=current" end %>><%= coll.name %></a>
-  <% end %>
-</nav>
+<div id="navigation">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <div>
+    <nav>
+      <% @collections.each do |coll| %>
+        <a href="/collections/<%= coll.id %>" <%= if coll.id == @collection.id then "class=current" end %>><%= coll.name %></a>
+      <% end %>
+    </nav>
+  </div>
 </div>
 
 <div id="items">
