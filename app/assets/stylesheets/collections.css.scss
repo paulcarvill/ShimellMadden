@@ -71,6 +71,20 @@
 }
 
 @include media($mobile) {
+
+	#items {
+		width: 100%;
+	}
+	
+	.collection #my-carousel {
+		height: 300px;
+	}
+
+	.collection #my-carousel .carousel-item {
+		height: 300px;
+		width: 100%;
+	}
+
 	.collections .carousel-item {
 		display: block;
 		margin: 0 0 15px 0;
