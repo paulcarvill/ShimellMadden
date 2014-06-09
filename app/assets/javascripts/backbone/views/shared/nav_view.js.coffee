@@ -28,6 +28,9 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
           setTimeout( @scrollPage, 250 )
       , false );
 
+  setCurrent: (title) ->
+    $('.nav-header span', @el).text(title)
+
   scrollPage: () =>
     sy = @scrollY();
     if sy >= @changeHeaderOn
@@ -41,15 +44,6 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
   scrollY: () ->
     return window.pageYOffset || $(@el).scrollTop;
 
-  show: ->
-    $(@el).show()
-
-  fadeOut: ->
-    $(@el).fadeOut()
-
-  fadeIn: ->
-    $(@el).fadeIn()
-
   render: ->
     $(@el).html(@template)
     return this
@@ -58,17 +52,23 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
     e.preventDefault()
     window.router.navigate("collections/"+@model.id, {trigger: true})
 
-  home: () ->
+  home: (e) ->
+    e.preventDefault()
     window.router.navigate("index", {trigger: true})
 
-  items: () ->
+  items: (e) ->
+    e.preventDefault()
+    @revealNav()
     window.router.navigate("items", {trigger: true})
 
   collections: (e) ->
     e.preventDefault()
+    @revealNav()
     window.router.navigate("collections", {trigger: true})
 
-  projects: () ->
+  projects: (e) ->
+    e.preventDefault()
+    @revealNav()
     window.router.navigate("projects", {trigger: true})
 
   archive: (e) ->
@@ -76,7 +76,9 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
     @revealNav()
     window.router.navigate("archive", {trigger: true})
 
-  info: () ->
+  info: (e) ->
+    e.preventDefault()
+    @revealNav()
     window.router.navigate("info", {trigger: true})
 
   shop: () ->
