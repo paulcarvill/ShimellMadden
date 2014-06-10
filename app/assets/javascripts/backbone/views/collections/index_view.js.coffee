@@ -17,7 +17,7 @@ class ShimellMadden.Views.Collections.IndexView extends Backbone.View
 
   addOne: (collection) =>
     view = new ShimellMadden.Views.Shared.CarouselItemView({model : collection})
-    @$("#m-carousel").append(view.render().el)
+    @$("#my-carousel").append(view.render().el)
     this.items.push(view)
 
   render: =>

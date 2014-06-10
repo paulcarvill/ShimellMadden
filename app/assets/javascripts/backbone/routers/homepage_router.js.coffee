@@ -32,10 +32,8 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
       backgroundResize();
     );
 
-  item: () ->
-    console.log('show item')
-
   items: () ->
+    console.log('in items')
     $("body").removeClass("home");
     @items.fetch().done( () =>
       @view = new ShimellMadden.Views.Items.IndexView(items: @items)
@@ -59,6 +57,8 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
         $("#navigation").html(@nav.render().el)
 
       @nav.setCurrent('Collections')
+      # resize/centre carousel images
+      backgroundResize();
     )
 
   collection: (id) ->

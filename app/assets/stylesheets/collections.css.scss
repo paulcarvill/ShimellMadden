@@ -76,18 +76,32 @@
 		width: 100%;
 	}
 	
+	.collections #my-carousel {
+		border: 0;
+	}
+
 	.collection #my-carousel {
-		height: 300px;
+		height: 192px;
 	}
 
 	.collection #my-carousel .carousel-item {
-		height: 300px;
+		height: 192px;
 		width: 100%;
+	}
+
+	.collections #my-carousel {
+		position: relative;
 	}
 
 	.collections .carousel-item {
 		display: block;
-		margin: 0 0 15px 0;
+		height: 192px;
+		width: 100%;
+		margin: 0 0 55px 0;
+	}
+
+	.collections .carousel-item:after {
+		content: " ";
 	}
 
 	.collections .carousel-item p {

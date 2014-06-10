@@ -17,5 +17,14 @@ class ShimellMadden.Views.Items.ItemView extends Backbone.View
     return this
 
   itemClick: (e) ->
-  	e.preventDefault()
-  	window.router.navigate("items/" + @model.id, {trigger: true})
+    e.preventDefault()
+
+    console.log(@model)
+    if typeof @model.get('collectionId') != undefined
+      route = 'collections/'
+      id = @model.get('collectionId')
+    else
+      route = 'projects/'
+      id = @model.get('projectId')
+
+    window.router.navigate(route + id, {trigger: true})
