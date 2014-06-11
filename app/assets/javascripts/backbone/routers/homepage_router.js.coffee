@@ -2,6 +2,8 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
   initialize: (options) ->
     @items = new ShimellMadden.Collections.ItemsCollection()
     @collections = new ShimellMadden.Collections.CollectionsCollection()
+    @projects = new ShimellMadden.Collections.CollectionsCollection()
+
     @items.reset options.items
 
   routes:
@@ -13,11 +15,11 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     "collections"     : "collections"
     "collections/:id" : "collection"
     "projects"        : "projects"
+    "projects/:id"    : "project"
     ".*"              : "index"
 
 
   index: ->
-    console.log('here in index')
     $("body").addClass("home");
     # get items from server, then render
     @items.fetch().done( () =>
@@ -33,7 +35,6 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
     );
 
   items: () ->
-    console.log('in items')
     $("body").removeClass("home");
     @items.fetch().done( () =>
       @view = new ShimellMadden.Views.Items.IndexView(items: @items)
@@ -97,7 +98,21 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
       @nav = new ShimellMadden.Views.Shared.NavView()
       $("#navigation").html(@nav.render().el)
 
+    @nav.setCurrent('Projects')
+
+  project: (id) ->
+    $("body").removeClass("home");
+    @projects.fetch().done( () =>
+      view = new ShimellMadden.Views.Projects.ShowView(model: @projects.get(id))
+      $("#items").html(view.render().el)
+      
+      if !@nav 
+        @nav = new ShimellMadden.Views.Shared.NavView()
+        $("#navigation").html(@nav.render().el)
+      @nav.setCurrent('Project')
+    )
+
   info: ->
     $("body").removeClass("home");
-    @view = new ShimellMadden.Views.Projects.IndexView(items: @items)
+    @view = new ShimellMadden.Views.Pages.ShowView()
     $("#items").html(@view.render().el)

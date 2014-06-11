@@ -20,7 +20,7 @@ class ShimellMadden.Views.Items.ItemView extends Backbone.View
     e.preventDefault()
 
     console.log(@model)
-    if typeof @model.get('collectionId') != undefined
+    if @model.get('isCollection') == true
       route = 'collections/'
       id = @model.get('collectionId')
     else
