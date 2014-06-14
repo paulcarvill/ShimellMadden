@@ -5,6 +5,7 @@ ShimellMadden::Application.routes.draw do
   root "pages#index"
 
   get '/about', to: 'pages#about'
+
   get '/comissioning', to: 'pages#comissioning'
   get '/news', to: 'pages#news'
   get '/contact', to: 'pages#contact'

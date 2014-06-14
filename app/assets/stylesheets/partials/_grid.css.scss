@@ -5,7 +5,8 @@
 body {
   @include outer-container;
 
-  nav {
+  nav,
+  #subnav {
   	@include span-columns(12);
   }
 
@@ -42,7 +43,8 @@ body {
   }
 
   @include media($mobile) {
-    .info article {
+    .info article,
+    .contact article {
       @include span-columns(4);
     }
   }

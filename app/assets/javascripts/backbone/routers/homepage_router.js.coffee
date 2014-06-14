@@ -8,7 +8,7 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
 
   routes:
     "index"           : "index"
-    "info"            : "info"
+    "about"           : "about"
     "items"	          : "items"
     "items/:id"       : "item"
     "archive"         : "archive"
@@ -112,7 +112,7 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
       @nav.setCurrent('Project')
     )
 
-  info: ->
+  about: ->
     $("body").removeClass("home");
     @view = new ShimellMadden.Views.Pages.ShowView()
     $("#items").html(@view.render().el)

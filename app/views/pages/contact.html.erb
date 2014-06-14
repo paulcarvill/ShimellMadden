@@ -1,7 +1,7 @@
 <header>
 	<%= render "shared/nav" %>
 </header>
-<div>
+<div id="subnav">
 	<%= render "shared/subnav" %>
 </div>
 
@@ -9,17 +9,7 @@
  	<aside>
  		<h2>Contact</h2>
  		<div>
-	 		<p><em>Emma Simone Madden</em></p>
-	 		<p><a href="mailto:emma@shimellandmadden.com">emma@shimellandmadden.com</a></p>
-	 		<p class="tel"><em>Mobile: +44 (0)7548 887832</em></p>
-
-	 		<br	/>
-
-	 		<p><em>Luke Shimell</em></p>
-	 		<p><a href="mailto:luke@shimellandmadden.com">luke@shimellandmadden.com</a></p>
-	 		<p class="tel"><em>Mobile: +44 (0)7970 075071</em></p>
-
-	 		<br	/>
+	 		<%= @page.content.html_safe %>
 
 	 		<p><em>Social media</em></p>
 	 		<p><img src="/assets/right-arrow-black.svg" />&nbsp;<a href="#">Facebook</a></p>
@@ -33,3 +23,19 @@
  </section>
 
  <%= render "shared/footer" %>
+
+ <script type="text/javascript">
+ SM = {};
+
+ $('.nav-header').click(function(){
+ 	if(SM.revealed) {
+      	$('nav').toggleClass('woop');
+      	SM.revealed = false
+      	$('.nav-header img').attr('src', '/assets/menu-closed.svg');
+    } else {
+      $('nav').toggleClass('woop');
+      $('.nav-header img').attr('src', '/assets/menu-open.svg');
+      SM.revealed = true
+    }
+ })
+ </script>

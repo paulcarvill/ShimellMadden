@@ -1,21 +1,14 @@
 <header>
 	<%= render "shared/nav" %>
 </header>
-<div>
+<div id="subnav">
 	<%= render "shared/subnav" %>
 </div>
 
  	<section class="info blog">
 	
  	<aside>
- 		<h2>Comissioning</h2>
- 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 		consequat. Duis aute irure dolor.</p>
- 		<p>Reprehenderit in voluptate velit esse
- 		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 		<%= @page.content.html_safe %>
  	</aside>
  	<article>
  		<img src="/assets/commissions.jpg" />
@@ -23,3 +16,19 @@
  </section>
 
  <%= render "shared/footer" %>
+
+ <script type="text/javascript">
+ SM = {};
+
+ $('.nav-header').click(function(){
+ 	if(SM.revealed) {
+      	$('nav').toggleClass('woop');
+      	SM.revealed = false
+      	$('.nav-header img').attr('src', '/assets/menu-closed.svg');
+    } else {
+      $('nav').toggleClass('woop');
+      $('.nav-header img').attr('src', '/assets/menu-open.svg');
+      SM.revealed = true
+    }
+ })
+ </script>

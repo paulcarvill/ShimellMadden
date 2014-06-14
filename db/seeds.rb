@@ -11,6 +11,26 @@
 #ActiveRecord::FixtureSet.create_fixtures("#{Rails.root}/test/fixtures", "projects")
 #ActiveRecord::FixtureSet.create_fixtures("#{Rails.root}/test/fixtures", "Item s")
 
+pages = Page.create([
+	{
+		name: "About",
+		content: "<h2>About</h2><p>About us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
+Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
+	},
+	{
+		name: "Commissioning",
+		content: "<h2>Commissioning</h2><p>Commissioning us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
+Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
+	},
+	{
+		name: "Contact",
+		content: "<p><em>Emma Simone Madden</em></p><p><a href=\"mailto:emma@shimellandmadden.com\">emma@shimellandmadden.com</a></p><p class=\"tel\"><em>Mobile: <a href=\"tel:+4407548887832\">+44 (0)7548 887832</a></em></p><br	/><p><em>Luke Shimell</em></p><p><a href=\"mailto:luke@shimellandmadden.com\">luke@shimellandmadden.com</a></p><p class=\"tel\"><em>Mobile: <a href=\"tel:+4407970075071\">+44 (0)7970 075071</a></em></p><br	/>",
+		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
+	}
+])
+
 blogs = Blog.create([
 	{
 		headline: "News headline one",

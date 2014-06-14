@@ -129,8 +129,18 @@ body.home .carousel-item img {
 	}
 }
 
+#subnav span {
+	display: none;
+}
+
+.contact p img {
+	width: 8px;
+	height: 9px;
+}
+
 @include media($mobile) {
-	.info {
+	.info,
+	.contact {
 		padding: 0 10px;
 	}
 
@@ -140,8 +150,40 @@ body.home .carousel-item img {
 		margin-bottom: 15px;
 	}
 
-	.info aside h2 {
+	.info aside h2,
+	.contact aside h2  {
 		font-size: 1.3em;
+	}
+
+	#subnav {
+		padding: 0 10px;
+		float: left;
+		max-height: 200px;
+		text-align: left;
+	}
+
+	#subnav,
+	#subnav a {
+		display: block;
+		float: left;
+		margin: 0;
+	}
+
+	#subnav a {
+		padding: 8px 0;
+		width: 100%;
+		font-family: 'Freight Text Book';
+		font-size: 1.3em;
+	}
+
+	#subnav a,
+	#subnav a:visited,
+	#subnav a:active {
+		color: #999;
+	}
+
+	#subnav span {
+		display: inline;
 	}
 } 
 

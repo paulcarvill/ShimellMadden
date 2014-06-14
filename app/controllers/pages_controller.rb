@@ -4,11 +4,11 @@ class PagesController < ApplicationController
   end
 
   def about
-  	
+  	@page = Page.find(1)
   end
 
   def comissioning
-  	
+  	@page = Page.find(2)
   end
 
   def news
@@ -16,8 +16,11 @@ class PagesController < ApplicationController
   end
   
   def contact	
+    @page = Page.find(3)
   end
 
   def shop
   end
+
+ 
 end

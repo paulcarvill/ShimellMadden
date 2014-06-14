@@ -6,7 +6,8 @@ em {
 	color: #222;
 }
 
-nav {
+nav,
+#subnav {
 	font-size: 0.9em;
 }
 
@@ -80,4 +81,8 @@ aside em {
 
 aside .tel em {
 	font-style: normal;
+}
+
+.tel a {
+	color: #222;
 }
