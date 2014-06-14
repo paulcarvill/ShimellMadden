@@ -9,7 +9,7 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
     'click #nav-collections' : 'collections',
     'click #nav-archive'     : 'archive',
     'click #nav-projects'    : 'projects',
-    'click #nav-info'        : 'info',
+    'click #nav-info'        : 'about',
     'click #nav-shop'        : 'shop',
     'click .nav-header'      : 'revealNav'
   }
@@ -76,10 +76,10 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
     @revealNav()
     window.router.navigate("archive", {trigger: true})
 
-  info: (e) ->
+  about: (e) ->
     e.preventDefault()
     @revealNav()
-    window.router.navigate("info", {trigger: true})
+    window.router.navigate("about", {trigger: true})
 
   shop: () ->
     window.router.navigate("shop", {trigger: true})
