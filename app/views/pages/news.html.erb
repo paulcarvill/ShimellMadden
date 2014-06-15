@@ -20,7 +20,7 @@
         <% if blog.blogImage_file_name %>
           <%= image_tag blog.image_style_one_url %>
         <% else %>
-          <img src="/assets/about.jpg" />
+          <img src="<%= asset_path "about.jpg" %>" />
         <% end %>
       </article>
     </div>

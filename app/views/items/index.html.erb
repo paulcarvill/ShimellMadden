@@ -42,7 +42,7 @@
         <% if item.collection then %>
           <%= link_to item.collection do %>
             <div class="item-overlay">
-              <img class="down-triangle" src="/assets/down-triangle.svg" />
+              <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
               <p>Collections</p>
               <%= item.collection.name %>
               <%= item.name %>
@@ -51,7 +51,7 @@
         <% elsif item.project then %>
           <%= link_to item.project do %>
             <div class="item-overlay">
-              <img class="down-triangle" src="/assets/down-triangle.svg" />
+              <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
               <p>Projects</p>
               <%= item.project.name %>
               <%= item.name %>
