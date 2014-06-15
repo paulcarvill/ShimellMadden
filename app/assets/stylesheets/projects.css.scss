@@ -21,6 +21,18 @@
 	padding-top: 0;
 }
 
+@include media($mobile) {
+	.projectitem aside h2 {
+		padding-top: 8px;
+	}
+}
+
 .projectitem article img {
 	margin-bottom: 15px;
+}
+
+.projects h2 {
+	border-top: 0;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
 }

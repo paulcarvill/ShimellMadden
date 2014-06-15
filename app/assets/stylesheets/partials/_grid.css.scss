@@ -46,7 +46,9 @@ body {
   @include media($mobile) {
     .info article,
     .contact article,
-    .archiveitem article {
+    .archiveitem article,
+    .projects article,
+    .projectitem article  {
       @include span-columns(4);
     }
   }
@@ -197,6 +199,9 @@ body {
 
   .projectitem article img {
     @include span-columns(6 of 9);
+    @include media($mobile) {
+      @include span-columns(4);
+    }    
   }
 
   .shop .archive-item {

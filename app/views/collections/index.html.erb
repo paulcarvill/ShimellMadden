@@ -31,19 +31,6 @@
   //     Backbone.history.start({pushState: true});
   //   });
 
-  SM = {};
-
-  $('.nav-header').click(function(){
-    if(SM.revealed) {
-          $('nav').toggleClass('woop');
-          SM.revealed = false
-          $('.nav-header img').attr('src', '/assets/menu-closed.svg');
-      } else {
-        $('nav').toggleClass('woop');
-        $('.nav-header img').attr('src', '/assets/menu-open.svg');
-        SM.revealed = true
-      }
-   })
   </script>
   <!-- end Backbone shizzle -->
 </div> <!-- end items -->

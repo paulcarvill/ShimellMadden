@@ -1,11 +1,13 @@
-<header>
-  <%= render "shared/nav" %>
-</header>
-
-  <div id="items">
+<div id="navigation">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+</div>
 
 <section class="blog projects">
   
+  <h2>Projects</h2>
+
   <article>
     <% @projects.each_with_index do |project, index| %>
       <% if index == 0 %>
@@ -38,7 +40,5 @@
 
 <%= will_paginate @projects %>
 
- <%= render "shared/footer" %>
-
-</div>
+<%= render "shared/footer" %>
 

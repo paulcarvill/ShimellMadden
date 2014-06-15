@@ -45,6 +45,8 @@ class ShimellMadden.Routers.HomepageRouter extends Backbone.Router
         $("#navigation").html(@nav.render().el)
 
       @nav.setCurrent('Items')
+
+      backgroundResize();
     )
 
   collections: () ->

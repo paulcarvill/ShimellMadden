@@ -11,7 +11,17 @@
 
         <% if index == 0 %>
           <div class="item item-1">
-          <%= image_tag item.image_style_one_url, height: '100%' %>
+
+          <!-- how to write out these data-img-widths for responsive images???? -->
+
+          <!-- how to write out images for accessibility, e.g not as CSS backgrounds?! -->
+
+
+
+
+
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+
         <% elsif index == 1 %>
           <div class="item item-2">
           <%= image_tag item.image_style_two_url, height: '100%' %>
@@ -63,19 +73,10 @@
     //   Backbone.history.start({pushState: true});
     // });
 
-    SM = {};
-
-    $('.nav-header').click(function(){
-      if(SM.revealed) {
-        $('nav').toggleClass('woop');
-        SM.revealed = false
-        $('.nav-header img').attr('src', '/assets/menu-closed.svg');
-      } else {
-        $('nav').toggleClass('woop');
-        $('.nav-header img').attr('src', '/assets/menu-open.svg');
-        SM.revealed = true
-      }
+    $(document).ready(function(){
+      backgroundResize();
     })
+
   </script>
   <!-- end Backbone shizzle -->
 </div> <!-- end items -->

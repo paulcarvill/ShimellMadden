@@ -141,7 +141,9 @@ body.home .carousel-item img {
 @include media($mobile) {
 	.info,
 	.contact,
-	.archiveitem {
+	.archiveitem,
+	.projects,
+	.projectitem {
 		padding: 0 10px;
 	}
 
@@ -156,7 +158,9 @@ body.home .carousel-item img {
 	.contact aside h2,
 	.archive aside h2,
 	.archiveitem aside h2,
-	.archiveitem h3 {
+	.archiveitem h3,
+	.projects h2,
+	.projectitem h2 {
 		font-size: 1.3em;
 	}
 
