@@ -1,4 +1,4 @@
-<img src="/assets/logo.svg" width="38" height="44" />
+<img src="<%= asset_path "logo.svg" %>" width="38" height="44" />
 <p class="nav-header"><span>Menu</span><img style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" src="/assets/menu-closed.svg" width="22" height="14" /></p>
 <nav>
   <a href="/"<%= if controller?("pages") && action?("index", "show") then " class=current" end %>>Home</a>
