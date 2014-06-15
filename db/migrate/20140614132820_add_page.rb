@@ -1,8 +1,8 @@
 class AddPage < ActiveRecord::Migration
   def change
   	create_table :pages do |t|
-      t.string :name
-      t.string :content
+      t.text :name
+      t.text :content
 
       t.attachment :image
     end
