@@ -22,7 +22,8 @@ body {
     }
   }
 
-  header {
+  header,
+  #navigation {
   	@include span-columns(12);
   }
 
@@ -44,7 +45,8 @@ body {
 
   @include media($mobile) {
     .info article,
-    .contact article {
+    .contact article,
+    .archiveitem article {
       @include span-columns(4);
     }
   }

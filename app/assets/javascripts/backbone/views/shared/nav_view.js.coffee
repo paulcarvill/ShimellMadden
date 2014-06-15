@@ -4,14 +4,14 @@ class ShimellMadden.Views.Shared.NavView extends Backbone.View
   template: JST["backbone/templates/shared/nav"]
 
   events: {
-    'click #nav-home'        : 'home',
-    'click #nav-items'       : 'items',
-    'click #nav-collections' : 'collections',
-    'click #nav-archive'     : 'archive',
-    'click #nav-projects'    : 'projects',
-    'click #nav-info'        : 'about',
-    'click #nav-shop'        : 'shop',
-    'click .nav-header'      : 'revealNav'
+    # 'click #nav-home'        : 'home',
+    # 'click #nav-items'       : 'items',
+    # 'click #nav-collections' : 'collections',
+    # 'click #nav-archive'     : 'archive',
+    # 'click #nav-projects'    : 'projects',
+    # 'click #nav-info'        : 'about',
+    # 'click #nav-shop'        : 'shop',
+    # 'click .nav-header'      : 'revealNav'
   }
 
   tagName: "div"

@@ -8,6 +8,8 @@ ShimellMadden::Application.routes.draw do
 
   get '/comissioning', to: 'pages#comissioning'
   get '/news', to: 'pages#news'
+  #get '/news/:id', to: 'pages#newsshow'
+
   get '/contact', to: 'pages#contact'
 
   resources :projects

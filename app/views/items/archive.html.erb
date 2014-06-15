@@ -1,8 +1,10 @@
-<header>
+<div id="navigation">
+  <header>
     <%= render "shared/nav" %>
   </header>
+</div>
 
-  <section class="blog archive">
+<section class="blog archive">
   <aside>
     <h2>Archive</h2>
     <p>Reprehenderit in voluptate velit esse
@@ -13,14 +15,14 @@
     <li>Category
       <ul>
       <% @categories.each do |category| %>
-        <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a></li>
+        <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a><%= if category.id.to_s == params['category'] then raw('<a style="float:right" href="/archive">x</a>') end %></li>
       <% end %>
       </ul>
     </li>
     <li>Date</li>
     </ul>
-
   </aside>
+
   <article>
     <% @items.each_with_index do |item, index| %>
       <div class="archive-item">
@@ -33,9 +35,11 @@
             <% end %>
             <a href="/archive/<%= item.id %>">
               <div class="item-overlay">
-                <img class="down-triangle" src="/assets/down-triangle.svg" />
-                <p>Archive item</p>
-                <%= item.name %>
+                <div class="tc">
+                  <img class="down-triangle" src="/assets/down-triangle.svg" />
+                  <p>Archive item</p>
+                  <%= item.name %>
+                </div>
               </div>
             </a>
           </div>
@@ -48,3 +52,18 @@
 <%= will_paginate @items %>
 <%= render "shared/footer" %>
 
+<script type="text/javascript">
+ SM = {};
+
+ $('.nav-header').click(function(){
+  if(SM.revealed) {
+        $('nav').toggleClass('woop');
+        SM.revealed = false
+        $('.nav-header img').attr('src', '/assets/menu-closed.svg');
+    } else {
+      $('nav').toggleClass('woop');
+      $('.nav-header img').attr('src', '/assets/menu-open.svg');
+      SM.revealed = true
+    }
+ })
+ </script>

@@ -99,6 +99,14 @@ nav a:nth-child(1) {
 	transition: max-height 1s 0ms;
  	max-height: 400px;
  }
+
+ #navigation {
+  padding: 0 10px;
+ }
+
+ .subnav {
+  display: none;
+ }
 }
 
 
@@ -112,6 +120,4 @@ nav a:nth-child(1) {
   padding-top: 122px;
 }
 
-#navigation {
-  padding: 0 10px;
-}
+

@@ -1,18 +1,39 @@
-<section class="blog archiveitem">
+<div id="navigation">
   <header>
     <%= render "shared/nav" %>
   </header>
+</div>
+
+<section class="blog archiveitem">
   <aside>
     <h2>Archive</h2>
     <h3><%= @item.name %></h3>
     <p class="desc"><%= @item.description %></p>
-    <p><%= link_to 'Back to archive', archive_path %></p>
+    <p class="topback"><%= link_to 'Back to archive', archive_path %></p>
   </aside>
   <article style="position: relative;">
-    <p class="carousel-prev"><a href=""><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /><span>previous archive item</span></a></p>
+    <!-- <p class="carousel-prev"><a href=""><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /><span>previous archive item</span></a></p> -->
     <%= image_tag @item.image_style_one_url %>
-    <p class="carousel-next"><a href=""><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /><span>next archive item</span></a></p>
+    <!-- <p class="carousel-next"><a href=""><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /><span>next archive item</span></a></p> -->
+    <p class="bottomback"><%= link_to 'Back to archive', archive_path %></p>
   </article>
- </section>
 
- <%= render "shared/footer" %>
+</section>
+
+<%= render "shared/footer" %>
+
+<script type="text/javascript">
+  SM = {};
+
+  $('.nav-header').click(function(){
+    if(SM.revealed) {
+      $('nav').toggleClass('woop');
+      SM.revealed = false
+      $('.nav-header img').attr('src', '/assets/menu-closed.svg');
+    } else {
+      $('nav').toggleClass('woop');
+      $('.nav-header img').attr('src', '/assets/menu-open.svg');
+      SM.revealed = true
+    }
+  })
+</script>

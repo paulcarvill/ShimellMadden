@@ -128,6 +128,10 @@ function backgroundResize(){
 // $(window).resize(fullscreenFix);
 $(window).resize(backgroundResize);
 
+window.addEventListener('load', function() {
+    FastClick.attach(document.body);
+}, false);
+
 </script>
 </body>
 </html>

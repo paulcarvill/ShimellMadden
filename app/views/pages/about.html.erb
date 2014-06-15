@@ -1,22 +1,23 @@
-<header>
-	<%= render "shared/nav" %>
-</header>
-<div id="subnav">
-	<%= render "shared/subnav" %>
+<div id="navigation">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <div id="subnav">
+    <%= render "shared/subnav" %>
+  </div>
 </div>
 
- 	<section class="info blog">
-	
- 	<aside>
+<section class="info blog">
+	<aside>
  		<%= @page.content.html_safe %>
  	</aside>
 
- 	<article>
- 		<img src="/assets/about.jpg" />
- 	</article>
- </section>
+  <article>
+    <img src="/assets/about.jpg" />
+  </article>
+</section>
 
- <%= render "shared/footer" %>
+<%= render "shared/footer" %>
 
 <script type="text/javascript">
  SM = {};

@@ -140,10 +140,12 @@ body.home .carousel-item img {
 
 @include media($mobile) {
 	.info,
-	.contact {
+	.contact,
+	.archiveitem {
 		padding: 0 10px;
 	}
 
+	.archiveitem aside p.desc,
 	.info aside p {
 		font-family: 'Freight Text Book';
 		font-size: 1.3em;
@@ -151,12 +153,14 @@ body.home .carousel-item img {
 	}
 
 	.info aside h2,
-	.contact aside h2  {
+	.contact aside h2,
+	.archive aside h2,
+	.archiveitem aside h2,
+	.archiveitem h3 {
 		font-size: 1.3em;
 	}
 
 	#subnav {
-		padding: 0 10px;
 		float: left;
 		max-height: 200px;
 		text-align: left;
