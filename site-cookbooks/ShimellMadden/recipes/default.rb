@@ -28,6 +28,6 @@ mysql_database_user "railsuser" do
   connection ({:host => 'localhost', :username => 'root', :password => root_pw})
   password railuser_pw
   database_name "ShimellMadden"
-  privileges [:select,:update,:insert,:create,:delete, :index]
+  privileges [:select,:update,:insert,:create,:delete, :index, :alter]
   action :grant
 end

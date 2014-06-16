@@ -100,6 +100,11 @@ TODO: Add mysql user/pass into config/database.yml
 
 Put the database config on the VM:
 
+mkdir shared
+cd shared
+mkdir config
+exit
+
 `$ scp -P 2222 ./config/database.yml deployer@127.0.0.1:/home/deployer/shared/config/database.yml`
 
 Put the Rails secret on the VM:
@@ -169,6 +174,7 @@ encrypted_data_bag_secret_key_path '~/encrypted_data_bag_secret'
 Install cookbooks onto the VM (this may take some time...):
 
 `$ knife solo bootstrap --bootstrap-version 11.8.2-1 -p 2222 deployer@127.0.0.1`
+(specify SSH key using -i /path/to/key)
 
 You should see:
 
@@ -179,7 +185,10 @@ TODO: how to deal with forwarding correct key to VM to connect to github…? Opt
 Do a Capistrano deploy check:
 
 `$ cap staging deploy:check`
+if you get a permisison error, make sure your SSH key is added to the agent: ssh-add /path/to/publickey
 
 If no errors, do a full deploy:
 
 `$ cap staging deploy`
+
+if permission errors, make sure deployer is added to rvm group (sudo adduser deployer rvm)
