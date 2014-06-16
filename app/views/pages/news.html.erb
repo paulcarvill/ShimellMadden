@@ -30,4 +30,36 @@
 
 <%= will_paginate @blogs %>
 
- <%= render "shared/footer" %>
+<%= render "shared/footer" %>
+
+<script>
+  var page = 1;
+ 
+  $('document').ready(function() {
+    
+    $('footer').appear();
+
+    $(document.body).on('appear', 'footer', function(e) {
+      var $this = $(this);
+      if ($this.data('am-i-appeared')) {
+        return;
+      }
+      $this.data('am-i-appeared', true);
+      page++;
+
+      // get paginated news items
+      $.get('http://127.0.0.1:3000/news.json?page=' + page, function(resp){
+        for(var i = 0; i < resp.length; i++) {
+          $('section').append('<div class="news-item"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><img src="<%= asset_path "about.jpg" %>" /></article></div>')
+        }
+        if(resp.length < 3) {
+          $this.data('am-i-appeared', true);
+        } else {
+          $this.data('am-i-appeared', false);
+        }
+      });
+
+    });
+  });
+</script>
+

@@ -64,9 +64,12 @@
   </section>
 
   <%= will_paginate @items %>
-  <%= render "shared/footer" %>
 
-  <!-- Backbone shizzle -->
+</div> <!-- end items -->
+
+<%= render "shared/footer" %>
+
+<!-- Backbone shizzle -->
   <script type="text/javascript">
     // $(function() {
     //   window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
@@ -79,6 +82,3 @@
 
   </script>
   <!-- end Backbone shizzle -->
-</div> <!-- end items -->
-
-<%= render "shared/footer" %>

@@ -2,6 +2,10 @@ body {
 	display: block;
 	padding: 0;
 	margin: 0 auto;
+
+	@include media($tablet) {
+    	padding: 0 10px;
+  	}
 }
 
 body.home {
@@ -102,6 +106,10 @@ h1 img {
 .contact aside p {
 	margin: 0;
 	padding: 0;
+}
+
+.contact aside p a {
+	word-wrap: break-word;
 }
 
 body.home .carousel-item {
