@@ -4,7 +4,6 @@
 
 <!-- #items div is used by backbone to put stuff in -->
 <div id="items"> 
-  <a href="/items"> 
   <section class="blog">
   	<div id="centerer">
       <div id="centerer-inner">
@@ -14,20 +13,48 @@
     </div>
     <div id="my-carousel">
       <% @items.each_with_index do |item, index| %>
-        <% if index == 0 %>
-          <a href="/items"><img class="slide" src="<%= item.image_style_one_url %>" width="100%" height="100%" /></a>
-        <% end %>
+        <div class="carousel not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+          <div class="content-a">
+            <div class="content-b">
+              Centered content
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
+      <p class="carousel-prev"><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /></p>
+    </div> <!-- end carousel -->
   </section>
-  </a>
-
-  <!-- Backbone shizzle -->
-  <script type="text/javascript">
-    // $(function() {
-    //   window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
-    //   Backbone.history.start({pushState: true});
-    // });
-  </script>
-  <!-- end Backbone shizzle -->
 </div>
+
+<script>
+$(function(){
+  var current = 0;
+  var items = [];
+
+  $('#my-carousel div.carousel').each(function(){
+    items.push(this)
+  })
+
+  $('.carousel-prev').click(function(){
+    $(items[current]).fadeOut();
+    current--;
+    if (current == -1) {
+      current = items.length - 1
+    }
+    $(items[current]).fadeIn()
+  })
+
+  $('.carousel-next').click(function(){
+    console.log('nxt');
+    $(items[current]).fadeOut();
+    current++;
+    if (current == items.length) {
+      current = 0
+    }
+    $(items[current]).fadeIn()
+  })
+
+  $(items[current]).fadeIn();
+})
+</script>
