@@ -69,16 +69,26 @@
 
 <%= render "shared/footer" %>
 
-<!-- Backbone shizzle -->
+  <style>
+  .sticky-wrapper {
+    margin-bottom: 10px;
+    
+    float: left;
+    width: 100%;
+  }
+  body header nav {
+    margin: 0;
+    padding-top: 10px;
+  }
+  .stuck {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  </style>
   <script type="text/javascript">
-    // $(function() {
-    //   window.router = new ShimellMadden.Routers.HomepageRouter({items: <%= @items.to_json.html_safe -%>});
-    //   Backbone.history.start({pushState: true});
-    // });
-
     $(document).ready(function(){
-      backgroundResize();
+      $('nav').waypoint('sticky');
     })
-
   </script>
-  <!-- end Backbone shizzle -->
