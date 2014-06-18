@@ -1,14 +1,9 @@
-<div id="navigation">
-
-</div>
-
-<!-- #items div is used by backbone to put stuff in -->
 <div id="items"> 
   <section class="blog">
   	<div id="centerer">
       <div id="centerer-inner">
         <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>
-        <h2>View collections</h2>
+        <h2><a href="/items">View collections</a></h2>
       </div>
     </div>
     <div id="my-carousel">
@@ -28,6 +23,11 @@
 </div>
 
 <script>
+/*
+ *	
+ * fullscreen carousel for homepage
+ *
+ */
 $(function(){
   var current = 0;
   var items = [];
@@ -57,8 +57,14 @@ $(function(){
 
   $(items[current]).fadeIn();
 
+  /*
+   * resize images to fit into their container
+   */ 
   backgroundResize({ 'data' : {'widthEle' : '#my-carousel', 'heightEle' : '#my-carousel'} });
-  $(window).resize({'widthEle' : '#my-carousel', 'heightEle' : '#my-carousel'}, backgroundResize);
-
+  
+  /*
+   * when window is resized, resize images to fit into their container
+   */ 
+   $(window).resize({'widthEle' : '#my-carousel', 'heightEle' : '#my-carousel'}, backgroundResize);
 })
 </script>

@@ -16,27 +16,27 @@
 
           <!-- how to write out images for accessibility, e.g not as CSS backgrounds?! -->
 
-
-
-
-
           <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
 
         <% elsif index == 1 %>
           <div class="item item-2">
-          <%= image_tag item.image_style_two_url, height: '100%' %>
+          <div class="fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+
         <% elsif index == 2 %>
           <div class="item item-3">
-          <%= image_tag item.image_style_three_url, height: '100%' %>
+          <div class="fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+
         <% elsif index == 3 %>
           <div class="item item-4">
-          <%= image_tag item.image_style_one_url, height: '100%' %>
+          <div class="fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+
         <% elsif index == 4 %>
           <div class="item item-5">
-          <%= image_tag item.image_style_one_url, height: '100%' %>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+        
         <% elsif index == 5 %>
           <div class="item item-6">
-          <%= image_tag item.image_style_one_url, height: '100%' %>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
         <% end %>
             
         <% if item.collection then %>
@@ -69,26 +69,53 @@
 
 <%= render "shared/footer" %>
 
-  <style>
-  .sticky-wrapper {
-    margin-bottom: 10px;
+<script>
+  var page = 1;
+ 
+  $('document').ready(function() {
     
-    float: left;
-    width: 100%;
-  }
-  body header nav {
-    margin: 0;
-    padding-top: 10px;
-  }
-  .stuck {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-  </style>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('nav').waypoint('sticky');
-    })
-  </script>
+    $('footer').appear();
+
+    $(document.body).on('appear', 'footer', function(e) {
+      var $this = $(this);
+      if ($this.data('am-i-appeared')) {
+        return;
+      }
+      $this.data('am-i-appeared', true);
+      page++;
+
+      // get paginated news items
+      history.replaceState(null, null, "/items?page=" + page);
+
+      $.get('http://127.0.0.1:3000/items.json?page=' + page, function(resp){
+        for(var i = 0; i < resp.length; i++) {
+
+          console.log(resp[i]);
+          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"></div><a href="#"><div class="item-overlay"><img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" /><p>Collections</p>foo bar</div></a>');
+
+        }
+        if(resp.length < 6) {
+          $this.data('am-i-appeared', true);
+        } else {
+          $this.data('am-i-appeared', false);
+        }
+      });
+    });
+
+    //
+    // resize images to fit into their container
+    // 
+    backgroundResize({ 'data' : {'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true} });
+    
+    //
+    // when window is resized, resize images to fit into their container
+    // 
+    $(window).resize({'widthEle' : '.item', 'heightEle' : '.item'}, backgroundResize);
+    
+    //
+    // make nav sticky
+    //
+    $('nav').waypoint('sticky');
+  });
+
+</script>

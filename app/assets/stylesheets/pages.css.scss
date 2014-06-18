@@ -146,6 +146,28 @@ body.home .carousel-item img {
 	height: 9px;
 }
 
+.js .pagination {
+	display: none;
+}
+ 
+.sticky-wrapper {
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+}
+
+body header nav {
+	margin: 0;
+	padding-top: 10px;
+}
+
+.stuck {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+
 @include media($mobile) {
 	.info,
 	.contact,

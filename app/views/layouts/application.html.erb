@@ -48,6 +48,8 @@
 </head>
 <body<%= if controller?("pages") && action?("index") then raw(" class='home'") end %><%= if controller?("pages") && action?("shop") then raw(" class='shoppage'") end %>>
 
+<script type="text/javascript">document.getElementsByTagName('body')[0].className+=' js'</script>
+
 <%= yield %>
 
 <script type="text/javascript">
@@ -94,6 +96,14 @@ function backgroundResize(obj){
     var contH = $(obj.data.heightEle).height(); // sets resized image size.
 
     $(".background").each(function(i){
+
+        i++;
+
+        if (obj.data.multi) {
+            console.log('heree');
+            contW = $(obj.data.widthEle + '-' + i).width(); // sets resized image size
+            contH = $(obj.data.heightEle + '-' + i).height(); // sets resized image size.
+        }
 
         var path = $(this);
         var imgW = path.attr("data-img-width");
