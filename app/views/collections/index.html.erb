@@ -13,15 +13,21 @@
 
 <div id="items">
   <section class="blog collections">
-    <% @collections.each do |collection| %>
-      <article style="position: relative">
-        <div class="collections-info">
-          <h2><%= collection.name %></h2>
-          <p><%= link_to 'View collection', collection %></p>
-        </div>  
-        <%= image_tag collection.items.first.image_style_one_url %>
+    <div id="my-carousel">
+      <article>
+        <% @collections.each do |collection| %>
+        <div class="carousel">
+          <%= image_tag collection.items.first.image_style_one_url %>
+          <div class="collections-info">
+            <h2><%= collection.name %></h2>
+            <p><%= link_to 'View collection', collection %></p>
+          </div>
+        </div>
+        <% end %>
+        <p class="carousel-prev"><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /></p>
+        <p class="carousel-next"><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /></p>
       </article>
-    <% end %>
+    </div> <!-- end carousel -->
    </section>
 
    <script type="text/javascript">

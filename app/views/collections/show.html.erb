@@ -11,7 +11,6 @@
   </div>
 </div>
 
-<div id="items"> 
 <section class="blog collection">
   <article>
     <div class="collection-info">
@@ -21,10 +20,12 @@
     
     <div id="my-carousel">
     <% @items.each do |item| %>
-      <div class="carousel not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+      <div class="carousel">
+        <img src="<%= item.image_style_one_url %>" />
       </div>
     <% end %>
     </div>
+
     <p class="carousel-prev"><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /></p>
     <p class="carousel-next"><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /></p>
   
@@ -33,7 +34,6 @@
     </div>
   </article>
 </section>
-</div>
 
 <script type="text/javascript">
   $(function(){

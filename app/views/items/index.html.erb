@@ -90,7 +90,7 @@
 
       $.get('http://127.0.0.1:3000/items.json?page=' + page, function(resp){
         for(var i = 0; i < resp.length; i++) {
-          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"></div><a href="#"><div class="item-overlay"><img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" /><p>Collections</p>foo bar</div></a>');
+          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b"><a href="/projects/"><img class="down-triangle" src="/assets/down-triangle.svg" /><p>Projects</p>item.project.name item.name</div></div></div>');
         }
         if(resp.length < 6) {
           $this.data('am-i-appeared', true);
