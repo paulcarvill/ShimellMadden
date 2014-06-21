@@ -16,48 +16,49 @@
 
           <!-- how to write out images for accessibility, e.g not as CSS backgrounds?! -->
 
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
 
         <% elsif index == 1 %>
           <div class="item item-2">
-          <div class="fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
 
         <% elsif index == 2 %>
           <div class="item item-3">
-          <div class="fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
 
         <% elsif index == 3 %>
           <div class="item item-4">
-          <div class="fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
 
         <% elsif index == 4 %>
           <div class="item item-5">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
         
         <% elsif index == 5 %>
           <div class="item item-6">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144"></div>
+          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
         <% end %>
             
-        <% if item.collection then %>
-          <%= link_to item.collection do %>
-            <div class="item-overlay">
-              <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-              <p>Collections</p>
-              <%= item.collection.name %>
-              <%= item.name %>
+            <div class="content-a">
+              <div class="content-b">
+                <% if item.collection then %>
+                  <%= link_to item.collection do %>
+                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                    <p>Collections</p>
+                    <%= item.collection.name %>
+                    <%= item.name %>
+                  <% end %>
+                <% elsif item.project then %>
+                  <%= link_to item.project do %>
+                      <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                      <p>Projects</p>
+                      <%= item.project.name %>
+                      <%= item.name %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-          <% end %>
-        <% elsif item.project then %>
-          <%= link_to item.project do %>
-            <div class="item-overlay">
-              <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-              <p>Projects</p>
-              <%= item.project.name %>
-              <%= item.name %>
-            </div>
-          <% end %>
-        <% end %>
+          </div>
         </div>
       <% end %>
     </article>
@@ -71,7 +72,7 @@
 
 <script>
   var page = 1;
- 
+  var item = 6;
   $('document').ready(function() {
     
     $('footer').appear();
@@ -89,16 +90,19 @@
 
       $.get('http://127.0.0.1:3000/items.json?page=' + page, function(resp){
         for(var i = 0; i < resp.length; i++) {
-
-          console.log(resp[i]);
           $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"></div><a href="#"><div class="item-overlay"><img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" /><p>Collections</p>foo bar</div></a>');
-
         }
         if(resp.length < 6) {
           $this.data('am-i-appeared', true);
         } else {
           $this.data('am-i-appeared', false);
         }
+
+        window.setTimeout( function(){
+          backgroundResize({ 'data' : {'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true, 'pagesize' : 6} });
+        }, 500);
+        item += resp.length;
+
       });
     });
 
@@ -110,7 +114,7 @@
     //
     // when window is resized, resize images to fit into their container
     // 
-    $(window).resize({'widthEle' : '.item', 'heightEle' : '.item'}, backgroundResize);
+    $(window).resize({'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true}, backgroundResize);
     
     //
     // make nav sticky

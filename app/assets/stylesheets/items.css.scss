@@ -1,5 +1,4 @@
 #items {
-	display: table;
 	@include media($mobile) {
       padding: 10px;
     }    
@@ -10,15 +9,27 @@ body .item {
 	position: relative;
 }
 
-.item a {
+.item:hover .background .content-a:before {
+	content: '';
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: table;
+	top: 0;
+	left: 0;
+	background: rgba(246, 81, 0, 0.7);
 }
 
-.item:hover div {
-	display: table-cell;
+.item .content-a {
+	display: none;
+}
+
+.item .content-a a p,
+.content-b a {
+	color: #fff;
+}
+
+.item:hover .content-a {
+	display: table;
 }
 
 .archiveitem aside h2 {

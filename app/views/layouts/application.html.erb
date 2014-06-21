@@ -94,15 +94,21 @@ function backgroundResize(obj){
 
     var contW = $(obj.data.widthEle).width(); // sets resized image size
     var contH = $(obj.data.heightEle).height(); // sets resized image size.
+    var pagesize = obj.data.pagesize || 6;
+    var page = 1;
+    var current = 0;
 
-    $(".background").each(function(i){
+    $(".background").each(function(){
 
-        i++;
+        if (current > (pagesize-1)) {
+            current = current - pagesize;
+            page++;
+            console.log(current);
+        }
 
         if (obj.data.multi) {
-            console.log('heree');
-            contW = $(obj.data.widthEle + '-' + i).width(); // sets resized image size
-            contH = $(obj.data.heightEle + '-' + i).height(); // sets resized image size.
+            contW = $(obj.data.widthEle + '-' + (current+1)).width(); // sets resized image size
+            contH = $(obj.data.heightEle + '-' + (current+1)).height(); // sets resized image size.
         }
 
         var path = $(this);
@@ -131,6 +137,8 @@ function backgroundResize(obj){
         path.data("resized-imgW", imgW);
         path.data("resized-imgH", imgH);
         path.css("background-size", imgW + "px " + imgH + "px");
+
+        current++;
     });
 }
 
