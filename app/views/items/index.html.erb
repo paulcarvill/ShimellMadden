@@ -71,7 +71,7 @@
 <%= render "shared/footer" %>
 
 <script>
-  var page = 1;
+  var page = <%= @page %>;
   var item = 6;
   $('document').ready(function() {
     
@@ -85,10 +85,8 @@
       $this.data('am-i-appeared', true);
       page++;
 
-      // get paginated news items
-      history.replaceState(null, null, "/items?page=" + page);
-
       $.get('http://127.0.0.1:3000/items.json?page=' + page, function(resp){
+        history.replaceState(null, null, "/items?page=" + page);
         for(var i = 0; i < resp.length; i++) {
           $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b"><a href="/projects/"><img class="down-triangle" src="/assets/down-triangle.svg" /><p>Projects</p>item.project.name item.name</div></div></div>');
         }

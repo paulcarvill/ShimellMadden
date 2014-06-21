@@ -11,29 +11,35 @@
   </div>
 </div>
 
+<div id="items">
 <section class="blog collection">
-  <article>
-    <div class="collection-info">
-      <h2><%= @collection.name %></h2>
-      <p><%= @collection.description %></p>
-    </div>
-    
+  <div class="collection-info">
+    <h2><%= @collection.name %></h2>
+    <p><%= @collection.description %></p>
+  </div>
+
+  <article style="position: relative">
     <div id="my-carousel">
-    <% @items.each do |item| %>
-      <div class="carousel">
+    <% @items.each_with_index do |item, index| %>
+      <div class="carousel<% if index == 0 %> first<% end %>">
         <img src="<%= item.image_style_one_url %>" />
       </div>
     <% end %>
-    </div>
+    </div> <!-- end carousel -->
 
     <p class="carousel-prev"><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /></p>
     <p class="carousel-next"><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /></p>
-  
-    <div style="position: absolute; top: 0; right: 0; border: 1px solid #fff; padding: 5px; margin: 15px; font-size: 0.8em;">
+
+    <div class="shopthis">
       <p><a href="#">Shop this item</a></p>
     </div>
+
+    <p class="indicator"></p>
   </article>
 </section>
+</div>
+  
+<%= render "shared/footer" %>
 
 <script type="text/javascript">
   $(function(){
@@ -50,24 +56,38 @@
       if (current == -1) {
         current = items.length - 1
       }
-      $(items[current]).fadeIn()
+      $(items[current]).fadeIn();
+      $('a.curr').removeClass('curr');
+      $('.indicator a').eg(current).addClass('curr');
     })
 
     $('.carousel-next').click(function(){
-      console.log('nxt');
       $(items[current]).fadeOut();
       current++;
       if (current == items.length) {
         current = 0
       }
-      $(items[current]).fadeIn()
+      $(items[current]).fadeIn();
+
+      $('a.curr').removeClass('curr');
+      $('.indicator a').eq(current).addClass('curr');
     })
 
-    $(items[current]).fadeIn();
+    var clas="";
+    for (var i = 0; i < items.length; i++) {
+      if (current == i) {
+        clas = "curr";
+      } else {
+        clas = "";
+      }
+      $('.indicator').append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+    }
 
-    backgroundResize({ 'data' : {'widthEle' : '#my-carousel', 'heightEle' : '#my-carousel'} });
+    $('article').css('height', items[current].offsetHeight);
+
+    if(items.length < 2){
+      $('.carousel-prev').remove();
+      $('.carousel-next').remove();
+    }
   });
 </script>
-
-
-<%= render "shared/footer" %>

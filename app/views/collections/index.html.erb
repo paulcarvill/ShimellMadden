@@ -14,9 +14,9 @@
 <div id="items">
   <section class="blog collections">
     <div id="my-carousel">
-      <article>
-        <% @collections.each do |collection| %>
-        <div class="carousel">
+      <article style="position: relative">
+        <% @collections.each_with_index do |collection, index| %>
+        <div class="carousel<% if index == 0 %> first<% end %>">
           <%= image_tag collection.items.first.image_style_one_url %>
           <div class="collections-info">
             <h2><%= collection.name %></h2>
@@ -26,13 +26,69 @@
         <% end %>
         <p class="carousel-prev"><img src="/assets/left-arrow.svg" alt="&laquo;" style="height:100%" /></p>
         <p class="carousel-next"><img src="/assets/right-arrow.svg" alt="&raquo;" style="height:100%" /></p>
+
+        <p class="indicator"></p>
       </article>
     </div> <!-- end carousel -->
    </section>
-
-   <script type="text/javascript">
-
-  </script>
-</div> <!-- end items -->
+</div>
 
 <%= render "shared/footer" %>
+
+<script>
+/*
+ *  
+ *  carousel for collections page
+ *
+ */
+$(function(){
+  var current = 0;
+  var items = [];
+
+  $('#my-carousel div.carousel').each(function(){
+    items.push(this)
+  })
+
+  $('.carousel-prev').click(function(){
+    $(items[current]).fadeOut();
+    current--;
+    if (current == -1) {
+      current = items.length - 1
+    }
+    $(items[current]).fadeIn()
+    $('a.curr').removeClass('curr');
+    $('.indicator a').eg(current).addClass('curr');
+  })
+
+  $('.carousel-next').click(function(){
+    $(items[current]).fadeOut();
+    current++;
+    if (current == items.length) {
+      current = 0
+    }
+    $(items[current]).fadeIn();
+
+    $('a.curr').removeClass('curr');
+    $('.indicator a').eq(current).addClass('curr');
+  })
+
+  var clas="";
+  for (var i = 0; i < items.length; i++) {
+    if (current == i) {
+      clas = "curr";
+    } else {
+      clas = "";
+    }
+    $('.indicator').append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+  }
+
+  $('article').css('height', items[current].offsetHeight);
+
+  if(items.length < 2){
+      $('.carousel-prev').remove();
+      $('.carousel-next').remove();
+  }
+  
+})
+
+  </script>

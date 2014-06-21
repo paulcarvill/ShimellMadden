@@ -12,6 +12,12 @@ class PagesController < ApplicationController
   end
 
   def news
+    sleep(1)
+    if params[:page]
+      @page = params[:page]
+    else
+      @page = 1
+    end
   	@blogs = Blog.all.paginate(:page => params[:page], :per_page => 3)
   end
   

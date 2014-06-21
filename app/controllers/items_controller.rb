@@ -6,6 +6,11 @@ class ItemsController < ApplicationController
   def index
     respond_to do |format|
         format.html {
+          if params[:page]
+            @page = params[:page]
+          else
+            @page = 1
+          end
           @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
         }
         format.json {

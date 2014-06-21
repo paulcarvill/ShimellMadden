@@ -2,10 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.collection {
+	position: relative;
+}
+
 .collections article div h2,
 .collections article div p,
 .collections article div p a {
 	color: #fff;
+}
+
+.indicator a {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: gray;
+	display: inline-block;
+	margin: 0 3px
+}
+
+.indicator a.curr {
+	background: #fff;	
+}
+
+.indicator span {
+	display: none;
+}
+
+.indicator {
+	position: absolute;
+	display: block;
+	width: 100%;
+	bottom: 20px;
+	text-align: center;
 }
 
 .collections-info,
@@ -16,6 +45,7 @@
 	padding: 15px 15px;
 	color: #fff;
 	width: 250px;
+	z-index: 100;
 }
 
 .collections-info h2,
@@ -71,7 +101,33 @@
 	color: #fff;
 }
 
+.shopthis {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 1px solid #fff;
+	padding: 5px;
+	margin: 15px;
+	font-size: 0.8em;
+}
+
 @include media($mobile) {
+
+	.collection-info p {
+		font-size: 1.3em;
+	}
+
+	.collection-info {
+		position: static;
+		padding: 0;
+		width: 100%;
+	}
+
+	.shopthis {
+		position: static;
+		padding: 0;
+		margin: 0;
+	}
 
 	#items {
 		width: 100%;
@@ -82,7 +138,7 @@
 	}
 
 	.collection #my-carousel {
-		height: 192px;
+		
 	}
 
 	.collection #my-carousel .carousel-item {
@@ -117,8 +173,9 @@
 		width: auto;
 	}
 
-	.collections article .carousel-item .collections-info h2,
-	.collection article .collections-info h2 {
+	.collections .carousel-item .collections-info h2,
+	.collection .collections-info h2,
+	.collection .collection-info h2 {
 		color: #ff7e15;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #aaa;
@@ -163,6 +220,10 @@
 		padding: 10px 0;
 		color: #aaa;
 	}
+}
+
+.first {
+	display: block;
 }
 
 @include media($tablet) {

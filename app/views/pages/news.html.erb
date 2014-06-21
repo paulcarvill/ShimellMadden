@@ -33,9 +33,9 @@
 <%= render "shared/footer" %>
 
 <script>
-  var page = 1;
+  var page = <%= @page %>;
  
-  $('document').ready(function() {
+  $(function() {
     
     $('footer').appear();
 
@@ -49,6 +49,7 @@
 
       // get paginated news items
       $.get('http://127.0.0.1:3000/news.json?page=' + page, function(resp){
+        history.replaceState(null, null, "/news?page=" + page);
         for(var i = 0; i < resp.length; i++) {
           $('section').append('<div class="news-item"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><img src="<%= asset_path "about.jpg" %>" /></article></div>')
         }
