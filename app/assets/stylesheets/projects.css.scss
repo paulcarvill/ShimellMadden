@@ -6,6 +6,10 @@
 	margin-bottom: 15px;
 }
 
+section.projects > h2 {
+	display: none;
+}
+
 .projects .item-4 {
 	@include span-columns(6 of 12);
     height: 627px;
@@ -35,4 +39,34 @@
 	border-top: 0;
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 20px;
+}
+
+.proj-name {
+	display: none;
+}
+
+.projectitem .topback {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	font-size: 1em;
+	margin-top: 8px;
+}
+
+.projectitem aside p {
+	font-size: 1.3em;
+}
+
+@include media($mobile) {
+	.proj-name {
+		float: left;
+		text-align: center;
+		clear: left;
+		width: 100%;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 10px;
+		font-family: 'DIN Next Pro Regular';
+	}
 }

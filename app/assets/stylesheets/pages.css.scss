@@ -156,6 +156,12 @@ body.home .carousel-item img {
 	width: 100%;
 }
 
+@include media($mobile) {
+	.sticky-wrapper {
+		margin-bottom: 0;
+	}
+}
+
 body header nav {
 	margin: 0;
 	padding-top: 10px;

@@ -12,28 +12,34 @@
     <% @projects.each_with_index do |project, index| %>
       <% if index == 0 %>
         <div class="item item-1">
-        <%= image_tag project.items.first.image_style_one_url %>
+         
       <% elsif index == 1 %>
         <div class="item item-2">
-        <%= image_tag project.items.first.image_style_two_url %>
+        
       <% elsif index == 2 %>
         <div class="item item-3">
-        <%= image_tag project.items.first.image_style_one_url %>
+        
       <% elsif index == 3 %>
         <div class="item item-4">
-        <%= image_tag project.items.first.image_style_three_url %>
+        
       <% elsif index == 4 %>
         <div class="item item-5">
-        <%= image_tag project.items.first.image_style_one_url %>
       <% end %>
-      <%= link_to project do %>
-      <div class="item-overlay">
-        <p>Projects</p>
-        <%= project.name %>
+
+        <div class="not-fullscreen background" style="background-image:url('<%= project.items.first.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+
+          <div class="content-a">
+            <div class="content-b">
+              <%= link_to project do %>
+                  <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                  <p>Projects</p>
+                  <%= project.name %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <% end %>
-      <p><%= project.name %></p>
-      </div>
+      <p class="proj-name"><%= project.name %></p>
       <% end %>
   </article>
  </section>
@@ -45,5 +51,8 @@
 <script>
 $(function(){
   $('nav').waypoint('sticky');
+
+  backgroundResize({ 'data' : {'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true} });
+
 })
 </script>

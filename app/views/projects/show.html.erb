@@ -9,13 +9,21 @@
   <aside>
     <h2><%= @project.name %></h2>
     <p class="desc"><%= @project.description %></p>
-    <p><%= link_to 'Back to projects', projects_path %></p>
+    <p class="topback"><%= link_to 'Back to projects', projects_path %></p>
   </aside>
   <article>
     <% @project.items.each do |item|%>
       <%= image_tag item.image_style_three_url %>
     <% end %>
+    <p class="bottomback"><%= link_to 'Back to projects', projects_path %></p>
+
   </article>
  </section>
 
  <%= render "shared/footer" %>
+
+<script>
+$(function(){
+  $('nav').waypoint('sticky');
+})
+</script>

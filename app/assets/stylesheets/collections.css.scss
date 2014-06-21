@@ -29,12 +29,17 @@
 	display: none;
 }
 
-.indicator {
+p.indicator {
 	position: absolute;
 	display: block;
 	width: 100%;
 	bottom: 20px;
 	text-align: center;
+	margin-bottom: 0;
+}
+
+.collection article p.indicator {
+	margin-bottom: 0;
 }
 
 .collections-info,
@@ -124,9 +129,24 @@
 	}
 
 	.shopthis {
+		float: left;
 		position: static;
 		padding: 0;
 		margin: 0;
+		font-size: 1em;
+		margin-top: 20px;
+	}
+
+	.notes {
+		float: left;
+		clear: left;
+		width: 100%;
+		display: block;
+		font-size: 1em;
+		padding-top: 8px;
+		padding-bottom: 0;
+		border-top: 1px solid #ccc;
+		margin-top: 4px;
 	}
 
 	#items {
@@ -208,7 +228,6 @@
 	.collection article p {
 		font-family: 'Freight Text Book';
 		font-size: 1.3em;
-		margin-bottom: 15px;
 	}
 
 	.collection .back {

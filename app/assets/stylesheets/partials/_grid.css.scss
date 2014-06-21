@@ -5,6 +5,12 @@
 body {
   @include outer-container;
 
+  #items {
+    @include span-columns(12);
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+  }
 
   nav,
   #subnav {
