@@ -1,5 +1,20 @@
 .carousel {
-	position: absolute;
 	width: 100%;
-	display: none;
+	position: static;
+	opacity: 0;
+	-webkit-transition: opacity 3s;
+	-moz-transition: opacity 3s;
+	-ms-transition: opacity 3s;
+	-o-transition: opacity 3s;
+	transition: opacity 3s;
 }
+
+.next {
+	position: absolute;
+}
+
+.active {
+	opacity: 1;
+	position: absolute;
+}
+
