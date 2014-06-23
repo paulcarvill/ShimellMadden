@@ -105,7 +105,6 @@
             if (current > (pagesize-1)) {
                 current = current - pagesize;
                 page++;
-                console.log(current);
             }
 
             if (obj.data.multi) {
@@ -131,7 +130,6 @@
 
             // fix when too large
             if(contW > imgW){
-                console.log('contW > imgW')
                 imgW = contW;
                 imgH = imgW / ratio;
             }
