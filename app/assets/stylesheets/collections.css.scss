@@ -58,6 +58,8 @@ p.indicator {
 .collections-info p,
 .collection-info p {
 	border-top: 1px solid #fff;
+	color: #fff;
+	font-family: 'Freight Text Book';
 }
 
 .collections-info p,
@@ -66,6 +68,10 @@ p.indicator {
 	padding-bottom: 4px;
 	border-bottom: 1px solid #fff;
 	font-size: 0.8em;
+}
+
+.shopthis a {
+	color: #fff;
 }
 
 .collection-info p {
