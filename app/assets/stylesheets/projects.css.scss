@@ -58,6 +58,11 @@ section.projects > h2 {
 	font-size: 1.3em;
 }
 
+.projectitem #my-carousel {
+	position: static;
+	border: 0;
+}
+
 @include media($mobile) {
 	.proj-name {
 		float: left;

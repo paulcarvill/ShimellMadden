@@ -82,6 +82,13 @@ body {
     }
   }
 
+  .projectitem aside {
+    @include span-columns(3 of 12);
+  }
+  .projectitem article {
+    @include span-columns(9 of 12);
+  }
+
   .item {
     @include span-columns(6);
     height: 267px;
@@ -204,10 +211,22 @@ body {
      @include span-columns(12);
   }
 
-  .projectitem article img {
-    @include span-columns(6 of 9);
+  .projectitem aside {
     @include media($mobile) {
       @include span-columns(4);
+    }
+  }
+  .projectitem article {
+     @include span-columns(6);
+     @include media($mobile) {
+      @include span-columns(4);
+    }
+  }
+
+  .projectitem article img {
+    @include span-columns(6 of 6);
+    @include media($mobile) {
+      @include span-columns(4 of 4);
     }    
   }
 

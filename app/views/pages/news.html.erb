@@ -34,9 +34,11 @@
 
 <script>
   var page = <%= @page %>;
- 
+
   $(function() {
-    
+  
+    $('nav').waypoint('sticky');
+
     $('footer').appear();
 
     $(document.body).on('appear', 'footer', function(e) {
