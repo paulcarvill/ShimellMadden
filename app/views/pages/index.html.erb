@@ -8,7 +8,7 @@
     </div>
     <div id="my-carousel">
       <% @items.each_with_index do |item, index| %>
-        <div class="carousel not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
           <div class="content-a">
             <div class="content-b">
               Centered content
@@ -29,33 +29,6 @@
  *
  */
 $(function(){
-  var current = 0;
-  var items = [];
-
-  $('#my-carousel div.carousel').each(function(){
-    items.push(this)
-  })
-
-  $('.carousel-prev').click(function(){
-    $(items[current]).fadeOut();
-    current--;
-    if (current == -1) {
-      current = items.length - 1
-    }
-    $(items[current]).fadeIn()
-  })
-
-  $('.carousel-next').click(function(){
-    $(items[current]).fadeOut();
-    current++;
-    if (current == items.length) {
-      current = 0
-    }
-    $(items[current]).fadeIn()
-  })
-
-  $(items[current]).fadeIn();
-
   /*
    * resize images to fit into their container
    */ 

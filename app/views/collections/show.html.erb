@@ -21,7 +21,7 @@
   <article style="position: relative">
     <div id="my-carousel">
     <% @items.each_with_index do |item, index| %>
-      <div class="carousel<% if index == 0 %> first<% end %>">
+      <div class="carousel<% if index == 0 %> active<% end %>">
         <img src="<%= item.image_style_one_url %>" />
       </div>
     <% end %>
@@ -48,59 +48,3 @@
 
 
 <%= render "shared/footer" %>
-
-<script type="text/javascript">
-  $(function(){
-
-    $(function(){
-      $('header nav').waypoint('sticky');
-    })
-
-    var current = 0;
-    var items = [];
-
-    $('#my-carousel div.carousel').each(function(){
-      items.push(this)
-    })
-
-    $('.carousel-prev').click(function(){
-      $(items[current]).fadeOut();
-      current--;
-      if (current == -1) {
-        current = items.length - 1
-      }
-      $(items[current]).fadeIn();
-      $('a.curr').removeClass('curr');
-      $('.indicator a').eg(current).addClass('curr');
-    })
-
-    $('.carousel-next').click(function(){
-      $(items[current]).fadeOut();
-      current++;
-      if (current == items.length) {
-        current = 0
-      }
-      $(items[current]).fadeIn();
-
-      $('a.curr').removeClass('curr');
-      $('.indicator a').eq(current).addClass('curr');
-    })
-
-    var clas="";
-    for (var i = 0; i < items.length; i++) {
-      if (current == i) {
-        clas = "curr";
-      } else {
-        clas = "";
-      }
-      $('.indicator').append('<a href="#" class="'+clas+'"><span>dot</span></a>');
-    }
-
-    $('article').css('height', items[current].offsetHeight);
-
-    if(items.length < 2){
-      $('.carousel-prev').remove();
-      $('.carousel-next').remove();
-    }
-  });
-</script>

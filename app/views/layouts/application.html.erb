@@ -52,6 +52,7 @@
 
 <%= yield %>
 
+<!-- fonts -->
 <script type="text/javascript">
     (function() {
         var path = '//easy.myfonts.net/v2/js?sid=211388(font-family=DIN+Next+Pro+Bold)&sid=217467(font-family=DIN+Next+Pro+UltraLight)&sid=217469(font-family=DIN+Next+Pro+Regular)&sid=217470(font-family=DIN+Next+Pro+Medium)&key=uYb4wvUYbj',
@@ -77,93 +78,164 @@
         head.appendChild(trial);
     })();
 </script>
+<!-- end fonts -->
 
 <script type="text/javascript">
-function fullscreenFix(){
-    var h = $('body').height();
-    // set .fullscreen height
-    $(".content-b").each(function(i){
-        if($(this).innerHeight() <= h){
-            $(this).closest(".fullscreen").addClass("not-overflow");
-        }
-    });
-}
 
-function backgroundResize(obj){
-    var windowH = $(window).height();
-
-    var contW = $(obj.data.widthEle).width(); // sets resized image size
-    var contH = $(obj.data.heightEle).height(); // sets resized image size.
-    var pagesize = obj.data.pagesize || 6;
-    var page = 1;
-    var current = 0;
-
-    $(".background").each(function(){
-
-        if (current > (pagesize-1)) {
-            current = current - pagesize;
-            page++;
-            console.log(current);
-        }
-
-        if (obj.data.multi) {
-            contW = $(obj.data.widthEle + '-' + (current+1)).width(); // sets resized image size
-            contH = $(obj.data.heightEle + '-' + (current+1)).height(); // sets resized image size.
-        }
-
-        var path = $(this);
-        var imgW = path.attr("data-img-width");
-        var imgH = path.attr("data-img-height");
-        var ratio = imgW / imgH;
-        
-        // overflowing difference
-        var diff = parseFloat(path.attr("data-diff"));
-        diff = diff ? diff : 0;
-
-        // remaining height to have fullscreen image only on parallax
-        var remainingH = 0;
-        
-        // set img values depending on cont
-        imgH = contH + remainingH + diff;
-        imgW = imgH * ratio;
-
-        // fix when too large
-        if(contW > imgW){
-            console.log('contW > imgW')
-            imgW = contW;
-            imgH = imgW / ratio;
-        }
-        //
-        path.data("resized-imgW", imgW);
-        path.data("resized-imgH", imgH);
-        path.css("background-size", imgW + "px " + imgH + "px");
-
-        current++;
-    });
-}
-
-window.addEventListener('load', function() {
-    FastClick.attach(document.body);
-}, false);
-
-/*
- *   MENU
- */
-SM = {};
-
- $('.nav-header').click(function(){
-  if(SM.revealed) {
-        $('nav').toggleClass('woop');
-        SM.revealed = false
-        $('.nav-header img').attr('src', '/assets/menu-closed.svg');
-    } else {
-      $('nav').toggleClass('woop');
-      $('.nav-header img').attr('src', '/assets/menu-open.svg');
-      SM.revealed = true
+    function fullscreenFix(){
+        var h = $('body').height();
+        $(".content-b").each(function(i){
+            if($(this).innerHeight() <= h){
+                $(this).closest(".fullscreen").addClass("not-overflow");
+            }
+        });
     }
- })
- 
 
+    function backgroundResize(obj){
+        var windowH = $(window).height();
+
+        var contW = $(obj.data.widthEle).width(); // sets resized image size
+        var contH = $(obj.data.heightEle).height(); // sets resized image size.
+        var pagesize = obj.data.pagesize || 6;
+        var page = 1;
+        var current = 0;
+
+        $(".background").each(function(){
+
+            if (current > (pagesize-1)) {
+                current = current - pagesize;
+                page++;
+                console.log(current);
+            }
+
+            if (obj.data.multi) {
+                contW = $(obj.data.widthEle + '-' + (current+1)).width(); // sets resized image size
+                contH = $(obj.data.heightEle + '-' + (current+1)).height(); // sets resized image size.
+            }
+
+            var path = $(this);
+            var imgW = path.attr("data-img-width");
+            var imgH = path.attr("data-img-height");
+            var ratio = imgW / imgH;
+            
+            // overflowing difference
+            var diff = parseFloat(path.attr("data-diff"));
+            diff = diff ? diff : 0;
+
+            // remaining height to have fullscreen image only on parallax
+            var remainingH = 0;
+            
+            // set img values depending on cont
+            imgH = contH + remainingH + diff;
+            imgW = imgH * ratio;
+
+            // fix when too large
+            if(contW > imgW){
+                console.log('contW > imgW')
+                imgW = contW;
+                imgH = imgW / ratio;
+            }
+            //
+            path.data("resized-imgW", imgW);
+            path.data("resized-imgH", imgH);
+            path.css("background-size", imgW + "px " + imgH + "px");
+
+            current++;
+        });
+    }
+
+    /* make mobile touches faster */
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+
+
+    $(function(){
+
+
+        /* menu */
+        SM = {};
+
+        $('.nav-header').click(function(){
+            if(SM.revealed) {
+                $('nav').toggleClass('woop');
+                SM.revealed = false
+                $('.nav-header img').attr('src', '/assets/menu-closed.svg');
+            } else {
+                $('nav').toggleClass('woop');
+                $('.nav-header img').attr('src', '/assets/menu-open.svg');
+                SM.revealed = true
+            }
+        })
+      
+
+        /* sticky header */
+        $('header nav').waypoint('sticky');
+
+
+        /* carousel */
+        var current = 0;
+        var items = [];
+
+        $('#my-carousel div.carousel').each(function(){
+            items.push(this)
+        })
+
+        $(items[current+1]).toggleClass('next');
+
+        if(items.length < 3) {
+            $('.active').css('position', 'static');
+        }
+
+        $('.carousel-prev').click(function(){
+            $(items[current]).toggleClass('active');
+            current--;
+            if (current == -1) {
+              current = items.length - 1
+            }
+            // take next off next element and put active on it
+            $('.next').toggleClass('next');
+            $(items[current]).toggleClass('active');
+
+            // put next on next element
+            (current-1) < 0 ? $(items[items.length-1]).toggleClass('next') : $(items[current-1]).toggleClass('next');
+
+            $('a.curr').removeClass('curr');
+            $('.indicator a').eq(current).addClass('curr');
+        })
+
+        $('.carousel-next').click(function(){
+            $(items[current]).toggleClass('active');
+            current++;
+            if (current == items.length) {
+              current = 0
+            }
+            // take next off next element and put active on it
+            $(items[current]).toggleClass('next').toggleClass('active');
+            
+            // put next on next element
+            (current+1) == items.length ? $(items[0]).toggleClass('next') : $(items[current+1]).toggleClass('next');
+
+            $('a.curr').removeClass('curr');
+            $('.indicator a').eq(current).addClass('curr');
+          })
+
+        var clas="";
+        for (var i = 0; i < items.length; i++) {
+            if (current == i) {
+                clas = "curr";
+            } else {
+                clas = "";
+            }
+            $('.indicator').append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+        }
+
+        if(items.length < 2){
+            $('.carousel-prev').remove();
+            $('.carousel-next').remove();
+            $('.indicator').remove();
+        }
+    })
 </script>
 </body>
 </html>
