@@ -19,6 +19,10 @@
 	position: static;
 }
 
+#my-carousel.short div:last-of-type {
+	position: absolute;
+}
+
 .next {
 	position: absolute;
 }
