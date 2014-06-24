@@ -197,14 +197,20 @@ body {
     @include span-columns(3 of 9);
     @include omega(3n);
     margin-bottom: 5px;
+    @include media($mobile) {
+      margin-bottom: 15px;
+    }
     display: table;
     text-align: center;
   }
 
   .inside {
     vertical-align: middle;
-    display: table-cell;
+    display: block;
     height: 220px;
+    @include media($mobile) {
+      height: 205px;
+    }
   }
 
   #pagination-tools {

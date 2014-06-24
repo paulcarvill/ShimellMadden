@@ -8,57 +8,35 @@
   <section class="blog items">
     <article>
       <% @items.each_with_index do |item, index| %>
-
-        <% if index == 0 %>
-          <div class="item item-1">
-
-          <!-- how to write out these data-img-widths for responsive images???? -->
-
-          <!-- how to write out images for accessibility, e.g not as CSS backgrounds?! -->
-
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
-
-        <% elsif index == 1 %>
-          <div class="item item-2">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
-
-        <% elsif index == 2 %>
-          <div class="item item-3">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
-
-        <% elsif index == 3 %>
-          <div class="item item-4">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
-
-        <% elsif index == 4 %>
-          <div class="item item-5">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
-        
-        <% elsif index == 5 %>
-          <div class="item item-6">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
-        <% end %>
-            
-            <div class="content-a">
-              <div class="content-b">
-                <% if item.collection then %>
-                  <%= link_to item.collection do %>
+        <div class="item item-<%= index+1 %>">
+          
+          <% if item.collection then %>
+            <%= link_to item.collection do %>
+              <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+                <div class="content-a">
+                  <div class="content-b">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
                     <p>Collections</p>
                     <%= item.collection.name %>
                     <%= item.name %>
-                  <% end %>
-                <% elsif item.project then %>
-                  <%= link_to item.project do %>
-                      <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                      <p>Projects</p>
-                      <%= item.project.name %>
-                      <%= item.name %>
-                  <% end %>
-                <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            <% end %>
+          <% elsif item.project then %>
+            <%= link_to item.project do %>
+              <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+                <div class="content-a">
+                  <div class="content-b">
+                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                    <p>Projects</p>
+                    <%= item.project.name %>
+                    <%= item.name %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </article>
@@ -88,7 +66,20 @@
       $.get('/items.json?page=' + page, function(resp){
         history.replaceState(null, null, "/items?page=" + page);
         for(var i = 0; i < resp.length; i++) {
-          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b"><a href="/projects/"><img class="down-triangle" src="/assets/down-triangle.svg" /><p>Projects</p>item.project.name item.name</div></div></div>');
+          console.log(resp[i]);
+          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b">' + 
+
+            (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
+
+            '<img class="down-triangle" src="/assets/down-triangle.svg" /><p>' +
+
+            (resp[i].isProject ? ('Projects') : ('Collections')) + 
+
+            '</p>' + 
+
+            (resp[i].isProject ? (resp[i].projectName + ' ' + resp[i].name) : (resp[i].collectionName + ' ' + resp[i].name)) + 
+
+            '</div></div></div>');
         }
         if(resp.length < 6) {
           $this.data('am-i-appeared', true);

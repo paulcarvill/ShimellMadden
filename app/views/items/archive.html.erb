@@ -29,19 +29,22 @@
         <span class="inside">
           <div class="inside-inside">
             <% if index == 2 || index == 4 %>
-              <%= image_tag item.image_style_three_url %>
+
+              <!-- TODO: check image aspect ratio here -->
+              <div class="not-fullscreen background" style="background-size: auto 100%; background-image:url('<%= item.image_style_three_url %>');" data-img-width="750" data-img-height="987">
             <% else %>
-              <%= image_tag item.image_style_one_url %>
+              <div class="not-fullscreen background" style="background-size: 100%; background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
             <% end %>
-            <a href="/archive/<%= item.id %>">
-              <div class="item-overlay">
-                <div class="tc">
-                  <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                  <p>Archive item</p>
-                  <%= item.name %>
+              <a href="/archive/<%= item.id %>">
+                <div class="item-overlay">
+                  <div class="tc">
+                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                    <p>Archive item</p>
+                    <%= item.name %>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         </span>
       </div>
@@ -54,7 +57,22 @@
 <%= render "shared/footer" %>
 
 <script>
+function doThis(){
+  if($(window).width() < 509){
+    $(window).resize({'widthEle' : '.archive-item', 'heightEle' : '.archive-item'}, backgroundResize);
+  }
+}
+
+var resizeTimer;
+$(window).resize(function(){
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(doThis, 100);
+});
+
 $(function(){
   $('nav').waypoint('sticky');
+
+    
 })
+
 </script>
