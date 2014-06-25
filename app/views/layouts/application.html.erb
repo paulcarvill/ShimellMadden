@@ -6,10 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <!-- Remove chrome. -->
   <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-  
-  
 
   <style>
   .background {
@@ -158,10 +155,10 @@
             if(SM.revealed) {
                 $('nav').toggleClass('woop');
                 SM.revealed = false
-                $('.nav-header img').attr('src', '/assets/menu-closed.svg');
+                $('.nav-header img').attr('src', '<%= asset_path 'menu-closed.svg' %>');
             } else {
                 $('nav').toggleClass('woop');
-                $('.nav-header img').attr('src', '/assets/menu-open.svg');
+                $('.nav-header img').attr('src', '<%= asset_path 'menu-open.svg' %>');
                 SM.revealed = true
             }
         })

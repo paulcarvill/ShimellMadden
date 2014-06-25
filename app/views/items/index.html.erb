@@ -95,20 +95,9 @@
       });
     });
 
-    //
-    // resize images to fit into their container
-    // 
     backgroundResize({ 'data' : {'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true} });
-    
-    //
-    // when window is resized, resize images to fit into their container
-    // 
+
     $(window).resize({'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true}, backgroundResize);
-    
-    //
-    // make nav sticky
-    //
-    $('nav').waypoint('sticky');
   });
 
 </script>
