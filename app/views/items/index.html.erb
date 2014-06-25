@@ -51,6 +51,8 @@
 <script>
   var page = <%= @page %>;
   var item = 6;
+  var assTri = '<%= asset_path 'down-triangle.svg' %>';
+
   $('document').ready(function() {
     
     $('footer').appear();
@@ -71,7 +73,7 @@
 
             (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
 
-            '<img class="down-triangle" src="/assets/down-triangle.svg" /><p>' +
+            '<img class="down-triangle" src="'+assTri+'" /><p>' +
 
             (resp[i].isProject ? ('Projects') : ('Collections')) + 
 

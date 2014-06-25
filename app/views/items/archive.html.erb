@@ -72,7 +72,9 @@ $(window).resize(function(){
 $(function(){
   $('nav').waypoint('sticky');
 
-    
+  if($(window).width() < 509){
+    backgroundResize({ 'data' : {'widthEle' : '.archive-item', 'heightEle' : '.archive-item'}})
+  }
 })
 
 </script>
