@@ -32,7 +32,7 @@ section.projects > h2 {
 }
 
 .projectitem article img {
-	margin-bottom: 15px;
+	
 }
 
 .projects h2 {
@@ -64,6 +64,20 @@ section.projects > h2 {
 }
 
 @include media($mobile) {
+
+	.projectitem .indicator {
+		position: static;
+		padding: 15px 0 5px 0;
+	}
+
+	.projectitem .bottomback {
+		margin-top: 8px;
+	}
+
+	.projectitem #my-carousel {
+		position: relative;
+	}
+
 	.proj-name {
 		float: left;
 		text-align: center;

@@ -71,13 +71,26 @@ ul:nth-of-type(1) ul {
 	margin-top: 6px;
 }
 
-ul li ul {
+ul.category-nav li ul {
+	margin-top: 10px;
 	margin-left: 18px;
 }
 
 ul li {
-	padding: 4px 0 4px 0;
+	padding: 8px 0 8px 0;
 	border-top: 1px solid #aaa;
+}
+
+ul li ul li {
+	padding: 8px 0 8px 0;
+}
+
+ul li ul li:last-of-type {
+	padding-bottom: 0;
+}
+
+ul li ul li a {
+	font-family: "DIN Next Pro Regular";
 }
 
 ul:nth-of-type(2) {
@@ -89,6 +102,10 @@ ul:nth-of-type(2) {
 }
 
 @include media($mobile) {
+	ul li ul {
+		display: none;
+	}
+
 	.archive article {
 		@include span-columns(4);
 	}

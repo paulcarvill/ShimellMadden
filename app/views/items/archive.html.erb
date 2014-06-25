@@ -12,14 +12,22 @@
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <ul class="category-nav">
-    <li>Category
+    <li>Category <img style="float: right; padding-top: 3px" class="down-triangle" src="/assets/down-arrow-grey.svg" />
       <ul>
       <% @categories.each do |category| %>
-        <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a><%= if category.id.to_s == params['category'] then raw('<a style="float:right" href="/archive">x</a>') end %></li>
+        <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a><%= if category.id.to_s == params['category'] then raw('<a style="float:right" href="/archive">&times;</a>') end %></li>
       <% end %>
       </ul>
     </li>
-    <li>Date</li>
+    <li>Date <img style="float: right; padding-top: 3px" class="down-triangle" src="/assets/down-arrow-grey.svg" />
+      <ul>
+        <li>June 2014</li>
+        <li>May 2014</li>
+        <li>April 2014</li>
+        <li>March 2014</li>
+        <li>February 2014</li>      
+      </ul>
+    </li>
     </ul>
   </aside>
 
@@ -75,6 +83,19 @@ $(function(){
   if($(window).width() < 509){
     backgroundResize({ 'data' : {'widthEle' : '.archive-item', 'heightEle' : '.archive-item'}})
   }
+
+
+  var toggle = 0;
+  $('.category-nav li img').click(function(){
+    if (toggle == 0) {
+      $(this).attr('src', '/assets/up-arrow-grey.svg');
+      toggle = 1;
+    } else {
+      $(this).attr('src', '/assets/down-arrow-grey.svg');
+      toggle = 0;
+    }
+    $(this).closest('li').find('ul').toggle();
+  })
 })
 
 </script>

@@ -18,7 +18,12 @@
 	border-radius: 50%;
 	background: gray;
 	display: inline-block;
-	margin: 0 3px
+	margin: 0 3px;
+	@include media($mobile) {
+		width: 8px;
+		height: 8px;
+		margin: 0 4px;
+	}
 }
 
 .indicator a.curr {
@@ -84,15 +89,6 @@ p.indicator {
 	border: 0;
 }
 
-// #m-carousel {
-// 	position: relative;
-// }
-
-// #m-carousel img {
-// 	float: none;
-// }
-
-
 .collection .back,
 .collection .desc {
 	display: none;
@@ -124,8 +120,27 @@ p.indicator {
 
 @include media($mobile) {
 
+	.collection .indicator a {
+		background: #ababab;
+	}
+
+	.projectitem .indicator a.curr,
+	.collection .indicator a.curr {
+		background: #2d2d2d;	
+	}
+
+	.shopthis a {
+		color: #2d2d2d;
+	}
+
 	.collection-info p {
 		font-size: 1.3em;
+		color: #2d2d2d;
+	}
+
+	.collection article p.indicator {
+		padding: 10px 0;
+		position: static;
 	}
 
 	.collection-info {
