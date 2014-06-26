@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140614132820) do
 
   create_table "blogs", force: true do |t|
-    t.string   "headline"
+    t.text     "headline"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140614132820) do
   end
 
   create_table "categories", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,18 +36,18 @@ ActiveRecord::Schema.define(version: 20140614132820) do
   end
 
   create_table "collections", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
+    t.text     "description"
   end
 
   create_table "items", force: true do |t|
-    t.string   "name"
-    t.string   "description"
+    t.text     "name"
+    t.text     "description"
     t.float    "price"
     t.float    "shipping"
-    t.string   "shopifyid"
+    t.text     "shopifyid"
     t.integer  "collection_id"
     t.integer  "project_id"
     t.datetime "created_at"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20140614132820) do
   end
 
   create_table "pages", force: true do |t|
-    t.string   "name"
-    t.string   "content"
+    t.text     "name"
+    t.text     "content"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 20140614132820) do
   end
 
   create_table "projects", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
+    t.text     "description"
   end
 
 end

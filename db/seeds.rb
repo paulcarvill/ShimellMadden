@@ -204,9 +204,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item1","item_1_ed_3000x2144_style1_sq.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item1","item_1_ed_2990x2698_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item1","item_1_ed_2279x3000_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
 	collection_id: collections[0].id
 	},
 	{
@@ -216,9 +214,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item2","item_2_cuboid_goldplated_3000x1898_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item2","item_2_cuboid_goldplated_2185x1965_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item2","item_2_cuboid_goldplated_1493x1965_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio.jpg")),
 	collection_id: collections[0].id
 	},
 	{
@@ -228,9 +224,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	homepage: true,
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item3","item_3_delta_2000x1429_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item3","item_3_delta_2000x1758_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item3","item_3_delta_2000x2633_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
 	# part of delta project
 	project_id: projects[0].id
 	},
@@ -240,9 +234,7 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item4","item_4_symmetry_1960x1400_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item4","item_4_symmetry_1557x1400_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item4","item_4_symmetry_1064x1400_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio.jpg")),
 	collection_id: collections[2].id
 	},
 	{
@@ -251,9 +243,7 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item5","item_5_brooch_1000x714_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item5","item_5_brooch_899x809_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item5","item_5_brooch_850x1119_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio.jpg")),
 	archive: true,
 	},
 	{
@@ -262,9 +252,7 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[0]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item6","item_6_key_1000x714_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item6","item_6_key_890x809_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item6","item_6_key_608x800_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio.jpg")),
 	collection_id: collections[1].id
 	},
 	{
@@ -273,9 +261,7 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[1]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item7","item_7_test_2447x1748_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item7","item_7_test_1944x1748_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item7","item_7_test_1328x1748_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
 	# part of test project
 	project_id: projects[3].id
 	},
@@ -285,9 +271,7 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[1]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item8","item_8_metric_3000x1679_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item8","item_8_metric_2000x1799_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item8","item_8_metric_1500x1974_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
 	project_id: projects[2].id
 	},
 	{
@@ -296,9 +280,7 @@ Item.create([
 	price: 3.5, shipping: 3.5,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[2]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item9","item_9_centric_1226x686_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item9","item_9_centric_1143x1028_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item9","item_9_centric_781x1028_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
 	collection_id: collections[1].id
 	},
 	{
@@ -308,9 +290,7 @@ Item.create([
 	shipping: 4.50,
 	shopifyid: "MyShopifyIdString",
 	categories: [categories[1]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item10","item_10_bangle_3225x2304_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item10","item_10_bangle_2562x2304_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item10","item_10_bangle_1750x2304_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
 	archive: true,
 	},
 	{
@@ -321,9 +301,7 @@ Item.create([
 	shopifyid: "MyShopifyIdString",
 	archive: true,
 	categories: [categories[1]],
-	imageStyleOne: File.open(Rails.root.join("db/seeds/item11","item_11_MG_750x536_style1.jpg")),
-	imageStyleTwo: File.open(Rails.root.join("db/seeds/item11","item_11_MG_750x675_style2.jpg")),
-	imageStyleThree: File.open(Rails.root.join("db/seeds/item11","item_11_MG_750x987_style3.jpg")),
+	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","11_no_ratio.jpg")),
 	},
 	{
 	name: "Item 12",
