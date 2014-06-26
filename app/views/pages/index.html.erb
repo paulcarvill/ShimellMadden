@@ -1,17 +1,12 @@
 <div id="items"> 
   <section class="blog">
-  	<div id="centerer">
-      <div id="centerer-inner">
-        <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>
-        <h2><a href="/items">View collections</a></h2>
-      </div>
-    </div>
     <div id="my-carousel">
       <% @items.each_with_index do |item, index| %>
-        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="1280" data-img-height="800">
           <div class="content-a">
             <div class="content-b">
-              Centered content
+              <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>
+              <h2><a href="/items">View collections</a></h2>
             </div>
           </div>
         </div>
