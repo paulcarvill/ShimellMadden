@@ -13,23 +13,24 @@
 
 <div id="items">
   <section class="blog collections">
-    <div id="my-carousel">
+
       <article style="position: relative">
         <% @collections.each_with_index do |collection, index| %>
         <div class="carousel<% if index == 0 %> active<% end %>">
-          <%= image_tag collection.items.first.image_style_one_url %>
           <div class="collections-info">
-            <h2><%= collection.name %></h2>
+            <%= link_to collection do %><h2><%= collection.name %><% end %></h2>
             <p><%= link_to 'View collection', collection %></p>
           </div>
+          <%= link_to collection do %>
+            <%= image_tag collection.items.first.image_style_one_url %>
+          <% end %>
         </div>
         <% end %>
         <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
         <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
-
         <p class="indicator"></p>
       </article>
-    </div> <!-- end carousel -->
+    
    </section>
 </div>
 

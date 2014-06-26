@@ -204,10 +204,18 @@ body header nav {
 		font-size: 1.3em;
 	}
 
+	body #items {
+		padding-top: 0;
+	}
+
 	#subnav {
 		float: left;
 		max-height: 200px;
 		text-align: left;
+	}
+
+	body header nav {
+		padding-top: 0;
 	}
 
 	#subnav,

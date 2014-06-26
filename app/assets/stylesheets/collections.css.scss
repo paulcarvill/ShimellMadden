@@ -120,6 +120,41 @@ p.indicator {
 
 @include media($mobile) {
 
+
+	.collections .carousel {
+		float: left;
+		margin-bottom: 10px;
+	}
+
+	.collections .collections-info {
+		padding: 0;
+		width: 100%;
+	}
+
+	.collections .collections-info h2 {
+		color: #f60;
+		font-size: 1.3em;
+		margin-bottom: 14px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #999;
+	}
+
+	.collections .collections-info p {
+		display: none;
+	}
+
+	.collections-info h2 a {
+		color: #f60;
+	}
+
+	.collections-info,
+	.collections .carousel,
+	.collections .carousel.active,
+	.collections .carousel.next {
+		position: static;
+		opacity: 1;
+	}
+
 	.collection .indicator a {
 		background: #ababab;
 	}
