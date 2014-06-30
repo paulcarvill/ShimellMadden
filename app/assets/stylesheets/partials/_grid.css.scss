@@ -20,7 +20,7 @@ body {
   
   section.blog {
   	@include span-columns(12);
-    width: $max-width;
+    
     @include media($tablet) {
       width: 100%;
     }
