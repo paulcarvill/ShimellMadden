@@ -10,16 +10,6 @@ class PagesController < ApplicationController
   def comissioning
   	@page = Page.find(2)
   end
-
-  def news
-    sleep(1)
-    if params[:page]
-      @page = params[:page]
-    else
-      @page = 1
-    end
-  	@blogs = Blog.all.paginate(:page => params[:page], :per_page => 3)
-  end
   
   def contact	
     @page = Page.find(3)
@@ -28,5 +18,4 @@ class PagesController < ApplicationController
   def shop
   end
 
- 
 end

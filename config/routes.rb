@@ -1,15 +1,15 @@
 ShimellMadden::Application.routes.draw do
   
-  resources :blogs
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  resources :blogs, :path => "news"
 
   root "pages#index"
 
   get '/about', to: 'pages#about'
 
   get '/comissioning', to: 'pages#comissioning'
-  get '/news', to: 'pages#news'
-  #get '/news/:id', to: 'pages#newsshow'
-
+ 
   get '/contact', to: 'pages#contact'
 
   resources :projects
@@ -20,7 +20,6 @@ ShimellMadden::Application.routes.draw do
 
   get '/archive', to: 'items#archive'
   get '/archive/:id', to: 'items#archiveshow'
-  get '/news/', to: 'pages#news'
   get '/shop/', to: 'pages#shop'
 
 

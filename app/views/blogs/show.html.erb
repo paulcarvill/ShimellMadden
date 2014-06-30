@@ -1,0 +1,18 @@
+<div id="navigation">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+</div>
+
+<section class="blog projectitem">
+  
+  <aside>
+    <h2><%= @blog.headline %></h2>
+    <p class="desc"><%= @blog.body.html_safe %></p>
+    <p class="topback"><%= link_to 'Back to blogs', blogs_path %></p>
+  </aside>
+  <article style="position: relative;">
+  </article>
+ </section>
+
+ <%= render "shared/footer" %>

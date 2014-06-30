@@ -1,0 +1,66 @@
+<div id="navigation">
+<header>
+  <%= render "shared/nav" %>
+</header>
+<div id="subnav">
+  <%= render "shared/subnav" %>
+</div>
+</div>
+
+<section class="info blog news">
+  
+  <% @blogs.each do |blog| %>
+    <div class="news-item">
+      <aside>
+        <h2><%= blog.created_at.strftime("%d.%m.%Y")%> </h2>
+        <h2><%= blog.headline %></h2>
+        <%= blog.body.html_safe %> 
+      </aside>
+      <article>
+        <% if blog.blogImage_file_name %>
+          <%= image_tag blog.image_style_one_url %>
+        <% else %>
+          <img src="<%= asset_path "about.jpg" %>" />
+        <% end %>
+      </article>
+    </div>
+  <% end %>
+  
+ </section>
+
+<%= will_paginate @blogs %>
+
+<%= render "shared/footer" %>
+
+<script>
+  var page = <%= @page %>;
+
+  $(function() {
+  
+    $('footer').appear();
+
+    $(document.body).on('appear', 'footer', function(e) {
+      var $this = $(this);
+      if ($this.data('am-i-appeared')) {
+        return;
+      }
+      $this.data('am-i-appeared', true);
+      page++;
+
+      // get paginated news items
+      $.get('/news.json?page=' + page, function(resp){
+        history.replaceState(null, null, "/news?page=" + page);
+        for(var i = 0; i < resp.length; i++) {
+          $('section').append('<div class="news-item"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><img src="<%= asset_path "about.jpg" %>" /></article></div>')
+        }
+        if(resp.length < 3) {
+          $this.data('am-i-appeared', true);
+        } else {
+          $this.data('am-i-appeared', false);
+        }
+      });
+
+    });
+  });
+</script>
+
