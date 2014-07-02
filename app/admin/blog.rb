@@ -1,17 +1,28 @@
-ActiveAdmin.register Blog do
+ActiveAdmin.register Blog, as: "News" do
+  index do
+    column :headline
+    column :body do |news|
+      simple_format news.body
+    end
 
+    actions
+  end
+
+  show :title => :headline do
+    h3 news.headline
+    div do
+        simple_format news.body
+    end
+  end
+
+  form do |f|
+    f.inputs 'Details' do
+      f.input :headline
+      f.input :body
+    end
+    f.actions
+  end
+
+  config.filters = false
   permit_params :headline, :body
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
-  
 end
