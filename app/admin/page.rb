@@ -18,7 +18,14 @@ ActiveAdmin.register Page do
     end
   end
 
-  config.filters = false
+  form do |f|
+    f.inputs 'Details' do
+      f.input :name
+      f.input :content, as: :html_editor
+    end
+    f.actions
+  end
 
+  config.filters = false
   permit_params :name, :content
 end

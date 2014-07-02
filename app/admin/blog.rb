@@ -18,7 +18,7 @@ ActiveAdmin.register Blog, as: "News" do
   form do |f|
     f.inputs 'Details' do
       f.input :headline
-      f.input :body
+      f.input :body, as: :html_editor
     end
     f.actions
   end
