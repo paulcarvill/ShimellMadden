@@ -9,9 +9,17 @@ ActiveAdmin.register Collection do
 
   show do
     attributes_table do
-      row :name
-      row :description
+      row :name, :as => :string
+      row :description, :as => :string
     end
+  end
+
+  form do |f|
+    f.inputs 'Details' do
+      f.input :name, :as => :string
+      f.input :description, :as => :string
+    end
+    f.actions
   end
 
   config.filters = false

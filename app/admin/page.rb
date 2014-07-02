@@ -1,5 +1,6 @@
 ActiveAdmin.register Page do
   index do
+    selectable_column
     column :id
     column :name
 
@@ -20,7 +21,7 @@ ActiveAdmin.register Page do
 
   form do |f|
     f.inputs 'Details' do
-      f.input :name
+      f.input :name, :as => :string
       f.input :content, as: :html_editor
     end
     f.actions

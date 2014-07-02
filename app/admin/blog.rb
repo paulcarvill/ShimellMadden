@@ -1,5 +1,7 @@
 ActiveAdmin.register Blog, as: "News" do
+  
   index do
+    selectable_column
     column :headline
     column :body do |news|
       simple_format news.body
@@ -28,9 +30,9 @@ ActiveAdmin.register Blog, as: "News" do
 
   form do |f|
     f.inputs 'Details' do
-      f.input :headline
+      f.input :headline, :as => :string
       f.input :body, as: :html_editor
-      f.input :blogImage, :as => :file, :hint => (f.template.image_tag(f.object.blogImage.url) if f.object.blogImage?)
+      f.input :blogImage, :as => :file, :hint => (f.template.image_tag(f.object.blogImage.url, width: '50%') if f.object.blogImage?)
     end
     f.actions
   end

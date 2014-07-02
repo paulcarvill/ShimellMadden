@@ -3,6 +3,7 @@ ActiveAdmin.register Category do
 	index do
 		selectable_column
 		column :name
+		actions
 	end
 
 	show do
@@ -10,6 +11,13 @@ ActiveAdmin.register Category do
 	      row :name
 	    end
 	end
+
+	form do |f|
+	    f.inputs 'Details' do
+	      f.input :name, :as => :string
+	    end
+    	f.actions
+  	end
 
   	config.filters = false  
   	permit_params :name
