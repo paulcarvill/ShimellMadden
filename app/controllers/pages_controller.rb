@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@items = Item.where(homepage: true).order("id ASC").limit(3)
+  	@items = Item.where(homepage: true).order("id ASC")
   end
 
   def about

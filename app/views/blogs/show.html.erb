@@ -12,6 +12,11 @@
     <p class="topback"><%= link_to 'Back to blogs', blogs_path %></p>
   </aside>
   <article style="position: relative;">
+    <% if @blog.blogImage_file_name %>
+          <%= image_tag @blog.image_style_one_url %>
+        <% else %>
+          <img src="<%= asset_path "about.jpg" %>" />
+        <% end %>
   </article>
  </section>
 
