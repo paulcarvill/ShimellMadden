@@ -1,5 +1,7 @@
 ActiveAdmin.register Blog, as: "News" do
   
+  menu priority: 4, label: "News"
+
   index do
     selectable_column
     column :headline

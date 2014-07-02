@@ -1,5 +1,7 @@
 ActiveAdmin.register Project do
   
+  menu priority: 6, label: "Projects"
+
   index do
   	selectable_column
     column :id

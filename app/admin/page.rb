@@ -1,4 +1,7 @@
 ActiveAdmin.register Page do
+
+  menu priority: 5, label: "Pages"
+
   index do
     selectable_column
     column :id

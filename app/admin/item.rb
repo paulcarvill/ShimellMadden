@@ -1,5 +1,7 @@
 ActiveAdmin.register Item do
 
+  menu priority: 3, label: "Items"
+
   index do
     selectable_column
     column :name do |item|

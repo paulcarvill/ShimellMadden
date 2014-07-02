@@ -1,5 +1,7 @@
 ActiveAdmin.register Category do
 
+	menu priority: 1, label: "Categories"
+
 	index do
 		selectable_column
 		column :name

@@ -1,5 +1,7 @@
 ActiveAdmin.register Collection do
 
+  menu priority: 2, label: "Collections"
+
   index do
     selectable_column
     column :name
