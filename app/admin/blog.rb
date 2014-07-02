@@ -9,9 +9,12 @@ ActiveAdmin.register Blog, as: "News" do
   end
 
   show :title => :headline do
-    h3 news.headline
+    div do
+      h3 news.headline
+    end
     div do
         simple_format news.body
+        image_tag(news.blogImage.url)
     end
   end
 
@@ -19,10 +22,11 @@ ActiveAdmin.register Blog, as: "News" do
     f.inputs 'Details' do
       f.input :headline
       f.input :body, as: :html_editor
+      f.input :blogImage, :as => :file, :hint => f.template.image_tag(f.object.blogImage.url)
     end
     f.actions
   end
 
   config.filters = false
-  permit_params :headline, :body
+  permit_params :headline, :body, :blogImage
 end
