@@ -160,6 +160,14 @@ body.home .carousel-item img {
 }
 
 @media screen and (max-width: 599px) {
+
+	.carousel-prev,
+	.carousel-next {
+		margin-top: -16px;
+	}
+
+
+
 	#centerer h2 {
 		font-size: 1.2em;
 		margin: 25px 0 0 0;
