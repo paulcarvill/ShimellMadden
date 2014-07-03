@@ -118,8 +118,19 @@ p.indicator {
 	font-size: 0.8em;
 }
 
+.lessThanThree {
+	position: static;
+}
+
 @include media($mobile) {
 
+	.lessThanThree {
+		position: relative;
+	}
+
+	.collection .carousel {
+		float: left;
+	}
 
 	.collections .carousel {
 		float: left;
