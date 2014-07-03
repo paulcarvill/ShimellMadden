@@ -39,9 +39,9 @@
             <% if index == 2 || index == 4 %>
 
               <!-- TODO: check image aspect ratio here -->
-              <div class="not-fullscreen background" style="background-size: auto 100%; background-image:url('<%= item.image_style_three_url %>');" data-img-width="750" data-img-height="987">
+              <div class="not-fullscreen background" style="background-size: auto 100%; background-image:url('<%= item.image_style_three_url %>'); background-size: cover">
             <% else %>
-              <div class="not-fullscreen background" style="background-size: 100%; background-image:url('<%= item.image_style_one_url %>');" data-img-width="3000" data-img-height="2144">
+              <div class="not-fullscreen background" style="background-size: 100%; background-image:url('<%= item.image_style_one_url %>'); background-size: cover">
             <% end %>
               <a href="/archive/<%= item.id %>">
                 <div class="item-overlay">
@@ -62,29 +62,9 @@
 
 <%= will_paginate @items %>
 
-<%= render "shared/footer" %>
-
+<% content_for :perpagejs do %>
 <script>
-function doThis(){
-  if($(window).width() < 509){
-    $(window).resize({'widthEle' : '.archive-item', 'heightEle' : '.archive-item'}, backgroundResize);
-  }
-}
-
-var resizeTimer;
-$(window).resize(function(){
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(doThis, 100);
-});
-
 $(function(){
-  $('nav').waypoint('sticky');
-
-  if($(window).width() < 509){
-    backgroundResize({ 'data' : {'widthEle' : '.archive-item', 'heightEle' : '.archive-item'}})
-  }
-
-
   var toggle = 0;
   $('.category-nav li img').click(function(){
     if (toggle == 0) {
@@ -97,5 +77,5 @@ $(function(){
     $(this).closest('li').find('ul').toggle();
   })
 })
-
 </script>
+<% end %>

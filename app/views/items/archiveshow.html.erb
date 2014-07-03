@@ -15,13 +15,4 @@
     <%= image_tag @item.image_style_one_url %>
     <p class="bottomback"><%= link_to 'Back to archive', archive_path %></p>
   </article>
-
 </section>
-
-<%= render "shared/footer" %>
-
-<script>
-  $(function(){
-    $('nav').waypoint('sticky');
-  })
-</script>

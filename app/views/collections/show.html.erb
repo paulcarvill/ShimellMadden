@@ -12,39 +12,30 @@
 </div>
 
 <div id="items">
-<section class="blog collection">
-  <div class="collection-info">
-    <h2><%= @collection.name %></h2>
-    <p><%= @collection.description %></p>
-  </div>
-
-  <article style="position: relative">
-    <div id="my-carousel">
-    <% @items.each_with_index do |item, index| %>
-      <div class="carousel<% if index == 0 %> active<% end %>">
-        <img src="<%= item.image_style_one_url %>" />
-      </div>
-    <% end %>
-    </div> <!-- end carousel -->
-
-    <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
-    <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
-
-    <p class="indicator"></p>
-
-  </article>
-
-  <div class="notes shopthis">
-      <p><a href="#">Shop this item</a></p>
+  <section class="blog collection">
+    <div class="collection-info">
+      <h2><%= @collection.name %></h2>
+      <p><%= @collection.description %></p>
     </div>
-
+    <article style="position: relative">
+      <div id="my-carousel">
+      <% @items.each_with_index do |item, index| %>
+        <div class="carousel<% if index == 0 %> active<% end %>">
+          <img src="<%= item.image_style_one_url %>" />
+        </div>
+        <% if item.shopifyid %>
+          <div class="notes shopthis">
+            <p><a href="http://shopify.com/<%= item.shopifyid %>">Shop this item</a></p>
+          </div>
+        <% end %>
+      <% end %>
+      </div> <!-- end carousel -->
+      <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+      <p class="indicator"></p>
+    </article>
     <div class="notes bottomback">
       <p><a href="/collections">Back to collections</a></p>
     </div>
-    
-</section>
+  </section>
 </div>
-
-
-
-<%= render "shared/footer" %>

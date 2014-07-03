@@ -45,14 +45,3 @@
  </section>
 
 <%= will_paginate @projects %>
-
-<%= render "shared/footer" %>
-
-<script>
-$(function(){
-  $('nav').waypoint('sticky');
-
-  backgroundResize({ 'data' : {'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true} });
-
-})
-</script>

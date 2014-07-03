@@ -2,7 +2,7 @@
   <section class="blog">
     <div id="my-carousel">
       <% @items.each_with_index do |item, index| %>
-        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.image_style_one_url %>');" data-img-width="1280" data-img-height="800">
+        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.image_style_one_url %>'); background-size:cover;">
           <div class="content-a">
             <div class="content-b">
               <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>
@@ -16,22 +16,3 @@
     </div> <!-- end carousel -->
   </section>
 </div>
-
-<script>
-/*
- *	
- * fullscreen carousel for homepage
- *
- */
-$(function(){
-  /*
-   * resize images to fit into their container
-   */ 
-  backgroundResize({ 'data' : {'widthEle' : '#my-carousel', 'heightEle' : '#my-carousel'} });
-  
-  /*
-   * when window is resized, resize images to fit into their container
-   */ 
-   $(window).resize({'widthEle' : '#my-carousel', 'heightEle' : '#my-carousel'}, backgroundResize);
-})
-</script>

@@ -49,6 +49,35 @@ div, h1 {
 	display: table-cell;
 }
 
+.background {
+background-repeat:no-repeat;
+background-position:50% 50%;
+}
+  
+.fullscreen,
+.content-a {
+    width:100%;
+    min-height:100%;
+}
+.not-fullscreen,
+.not-fullscreen .content-a,
+.fullscreen.not-overflow,
+.fullscreen.not-overflow .content-a {
+    height:100%;
+    overflow:hidden;
+}
+
+/* content centering styles */
+.content-a {
+    display:table;
+}
+.content-b {
+    display:table-cell;
+    position:relative;
+    vertical-align:middle;
+    text-align:center;
+}
+
 h1 img {
 	width: 56%;
 }

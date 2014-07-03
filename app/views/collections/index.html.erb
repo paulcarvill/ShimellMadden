@@ -13,25 +13,21 @@
 
 <div id="items">
   <section class="blog collections">
-
-      <article style="position: relative">
-        <% @collections.each_with_index do |collection, index| %>
-        <div class="carousel<% if index == 0 %> active<% end %>">
-          <div class="collections-info">
-            <%= link_to collection do %><h2><%= collection.name %><% end %></h2>
-            <p><%= link_to 'View collection', collection %></p>
-          </div>
-          <%= link_to collection do %>
-            <%= image_tag collection.items.first.image_style_one_url %>
-          <% end %>
+    <article style="position: relative">
+      <% @collections.each_with_index do |collection, index| %>
+      <div class="carousel<% if index == 0 %> active<% end %>">
+        <div class="collections-info">
+          <%= link_to collection do %><h2><%= collection.name %><% end %></h2>
+          <p><%= link_to 'View collection', collection %></p>
         </div>
+        <%= link_to collection do %>
+          <%= image_tag collection.items.first.image_style_one_url %>
         <% end %>
-        <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
-        <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
-        <p class="indicator"></p>
-      </article>
-    
-   </section>
+      </div>
+      <% end %>
+      <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+      <p class="indicator"></p>
+    </article>
+  </section>
 </div>
-
-<%= render "shared/footer" %>
