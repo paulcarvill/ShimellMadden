@@ -1,63 +1,77 @@
-<div id="navigation">
+<div id="navigation" style="opacity: 0;">
   <header>
     <%= render "shared/nav" %>
   </header>
 </div>
 
-<div id="items">
+<div id="items"> 
   <section class="blog items">
-    <article>
+    <div id="my-carousel">
       <% @items.each_with_index do |item, index| %>
-        <div class="item item-<%= index+1 %>">
-          
-          <% if item.collection then %>
-            <%= link_to item.collection do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
-                <div class="content-a">
-                  <div class="content-b">
-                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p>Collections</p>
-                    <%= item.collection.name %>
-                    <%= item.name %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% elsif item.project then %>
-            <%= link_to item.project do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
-                <div class="content-a">
-                  <div class="content-b">
-                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p>Projects</p>
-                    <%= item.project.name %>
-                    <%= item.name %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size:cover;">
+          <div class="content-a">
+            <div class="content-b">
+              <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>
+              <h2><a href="/items">View collections</a></h2>
+            </div>
+          </div>
         </div>
       <% end %>
-    </article>
+      <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+    </div> <!-- end carousel -->
   </section>
-
-  <%= will_paginate @items %>
-
-</div> <!-- end items -->
+</div>
 
 <% content_for :perpagejs do %>
 <script>
+
   /* 
    *  this is for infinite scroll
   */
-  var page = <%= @page %>;
+  var page = 1;
   var item = 6;
   var assTri = '<%= asset_path 'down-triangle.svg' %>';
 
+  function getItems(pageNumber) {
+    $.get('/items.json?page=' + page, function(resp){
+      history.replaceState(null, null, "/?page=" + page);
+      for(var i = 0; i < resp.length; i++) {
+        $('article img').animate({ opacity : 0 }, function(){
+          this.remove();
+        })
+        $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].imageStyleOne+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
+
+          (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
+
+          '<img class="down-triangle" src="'+assTri+'" /><p>' +
+
+          (resp[i].isProject ? ('Projects') : ('Collections')) + 
+
+          '</p>' + 
+
+          (resp[i].isProject ? (resp[i].projectName + ' ' + resp[i].name) : (resp[i].collectionName + ' ' + resp[i].name)) + 
+
+          '</div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
+      }
+
+      if(resp.length < 6) {
+        $('footer').data('am-i-appeared', true);
+      } else {
+        $('footer').data('am-i-appeared', false);
+      }
+
+      item += resp.length;
+
+      $('footer').animate({ opacity : 1 } );
+      $('footer').appear();
+    });
+  }
+  
+
+  // this sets up the element we watch to check when it enters the viewport
+  // so we can load more content. in our case it's the footer
   $('document').ready(function() {
-    
-    $('footer').appear();
 
     $(document.body).on('appear', 'footer', function(e) {
       var $this = $(this);
@@ -66,38 +80,27 @@
       }
       $this.data('am-i-appeared', true);
       page++;
+      getItems(page);
+    });
 
-      $.get('/items.json?page=' + page, function(resp){
-        history.replaceState(null, null, "/items?page=" + page);
-        for(var i = 0; i < resp.length; i++) {
-          console.log(resp[i]);
-          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].imageStyleOne+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b">' + 
+    // transition from 'homepage' carousel to list of all items
+    $('h2 a').click(function(e) {
+      var x = $('#my-carousel');
+      var xHeight = x.outerHeight();
+      e.preventDefault();
+      x.animate({top: -(xHeight)}, 1500, function(){
 
-            (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
+        $('#navigation').animate({ opacity : 1 });
+        $('body').removeClass('home');
+        x.remove();
+        $('header nav').waypoint('sticky');
 
-            '<img class="down-triangle" src="'+assTri+'" /><p>' +
+        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img src="/assets/progress.png" width="50px" height="50px" style="width: 50px; height: 50px; position: absolute; left: 50%; top: 50%" /></article>');
 
-            (resp[i].isProject ? ('Projects') : ('Collections')) + 
-
-            '</p>' + 
-
-            (resp[i].isProject ? (resp[i].projectName + ' ' + resp[i].name) : (resp[i].collectionName + ' ' + resp[i].name)) + 
-
-            '</div></div></div>');
-        }
-        if(resp.length < 6) {
-          $this.data('am-i-appeared', true);
-        } else {
-          $this.data('am-i-appeared', false);
-        }
-
-        window.setTimeout( function(){
-          backgroundResize({ 'data' : {'widthEle' : '.item', 'heightEle' : '.item', 'multi' : true, 'pagesize' : 6} });
-        }, 500);
-        item += resp.length;
-
+        getItems(page);
       });
     });
-  });
+  });  
+
 </script>
 <% end %>

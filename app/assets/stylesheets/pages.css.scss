@@ -215,6 +215,10 @@ body header nav {
 	z-index: 10;
 }
 
+.home footer {
+	opacity: 0;
+}
+
 @include media($mobile) {
 	.info,
 	.contact,

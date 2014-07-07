@@ -1,7 +1,6 @@
-<a href="/"><img src="<%= asset_path "logo.svg" %>" width="38" height="44" /></a>
+<a href="/"><img src="<%= asset_path "logo.svg" %>" width="32.3" height="37.4" /></a>
 <p class="nav-header"><span><%= nav() %></span><img style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" src="<%= asset_path "menu-closed.svg" %>" width="22" height="14" /></p>
 <nav>
-  <a href="/items"<%= if controller?("items") && action?("index", "show") then " class=current" end %>>Items</a>
   <a href="/collections"<%= if controller?("collections") && action?("index", "show") then " class=current" end %>>Collections</a>
   <a href="/archive"<%= if controller?("items") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
   <a href="/projects"<%= if controller?("projects") && action?("index", "show") then " class=current" end %>>Projects</a>

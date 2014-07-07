@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
           else
             @page = 1
           end
+          @homepageitems = Item.where(homepage: true).order("id ASC")
           @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
         }
         format.json {
-          sleep(2)
+          sleep(1)
           @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
         }
     end
