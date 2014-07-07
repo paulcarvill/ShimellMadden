@@ -2,7 +2,7 @@
   <section class="blog">
     <div id="my-carousel">
       <% @items.each_with_index do |item, index| %>
-        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.image_style_one_url %>'); background-size:cover;">
+        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size:cover;">
           <div class="content-a">
             <div class="content-b">
               <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>

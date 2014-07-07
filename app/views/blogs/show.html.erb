@@ -13,7 +13,7 @@
   </aside>
   <article style="position: relative;">
     <% if @blog.blogImage_file_name %>
-          <%= image_tag @blog.image_style_one_url %>
+          <%= image_tag @blog.imageStyleOne.url %>
         <% else %>
           <img src="<%= asset_path "about.jpg" %>" />
         <% end %>

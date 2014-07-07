@@ -12,7 +12,7 @@
           
           <% if item.collection then %>
             <%= link_to item.collection do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>'); background-size: cover;">
+              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
                 <div class="content-a">
                   <div class="content-b">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
@@ -25,7 +25,7 @@
             <% end %>
           <% elsif item.project then %>
             <%= link_to item.project do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.image_style_one_url %>'); background-size: cover;">
+              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
                 <div class="content-a">
                   <div class="content-b">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
@@ -71,7 +71,7 @@
         history.replaceState(null, null, "/items?page=" + page);
         for(var i = 0; i < resp.length; i++) {
           console.log(resp[i]);
-          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].image_style_one_url+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b">' + 
+          $('article').append('<div class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].imageStyleOne+');" data-img-width="3000" data-img-height="2144"><div class="content-a"><div class="content-b">' + 
 
             (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
 

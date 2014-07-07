@@ -35,15 +35,16 @@
     <% @items.each_with_index do |item, index| %>
       <div class="archive-item">
         <span class="inside">
-          <div class="inside-inside">
-            <% if index == 2 || index == 4 %>
 
-              <!-- TODO: check image aspect ratio here -->
-              <div class="not-fullscreen background" style="background-size: auto 100%; background-image:url('<%= item.image_style_three_url %>'); background-size: cover">
-            <% else %>
-              <div class="not-fullscreen background" style="background-size: 100%; background-image:url('<%= item.image_style_one_url %>'); background-size: cover">
-            <% end %>
-              <a href="/archive/<%= item.id %>">
+              <% if item.imageStyleOne.height > item.imageStyleOne.width %>
+                <div class="inside-block">
+                  <img src="<%= item.imageStyleOne.url %>" height="220px" />
+              <% else %>
+                <div class="inside-inside">
+                  <img src="<%= item.imageStyleOne.url %>" />
+              <% end %>
+            
+              <!-- <a href="/archive/<%= item.id %>">
                 <div class="item-overlay">
                   <div class="tc">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
@@ -51,7 +52,7 @@
                     <%= item.name %>
                   </div>
                 </div>
-              </a>
+              </a> -->
             </div>
           </div>
         </span>

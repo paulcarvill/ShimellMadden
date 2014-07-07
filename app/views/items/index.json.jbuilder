@@ -1,5 +1,5 @@
 json.array!(@items) do |item|
-  json.extract! item, :id, :name, :description, :price, :shipping, :shopifyid, :homepage, :image_style_one_url, :image_style_two_url, :image_style_three_url
+  json.extract! item, :id, :name, :description, :price, :shipping, :shopifyid, :homepage, :imageStyleOne
 
   if item.collection != nil
   	json.isCollection true
