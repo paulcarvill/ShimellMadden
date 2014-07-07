@@ -31,31 +31,54 @@
     </ul>
   </aside>
 
+  <style>
+    .table {
+      
+      display:table-cell;
+      vertical-align:middle;
+    }
+    .image {
+      background-color:#eaeaea;
+      text-align: center;
+      max-height: 220px;
+    }
+
+    .image img {
+      margin: 0 auto !important;
+      max-height: 220px;
+    }
+  </style>
+
   <article>
     <% @items.each_with_index do |item, index| %>
-      <div class="archive-item">
-        <span class="inside">
+      <div class="archive-item" style="background:#dedede">
+        
 
-              <% if item.imageStyleOne.height > item.imageStyleOne.width %>
-                <div class="inside-block">
-                  <img src="<%= item.imageStyleOne.url %>" height="220px" />
-              <% else %>
-                <div class="inside-inside">
-                  <img src="<%= item.imageStyleOne.url %>" />
-              <% end %>
-            
-              <!-- <a href="/archive/<%= item.id %>">
-                <div class="item-overlay">
-                  <div class="tc">
-                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p>Archive item</p>
-                    <%= item.name %>
-                  </div>
-                </div>
-              </a> -->
-            </div>
-          </div>
-        </span>
+
+    <div class="table">
+      <% if index == 0 %>
+        <div class="image" style="width:100%;">
+          <img src="<%= asset_path item.imageStyleOne %>)" />
+        </div>
+      <% elsif index == 1 %>
+        <div class="image" style="width:100%;">
+          <img src="<%= asset_path item.imageStyleOne %>)" />
+        </div>
+
+      <% elsif index == 2 %> <!-- replace with: IF IMG WIDTH > HEIGHT -->
+        <div class="image">
+            <img src="<%= asset_path item.imageStyleOne %>)" />
+        </div>
+
+      <% else %>
+        <div class="image" style="width:100%;">
+          <img src="<%= asset_path item.imageStyleOne %>)" />
+        </div>
+      <% end %>
+    </div>
+
+
+
       </div>
     <% end %>
   </article>
