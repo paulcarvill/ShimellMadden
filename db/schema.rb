@@ -90,7 +90,15 @@ ActiveRecord::Schema.define(version: 20140706113702) do
     t.string   "imageStyleOne_content_type"
     t.integer  "imageStyleOne_file_size"
     t.datetime "imageStyleOne_updated_at"
-    t.boolean  "archive",                    default: false, null: false
+    t.string   "imageStyleTwo_file_name"
+    t.string   "imageStyleTwo_content_type"
+    t.integer  "imageStyleTwo_file_size"
+    t.datetime "imageStyleTwo_updated_at"
+    t.string   "imageStyleThree_file_name"
+    t.string   "imageStyleThree_content_type"
+    t.integer  "imageStyleThree_file_size"
+    t.datetime "imageStyleThree_updated_at"
+    t.boolean  "archive",                      default: false, null: false
     t.text     "imageStyleOne_meta"
   end
 

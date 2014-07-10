@@ -67,12 +67,27 @@ p.indicator {
 	font-family: 'Freight Text Book';
 }
 
+.collection-info h2 {
+	/*border-bottom: 1px solid #fff;*/
+	/*padding-bottom: 4px;*/
+}
+
 .collections-info p,
 .collection-info p {
 	padding-top: 4px;
 	padding-bottom: 4px;
 	border-bottom: 1px solid #fff;
 	font-size: 0.8em;
+}
+
+.collection-info p.collectionInfo {
+	font-family: "DIN Next Pro Regular";
+	font-size: 0.7em;
+	padding: 6px 0;
+}
+
+.collection-info p.collectionInfo img {
+	margin-top: -2px;
 }
 
 .shopthis a {

@@ -112,6 +112,11 @@ h1 img {
 	margin-top: -12px;
 }
 
+.carousel-next,
+.carousel-prev {
+	cursor: pointer;
+}
+
 .carousel-next {
 	position: absolute;
 	right: 18px;
