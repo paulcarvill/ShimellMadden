@@ -23,11 +23,20 @@ class ItemsController < ApplicationController
 
   def archive
     @categories = Category.all()
+
     if params['category']
-      @items = Category.find(params['category']).items.where(archive: true).paginate(:page => params[:page], :per_page => 9)
+      @items = Category.find(params['category']).items.where(archive: true).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
+    elsif params['date']
+      date = Date.parse(params['date']);
+      startofmonth = date.beginning_of_month
+      endofmonth = date.end_of_month
+      @items = Item.where(archive: true).where("created_at >= ? and created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
     else
       @items = Item.where(archive: true).paginate(:page => params[:page], :per_page => 9)
     end
+
+    @months = Item.all().order("created_at DESC").map{|t| t.created_at.strftime("%B %Y")}.uniq 
+
     render "items/archive"
   end
 

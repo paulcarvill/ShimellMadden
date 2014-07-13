@@ -245,6 +245,7 @@ Item.create([
 	categories: [categories[0]],
 	imageStyleOne: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio.jpg")),
 	archive: true,
+	created_at: Date.parse("1st May 2013")
 	},
 	{
 	name: "Item 6",
@@ -386,6 +387,7 @@ Item.create([
 	# imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	# imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[5].id
+	created_at: Date.parse("1st July 2013")
 	},
 	{
 	name: "Item 19",
@@ -410,6 +412,7 @@ Item.create([
 	# imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	# imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[3].id
+	created_at: Date.parse("7th December 2013")
 	},
 	{
 	name: "Item 21",
@@ -422,6 +425,7 @@ Item.create([
 	# imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	# imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
 	project_id: projects[2].id
+	created_at: Date.parse("5th January 2014")
 	},
 	{
 	name: "Item 22",

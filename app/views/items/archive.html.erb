@@ -21,11 +21,9 @@
     </li>
     <li>Date <img style="float: right; padding-top: 3px" class="down-triangle" src="/assets/down-arrow-grey.svg" />
       <ul>
-        <li>June 2014</li>
-        <li>May 2014</li>
-        <li>April 2014</li>
-        <li>March 2014</li>
-        <li>February 2014</li>      
+        <% @months.each do | month | %>
+          <li><a href="?date=<%= month %>" <%= if month == params['date'] then raw("class='current'") end %>><%= month %></a><%= if month == params['date'] then raw('<a style="float:right" href="/archive">&times;</a>') end %></li>
+        <% end %>
       </ul>
     </li>
     </ul>
@@ -68,12 +66,15 @@
 $(function(){
   var toggle = 0;
   $('.category-nav li img').click(function(){
-    if (toggle == 0) {
-      $(this).attr('src', '/assets/up-arrow-grey.svg');
-      toggle = 1;
+    if (!$(this).data('toggle')) {
+      $(this).data('toggle', 0);
+    }
+    if ($(this).data('toggle') == 0 ) {
+      $(this).attr('src', '<%= asset_path "up-arrow-grey.svg" %>');
+      $(this).data('toggle', 1);
     } else {
-      $(this).attr('src', '/assets/down-arrow-grey.svg');
-      toggle = 0;
+      $(this).attr('src', '<%= asset_path "down-arrow-grey.svg" %>');
+      $(this).data('toggle', 0);
     }
     $(this).closest('li').find('ul').toggle();
   })
