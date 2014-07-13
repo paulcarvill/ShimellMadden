@@ -50,7 +50,12 @@
       $.get('/news.json?page=' + page, function(resp){
         history.replaceState(null, null, "/news?page=" + page);
         for(var i = 0; i < resp.length; i++) {
-          $('section').append('<div class="news-item"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><img src="<%= asset_path "about.jpg" %>" /></article></div>')
+          $('<div class="news-item" style="opacity:0;"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><img src="<%= asset_path "about.jpg" %>" /></article></div>').appendTo('section').animate({ opacity : 1 }, 1500);
+
+
+            /*
+            animate({ opacity : 1 }, 1500)
+            */
         }
         if(resp.length < 3) {
           $this.data('am-i-appeared', true);

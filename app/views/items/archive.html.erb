@@ -65,15 +65,15 @@
 <script>
 $(function(){
   var toggle = 0;
-  $('.category-nav li img').click(function(){
+  $('.category-nav>li').click(function(){
     if (!$(this).data('toggle')) {
       $(this).data('toggle', 0);
     }
     if ($(this).data('toggle') == 0 ) {
-      $(this).attr('src', '<%= asset_path "up-arrow-grey.svg" %>');
+      $('img', this).attr('src', '<%= asset_path "up-arrow-grey.svg" %>');
       $(this).data('toggle', 1);
     } else {
-      $(this).attr('src', '<%= asset_path "down-arrow-grey.svg" %>');
+      $('img', this).attr('src', '<%= asset_path "down-arrow-grey.svg" %>');
       $(this).data('toggle', 0);
     }
     $(this).closest('li').find('ul').toggle();

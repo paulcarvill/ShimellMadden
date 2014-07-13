@@ -15,7 +15,7 @@
   <section class="blog collection">
     <div class="collection-info">
       <h2><%= @collection.name %></h2>
-      <p style="height: 0; overflow: hidden; padding: 0; border: 0"><%= @collection.description %></p>
+      <p class="collectionDesc"><%= @collection.description %></p>
       <p class="collectionInfo">Show info <img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path "down-arrow-grey.svg" %>" /></p>
     </div>
     <article style="position: relative">

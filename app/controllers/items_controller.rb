@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
           @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
         }
         format.json {
-          sleep(1)
           @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
         }
     end

@@ -137,6 +137,13 @@ p.indicator {
 	position: static;
 }
 
+.collection-info .collectionDesc {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	border: 0;
+}
+
 @include media($mobile) {
 
 	.lessThanThree {
@@ -150,6 +157,10 @@ p.indicator {
 	.collections .carousel {
 		float: left;
 		margin-bottom: 10px;
+	}
+
+	.collection-info .collectionInfo {
+		display: none;
 	}
 
 	.collections .collections-info {
@@ -192,6 +203,7 @@ p.indicator {
 
 	.shopthis a {
 		color: #2d2d2d;
+		font-size: 0.8em;
 	}
 
 	.collection-info p {
