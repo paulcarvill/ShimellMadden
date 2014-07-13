@@ -195,11 +195,21 @@ body {
 
   .archive-item {
     @include span-columns(3 of 9);
-    @include omega(3n);
-    margin-bottom: 5px;
+    
     @include media($mobile) {
       margin-bottom: 15px;
     }
+
+    @include media($tablet) {
+      @include span-columns(2 of 4);
+      @include omega(2n);
+    }
+
+    @include media($desktop) {
+      @include omega(3n);
+      margin-bottom: 5px;
+    }
+
     display: table;
     text-align: center;
   }

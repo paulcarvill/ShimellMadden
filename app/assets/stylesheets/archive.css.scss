@@ -39,8 +39,16 @@ body .archive-item {
   display:table-cell;
   vertical-align:middle;
 }
+
+.table .item-overlay {
+	display: none;
+}
+
+.table div:hover .item-overlay {
+	display: table;
+}
+
 .image {
-  background-color:#eaeaea;
   text-align: center;
   max-height: 220px;
 }
@@ -60,7 +68,30 @@ body .archive-item {
 	.table .image {
 		background-size: 100% auto !important;
 	}
+
+	.table .item-overlay {
+		display: table;
+		height: 220px;
+	}
 }
+
+@include media($tablet) {
+
+	.archive article {
+		@include span-columns(3);
+	}
+
+	.table {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.table .image {
+		background-size: 100% auto !important;
+	}
+}
+
 
 .inside-inside {
 	position: relative;
