@@ -19,7 +19,7 @@
 	position: static;
 }
 
-#my-carousel.short div.carousel:last-of-type {
+#my-carousel.short div.carousel:last-of-type:not(.lessThanThree) {
 	position: absolute;
 }
 
