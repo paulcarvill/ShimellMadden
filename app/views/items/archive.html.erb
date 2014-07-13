@@ -39,19 +39,18 @@
 
     <div class="table">
         <div style="display: inline-block; position: relative;">
-        <img class="image" src="<%= asset_path item.imageStyleOne %>" style="margin: 0 auto; <%= if item.imageStyleOne.height > item.imageStyleOne.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" />
+          <img class="image" src="<%= asset_path item.imageStyleOne %>" style="margin: 0 auto; <%= if item.imageStyleOne.height > item.imageStyleOne.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" />
 
-        <!-- info overlay -->
-        <!-- <a href="/archive/<%= item.id %>"> -->
-          <div class="item-overlay">
-            <div class="tc">
-              <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-              <p>Archive item</p>
-              <%= item.name %>
+          <!-- info overlay -->
+          <a href="/archive/<%= item.id %>">
+            <div class="item-overlay">
+              <div class="tc">
+                <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                <p>Archive item</p>
+                <%= item.name %>
+              </div>
             </div>
-          </div>
-        <!-- </a> -->
-
+          </a>
         </div>
     </div>
 
