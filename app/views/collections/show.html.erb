@@ -49,11 +49,11 @@
     $('.collectionInfo').click(function(){
       if (open) {
         $(this).prev().css({ 'height' : '0', 'padding' : '0', 'border-top' : 'none'});
-        $('img', this).attr('src', '<%= asset_path "/assets/down-arrow-grey.svg" %>');
+        $('img', this).attr('src', '<%= asset_path "down-arrow-grey.svg" %>');
         open = false;
       } else {
         $(this).prev().css({ 'height' : 'auto', 'padding' : '8px 0', 'border-top' : '1px solid #fff'});
-        $('img', this).attr('src', '<%= asset_path "/assets/up-arrow-grey.svg" %>');
+        $('img', this).attr('src', '<%= asset_path "up-arrow-grey.svg" %>');
         open = true;
       }
     })
