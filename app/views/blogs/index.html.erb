@@ -18,7 +18,7 @@
       </aside>
       <article>
         <% if blog.blogImage_file_name %>
-          <%= image_tag blog.imageStyleOne.url %>
+          <%= image_tag blog.blogImage %>
         <% else %>
           <img src="<%= asset_path "about.jpg" %>" />
         <% end %>
@@ -30,8 +30,7 @@
 
 <%= will_paginate @blogs %>
 
-<%= render "shared/footer" %>
-
+<% content_for :perpagejs do %>
 <script>
   var page = <%= @page %>;
 
@@ -63,4 +62,5 @@
     });
   });
 </script>
+<% end %>
 
