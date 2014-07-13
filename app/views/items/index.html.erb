@@ -95,7 +95,7 @@
         x.remove();
         $('header nav').waypoint('sticky');
 
-        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img src="/assets/progress.png" width="50px" height="50px" style="width: 50px; height: 50px; position: absolute; left: 50%; top: 50%" /></article>');
+        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img src="<%= asset_path \'/assets/progress.png\'" width="50px" height="50px" style="width: 50px; height: 50px; position: absolute; left: 50%; top: 50%" /></article>');
 
         getItems(page);
       });
