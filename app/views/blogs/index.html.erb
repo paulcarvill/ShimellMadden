@@ -16,12 +16,33 @@
         <h2><%= blog.headline %></h2>
         <%= blog.body.html_safe %> 
       </aside>
-      <article>
-        <% if blog.blogImage_file_name %>
-          <%= image_tag blog.blogImage %>
-        <% else %>
-          <img src="<%= asset_path "about.jpg" %>" />
-        <% end %>
+      <article style="position: relative; display: block;">
+
+        <div id="my-carousel" style="height: auto">
+          <% if blog.blogImage1_file_name %>
+            <div class="carousel not-fullscreen background" style="height: auto; opacity: 1">
+              <%= image_tag blog.blogImage1 %>
+            </div>
+          <% else %>
+            <img src="<%= asset_path "about.jpg" %>" />
+          <% end %>
+          
+          <% if blog.blogImage2_file_name %>
+            <div class="carousel not-fullscreen background">
+              <%= image_tag blog.blogImage2 %>
+            </div> <!-- end carousel -->
+          <% end %>
+          
+          <% if blog.blogImage3_file_name %>
+            <div class="carousel not-fullscreen background">
+              <%= image_tag blog.blogImage3 %>
+            </div>
+          <% end %>
+
+          <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+          <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+        </div> <!-- end carousel -->
+
       </article>
     </div>
   <% end %>
@@ -49,13 +70,23 @@
       // get paginated news items
       $.get('/news.json?page=' + page, function(resp){
         history.replaceState(null, null, "/news?page=" + page);
+
+        var img1 = img2 = img3 = "";
+
         for(var i = 0; i < resp.length; i++) {
-          $('<div class="news-item" style="opacity:0;"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><img src="<%= asset_path "about.jpg" %>" /></article></div>').appendTo('section').animate({ opacity : 1 }, 1500);
 
+          if (resp[i].blogImage1) {
+            img1 = '<img src="'+resp[i].blogImage1+'" />';
+          }
+          if (resp[i].blogImage2) {
+            img2 = '<img src="'+resp[i].blogImage2+'" />';
+          }
+          if (resp[i].blogImage3) {
+            img3 = '<img src="'+resp[i].blogImage3+'" />';
+          }
 
-            /*
-            animate({ opacity : 1 }, 1500)
-            */
+          $('<div class="news-item" style="opacity:0;"><aside><h2>' + resp[i].created_at + '</h2><h2>' + resp[i].headline + '</h2>' + resp[i].body + '</aside><article><div id="my-carousel">'+img1+img2+img3+'</div></article></div>').appendTo('section').animate({ opacity : 1 }, 1500);
+
         }
         if(resp.length < 3) {
           $this.data('am-i-appeared', true);
