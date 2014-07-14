@@ -31,18 +31,10 @@ section.projects > h2 {
 	}
 }
 
-.projectitem article img {
-	
-}
-
 .projects h2 {
 	border-top: 0;
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 20px;
-}
-
-.proj-name {
-	display: none;
 }
 
 .projectitem .topback {
@@ -63,7 +55,69 @@ section.projects > h2 {
 	border: 0;
 }
 
+.proj-name {
+	font-size: 0.8em;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+	padding-top: 8px;
+	color: #999;
+	padding-bottom: 3px;
+}
+
+@include media($desktop) {
+	.projects .item-1 .not-fullscreen {
+		height: 242px;
+	}
+
+	.projects .item-2 .not-fullscreen {
+		height: 404px;
+	}
+
+	.projects .item-3 .not-fullscreen {
+		height: 242px;
+	}
+
+	.projects .item-4 .not-fullscreen {
+		height: 602px;
+	}
+
+	.projects .item-5 .not-fullscreen {
+		height: 242px;
+	}
+
+	.projects .item {
+		margin-bottom: 10px;
+	}
+}
+
 @include media($mobile) {
+
+	.projectitem .indicator {
+		position: static;
+		padding: 15px 0 5px 0;
+	}
+
+	.projectitem .bottomback {
+		margin-top: 8px;
+	}
+
+	.projectitem #my-carousel {
+		position: relative;
+	}
+
+	.proj-name {
+		float: left;
+		text-align: center;
+		clear: left;
+		width: 100%;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 10px;
+		font-family: 'DIN Next Pro Regular';
+	}
+}
+
+@include media($tablet) {
 
 	.projectitem .indicator {
 		position: static;

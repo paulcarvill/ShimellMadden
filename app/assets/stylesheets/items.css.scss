@@ -96,4 +96,10 @@ body .item {
 	}
 }
 
+@include media($tablet) {
+	body .projects .item {
+		@include span-columns(4);
+	}
+}
+
 
