@@ -16,7 +16,7 @@
     <div class="collection-info">
       <h2><%= @collection.name %></h2>
       <p class="collectionDesc"><%= @collection.description %></p>
-      <p class="collectionInfo">Show info <img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path "down-arrow-grey.svg" %>" /></p>
+      <p class="collectionInfo"><span>Show info</span><img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path "down-arrow-grey.svg" %>" /></p>
     </div>
     <article style="position: relative">
       <div id="my-carousel">
@@ -50,10 +50,12 @@
       if (open) {
         $(this).prev().css({ 'height' : '0', 'padding' : '0', 'border-top' : 'none'});
         $('img', this).attr('src', '<%= asset_path "down-arrow-grey.svg" %>');
+        $('span', this).text('Show info');
         open = false;
       } else {
         $(this).prev().css({ 'height' : 'auto', 'padding' : '8px 0', 'border-top' : '1px solid #fff'});
         $('img', this).attr('src', '<%= asset_path "up-arrow-grey.svg" %>');
+        $('span', this).text('Hide info');
         open = true;
       }
     })
