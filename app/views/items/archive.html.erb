@@ -12,14 +12,14 @@
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <ul class="category-nav">
-    <li>Category <img style="float: right; padding-top: 3px" class="down-triangle" src="/assets/up-arrow-grey.svg" />
+    <li>Category <img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path 'up-arrow-grey.svg'%>" />
       <ul <%= if params['category'] == nil then raw('style="display: none"') end %>>
       <% @categories.each do |category| %>
         <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a><%= if category.id.to_s == params['category'] then raw('<a style="float:right" class="current" href="/archive">&times;</a>') end %></li>
       <% end %>
       </ul>
     </li>
-    <li>Date <img style="float: right; padding-top: 3px" class="down-triangle" src="/assets/up-arrow-grey.svg" />
+    <li>Date <img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path 'up-arrow-grey.svg'%>" />
       <ul <%= if params['date'] == nil then raw('style="display: none"') end %>>
         <% @months.each do | month | %>
           <li><a href="?date=<%= month %>" <%= if month == params['date'] then raw("class='current'") end %>><%= month %></a><%= if month == params['date'] then raw('<a style="float:right" class="current" href="/archive">&times;</a>') end %></li>
