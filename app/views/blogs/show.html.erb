@@ -1,7 +1,10 @@
 <div id="navigation">
-  <header>
-    <%= render "shared/nav" %>
-  </header>
+<header>
+  <%= render "shared/nav" %>
+</header>
+<div id="subnav">
+  <%= render "shared/subnav" %>
+</div>
 </div>
 
 <section class="blog projectitem">
@@ -12,12 +15,10 @@
     <p class="topback"><%= link_to 'Back to blogs', blogs_path %></p>
   </aside>
   <article style="position: relative;">
-    <% if @blog.blogImage_file_name %>
-          <%= image_tag @blog.imageStyleOne.url %>
-        <% else %>
-          <img src="<%= asset_path "about.jpg" %>" />
-        <% end %>
+    <% if @blog.blogImage1_file_name %>
+      <%= image_tag @blog.blogImage1 %>
+    <% else %>
+      <img src="<%= asset_path "about.jpg" %>" />
+    <% end %>
   </article>
  </section>
-
- <%= render "shared/footer" %>

@@ -51,10 +51,18 @@ ActiveRecord::Schema.define(version: 20140706113702) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "blogImage_file_name"
-    t.string   "blogImage_content_type"
-    t.integer  "blogImage_file_size"
-    t.datetime "blogImage_updated_at"
+    t.string   "blogImage1_file_name"
+    t.string   "blogImage1_content_type"
+    t.integer  "blogImage1_file_size"
+    t.datetime "blogImage1_updated_at"
+    t.string   "blogImage2_file_name"
+    t.string   "blogImage2_content_type"
+    t.integer  "blogImage2_file_size"
+    t.datetime "blogImage2_updated_at"
+    t.string   "blogImage3_file_name"
+    t.string   "blogImage3_content_type"
+    t.integer  "blogImage3_file_size"
+    t.datetime "blogImage3_updated_at"
   end
 
   create_table "categories", force: true do |t|

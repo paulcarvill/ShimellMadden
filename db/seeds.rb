@@ -36,30 +36,33 @@ blogs = Blog.create([
 		headline: "News headline one",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	},
 	{
 		headline: "News headline two",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news2.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news2.jpg"))
 	},
 	{
 		headline: "News headline three",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
 	},
 	{
 		headline: "News headline four",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news4.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news4.jpg"))
 	},
 	{
 		headline: "News headline five",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
-Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news1.jpg")),
+		blogImage2: File.open(Rails.root.join("db/seeds/news","news2.jpg")),
+		blogImage3: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
 	},
 	{
 		headline: "News headline six",
@@ -70,25 +73,25 @@ Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ex
 		headline: "News headline seven",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	},
 	{
 		headline: "News headline eight",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news2.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news2.jpg"))
 	},
 	{
 		headline: "News headline nine",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
 	},
 	{
 		headline: "News headline ten",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news4.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news4.jpg"))
 	},
 	{
 		headline: "News headline eleven",
@@ -98,25 +101,28 @@ Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ex
 	{
 		headline: "News headline twelve",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
-Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news3.jpg")),
+		blogImage2: File.open(Rails.root.join("db/seeds/news","news2.jpg")),
+		blogImage3: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	},
 	{
 		headline: "News headline thirteen",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news2.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news2.jpg"))
 	},
 	{
 		headline: "News headline fourteen",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
 	},
 	{
 		headline: "News headline fifteen",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage: File.open(Rails.root.join("db/seeds/news","news4.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news4.jpg"))
 	},
 	{
 		headline: "News headline sixteen",
@@ -386,7 +392,7 @@ Item.create([
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-orange.gif")),
 	# imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	# imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
-	project_id: projects[5].id
+	project_id: projects[5].id,
 	created_at: Date.parse("1st July 2013")
 	},
 	{
@@ -411,7 +417,7 @@ Item.create([
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-cherry.gif")),
 	# imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	# imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
-	project_id: projects[3].id
+	project_id: projects[3].id,
 	created_at: Date.parse("7th December 2013")
 	},
 	{
@@ -424,7 +430,7 @@ Item.create([
 	imageStyleOne: File.open(Rails.root.join("db/seeds","1800x1286-purple.gif")),
 	# imageStyleTwo: File.open(Rails.root.join("db/seeds","1286x1286-green.gif")),
 	# imageStyleThree: File.open(Rails.root.join("db/seeds","977x1286-cherry.gif")),
-	project_id: projects[2].id
+	project_id: projects[2].id,
 	created_at: Date.parse("5th January 2014")
 	},
 	{
