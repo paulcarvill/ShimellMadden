@@ -1,3 +1,26 @@
 // Place all the styles related to the Blog controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@include media($desktop) {
+	body .news-item, 
+	body .news-item article,
+	body .news-item #my-carousel,
+	body .news-item .carousel {
+		height: 600px;
+		overflow: hidden;
+	}
+
+	body .news-item {
+		margin-bottom: 50px
+	}
+}
+
+@include media($mobile) {
+	body .news-item, 
+	body .news-item article,
+	body .news-item #my-carousel,
+	body .news-item .carousel {
+		min-height: 300px;
+	}
+}

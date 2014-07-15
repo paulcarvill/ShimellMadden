@@ -40,101 +40,19 @@
 })();
 
 
-function fullscreenFix(){
-    var h = $('body').height();
-    $(".content-b").each(function(i){
-        if($(this).innerHeight() <= h){
-            $(this).closest(".fullscreen").addClass("not-overflow");
-        }
-    });
-}
-
-function backgroundResize(obj){
-    console.log('do');
-    var windowH = $(window).height();
-
-    var contW = $(obj.data.widthEle).width(); // sets resized image size
-    var contH = $(obj.data.heightEle).height(); // sets resized image size.
-    var pagesize = obj.data.pagesize || 6;
-    var page = 1;
-    var current = 0;
-
-    $(".background").each(function(){
-
-        if (current > (pagesize-1)) {
-            current = current - pagesize;
-            page++;
-        }
-
-        if (obj.data.multi) {
-            contW = $(obj.data.widthEle + '-' + (current+1)).width(); // sets resized image size
-            contH = $(obj.data.heightEle + '-' + (current+1)).height(); // sets resized image size.
-        }
-
-        var path = $(this);
-        var imgW = path.attr("data-img-width");
-        var imgH = path.attr("data-img-height");
-        var ratio = imgW / imgH;
-        
-        // overflowing difference
-        var diff = parseFloat(path.attr("data-diff"));
-        diff = diff ? diff : 0;
-
-        // remaining height to have fullscreen image only on parallax
-        var remainingH = 0;
-        
-        // set img values depending on cont
-        imgH = contH + remainingH + diff;
-        imgW = imgH * ratio;
-
-        // fix when too large
-        if(contW > imgW){
-            imgW = contW;
-            imgH = imgW / ratio;
-        }
-        //
-        path.data("resized-imgW", imgW);
-        path.data("resized-imgH", imgH);
-        path.css("background-size", imgW + "px " + imgH + "px");
-
-        current++;
-    });
-}
-
 /* make mobile touches faster */
 window.addEventListener('load', function() {
     FastClick.attach(document.body);
 }, false);
 
 
-$(function(){
-
-
-    /* menu */
-    SM = {};
-
-    $('.nav-header').click(function(){
-        if(SM.revealed) {
-            $('nav').toggleClass('woop');
-            SM.revealed = false
-            $('.nav-header img').attr('src', '<%= asset_path 'menu-closed.svg' %>');
-        } else {
-            $('nav').toggleClass('woop');
-            $('.nav-header img').attr('src', '<%= asset_path 'menu-open.svg' %>');
-            SM.revealed = true
-        }
-    })
-  
-
-    /* sticky header */
-    $('body.other header nav').waypoint('sticky');
-
-
-    /* carousel */
+/* carousel */
+function doCarousel(){
+    
     var current = 0;
     var items = [];
 
-    $('#my-carousel div.carousel').each(function(){
+    $('div.carousel', this).each(function(){
         items.push(this)
     })
 
@@ -193,4 +111,29 @@ $(function(){
         $('.carousel-next').remove();
         $('.indicator').remove();
     }
+}
+
+$(function(){
+
+    /* menu */
+    SM = {};
+
+    $('.nav-header').click(function(){
+        if(SM.revealed) {
+            $('nav').toggleClass('woop');
+            SM.revealed = false
+            $('.nav-header img').attr('src', '<%= asset_path 'menu-closed.svg' %>');
+        } else {
+            $('nav').toggleClass('woop');
+            $('.nav-header img').attr('src', '<%= asset_path 'menu-open.svg' %>');
+            SM.revealed = true
+        }
+    })
+  
+
+    /* sticky header */
+    $('body.other header nav').waypoint('sticky');
+
+
+    $('#my-carousel').each(doCarousel);
 })
