@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 </head>
-<body class="<%= if controller?("items") && action?("index") then "home " else "other " end %><%= if controller?("pages") && action?("shop") then "shoppage" end %>">
+<body class="<%= yield :perpageclass %><%= if controller?("items") && action?("index") then "home " else "other " end %><%= if controller?("pages") && action?("shop") then "shoppage" end %>">
     <script type="text/javascript">document.getElementsByTagName('body')[0].className+=' js'</script>
     <%= yield %>
     <%= render "shared/footer" %>

@@ -3,6 +3,12 @@
 	
 }
 
+@include media($desktop) {
+	.tall {
+		width: 60%	
+	}
+}
+
 .archive-item img {
 	max-height: 100%;
 	width: auto;
@@ -17,6 +23,10 @@
 
 .inside-block img {
 	margin: 0 auto !important;
+}
+
+.archive .pagination {
+	display: block !important;
 }
 
 body .archive-item {
