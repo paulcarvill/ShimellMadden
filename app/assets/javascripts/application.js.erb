@@ -64,7 +64,7 @@ function doCarousel(){
     }
 
     var carouselPrev = function(e){
-        if (e.which && homepageCarouselAuto) {
+        if (e.which && typeof homepageCarouselAuto !== "undefined" && homepageCarouselAuto) {
             window.clearInterval(homepageCarouselAuto);
         }
         
@@ -85,7 +85,7 @@ function doCarousel(){
     }
 
     var carouselNext = function(e){
-        if (e.which && homepageCarouselAuto) {
+        if (e.which && typeof homepageCarouselAuto !== "undefined" && homepageCarouselAuto) {
             window.clearInterval(homepageCarouselAuto);
         }
 

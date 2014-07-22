@@ -146,6 +146,11 @@ p.indicator {
 
 @include media($mobile) {
 
+	.collections .carousel-prev,
+	.collections .carousel-next {
+		display: none;
+	}
+
 	.lessThanThree {
 		position: relative;
 	}

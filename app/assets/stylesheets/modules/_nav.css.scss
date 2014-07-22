@@ -13,8 +13,11 @@ header img {
 }
 
 .subnav nav {
-  border-top: 1px solid #939393;
   padding-top: 10px;
+}
+
+#subnav nav {
+  margin-bottom: 0;
 }
 
 body nav,
@@ -29,11 +32,6 @@ body nav,
       max-height: 0px;
       overflow: hidden;
     }
-}
-
-#subnav {
-  border-top: 1px solid #939393;
-  padding-top: 10px;
 }
 
 body header nav {
@@ -61,6 +59,8 @@ body header nav {
 
 header nav {
 	padding-bottom: 10px;
+  border-bottom: 1px solid #939393;
+  margin-bottom: 10px;
 }
 
 nav a,
