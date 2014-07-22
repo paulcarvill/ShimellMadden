@@ -1,9 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  # GET /items
-  # GET /items.json
-  def index
+
+  def homepage
     respond_to do |format|
         format.html {
           if params[:page]
@@ -12,6 +11,22 @@ class ItemsController < ApplicationController
             @page = 1
           end
           @homepageitems = Item.where(homepage: true).order("id ASC")
+          @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
+        }
+        format.json {
+          @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
+        }
+    end
+  end
+
+  def index
+    respond_to do |format|
+        format.html {
+          if params[:page]
+            @page = params[:page]
+          else
+            @page = 1
+          end
           @items = Item.where(archive: false).paginate(:page => params[:page], :per_page => 6)
         }
         format.json {

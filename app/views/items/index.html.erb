@@ -1,69 +1,48 @@
-<div id="navigation" style="<%= if @page.to_i > 1 then "opacity:1; display: block" else "opacity: 0" end %>;">
+<div id="navigation">
   <header>
     <%= render "shared/nav" %>
   </header>
 </div>
 
-<% if @page.to_i > 1 %>
-  <div id="items"> 
-    <section class="blog items">
-      <article>
-        <% @items.each_with_index do |item, index| %>
-          <div class="item item-<%= index+1 %>">
-            
-            <% if item.collection then %>
-              <%= link_to item.collection do %>
-                <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
-                  <div class="content-a">
-                    <div class="content-b">
-                      <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                      <p>Collections</p>
-                      <%= item.collection.name %>
-                      <%= item.name %>
-                    </div>
+<div id="items"> 
+  <section class="blog items">
+    <article>
+      <% @items.each_with_index do |item, index| %>
+        <div class="item item-<%= index+1 %>">
+          
+          <% if item.collection then %>
+            <%= link_to item.collection do %>
+              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
+                <div class="content-a">
+                  <div class="content-b">
+                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                    <p>Collections</p>
+                    <%= item.collection.name %>
+                    <%= item.name %>
                   </div>
                 </div>
-              <% end %>
-            <% elsif item.project then %>
-              <%= link_to item.project do %>
-                <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
-                  <div class="content-a">
-                    <div class="content-b">
-                      <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                      <p>Projects</p>
-                      <%= item.project.name %>
-                      <%= item.name %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </article>
-    </section>
-    <%= will_paginate @items %>
-  </div> <!-- end items -->
-<% else %>
-  <div id="items"> 
-    <section class="blog items">
-      <div id="my-carousel">
-        <% @homepageitems.each_with_index do |item, index| %>
-          <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size:cover;">
-            <div class="content-a">
-              <div class="content-b">
-                <h1><img src="<%= asset_path "logotype.svg" %>" /></h1>
-                <h2><a href="/items">View collections</a></h2>
               </div>
-            </div>
-          </div>
-        <% end %>
-        <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
-        <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
-      </div> <!-- end carousel -->
-    </section>
-  </div>
-<% end %>
+            <% end %>
+          <% elsif item.project then %>
+            <%= link_to item.project do %>
+              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
+                <div class="content-a">
+                  <div class="content-b">
+                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                    <p>Projects</p>
+                    <%= item.project.name %>
+                    <%= item.name %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </article>
+  </section>
+  <%= will_paginate @items %>
+</div> <!-- end items -->
 
 <% content_for :perpagejs do %>
 <script>
@@ -77,7 +56,7 @@
 
   function getItems(pageNumber) {
     $.get('/items.json?page=' + page, function(resp){
-      history.replaceState(null, null, "/?page=" + page);
+      
       for(var i = 0; i < resp.length; i++) {
         $('article img').animate({ opacity : 0 }, function(){
           this.remove();
@@ -104,9 +83,6 @@
       }
 
       item += resp.length;
-
-      $('footer').animate({ opacity : 1 } );
-      $('footer').appear();
     });
   }
   
@@ -114,6 +90,8 @@
   // this sets up the element we watch to check when it enters the viewport
   // so we can load more content. in our case it's the footer
   $('document').ready(function() {
+
+    $('footer').appear();
 
     $(document.body).on('appear', 'footer', function(e) {
       var $this = $(this);
@@ -125,23 +103,6 @@
       getItems(page);
     });
 
-    // transition from 'homepage' carousel to list of all items
-    $('h2 a').click(function(e) {
-      var x = $('#my-carousel');
-      var xHeight = x.outerHeight();
-      e.preventDefault();
-      x.animate({top: -(xHeight)}, 1500, function(){
-
-        $('#navigation').animate({ opacity : 1 });
-        $('body').removeClass('home');
-        x.remove();
-        $('header nav').waypoint('sticky');
-
-        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img src="<%= asset_path "progress.gif" %>" width="34px" height="34px" style="width: 34px; height: 34px; position: absolute; left: 50%; top: 50%; margin: -17px 0 0 -17px;" /></article>');
-
-        getItems(page);
-      });
-    });
   });  
 
 </script>

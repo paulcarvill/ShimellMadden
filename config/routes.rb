@@ -4,7 +4,7 @@ ShimellMadden::Application.routes.draw do
   ActiveAdmin.routes(self)
   resources :blogs, :path => "news"
 
-  root "items#index"
+  root "items#homepage"
 
   get '/about', to: 'pages#about'
 
