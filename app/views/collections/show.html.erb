@@ -26,9 +26,11 @@
           <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
           <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
           <% if item.shopifyid %>
+            <% if @collection.shopifyId %>
             <div class="notes shopthis">
-              <p><a href="http://shopify.com/<%= item.shopifyid %>">Shop <%= item.name %></a></p>
+                <p><a href="http://shopify.com/<%= @collection.shopifyId %>">Shop <%= @collection.name %></a></p>
             </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>
