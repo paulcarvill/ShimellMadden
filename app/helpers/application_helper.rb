@@ -14,7 +14,7 @@ module ApplicationHelper
   	elsif controller?("projects") && action?("show")
   		"Project"
   	elsif controller?("items") && action?("index")
-  		"Items"
+  		"Home"
   	elsif controller?("items") && action?("show")
   		"Item"
   	elsif controller?("collections") && action?("index")

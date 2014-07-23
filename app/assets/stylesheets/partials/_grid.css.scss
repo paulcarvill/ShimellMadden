@@ -2,8 +2,21 @@
 @import "grid-settings";
 @import "neat";
 
-body {
+body.items,
+body.home,
+body.collections,
+body.collection {
+  $max-width: 98%;
   @include outer-container;
+}
+
+body.other {
+  $max-width: 1200px;
+  @include outer-container;
+}
+
+body {
+  
 
   #items {
     @include span-columns(12);
@@ -51,7 +64,11 @@ body {
   }
 
   @include media($tablet) {
-    .projects article {
+    .projects article,
+    .archive article, {
+      @include span-columns(4);
+    }
+    .archive aside {
       @include span-columns(4);
     }
   }
