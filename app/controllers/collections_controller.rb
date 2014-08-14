@@ -11,7 +11,8 @@ class CollectionsController < ApplicationController
   # GET /collections/1.json
   def show
     @collections = Collection.all
-    @items = Item.where(collection_id: params[:id]).rotate(1)
+    @items = Image.where(collection_id: params[:id]).rotate(1)
+    p @items
   end
 
   # GET /collections/new

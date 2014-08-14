@@ -22,7 +22,7 @@
             <p><%= link_to 'View collection', collection %></p>
           </div>
           <%= link_to collection do %>
-            <%= image_tag collection.items.first.imageStyleOne.url %>
+            <%= image_tag collection.images.first.large.url %>
           <% end %>
         </div>
         <% end %>

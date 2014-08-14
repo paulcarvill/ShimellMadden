@@ -140,7 +140,6 @@
         $('body').removeClass('home');
         $('body').addClass('items');
         x.remove();
-        $('header nav').waypoint('sticky');
 
         $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img class="progress" src="<%= asset_path "progress.gif" %>" width="34px" height="34px" style="width: 34px; height: 34px; position: absolute; left: 50%; top: 50%; margin: -17px 0 0 -17px;" /></article>');
 
