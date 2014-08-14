@@ -5,15 +5,18 @@
 </div>
 
 <% if @page.to_i > 1 %>
+
+
+
   <div id="items"> 
     <section class="blog items">
       <article>
         <% @items.each_with_index do |item, index| %>
           <div class="item item-<%= index+1 %>">
             
-            <% if item.collection then %>
+            
               <%= link_to item.collection do %>
-                <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
+                <div class="not-fullscreen background" style="background-image:url('<%= item.large.url %>'); background-size: cover;">
                   <div class="content-a">
                     <div class="content-b">
                       <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
@@ -24,32 +27,25 @@
                   </div>
                 </div>
               <% end %>
-            <% elsif item.project then %>
-              <%= link_to item.project do %>
-                <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
-                  <div class="content-a">
-                    <div class="content-b">
-                      <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                      <p>Projects</p>
-                      <%= item.project.name %>
-                      <%= item.name %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
+
           </div>
         <% end %>
       </article>
     </section>
     <%= will_paginate @items %>
   </div> <!-- end items -->
+
+
+
 <% else %>
+
+
+
   <div id="items"> 
     <section class="blog items">
       <div id="my-carousel">
         <% @homepageitems.each_with_index do |item, index| %>
-          <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size:cover;">
+          <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.large.url %>'); background-size:cover;">
             <div class="content-a">
               <div class="content-b">
                 <h1><a href="/items"><img src="<%= asset_path "logotype.svg" %>" /></a></h1>
@@ -62,6 +58,9 @@
       </div> <!-- end carousel -->
     </section>
   </div>
+
+
+  
 <% end %>
 
 <% content_for :perpagejs do %>
@@ -72,26 +71,24 @@
   */
   var page = 1;
   var item = 6;
-  var assTri = '<%= asset_path 'down-triangle.svg' %>';
+  var assTri = '<%= asset_path "down-triangle.svg" %>';
 
   function getItems(pageNumber) {
     $.get('/items.json?page=' + page, function(resp){
       
       for(var i = 0; i < resp.length; i++) {
-        $('article img').animate({ opacity : 0 }, function(){
+        $('article img.progress').animate({ opacity : 0 }, function(){
           this.remove();
         })
-        $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].imageStyleOne+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
+        $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 
-          (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
+          '<a href="/collections/' + resp[i].collectionId + '">' + 
 
-          '<img class="down-triangle" src="'+assTri+'" /><p>' +
+          '<p><img src="'+assTri+'" class="down-triangle" /></p><p>' +
 
           (resp[i].isProject ? ('Projects') : ('Collections')) + 
 
-          '</p>' + 
-
-          (resp[i].isProject ? (resp[i].projectName + ' ' + resp[i].name) : (resp[i].collectionName + ' ' + resp[i].name)) + 
+          '</p>' + resp[i].collectionName + 
 
           '</div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
@@ -145,7 +142,7 @@
         x.remove();
         $('header nav').waypoint('sticky');
 
-        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img src="<%= asset_path "progress.gif" %>" width="34px" height="34px" style="width: 34px; height: 34px; position: absolute; left: 50%; top: 50%; margin: -17px 0 0 -17px;" /></article>');
+        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img class="progress" src="<%= asset_path "progress.gif" %>" width="34px" height="34px" style="width: 34px; height: 34px; position: absolute; left: 50%; top: 50%; margin: -17px 0 0 -17px;" /></article>');
 
         getItems(page);
       });

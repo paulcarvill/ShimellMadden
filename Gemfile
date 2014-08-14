@@ -13,7 +13,8 @@ gem 'rails_12factor'
 gem 'minitest'
 
 group :development do
-	gem 'sqlite3'
+	# gem 'sqlite3'
+	gem 'mysql2', '>= 0.3'
 	gem 'capistrano', '3.2.1', require: false
 	gem 'capistrano-rails',   '~> 1.1', require: false
 	gem 'capistrano-bundler', '~> 1.1', require: false

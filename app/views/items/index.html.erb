@@ -12,26 +12,12 @@
           
           <% if item.collection then %>
             <%= link_to item.collection do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
+              <div class="not-fullscreen background" style="background-image:url('<%= item.large.url %>'); background-size: cover;">
                 <div class="content-a">
                   <div class="content-b">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
                     <p>Collections</p>
                     <%= item.collection.name %>
-                    <%= item.name %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% elsif item.project then %>
-            <%= link_to item.project do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.imageStyleOne.url %>'); background-size: cover;">
-                <div class="content-a">
-                  <div class="content-b">
-                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p>Projects</p>
-                    <%= item.project.name %>
-                    <%= item.name %>
                   </div>
                 </div>
               </div>
@@ -61,7 +47,7 @@
         $('article img').animate({ opacity : 0 }, function(){
           this.remove();
         })
-        $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].imageStyleOne+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
+        $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 
           (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
 
