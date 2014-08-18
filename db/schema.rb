@@ -71,21 +71,24 @@ ActiveRecord::Schema.define(version: 20140726115637) do
     t.datetime "updated_at"
   end
 
-  create_table "categories_items", id: false, force: true do |t|
+  create_table "categories_images", id: false, force: true do |t|
     t.integer "category_id"
-    t.integer "item_id"
+    t.integer "image_id"
   end
 
-  create_table "collections", force: true do |t|
+  create_table "groups", force: true do |t|
     t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.text     "description"
     t.text     "shopifyId"
+    t.text     "grouptype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", force: true do |t|
-    t.integer  "collection_id"
+    t.integer  "group_id"
+    t.text     "name"
+    t.text     "description"
     t.string   "large_file_name"
     t.string   "large_content_type"
     t.integer  "large_file_size"
@@ -95,6 +98,8 @@ ActiveRecord::Schema.define(version: 20140726115637) do
     t.integer  "small_file_size"
     t.datetime "small_updated_at"
     t.boolean  "homepage"
+    t.text     "large_meta"
+    t.text     "small_meta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,9 +114,6 @@ ActiveRecord::Schema.define(version: 20140726115637) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "homepage"
-    t.boolean  "archive",            default: false, null: false
-    t.text     "imageStyleOne_meta"
   end
 
   create_table "pages", force: true do |t|
@@ -121,13 +123,6 @@ ActiveRecord::Schema.define(version: 20140726115637) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "projects", force: true do |t|
-    t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
   end
 
 end

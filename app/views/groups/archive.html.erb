@@ -39,7 +39,7 @@
 
     <div class="table">
         <div style="display: inline-block; position: relative;">
-          <img class="image" src="<%= asset_path item.imageStyleOne %>" style="margin: 0 auto; <%= if item.imageStyleOne.height > item.imageStyleOne.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" />
+          <img class="image" src="<%= asset_path item.large %>" style="margin: 0 auto; <%= if item.large.height > item.large.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" />
 
           <!-- info overlay -->
           <a href="/archive/<%= item.id %>">

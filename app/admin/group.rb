@@ -1,4 +1,4 @@
-ActiveAdmin.register Collection do
+ActiveAdmin.register Group do
 
   menu priority: 2, label: "Collections"
 
@@ -35,6 +35,7 @@ ActiveAdmin.register Collection do
       f.input :name, :as => :string
       f.input :description, :as => :string
       f.input :shopifyId, :as => :string
+      f.select :grouptype, Model::OPTIONS
     end
 
     f.inputs "Collection images" do

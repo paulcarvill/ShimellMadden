@@ -12,7 +12,7 @@
     <p class="topback"><%= link_to 'Back to archive', archive_path %></p>
   </aside>
   <article style="position: relative;">
-    <img src="<%= @item.imageStyleOne.url %>" class="<%= if @item.imageStyleOne.height > @item.imageStyleOne.width then "tall" else "" end %>" />
+    <img src="<%= @item.large.url %>" class="<%= if @item.large.height > @item.large.width then "tall" else "" end %>" />
     <p class="bottomback"><%= link_to 'Back to archive', archive_path %></p>
   </article>
 </section>

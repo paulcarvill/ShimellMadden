@@ -10,19 +10,22 @@
       <% @items.each_with_index do |item, index| %>
         <div class="item item-<%= index+1 %>">
           
-          <% if item.collection then %>
-            <%= link_to item.collection do %>
-              <div class="not-fullscreen background" style="background-image:url('<%= item.large.url %>'); background-size: cover;">
-                <div class="content-a">
-                  <div class="content-b">
-                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p>Collections</p>
-                    <%= item.collection.name %>
-                  </div>
+          <% if item.group.grouptype == "Archive" %>
+            <a href="/archive/<%= item.id %>">
+          <% else %>
+            <a href="/<%= item.group.grouptype.downcase %>s/<%= item.group.id %>">
+          <% end %>
+
+            <div class="not-fullscreen background" style="background-image:url('<%= item.large.url %>'); background-size: cover;">
+              <div class="content-a">
+                <div class="content-b">
+                  <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                  <p><%= item.group.grouptype %></p>
+                  <% if item.group.grouptype != "Archive" %><%= item.group.name %><% else %><%= item.name %><% end %>
                 </div>
               </div>
-            <% end %>
-          <% end %>
+            </div>
+          </a>
         </div>
       <% end %>
     </article>
@@ -42,24 +45,20 @@
 
   function getItems(pageNumber) {
     $.get('/items.json?page=' + page, function(resp){
-      
+
       for(var i = 0; i < resp.length; i++) {
-        $('article img').animate({ opacity : 0 }, function(){
+        $('article img.progress').animate({ opacity : 0 }, function(){
           this.remove();
         })
         $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 
-          (resp[i].isProject ? ('<a href="/projects/' + resp[i].projectId + '">') : ('<a href="/collections/' + resp[i].collectionId + '">')) + 
+          (resp[i].groupType == "Project" ? ('<a href="/projects/' + resp[i].groupId + '">') : ('<a href="/collections/' + resp[i].groupId + '">')) + 
 
           '<img class="down-triangle" src="'+assTri+'" /><p>' +
 
-          (resp[i].isProject ? ('Projects') : ('Collections')) + 
+          (resp[i].groupType == "Project" ? ('Project') : resp[i].groupType == "Collection" ? ('Collection') : "" )+ 
 
-          '</p>' + 
-
-          (resp[i].isProject ? (resp[i].projectName + ' ' + resp[i].name) : (resp[i].collectionName + ' ' + resp[i].name)) + 
-
-          '</div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
+          '</p>' + resp[i].groupName + '</div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
 
       if(resp.length < 6) {

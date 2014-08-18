@@ -77,18 +77,20 @@
     $.get('/items.json?page=' + page, function(resp){
       
       for(var i = 0; i < resp.length; i++) {
+        
         $('article img.progress').animate({ opacity : 0 }, function(){
           this.remove();
         })
+        
         $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 
-          '<a href="/collections/' + resp[i].collectionId + '">' + 
+          '<a href="/collections/' + resp[i].groupId + '">' + 
 
           '<p><img src="'+assTri+'" class="down-triangle" /></p><p>' +
 
-          (resp[i].isProject ? ('Projects') : ('Collections')) + 
+          (resp[i].groupType == 'Project' ? ('Project') : ('Collection')) + 
 
-          '</p>' + resp[i].collectionName + 
+          '</p>' + resp[i].groupName + 
 
           '</div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
@@ -136,7 +138,10 @@
 
       x.animate({top: -(xHeight)}, 1500, function(){
 
-        $('#navigation').animate({ opacity : 1 });
+        $('#navigation').animate({ opacity : 1 }, function(){
+          $('header nav').waypoint('sticky');
+        })
+        
         $('body').removeClass('home');
         $('body').addClass('items');
         x.remove();

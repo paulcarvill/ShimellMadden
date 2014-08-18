@@ -1,0 +1,33 @@
+<div id="navigation">
+  <header>
+    <%= render "shared/nav" %>
+  </header>
+  <div id="subnav">
+    <nav>
+      <% @collections.each do |collection| %>
+        <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
+      <% end %>
+    </nav>
+  </div>
+</div>
+
+<div id="items">
+  <section class="blog collections">
+    <article style="position: relative">
+      <div id="my-carousel">
+        <% @collections.each_with_index do |collection, index| %>
+        <div class="carousel<% if index == 0 %> active<% end %>">
+          <div class="collections-info">
+            <a href="/collections/<%= collection.id %>"><h2><%= collection.name %></h2></a></h2>
+            <p><a href="/collections/<%= collection.id %>">View collection</a></p>
+          </div>
+          <a href="/collections/<%= collection.id %>"><%= image_tag collection.images.first.large.url %></a>
+        </div>
+        <% end %>
+      </div>
+      <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+      <p class="indicator"></p>
+    </article>
+  </section>
+</div>

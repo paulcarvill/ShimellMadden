@@ -144,7 +144,7 @@ $(function(){
   
 
     /* sticky header */
-    $('header nav').waypoint('sticky');
+    $('body:not(.home) header nav').waypoint('sticky');
 
 
     $('#my-carousel').each(doCarousel);

@@ -5,7 +5,7 @@
   <div class="subnav">
     <nav>
       <% @collections.each do |coll| %>
-        <a href="/collections/<%= coll.id %>" <%= if coll.id == @collection.id then "class=current" end %>><%= coll.name %></a>
+        <a href="/collections/<%= coll.id %>" <%= if coll.id == @group.id then "class=current" end %>><%= coll.name %></a>
       <% end %>
     </nav>
   </div>
@@ -14,8 +14,8 @@
 <div id="items">
   <section class="blog collection">
     <div class="collection-info">
-      <h2><%= @collection.name %></h2>
-      <p class="collectionDesc"><%= @collection.description %></p>
+      <h2><%= @group.name %></h2>
+      <p class="collectionDesc"><%= @group.description %></p>
       <p class="collectionInfo"><span>Show info</span><img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path "down-arrow-grey.svg" %>" /></p>
     </div>
     <article style="position: relative">
@@ -25,9 +25,9 @@
           <img src="<%= item.large.url %>" />
           <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
           <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
-          <% if @collection.shopifyId %>
+          <% if @group.shopifyId %>
             <div class="notes shopthis">
-                <p><a href="http://shopify.com/<%= @collection.shopifyId %>">Shop <%= @collection.name %></a></p>
+                <p><a href="http://shopify.com/<%= @collection.shopifyId %>">Shop <%= @group.name %></a></p>
             </div>
           <% end %>
         </div>
