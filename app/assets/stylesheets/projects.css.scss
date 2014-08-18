@@ -2,8 +2,16 @@
 .projects .item-3,
 .projects .item-5 {
 	@include span-columns(6);
-	height: 267px;
+	height: 404px;
 	margin-bottom: 15px;
+}
+
+body.projects .item-2 {
+	height: 607px;
+}
+
+.projects .item-3 {
+	margin-top: -204px;
 }
 
 section.projects > h2 {
@@ -12,12 +20,12 @@ section.projects > h2 {
 
 .projects .item-4 {
 	@include span-columns(6 of 12);
-    height: 627px;
+    height: 827px;
     @include omega();
 }
 
 .projects .item-5 {
-	margin-top: -525px;
+	margin-top: -625px;
 }
 
 .projectitem aside h2 {
@@ -66,23 +74,23 @@ section.projects > h2 {
 
 @include media($desktop) {
 	.projects .item-1 .not-fullscreen {
-		height: 242px;
+		height: 379px;
 	}
 
 	.projects .item-2 .not-fullscreen {
-		height: 404px;
+		height: 582px;
 	}
 
 	.projects .item-3 .not-fullscreen {
-		height: 242px;
+		height: 379px;
 	}
 
 	.projects .item-4 .not-fullscreen {
-		height: 602px;
+		height: 802px;
 	}
 
 	.projects .item-5 .not-fullscreen {
-		height: 242px;
+		height: 379px;
 	}
 
 	.projects .item {

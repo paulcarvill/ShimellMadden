@@ -10,24 +10,8 @@
 
   <article>
     <% @projects.each_with_index do |project, index| %>
-      <% if index == 0 %>
-        <div class="item item-1">
-         
-      <% elsif index == 1 %>
-        <div class="item item-2">
-        
-      <% elsif index == 2 %>
-        <div class="item item-3">
-        
-      <% elsif index == 3 %>
-        <div class="item item-4">
-        
-      <% elsif index == 4 %>
-        <div class="item item-5">
-      <% end %>
-
+      <div class="item item-<%= index+1 %>">
         <div class="not-fullscreen background" style="background-image:url('<%= project.items.first.large.url %>'); background-size: cover">
-
           <div class="content-a">
             <div class="content-b">
               <%= link_to project do %>
@@ -40,7 +24,6 @@
         </div>
         <p class="proj-name"><%= project.name %></p>
       </div>
-      
       <% end %>
   </article>
  </section>
