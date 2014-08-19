@@ -264,9 +264,16 @@ body {
 
   .projectitem article img {
     @include span-columns(6 of 6);
+    /* TODO: fix */
+    height: 560px;
     @include media($mobile) {
       @include span-columns(4 of 4);
+      height: 336px;
     }    
+  }
+
+  .projectitem article img.taller {
+    width: auto;
   }
 
   .shop .archive-item {

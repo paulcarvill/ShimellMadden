@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
     end
   end
 
+
   def show
     if params[:type] == 'collections'
       @collections = Group.where(grouptype: 'Collection')
@@ -26,25 +27,21 @@ class GroupsController < ApplicationController
   end
 
  
-
   def archive
     @categories = Category.all()
 
-    # if params['category']
-    #   @items = Category.find(params['category']).items.where(archive: true).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
-    # elsif params['date']
-    #   date = Date.parse(params['date']);
-    #   startofmonth = date.beginning_of_month
-    #   endofmonth = date.end_of_month
-    #   @items = Item.where(archive: true).where("created_at >= ? and created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
-    # else
-    #   @items = Item.where(archive: true).paginate(:page => params[:page], :per_page => 9)
-    # end
+    if params['category']
+      @items = Category.find(params['category']).images.joins(:group).where(groups: { grouptype: 'Archive' }).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
+    elsif params['date']
+      date = Date.parse(params['date']);
+      startofmonth = date.beginning_of_month
+      endofmonth = date.end_of_month
+      @items = Image.joins(:group).where("groups.grouptype = ?", 'Archive').where("images.created_at >= ? and images.created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
+    else
+      @items = Image.joins(:group).where(groups: { grouptype: 'Archive' }).paginate(:page => params[:page], :per_page => 9)
+    end
 
     @months = Image.all().order("created_at DESC").map{|t| t.created_at.strftime("%B %Y")}.uniq 
-
-    @items = Image.all().paginate(:page => params[:page], :per_page => 9)
-
     render "groups/archive"
   end
 
