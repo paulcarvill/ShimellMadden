@@ -34,27 +34,20 @@
   <article>
     <% @items.each_with_index do |item, index| %>
       <div class="archive-item">
-        
-
-
-    <div class="table">
-        <div style="display: inline-block; position: relative;">
-          <img class="image" src="<%= asset_path item.large %>" style="margin: 0 auto; <%= if item.large.height > item.large.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" />
-
-          <!-- info overlay -->
-          <a href="/archive/<%= item.id %>">
-            <div class="item-overlay">
-              <div class="tc">
-                <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                <p><%= item.group.name %></p>
-              </div>
+        <div class="table">
+            <div style="display: inline-block; position: relative;">
+              <img class="image" src="<%= asset_path item.large %>" style="margin: 0 auto; <%= if item.large.height > item.large.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" />
+              <!-- info overlay -->
+              <a href="/archive/<%= item.id %>">
+                <div class="item-overlay">
+                  <div class="tc">
+                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                    <p><%= item.group.name %></p>
+                  </div>
+                </div>
+              </a>
             </div>
-          </a>
         </div>
-    </div>
-
-
-
       </div>
     <% end %>
   </article>
@@ -86,5 +79,62 @@ $(function(){
       $(this).next('.item-overlay').css('height', $(this).height());
   })
 })
+
+/* 
+ *  this is for infinite scroll
+*/
+var page = 1;
+var item = 6;
+var assTri = '<%= asset_path 'down-triangle.svg' %>';
+
+function getItems(pageNumber) {
+  $.get('/archive.json?page=' + page, function(resp){
+
+    for(var i = 0; i < resp.length; i++) {
+      
+      // when response arrives, hide progeress indicator
+      $('article img.progress').animate({ opacity : 0 }, function(){
+        this.remove();
+      })
+      
+      // add new archive items to page 
+      $('<div class="archive-item"><div class="table"><div style="display: inline-block; position: relative;">' + 
+        '<img class="image" src="' + resp[i].large + '" style="margin: 0 auto;' + (resp[i].height > resp[i].width ? "height: 220px; width: auto" : "height: auto; width: 100%") + '" />' +
+        '<a href="/archive/' + resp[i].id + '"><div class="item-overlay"><div class="tc">' + 
+        '<img class="down-triangle" src="'+ assTri +'" />' + 
+        '<p>' + resp[i].group.name + '</p>' + 
+        '</div></div></a></div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
+    }
+
+    if(resp.length < 9) {
+      $('footer').data('am-i-appeared', true);
+    } else {
+      $('footer').data('am-i-appeared', false);
+    }
+
+    item += resp.length;
+  });
+}
+
+
+// this sets up the element we watch to check when it enters the viewport
+// so we can load more content. in our case it's the footer
+$('document').ready(function() {
+
+  $('footer').appear();
+
+  $(document.body).on('appear', 'footer', function(e) {
+    var $this = $(this);
+    if ($this.data('am-i-appeared')) {
+      return;
+    }
+    $this.data('am-i-appeared', true);
+    page++;
+    getItems(page);
+  });
+
+});  
+
+
 </script>
 <% end %>
