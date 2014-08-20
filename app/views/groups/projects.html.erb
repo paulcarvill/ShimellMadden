@@ -32,3 +32,64 @@
  </section>
 
 <%= will_paginate @projects %>
+
+
+<% content_for :perpagejs do %>
+<script>
+/* 
+ *  this is for infinite scroll
+*/
+var page = 1;
+var item = 6;
+var assTri = '<%= asset_path 'down-triangle.svg' %>';
+
+function getItems(pageNumber) {
+  $.get('/projects.json?page=' + page, function(resp){
+
+    for(var i = 0; i < resp.length; i++) {
+      
+      // when response arrives, hide progeress indicator
+      $('article img.progress').animate({ opacity : 0 }, function(){
+        this.remove();
+      })
+      
+      // add new archive items to page 
+      $('<div class="item item-' + (i+1) + '">' + 
+        '<div class="not-fullscreen background" style="background-image:url(' + resp[i].large + '); background-size: cover">' +
+        '<a href="/projects/"><div class="content-a"><div class="content-b"><img class="down-triangle" src="' + assTri + '" %>" />' + 
+        '<p>Projects</p>' + resp[i].name + '</div></div></a></div><p class="proj-name">' + 
+        resp[i].name + '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
+    }
+
+    if(resp.length < 9) {
+      $('footer').data('am-i-appeared', true);
+    } else {
+      $('footer').data('am-i-appeared', false);
+    }
+
+    item += resp.length;
+  });
+}
+
+
+// this sets up the element we watch to check when it enters the viewport
+// so we can load more content. in our case it's the footer
+$('document').ready(function() {
+
+  $('footer').appear();
+
+  $(document.body).on('appear', 'footer', function(e) {
+    var $this = $(this);
+    if ($this.data('am-i-appeared')) {
+      return;
+    }
+    $this.data('am-i-appeared', true);
+    page++;
+    getItems(page);
+  });
+
+});  
+
+
+</script>
+<% end %>
