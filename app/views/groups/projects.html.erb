@@ -56,7 +56,7 @@ function getItems(pageNumber) {
       // add new archive items to page 
       $('<div class="item item-' + (i+1) + '">' + 
         '<div class="not-fullscreen background" style="background-image:url(' + resp[i].large + '); background-size: cover">' +
-        '<a href="/projects/"><div class="content-a"><div class="content-b"><img class="down-triangle" src="' + assTri + '" %>" />' + 
+        '<a href="/projects/"><div class="content-a"><div class="content-b"><img class="down-triangle" src="' + assTri + '" />' + 
         '<p>Projects</p>' + resp[i].name + '</div></div></a></div><p class="proj-name">' + 
         resp[i].name + '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
     }
