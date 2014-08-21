@@ -20,11 +20,12 @@
     </div>
     <article style="position: relative">
       <div id="my-carousel">
+      <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
       <% @items.each_with_index do |item, index| %>
         <div class="carousel<% if index == 0 %> active<% end %>">
           <img src="<%= item.large.url %>" />
-          <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
-          <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+          
           <% if @group.shopifyId %>
             <div class="notes shopthis">
                 <p><a href="http://shopify.com/<%= @collection.shopifyId %>">Shop <%= @group.name %></a></p>

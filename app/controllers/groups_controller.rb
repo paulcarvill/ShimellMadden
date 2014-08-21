@@ -22,6 +22,22 @@ class GroupsController < ApplicationController
       render "collections/show"
     elsif params[:type] == 'projects'
       @project = Group.find(params[:id])
+      @images = Image.where(group_id: params[:id])
+
+      numImages = @images.length;
+      numWider = nil;
+
+      @images.each_with_index do |img, index|
+        if img.large.width > img.large.height
+          numWider = index
+          break
+        end
+      end
+
+      # if there is more than one image, and they're not ALL tall (so they are mixed height), and the last one IS tall, move it
+      if @images.length > 1 && numWider != nil && @images.last.large.height > @images.last.large.width
+        @images.to_a.insert(@images.length-1, @images.to_a.delete_at(numWider))
+      end
       render "groups/projectshow"
     end
   end
@@ -31,14 +47,14 @@ class GroupsController < ApplicationController
     @categories = Category.all()
 
     if params['category']
-      @items = Category.find(params['category']).images.joins(:group).where(groups: { grouptype: 'Archive' }).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
+      @items = Category.find(params['category']).images.joins(:group).where(groups: { grouptype: 'Archive' }).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
     elsif params['date']
       date = Date.parse(params['date']);
       startofmonth = date.beginning_of_month
       endofmonth = date.end_of_month
-      @items = Image.joins(:group).where("groups.grouptype = ?", 'Archive').where("images.created_at >= ? and images.created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
+      @items = Image.joins(:group).where("groups.grouptype = ?", 'Archive').where("images.created_at >= ? and images.created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
     else
-      @items = Image.joins(:group).where(groups: { grouptype: 'Archive' }).paginate(:page => params[:page], :per_page => 9)
+      @items = Image.joins(:group).where(groups: { grouptype: 'Archive' }).paginate(:page => params[:page], :per_page => 12)
     end
 
     @months = Image.all().order("created_at DESC").map{|t| t.created_at.strftime("%B %Y")}.uniq 

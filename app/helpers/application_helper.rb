@@ -9,19 +9,19 @@ module ApplicationHelper
   end
 
   def nav()
-  	if controller?("projects") && action?("index")
+  	if controller?("groups") && action?("index") && params[:type] == 'projects'
   		"Projects"
-  	elsif controller?("projects") && action?("show")
+  	elsif controller?("groups") && action?("show") && params[:type] == 'projects'
   		"Project"
   	elsif controller?("items") && action?("index")
   		"Home"
   	elsif controller?("items") && action?("show")
   		"Item"
-  	elsif controller?("collections") && action?("index")
+  	elsif controller?("groups") && action?("index")
   		"Collections"
-  	elsif controller?("collections") && action?("show")
+  	elsif controller?("groups") && action?("show") && params[:type] == 'collections'
   		"Collection"
-  	elsif controller?("items") && action?("archive", "archiveshow")
+  	elsif controller?("groups") && action?("archive", "archiveshow") && params[:type] == 'collections'
   		"Archive"
   	elsif controller?("pages") && action?("about", "show")
   		"Information"

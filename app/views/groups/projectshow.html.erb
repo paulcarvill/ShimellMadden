@@ -13,7 +13,7 @@
   </aside>
   <article style="position: relative;">
     <div id="my-carousel">
-      <% @project.images.each_with_index do |item, index|%>
+      <% @images.each_with_index do |item, index|%>
 
         <div class="carousel<% if index == 0 %> active<% end %>">
           <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />

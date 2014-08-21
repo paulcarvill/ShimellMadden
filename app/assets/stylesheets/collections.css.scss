@@ -201,6 +201,10 @@ p.indicator {
 		background: #ababab;
 	}
 
+	.collections .indicator {
+		display: none;
+	}
+	
 	.projectitem .indicator a.curr,
 	.collection .indicator a.curr {
 		background: #2d2d2d;	
