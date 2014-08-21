@@ -17,11 +17,11 @@ module ApplicationHelper
   		"Home"
   	elsif controller?("items") && action?("show")
   		"Item"
-  	elsif controller?("groups") && action?("index")
+  	elsif controller?("groups") && action?("index") && params[:type] == 'collections'
   		"Collections"
   	elsif controller?("groups") && action?("show") && params[:type] == 'collections'
   		"Collection"
-  	elsif controller?("groups") && action?("archive", "archiveshow") && params[:type] == 'collections'
+  	elsif controller?("groups") && action?("archive", "archiveshow")
   		"Archive"
   	elsif controller?("pages") && action?("about", "show")
   		"Information"
