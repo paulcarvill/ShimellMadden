@@ -62,3 +62,5 @@ gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'active_admin_editor'
 gem 'active_skin'
+
+gem 'shopify_theme'

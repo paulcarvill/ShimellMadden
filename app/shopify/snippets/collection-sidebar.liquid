@@ -1,0 +1,85 @@
+<div class="filters">
+
+{% comment %} ===== LIST TYPES ======= {% endcomment %}
+{% if collections.frontpage.all_types.size > 0 %}
+<h3>Type</h3>
+  <ul>
+    {% for type in collections.frontpage.all_types %}
+        <li>
+          {{ type | link_to_type }}
+        </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+{% comment %} ===== NEW ARRIVALS ======= {% endcomment %}
+<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a></h3>
+
+
+
+{% comment %} ===== LIST COLLECTIONS ======= {% endcomment %}
+<h3>Collections</h3>
+<ul>
+{% for collection in collections %}
+  {% unless collection.handle == 'frontpage' %}
+    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+      <li><a href="{{ collection.url }}">{{ collection_title }}</a></li>
+  {% endunless %}
+{% endfor %}
+</ul>
+
+
+
+{% comment %} ===== LIST PRICES ======= {% endcomment %}
+
+<h3>Price range</h3>
+<ul>
+  <li><a href="/collections/frontpage?sort_by=price-ascending">Lowest</a></li>
+  <li><a href="/collections/frontpage?sort_by=price-descending">Highest</a></li>
+</ul>
+
+
+
+{% comment %} ===== LIST VARIANTS ======= {% endcomment %}
+
+<h3>Materials</h3>
+<ul>
+    {% for tag in collections.frontpage.all_tags %}
+      <li>
+       {% if current_tags contains tag %}
+        {{ tag }}
+      {% else %}
+        <a href="/collections/frontpage/{{ tag | handle }}">{{ tag }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% comment %}
+  Product types in the current collection
+    - List all of the shop's types with collections.all.all_types
+    - List the current collection's types with collection.all_types
+{% endcomment %}
+{% comment %}{% if collection.all_types.size > 0 %}
+<h3>Product Types</h3>
+  <ul>
+    {% for type in collection.all_types %}
+      {% if collection.current_type == type %}
+        <li class="active-filter">
+          {{ type }}
+        </li>
+      {% else %}
+        <li>
+          {{ type | link_to_type }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Add a type to your products for this list to build itself. All lists are created in <strong>collection-sidebar.liquid</strong>.</p>
+{% endif %}
+{% endcomment %}
+
+</div>

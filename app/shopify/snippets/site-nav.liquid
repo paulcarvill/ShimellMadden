@@ -1,0 +1,17 @@
+<div id="navigation">
+  <header>
+    <a href="http://0.0.0.0:3000/items"><img src="{{ 'logo.svg' | asset_url }}" width="32.3" height="37.4" /></a>
+    <p class="nav-header">
+      <span>Shop</span>
+      <img style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" src="{{ 'menu-closed.svg' | asset_url }}" width="22" height="14" />
+    </p>
+    <nav>
+      <a href="http://0.0.0.0:3000/collections">Collections</a>
+      <a href="http://0.0.0.0:3000/archive">Archive</a>
+      <a href="http://0.0.0.0:3000/projects">Projects</a>
+      <a href="http://0.0.0.0:3000/about">Information</a>
+      <a href="https://shimell-and-madden-2.myshopify.com">Shop</a>
+      <a href="/cart" id="cartToggle">Cart (<span id="cartCount">{{ cart.item_count }}</span> {{ cart.item_count | pluralize: 'item', 'items' }} <span id="cartCost">{{ cart.total_price | money }}</span>)</a>
+    </nav>
+  </header>
+</div>
