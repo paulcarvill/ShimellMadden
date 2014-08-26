@@ -94,6 +94,31 @@
   {% include 'ajax-cart-template' %}
   {{ 'ajaxify.js' | asset_url | script_tag }}
   <script>
+
+  (function() {
+    var path = '//easy.myfonts.net/v2/js?sid=211388(font-family=DIN+Next+Pro+Bold)&sid=217467(font-family=DIN+Next+Pro+UltraLight)&sid=217469(font-family=DIN+Next+Pro+Regular)&sid=217470(font-family=DIN+Next+Pro+Medium)&key=uYb4wvUYbj',
+        protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+        trial = document.createElement('script');
+    trial.type = 'text/javascript';
+    trial.async = true;
+    trial.src = protocol + path;
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(trial);
+  })();
+
+
+
+  (function() {
+    var path = '//easy.myfonts.net/v2/js?sid=125713(font-family=Freight+Text+Medium)&sid=125717(font-family=Freight+Text+Light)&sid=125721(font-family=Freight+Text+Book)&sid=125725(font-family=Freight+Text+Bold)&key=0VsT0SopJ2',
+        protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+        trial = document.createElement('script');
+    trial.type = 'text/javascript';
+    trial.async = true;
+    trial.src = protocol + path;
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(trial);
+  })();
+
   jQuery(function($) {
 
 
@@ -110,6 +135,26 @@
             $('.nav-header img').attr('src', 'menu-open.svg');
             SM.revealed = true
         }
+    })
+
+
+    $(function(){
+      var toggle = 0;
+      $('.filters>h3.tog').click(function(){
+        console.log('here');
+        if (!$(this).data('toggle')) {
+          $(this).data('toggle', 0);
+        }
+        if ($(this).data('toggle') == 0 ) {
+          $('img', this).attr('src',  '{{ "down-arrow-grey.svg" | asset_url }}' );
+          $(this).data('toggle', 1);
+        } else {
+          $('img', this).attr('src',  '{{ "up-arrow-grey.svg" | asset_url }}' );
+          $(this).data('toggle', 0);
+        }
+        console.log($(this).next());
+        $(this).next().toggle();
+      })
     })
 
 

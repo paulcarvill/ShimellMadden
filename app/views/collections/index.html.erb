@@ -3,11 +3,9 @@
     <%= render "shared/nav" %>
   </header>
   <div id="subnav">
-    <nav>
       <% @collections.each do |collection| %>
         <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
       <% end %>
-    </nav>
   </div>
 </div>
 

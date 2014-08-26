@@ -1,15 +1,17 @@
+<h1>Shop</h1>
+
 <div class="filters">
 
 {% comment %} ===== LIST TYPES ======= {% endcomment %}
 {% if collections.frontpage.all_types.size > 0 %}
-<h3>Type</h3>
-  <ul>
-    {% for type in collections.frontpage.all_types %}
-        <li>
-          {{ type | link_to_type }}
-        </li>
-    {% endfor %}
-  </ul>
+<h3 class="tog">Type <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'up-arrow-grey.svg' | asset_url }}" /></h3>
+<ul>
+  {% for type in collections.frontpage.all_types %}
+      <li>
+        {{ type | link_to_type }}
+      </li>
+  {% endfor %}
+</ul>
 {% endif %}
 
 
@@ -19,7 +21,7 @@
 
 
 {% comment %} ===== LIST COLLECTIONS ======= {% endcomment %}
-<h3>Collections</h3>
+<h3 class="tog">Collections <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'up-arrow-grey.svg' | asset_url }}" /></h3>
 <ul>
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
@@ -33,7 +35,7 @@
 
 {% comment %} ===== LIST PRICES ======= {% endcomment %}
 
-<h3>Price range</h3>
+<h3 class="tog">Price range <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'up-arrow-grey.svg' | asset_url }}" /></h3>
 <ul>
   <li><a href="/collections/frontpage?sort_by=price-ascending">Lowest</a></li>
   <li><a href="/collections/frontpage?sort_by=price-descending">Highest</a></li>
@@ -43,7 +45,7 @@
 
 {% comment %} ===== LIST VARIANTS ======= {% endcomment %}
 
-<h3>Materials</h3>
+<h3 class="tog">Materials <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'up-arrow-grey.svg' | asset_url }}" /></h3>
 <ul>
     {% for tag in collections.frontpage.all_tags %}
       <li>

@@ -2358,11 +2358,39 @@ select {
 
 .grid-item h3 {
   font-family: "DIN Next Pro Regular";
-  font-size: 1.25em;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.filters {
+  margin-top: 20px;
+  border-top: 1px solid #919191;
+  padding-top: 3px;
+}
+
+.filters ul {
+  padding-left: 12px;  
+}
+
+@include at-query ($max, $medium) {
+  .filters ul {
+    display: none;
+  }
+
+  .filters {
+    margin-bottom: 1em;
+  }
 }
 
 .filters ul li {
-  display: none;
+  border-bottom: 1px solid #919191;
+  padding: 4px 0;
+  margin-bottom: 0;
+}
+
+.filters ul li a {
+  color: #333;
+  text-decoration: none;
 }
 
 .filters h3,
@@ -2370,11 +2398,19 @@ select {
   margin: 0;
 }
 
+.filters h3>a {
+  color: #333;
+}
+
 .filters h3 {
   border-bottom: 1px solid #919191;
-  padding: 3px 0;
+  padding: 6px 0 5px 0;
 }
 
 footer .grid-item {
   text-align: left;
+}
+
+header {
+  background-color: #fff;
 }
