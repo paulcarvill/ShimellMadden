@@ -3,9 +3,11 @@
     <%= render "shared/nav" %>
   </header>
   <div class="subnav">
+    <nav>
       <% @collections.each do |coll| %>
         <a href="/collections/<%= coll.id %>" <%= if coll.id == @group.id then "class=current" end %>><%= coll.name %></a>
       <% end %>
+    </nav>
   </div>
 </div>
 
