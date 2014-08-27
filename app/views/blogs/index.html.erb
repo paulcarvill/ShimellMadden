@@ -36,6 +36,7 @@
           <!-- carousel navigation -->
           <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
           <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+          <p class="indicator"></p>
         </div> <!-- end carousel -->
         <!-- else use a single news item image -->
         <% else %>
@@ -57,7 +58,6 @@
 <% content_for :perpagejs do %>
 <script>
   var page = <%= @page %>;
-
   $(function() {
   
     $('footer').appear();
@@ -94,7 +94,7 @@
 
           if (img1 && img2) {
             images = '<div id="my-carousel" style="height: auto"><div class="carousel active not-fullscreen background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3+'</div>';
-            buttons = '<p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p><p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>';
+            buttons = '<p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p><p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p><p class="indicator"></p>';
           } else {
             images = img1;
           }

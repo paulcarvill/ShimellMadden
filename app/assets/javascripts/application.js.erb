@@ -81,7 +81,9 @@ function doCarousel(){
         (current-1) < 0 ? $(items[items.length-1]).toggleClass('next') : $(items[current-1]).toggleClass('next');
 
         $('a.curr').removeClass('curr');
-        $('.indicator a').eq(current).addClass('curr');
+
+        var indic = $(this).siblings('.indicator')[0];
+        $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
     var carouselNext = function(e){
@@ -101,7 +103,9 @@ function doCarousel(){
         (current+1) == items.length ? $(items[0]).toggleClass('next') : $(items[current+1]).toggleClass('next');
 
         $('a.curr').removeClass('curr');
-        $('.indicator a').eq(current).addClass('curr');
+
+        var indic = $(this).siblings('.indicator')[0];
+        $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
     $('.carousel-prev').click(carouselPrev);

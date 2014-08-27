@@ -79,6 +79,20 @@ nav a,
 	margin-right: 10px;
 }
 
+nav .totop {
+  display: none;
+}
+
+nav.stuck .totop {
+  display: inline;
+  float: right;
+  margin-right: 1%;
+}
+
+nav.stuck .totop img {
+  margin: 4px 0 0 0;
+}
+
 nav a {
 	@include media($mobile) {
       display: block;

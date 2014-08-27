@@ -46,15 +46,16 @@
       <div id="my-carousel">
         <% @homepageitems.each_with_index do |item, index| %>
           <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.large.url %>'); background-size:cover;">
-            <div class="content-a">
-              <div class="content-b">
-                <h1><a href="/items"><img src="<%= asset_path "logotype.svg" %>" /></a></h1>
-              </div>
-            </div>
           </div>
         <% end %>
+        <div class="content-a">
+          <div class="content-b">
+            <h1><a href="/items"><img src="<%= asset_path "logotype.svg" %>" /></a></h1>
+          </div>
+        </div>
         <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
         <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+        <p class="indicator"></p>
       </div> <!-- end carousel -->
     </section>
   </div>
@@ -77,8 +78,6 @@
     $.get('/items.json?page=' + page, function(resp){
       
       for(var i = 0; i < resp.length; i++) {
-        
-        console.log(resp[i]);
 
         $('article img.progress').animate({ opacity : 0 }, function(){
           this.remove();
@@ -125,9 +124,19 @@
       getItems(page);
     });
 
-    $('h1 a').on('hover', function(){
-      $('.content-a').toggleClass('hoverShadow');
-    });
+    $('h1 a').hover(
+      function(){
+        $('.content-a').toggleClass('hoverShadow');
+        window.clearInterval(homepageCarouselAuto);
+      },
+      function(){
+        $('.content-a').toggleClass('hoverShadow');
+        $('.carousel-next').click();
+        homepageCarouselAuto = window.setInterval(function(){
+          $('.carousel-next').click();
+        }, 4000);
+      }
+    );
 
     // transition from 'homepage' carousel to list of all items
     $('h1 a').click(function(e) {

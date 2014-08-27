@@ -19,13 +19,11 @@ div, h1 {
 }
 
 .content-a {
-	transition: box-shadow 1s;
+	transition: background 1s;
 }
 
 .hoverShadow {
-	-webkit-box-shadow: inset 0 0 200px;
-	-moz-box-shadow:    inset 0 0 200px;
-	box-shadow:         inset 0 0 200px;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 #my-carousel {
@@ -82,7 +80,13 @@ background-position:50% 50%;
 /* content centering styles */
 .content-a {
     display:table;
+    position: absolute;
 }
+
+.projects .content-a {
+    position: static;
+}
+
 .content-b {
     display:table-cell;
     position:relative;
@@ -92,10 +96,6 @@ background-position:50% 50%;
 
 h1 img {
 	width: 56%;
-}
-
-.home .content-b h1 {
-	margin-bottom: 18px;
 }
 
 .home .content-b h2 {
@@ -120,8 +120,8 @@ h1 img {
 	left: 18px;
 	top: 50%;
 	z-index: 100;
-	height: 15px;
-	margin-top: -12px;
+	height: 30px;
+	margin-top: -15px;
 }
 
 .carousel-next,
@@ -134,8 +134,8 @@ h1 img {
 	right: 18px;
 	top: 50%;
 	z-index: 100;
-	height: 15px;
-	margin-top: -12px;
+	height: 30px;
+	margin-top: -15px;
 }
 
 .news aside h2 {

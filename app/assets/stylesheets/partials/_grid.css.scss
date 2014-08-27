@@ -13,6 +13,7 @@ body.collection {
 body.other {
   $max-width: 1200px;
   @include outer-container;
+  overflow-x: hidden;
 }
 
 body {
@@ -45,6 +46,8 @@ body {
   header,
   #navigation {
   	@include span-columns(12);
+    margin-left: -100%;
+    width: 300%;
   }
 
   aside {
@@ -273,9 +276,7 @@ body {
   }
 
   .projectitem article img.taller {
-    // height: 336px;
-    height: 100%;
-    width: 100%;
+    width: auto;
   }
 
   .shop .archive-item {

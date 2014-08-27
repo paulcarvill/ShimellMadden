@@ -13,8 +13,8 @@
 }
 
 .indicator a {
-	width: 5px;
-	height: 5px;
+	width: 9px;
+	height: 9px;
 	border-radius: 50%;
 	background: gray;
 	display: inline-block;
@@ -28,6 +28,11 @@
 
 .indicator a.curr {
 	background: #fff;	
+	webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    -ms-transition: background 1s;
+    -o-transition: background 1s;
+   	transition: background 1s;
 }
 
 .indicator span {
@@ -54,7 +59,7 @@ p.indicator {
 	left: 0;
 	padding: 15px 15px;
 	color: #fff;
-	width: 250px;
+	width: 25%;
 	z-index: 9;
 }
 
@@ -74,16 +79,19 @@ p.indicator {
 
 .collections-info p,
 .collection-info p {
-	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	border-bottom: 1px solid #fff;
-	font-size: 0.8em;
+	font-size: 0.95em;
+}
+
+.collections-info p a {
+	display: block;
 }
 
 .collection-info p.collectionInfo {
 	font-family: "DIN Next Pro Regular";
-	font-size: 0.7em;
-	padding: 6px 0;
+	font-size: 0.95em;
 }
 
 .collection-info p.collectionInfo img {

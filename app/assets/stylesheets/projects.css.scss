@@ -97,6 +97,10 @@ section.projects > h2 {
 	.projects .item {
 		margin-bottom: 10px;
 	}
+
+	.projects .item:hover .proj-name {
+		color: #f60;
+	}
 }
 
 @include media($mobile) {
