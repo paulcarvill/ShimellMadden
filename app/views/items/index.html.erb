@@ -47,6 +47,8 @@
   function getItems(pageNumber) {
     $.get('/items.json?page=' + page, function(resp){
 
+      console.log(resp);
+
       for(var i = 0; i < resp.length; i++) {
         $('article img.progress').animate({ opacity : 0 }, function(){
           this.remove();
@@ -59,11 +61,9 @@
 
           '<img class="down-triangle" src="'+assTri+'" /><p>' +
 
-          (resp[i].groupType == "Project" ? ('Project') : resp[i].groupType == "Collection" ? ('Collection') : "" )+ 
+          (resp[i].groupType == "Project" ? ('Project') : (resp[i].groupType == "Collection" ? ('Collection') : "" ))+ 
 
           '</p>' + resp[i].groupName + '</div></div></div></a><p class="proj-name">' + 
-
-          (resp[i].grouptype != "Archive" ? item.group.name : item.name) + 
 
           '</p>').appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
