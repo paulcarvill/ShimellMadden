@@ -14,7 +14,7 @@ module ApplicationHelper
   	elsif controller?("groups") && action?("show") && params[:type] == 'projects'
   		"Project"
   	elsif controller?("items") && action?("index")
-  		"Home"
+  		"Menu"
   	elsif controller?("items") && action?("show")
   		"Item"
   	elsif controller?("groups") && action?("index") && params[:type] == 'collections'
@@ -23,8 +23,14 @@ module ApplicationHelper
   		"Collection"
   	elsif controller?("groups") && action?("archive", "archiveshow")
   		"Archive"
-  	elsif controller?("pages") && action?("about", "show")
-  		"Information"
+  	elsif controller?("pages") && action?("about")
+  		"About"
+    elsif controller?("pages") && action?("index")
+      "News"
+    elsif controller?("pages") && action?("contact")
+      "Contact"
+    elsif controller?("pages") && action?("comissioning")
+      "Commissioning"
   	elsif controller?("pages") && action?("shop")
   		"Shop"
   	else

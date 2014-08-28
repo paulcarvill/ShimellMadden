@@ -82,7 +82,7 @@ function doCarousel(){
 
         $('a.curr').removeClass('curr');
 
-        var indic = $(this).siblings('.indicator')[0];
+        var indic = $(this).closest('article').find('.indicator');
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
@@ -104,7 +104,7 @@ function doCarousel(){
 
         $('a.curr').removeClass('curr');
 
-        var indic = $(this).siblings('.indicator')[0];
+        var indic = $(this).closest('article').find('.indicator');
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
@@ -133,14 +133,20 @@ $(function(){
 
     /* menu */
     SM = {};
+    SM.menu = $('.nav-header span');
+    SM.menu_old = "";
+    SM.menu_new = "";
 
     $('.nav-header').click(function(){
         if(SM.revealed) {
             $('nav').toggleClass('woop');
             SM.revealed = false
+            SM.menu.text(SM.menu_old);
             $('.nav-header img').attr('src', '<%= asset_path 'menu-closed.svg' %>');
         } else {
             $('nav').toggleClass('woop');
+            SM.menu_old = SM.menu.text();
+            SM.menu.text("Menu");
             $('.nav-header img').attr('src', '<%= asset_path 'menu-open.svg' %>');
             SM.revealed = true
         }

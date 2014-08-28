@@ -3,6 +3,11 @@
 
 a {
 	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a:active {
+	color: #f60 !important;
 }
 
 #mfPreviewBar,

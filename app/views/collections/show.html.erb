@@ -60,6 +60,10 @@
         open = true;
       }
     })
+
+    collectionCarouselAuto = window.setInterval(function(){
+      $('.carousel-next').click();
+    }, 4000)
   })
 </script>
 <% end %>

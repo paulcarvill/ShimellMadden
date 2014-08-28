@@ -152,6 +152,10 @@ p.indicator {
 	border: 0;
 }
 
+.collectionInfo {
+	cursor: pointer;
+}
+
 @include media($mobile) {
 
 	.collections .carousel-prev,

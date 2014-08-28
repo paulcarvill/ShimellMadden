@@ -77,6 +77,12 @@ background-position:50% 50%;
     overflow:hidden;
 }
 
+@include media($mobile) {
+	body.items .not-fullscreen {
+		height: 225px;
+	}
+}
+
 /* content centering styles */
 .content-a {
     display:table;
@@ -238,7 +244,7 @@ body header nav {
 	.info,
 	.contact,
 	.archiveitem,
-	.projects,
+	section.projects,
 	.projectitem {
 		padding: 0 10px;
 	}

@@ -146,10 +146,10 @@
           $(this).data('toggle', 0);
         }
         if ($(this).data('toggle') == 0 ) {
-          $('img', this).attr('src',  '{{ "down-arrow-grey.svg" | asset_url }}' );
+          $('img', this).attr('src',  '{{ "up-arrow-grey.svg" | asset_url }}' );
           $(this).data('toggle', 1);
         } else {
-          $('img', this).attr('src',  '{{ "up-arrow-grey.svg" | asset_url }}' );
+          $('img', this).attr('src',  '{{ "down-arrow-grey.svg" | asset_url }}' );
           $(this).data('toggle', 0);
         }
         console.log($(this).next());

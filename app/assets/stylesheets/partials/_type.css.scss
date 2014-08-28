@@ -61,6 +61,11 @@ aside p {
 	padding-top: 8px;
 	font-size: 1.1em;
 	line-height: 1.3em;
+
+	@include media($mobile) {
+		font-size: 1.6em;
+		line-height: 1.3em;
+	}
 }
 
 aside h2,

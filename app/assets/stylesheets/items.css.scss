@@ -13,16 +13,16 @@ body .item {
 
 	.item .content-a {
 		opacity: 0;
-		background-color: rgba(255, 102, 0, 0.7);
-	}
-
-	.item:hover .content-a {
-		opacity: 1;
 		-webkit-transition: opacity 1s;
 		-moz-transition: opacity 1s;
 	  	-ms-transition: opacity 1s;
 	  	-o-transition: opacity 1s;
 	  	transition: opacity 1s;
+		background-color: rgba(255, 102, 0, 0.7);
+	}
+
+	.item:hover .content-a {
+		opacity: 1;
 	}
 
 	
@@ -97,6 +97,14 @@ body .item {
 @include media($mobile) {
 	body .projects .item {
 		@include span-columns(4);
+	}
+
+	body.items .item {
+		height: 262px !important;
+	}
+
+	body.items .item .content-a {
+		display: none;
 	}
 }
 

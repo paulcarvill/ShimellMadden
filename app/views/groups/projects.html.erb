@@ -14,17 +14,17 @@
   <article>
     <% @projects.each_with_index do |project, index| %>
       <div class="item item-<%= index+1 %>">
-        <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.large.url %>'); background-size: cover">
-          <%= link_to group_path(project, type: "projects") do %>
+        <%= link_to group_path(project, type: "projects") do %>
+          <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.large.url %>'); background-size: cover">
             <div class="content-a">
               <div class="content-b">
-                  <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                  <p>Projects</p>
-                  <%= project.name %>
+                <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
+                <p>Projects</p>
+                <%= project.name %>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <p class="proj-name"><%= project.name %></p>
       </div>
       <% end %>
