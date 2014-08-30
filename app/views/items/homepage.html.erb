@@ -83,9 +83,11 @@
           this.remove();
         })
         
-        $('<div style="opacity: 0;" class="item item-' + (i+1) + '"><div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
+        $('<div style="opacity: 0;" class="item item-' + (i+1) + '">' +
 
           '<a href="/'+ resp[i].groupType.toLowerCase() + (resp[i].groupType == "Archive" ? '/' : 's/') + resp[i].groupId + '">' + 
+
+          '<div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 
           '<p><img src="'+assTri+'" class="down-triangle" /></p><p>' +
 
@@ -93,7 +95,11 @@
 
           '</p>' + resp[i].groupName + 
 
-          '</div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
+          '</div></div></div></a><p class="proj-name">' +
+
+          (resp[i].name ? resp[i].name : resp[i].groupName + 
+
+          '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
 
       if(resp.length < 6) {

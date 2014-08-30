@@ -6,14 +6,26 @@ body.items,
 body.home,
 body.collections,
 body.collection {
-  $max-width: 98%;
+  $max-width: 100%;
+  padding: 0 22px;
+  @include media($mobile) {
+    padding: 0 7px;
+  }
   @include outer-container;
 }
 
 body.other {
   $max-width: 1200px;
   @include outer-container;
-  overflow-x: hidden;
+  padding: 0 22px;
+  
+  @include media($mobile) {
+    padding: 0 7px;
+  }
+
+  @include media($tablet) {
+    padding: 0 7px;
+  }
 }
 
 body {

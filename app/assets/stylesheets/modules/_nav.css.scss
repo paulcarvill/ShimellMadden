@@ -94,12 +94,10 @@ nav .totop {
 
 nav.stuck .totop {
   display: inline;
-  float: right;
-  margin-right: 1%;
-}
-
-nav.stuck .totop img {
-  margin: 4px 0 0 0;
+  position: absolute;
+  margin: 0;
+  top: 21px;
+  right: 22px;
 }
 
 nav a {
@@ -122,10 +120,8 @@ nav a:nth-child(1) {
 @include media($mobile) {
  .woop {
  	max-height: 400px;
- }
-
- #navigation {
-  padding: 0 10px;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 12px;
  }
 
  .subnav {

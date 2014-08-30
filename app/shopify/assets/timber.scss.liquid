@@ -2310,7 +2310,7 @@ select {
 }
 
 .js-qty, .ajaxifyCart--qty {
-  max-width: 100% !important;
+  max-width: 50% !important;
 }
 
 .js-qty input[type="text"] {
@@ -2387,6 +2387,12 @@ select {
   border: 1px solid #919191;
   text-align: center;
   padding-left: 0;
+  width: 48%;
+  float: left;
+}
+
+.extra-info:nth-of-type(2) {
+  margin-left: 4%;
 }
 
 .grid-item h3 {
@@ -2483,3 +2489,55 @@ footer,
 footer a {
  color: #999;
 }
+
+.rte h2,
+.rte h3 {
+  margin: 0;
+  text-align: left;
+}
+
+.rte h2 {
+  border-top: 1px solid #939393;
+}
+
+.rte h3 {
+  border-bottom: 1px solid #939393;
+  padding-bottom: 24px;
+  margin-bottom: 12px;
+}
+
+#shipping-info td {
+  border: 0;
+  padding: 0;
+}
+
+.proj-name {
+  color: #f60;
+  text-align: center;
+}
+
+@include at-query ($min, $small) {
+  .proj-price,
+  .proj-name {
+    display: none;
+  }
+}
+
+@include at-query ($max, $small) {
+  .proj-price {
+    text-align: center;
+    border-bottom: 1px solid #999;
+    margin-bottom: 8px;
+  }
+}
+
+@include at-query ($max, $small) {
+ .shopify-griditem-overlay {
+    display: none;
+  }
+
+  .product-grid-image {
+    margin: 0 auto 0;
+  }
+}
+

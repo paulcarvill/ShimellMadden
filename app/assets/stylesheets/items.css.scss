@@ -1,8 +1,4 @@
-#items {
-	@include media($mobile) {
-      padding: 10px;
-    }    
-}
+
 
 body .item {
 	overflow: hidden;
@@ -57,13 +53,11 @@ body .item {
 }
 
 .archiveitem aside p.desc {
-	font-size: 1em;
 	padding-bottom: 1em;
 	margin-top: 8px;
 }
 
 .archiveitem aside p {
-	font-size: 0.95em;
 	border-bottom: 1px solid #ccc;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -88,7 +82,7 @@ body .item {
 }
 
 .down-triangle {
-	width: 10px;
+	width: 13.5px;
 	float: none;
 	display: inline;
 	margin: 0;

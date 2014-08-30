@@ -15,13 +15,8 @@ footer div {
 		float: none;
 		display: block;
 		width: auto;
-		font-size: 1.4em;
 		padding-top: 8px;
 		padding-bottom: 20px;
-	}
-
-	body footer div em {
-		font-family: "DIN Next Pro Regular";
 	}
 
 	footer div:nth-child(2) p:nth-child(3) {
@@ -38,5 +33,7 @@ footer div {
 }
 
 .totop img {
+	width: 13.5px;
 	float: right;
+	margin: 0;
 }

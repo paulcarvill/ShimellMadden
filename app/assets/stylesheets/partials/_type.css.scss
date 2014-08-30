@@ -2,6 +2,47 @@ h1, h2, h3, h4, h5, h6, p {
 	color: #222;
 }
 
+
+/*************************************
+*    font-sizes - all 15px or 16px or 23px
+/*************************************/
+
+/* 23px */
+h2,
+aside p {
+	font-size: 1.45em;
+}
+
+/* 15px */
+.collections-info p,
+.collection-info p,
+.topback {
+	font-size: 0.95em;
+}
+
+h2,
+p {
+	font-family: 'Freight Text Book';
+}
+
+
+ul,
+ul li a,
+p.collectionInfo,
+.collection .back,
+footer p,
+.topback,
+.proj-name,
+.content-b p {
+	font-family: "DIN Next Pro Regular";
+}
+
+/*************************************
+*    end of font-sizes
+/*************************************/
+
+
+
 em {
 	color: #222;
 }
@@ -50,7 +91,6 @@ h2 {
 	border-top: 1px solid #ccc;
 	padding-top: 8px;
 	margin-bottom: 32px;
-	font-size: 1.4em;
 }
 
 aside p:nth-of-type(1) {
@@ -59,7 +99,6 @@ aside p:nth-of-type(1) {
 
 aside p {
 	padding-top: 8px;
-	font-size: 1.1em;
 	line-height: 1.3em;
 
 	@include media($mobile) {

@@ -1,6 +1,6 @@
 ActiveAdmin.register Group do
 
-  menu priority: 2, label: "Collections"
+  menu priority: 2, label: "Collections/Projects"
 
   index do
     selectable_column
@@ -14,8 +14,8 @@ ActiveAdmin.register Group do
     attributes_table do
       row :name, :as => :string
       row :description, :as => :string
-      row :shopifyId, :as => :string
-      collection.images.each_with_index do |i, index|
+      row "Shopify link", :shopifyId, :as => :string
+      group.images.each_with_index do |i, index|
           row "Image #{index}" do
             columns do
               column do
@@ -31,11 +31,14 @@ ActiveAdmin.register Group do
   end
 
   form :html => { :enctype => "multipart/form-data" } do |f|
-    f.inputs 'Collection details' do
+    f.inputs 'Collection/Project details' do
       f.input :name, :as => :string
       f.input :description, :as => :string
       f.input :shopifyId, :as => :string
-      f.select :grouptype, Model::OPTIONS
+    end
+
+    f.inputs 'Group is a Collection or Project?' do
+      f.select :grouptype, Group::OPTIONS
     end
 
     f.inputs "Collection images" do

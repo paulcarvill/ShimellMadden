@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     @page = Page.find(3)
   end
 
+  def stockists
+    @page = Page.find(4)
+  end
+
   def shop
   end
 

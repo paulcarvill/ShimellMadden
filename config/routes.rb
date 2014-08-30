@@ -9,6 +9,7 @@ ShimellMadden::Application.routes.draw do
   get '/about', to: 'pages#about'
   get '/comissioning', to: 'pages#comissioning'
   get '/contact', to: 'pages#contact'
+  get '/stockists', to: 'pages#stockists'
   resources :blogs, :path => "news"
 
   # homepage (all items)

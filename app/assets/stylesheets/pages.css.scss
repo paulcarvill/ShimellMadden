@@ -3,9 +3,6 @@ body {
 	padding: 0;
 	margin: 0 auto;
 
-	@include media($tablet) {
-    	padding: 0 10px;
-  	}
 }
 
 body.home {
@@ -37,7 +34,11 @@ div, h1 {
 }
 
 .home #my-carousel {
-	border: 15px solid #fff;
+	border: 22px solid #fff;
+	
+	@include media($mobile) {
+		border: 7px solid #fff;
+  	}
 }
 
 #centerer {
@@ -102,6 +103,7 @@ background-position:50% 50%;
 
 h1 img {
 	width: 56%;
+	max-width: 800px;
 }
 
 .home .content-b h2 {
@@ -109,7 +111,6 @@ h1 img {
 	color: #fff;
 	border: 1px solid #fff;
 	padding: 5px 40px 5px 40px;
-	font-size: 0.7em;
 	margin: 18px 0 0 0;
 }
 
@@ -192,7 +193,6 @@ body.home .carousel-item img {
 
 
 	#centerer h2 {
-		font-size: 1.2em;
 		margin: 25px 0 0 0;
 	}
 
@@ -226,7 +226,10 @@ body.home .carousel-item img {
 }
 
 body header nav {
-	padding-top: 10px;
+	@include media($desktop) {
+		padding-top: 20px;
+		height: 55px;
+	}
 }
 
 .stuck {
@@ -251,8 +254,6 @@ body header nav {
 
 	.archiveitem aside p.desc,
 	.info aside p {
-		font-family: 'Freight Text Book';
-		font-size: 1.3em;
 		margin-bottom: 15px;
 	}
 
@@ -263,7 +264,6 @@ body header nav {
 	.archiveitem h3,
 	.projects h2,
 	.projectitem h2 {
-		font-size: 1.3em;
 	}
 
 	body #items {
@@ -290,8 +290,6 @@ body header nav {
 	#subnav a {
 		padding: 8px 0;
 		width: 100%;
-		font-family: 'Freight Text Book';
-		font-size: 1.3em;
 	}
 
 	#subnav a,

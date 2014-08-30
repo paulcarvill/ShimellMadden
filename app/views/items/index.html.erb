@@ -65,6 +65,8 @@
 
           '</p>' + resp[i].groupName + '</div></div></div></a><p class="proj-name">' + 
 
+          (resp[i].name ? resp[i].name : resp[i].groupName) + 
+
           '</p>').appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
 

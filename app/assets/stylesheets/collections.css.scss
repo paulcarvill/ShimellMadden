@@ -28,7 +28,7 @@
 
 .indicator a.curr {
 	background: #fff;	
-	webkit-transition: background 1s;
+	-webkit-transition: background 1s;
     -moz-transition: background 1s;
     -ms-transition: background 1s;
     -o-transition: background 1s;
@@ -60,6 +60,7 @@ p.indicator {
 	padding: 15px 15px;
 	color: #fff;
 	width: 25%;
+	max-width: 400px;
 	z-index: 9;
 }
 
@@ -69,7 +70,6 @@ p.indicator {
 .collection-info p {
 	border-top: 1px solid #fff;
 	color: #fff;
-	font-family: 'Freight Text Book';
 }
 
 .collection-info h2 {
@@ -82,16 +82,10 @@ p.indicator {
 	padding-top: 8px;
 	padding-bottom: 8px;
 	border-bottom: 1px solid #fff;
-	font-size: 0.95em;
 }
 
 .collections-info p a {
 	display: block;
-}
-
-.collection-info p.collectionInfo {
-	font-family: "DIN Next Pro Regular";
-	font-size: 0.95em;
 }
 
 .collection-info p.collectionInfo img {
@@ -100,10 +94,6 @@ p.indicator {
 
 .shopthis a {
 	color: #fff;
-}
-
-.collection-info p {
-	font-size: 1em;
 }
 
 .collections #my-carousel,
@@ -138,7 +128,6 @@ p.indicator {
 	border: 1px solid #fff;
 	padding: 5px;
 	margin: 15px;
-	font-size: 0.8em;
 }
 
 .lessThanThree {
@@ -187,7 +176,6 @@ p.indicator {
 
 	.collections .collections-info h2 {
 		color: #f60;
-		font-size: 1.3em;
 		margin-bottom: 14px;
 		padding-bottom: 12px;
 		border-bottom: 1px solid #999;
@@ -224,11 +212,9 @@ p.indicator {
 
 	.shopthis a {
 		color: #2d2d2d;
-		font-size: 0.8em;
 	}
 
 	.collection-info p {
-		font-size: 1.3em;
 		color: #2d2d2d;
 	}
 
@@ -248,7 +234,6 @@ p.indicator {
 		position: static;
 		padding: 0;
 		margin: 0;
-		font-size: 1em;
 		margin-top: 20px;
 	}
 
@@ -257,7 +242,6 @@ p.indicator {
 		clear: left;
 		width: 100%;
 		display: block;
-		font-size: 1em;
 		padding-top: 8px;
 		padding-bottom: 0;
 		border-top: 1px solid #ccc;
@@ -315,8 +299,6 @@ p.indicator {
 		margin-bottom: 10px;
 		border-bottom: 1px solid #aaa;
 		display: block;
-		font-size: 1.3em;
-		font-family: 'Freight Text Book';
 		padding-bottom: 10px;
 	}
 
@@ -324,7 +306,6 @@ p.indicator {
 	.collection article .collections-info h2 a,
 	.collection article .collections-info h2 a:visited {
 		color: #ff7e15;
-		font-family: 'Freight Text Book';
 	}
 
 	.collection article .collections-info p {
@@ -335,22 +316,13 @@ p.indicator {
 		border-top: 0;
 		border-bottom: 1px solid #aaa;
 		padding-bottom: 20px;
-		font-family: 'Freight Text Book';
-		font-size: 1.3em;
 		margin-bottom: 10px;
 	}
 
-	.collection article p {
-		font-family: 'Freight Text Book';
-		font-size: 1.3em;
-	}
-
 	.collection .back {
-		font-family: 'DIN Next Pro Regular';
 		border-top: 1px solid #aaa;
 		border-bottom: 1px solid #aaa;
 		margin-top: 10px;
-		font-size: 1.0em;
 		padding: 10px 0;
 		color: #aaa;
 	}
@@ -382,13 +354,10 @@ p.indicator {
 		margin-bottom: 10px;
 		border-bottom: 1px solid #aaa;
 		display: block;
-		font-size: 1.3em;
-		font-family: 'Freight Text Book';
 		padding-bottom: 10px;
 	}
 
 	.collections article .carousel-item .collections-info h2 a {
 		color: #ff7e15;
-		font-family: 'Freight Text Book';
 	}
 }

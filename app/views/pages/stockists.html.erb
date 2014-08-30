@@ -1,0 +1,17 @@
+<div id="navigation">
+<header>
+  <%= render "shared/nav" %>
+</header>
+<div id="subnav" class="subnav">
+  <%= render "shared/subnav" %>
+</div>
+</div>
+
+<section class="blog contact">
+  <aside>
+    <h2>Stockists</h2>    
+  </aside>
+  <article>
+    <%= @page.content.html_safe %>
+  </article>
+ </section>
