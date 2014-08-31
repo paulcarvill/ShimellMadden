@@ -141,7 +141,6 @@
     $(function(){
       var toggle = 0;
       $('.filters>h3.tog').click(function(){
-        console.log('here');
         if (!$(this).data('toggle')) {
           $(this).data('toggle', 0);
         }
@@ -152,7 +151,6 @@
           $('img', this).attr('src',  '{{ "down-arrow-grey.svg" | asset_url }}' );
           $(this).data('toggle', 0);
         }
-        console.log($(this).next());
         $(this).next().toggle();
       })
     })

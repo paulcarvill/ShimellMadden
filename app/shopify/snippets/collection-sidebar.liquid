@@ -1,14 +1,34 @@
 <h1>Shop</h1>
 
+{{ collection.sort_by }}
+{{ collection.title }}
+
+{{ collection.tags }}
+
+<p>
+{% if collection.handle == 'all' %}
+I am on the automatic or regular /collections/all page.
+{% elsif collection.handle %}
+I am on a regular collection page (smart or custom).
+{% elsif collection.current_type %}
+I am on an automatic product type collection page: {{ collection.current_type }}
+{% elsif collection.current_vendor %}
+I am on an automatic vendor collection page.
+{% endif %}
+</p>
+
+
+{% assign current_coll = collection.title %}
+
 <div class="filters">
 
 {% comment %} ===== LIST TYPES ======= {% endcomment %}
 {% if collections.frontpage.all_types.size > 0 %}
 <h3 class="tog">Type <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
-<ul>
+<ul {% if collection.current_type %}{% else %}style="display: none;"{% endif %}>
   {% for type in collections.frontpage.all_types %}
       <li>
-        {{ type | link_to_type }}
+        {{ type | link_to_type }}{% if collection.current_type == type %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}
       </li>
   {% endfor %}
 </ul>
@@ -16,17 +36,17 @@
 
 
 {% comment %} ===== NEW ARRIVALS ======= {% endcomment %}
-<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a></h3>
+<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a> {% if collection.sort_by == "created-descending" %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</h3>
 
 
 
 {% comment %} ===== LIST COLLECTIONS ======= {% endcomment %}
 <h3 class="tog">Collections <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
-<ul>
+<ul {% if collection.title != "Frontpage" and collection.handle %}{% else %}style="display: none;"{% endif %}>
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
     {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-      <li><a href="{{ collection.url }}">{{ collection_title }}</a></li>
+      <li><a href="{{ collection.url }}">{{ collection_title }}</a>{% if collection.title == current_coll %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</li>
   {% endunless %}
 {% endfor %}
 </ul>
@@ -36,9 +56,9 @@
 {% comment %} ===== LIST PRICES ======= {% endcomment %}
 
 <h3 class="tog">Price range <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
-<ul>
-  <li><a href="/collections/frontpage?sort_by=price-ascending">Lowest</a></li>
-  <li><a href="/collections/frontpage?sort_by=price-descending">Highest</a></li>
+<ul {% if collection.sort_by and collection.sort_by != "created-descending" and collection.sort_by != "created-ascending" %}{% else %}style="display: none;"{% endif %}>
+  <li><a href="/collections/frontpage?sort_by=price-ascending">Lowest first</a>{% if collection.sort_by == 'price-ascending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</li>
+  <li><a href="/collections/frontpage?sort_by=price-descending">Highest first</a>{% if collection.sort_by == 'price-descending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</li>
 </ul>
 
 
@@ -46,11 +66,11 @@
 {% comment %} ===== LIST VARIANTS ======= {% endcomment %}
 
 <h3 class="tog">Materials <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
-<ul>
+<ul {% if collection.handle == "frontpage" and collection.sort_by == nil %}{% else %}style="display: none;"{% endif %}>
     {% for tag in collections.frontpage.all_tags %}
       <li>
        {% if current_tags contains tag %}
-        {{ tag }}
+        {{ tag }}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>
       {% else %}
         <a href="/collections/frontpage/{{ tag | handle }}">{{ tag }}</a>
       {% endif %}
