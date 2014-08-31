@@ -5,14 +5,30 @@ ActiveAdmin.register Image do
   index do
     selectable_column
     column :id
-
+    column "image" do |image|
+      image_tag(image.large.url(:thumb), width: '50%')
+    end
+    column :homepage
     actions
   end
 
   show do
     h3 image.id
-    (if image.large? then image_tag(image.large.url(:thumb)) else content_tag(:p, "No large image yet") end )
-    (if image.small? then image_tag(image.small.url(:thumb)) else content_tag(:span, "No small image yet") end )
+    
+    if image.large?
+      div do
+          image_tag(image.large.url, width: '50%')
+      end
+    end
+    
+    if image.small?
+      div do
+          image_tag(image.small.url, width: '50%')
+      end
+    end
+
+    # (if image.large? then image_tag(image.large.url(:thumb)) else content_tag(:p, "No large image yet") end )
+    # (if image.small? then image_tag(image.small.url(:thumb)) else content_tag(:span, "No small image yet") end )
   end
 
   form do |f|
@@ -22,9 +38,9 @@ ActiveAdmin.register Image do
       
       
       f.input :group, :label => "Collection/Project"
-      p.input :large, :label => 'big image', :hint => (if p.object.large? then f.template.image_tag(p.object.large.url(:thumb)) else p.template.content_tag(:span, "No large image yet") end )
-      p.input :small,  :label => 'small image', :hint => (if p.object.small? then f.template.image_tag(p.object.small.url(:thumb)) else p.template.content_tag(:span, "No small image yet") end )
-      
+      f.input :large, :label => 'big image', :hint => (if image.large then image_tag(image.large.url(:thumb)) else content_tag(:span, "No large image yet") end )
+      f.input :small,  :label => 'small image', :hint => (if image.small? then image_tag(image.small.url(:thumb)) else content_tag(:span, "No small image yet") end )
+      f.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
     end
 
     f.actions

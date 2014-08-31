@@ -9,8 +9,10 @@ ActiveAdmin.register Blog, as: "News" do
       simple_format news.body
     end
     column :img do |news|
-      if news.blogImage?
-          image_tag(news.blogImage.url, width: '50%')
+      if news.blogImage1?
+          image_tag(news.blogImage1.url, width: '50%')
+      else
+        content_tag(:span, "No image, will use default placeholder")
       end
     end
     actions
@@ -23,9 +25,19 @@ ActiveAdmin.register Blog, as: "News" do
     div do
         simple_format news.body
     end
-    if news.blogImage?
+    if news.blogImage1?
       div do
-          image_tag(news.blogImage.url, width: '50%')
+          image_tag(news.blogImage1.url, width: '50%')
+      end
+    end
+    if news.blogImage2?
+      div do
+          image_tag(news.blogImage2.url, width: '50%')
+      end
+    end
+    if news.blogImage3?
+      div do
+          image_tag(news.blogImage3.url, width: '50%')
       end
     end
   end
@@ -34,11 +46,13 @@ ActiveAdmin.register Blog, as: "News" do
     f.inputs 'Details' do
       f.input :headline, :as => :string
       f.input :body, as: :html_editor
-      f.input :blogImage, :as => :file, :hint => (f.template.image_tag(f.object.blogImage.url, width: '50%') if f.object.blogImage?)
+      f.input :blogImage1, :as => :file, :hint => (f.template.image_tag(f.object.blogImage1.url, width: '50%') if f.object.blogImage1?)
+      f.input :blogImage2, :as => :file, :hint => (f.template.image_tag(f.object.blogImage2.url, width: '50%') if f.object.blogImage2?)
+      f.input :blogImage3, :as => :file, :hint => (f.template.image_tag(f.object.blogImage3.url, width: '50%') if f.object.blogImage3?)
     end
     f.actions
   end
 
   config.filters = false
-  permit_params :headline, :body, :blogImage
+  permit_params :headline, :body, :blogImage1, :blogImage2, :blogImage3
 end

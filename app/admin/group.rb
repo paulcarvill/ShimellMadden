@@ -46,6 +46,7 @@ ActiveAdmin.register Group do
         p.input :large, :label => 'big image', :hint => (if p.object.large? then f.template.image_tag(p.object.large.url(:thumb)) else p.template.content_tag(:span, "No large image yet") end )
         p.input :small,  :label => 'small image', :hint => (if p.object.small? then f.template.image_tag(p.object.small.url(:thumb)) else p.template.content_tag(:span, "No small image yet") end )
         p.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove image'
+        p.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
         end
       end
     f.actions
