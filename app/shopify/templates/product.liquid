@@ -42,10 +42,21 @@
                 </a>
               </li>
             {% endfor %}
-            <li class="grid-item share small--hide"><a href="#">Share</a></li>
-            <li class="grid-item share small--hide"><a href="#">Like</a></li>
-            <li class="grid-item share small--hide"><a href="#">Tweet</a></li>
-            <li class="grid-item share small--hide"><a href="#">Pin</a></li>
+            
+            <li class="grid-item share small--hide" style="overflow: hidden">
+              <div class="fb-like" data-width="100px" data-href="{{ shop.url }}{{ product.url }}" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+            </li>
+
+            <li class="grid-item share small--hide">
+              <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+              <a class="twitter-share-button" data-count="none" href="https://twitter.com/intent/tweet?url={{ shop.url }}{{ product.url }}&via=Shimell_Madden&text={{ product.title | escape }}">Tweet</a>
+            </li>
+
+            <li class="grid-item share small--hide">
+              <a href="//pinterest.com/pin/create/button/?url={{ shop.url }}{{ product.url }}&media=http:{{ product.featured_image | product_img_url: '1024x1024' | split: '?' | first }}&description={{ product.title | strip_html | escape | replace: ' ', '%20' }}{% for t in product.tags %}{% assign tag = t | handle %}{{ '%20%23' | append: tag }}{% endfor %}" data-pin-do="buttonPin" data-pin-config="none"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+              <script async src="//assets.pinterest.com/js/pinit.js"></script>
+            </li>
+
           </ul>
         {% endif %}
       </div>
