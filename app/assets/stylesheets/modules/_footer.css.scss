@@ -7,9 +7,6 @@ footer div {
 }
 
 @include media($mobile) {
-	body footer {
-		padding: 10px;
-	}
 
 	body footer div {
 		float: none;

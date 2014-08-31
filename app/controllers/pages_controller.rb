@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def stockists
-    @page = Page.find(4)
+    @stockists = Stockist.all()
   end
 
   def shop

@@ -244,13 +244,6 @@ body header nav {
 }
 
 @include media($mobile) {
-	.info,
-	.contact,
-	.archiveitem,
-	section.projects,
-	.projectitem {
-		padding: 0 10px;
-	}
 
 	.archiveitem aside p.desc,
 	.info aside p {
@@ -308,8 +301,60 @@ body header nav {
 	}
 } 
 
+.stockist {
+	float: left;
+	width: 33%;
+}
 
+.stockists section {
+	border-top: 1px solid #cbcbcb;
+}
 
+.stockists article {
+	padding-top: 24px;
+}
 
+.stockists h2 {
+	border: none;
+}
 
+.shortlink {
+	display: none;
+}
 
+@include media($tablet) {
+	.shortlink {
+		display: inline;
+	}
+
+	.longlink {
+		display: none;
+	}
+}
+
+@include media($mobile) {
+	.shortlink {
+		display: inline;
+	}
+
+	.longlink {
+		display: none;
+	}
+}
+
+.stockists-holder {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+@include media($mobile) {
+	.stockist {
+		width: 100%;
+		margin-bottom: 24px;
+	}
+
+	.stockists-holder {
+		margin-bottom: auto;
+	}
+}

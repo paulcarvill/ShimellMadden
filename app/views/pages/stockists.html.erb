@@ -12,6 +12,21 @@
     <h2>Stockists</h2>    
   </aside>
   <article>
-    <%= @page.content.html_safe %>
+    <div class="stockists-holder">
+    <% @stockists.each_with_index do |stockist, index| %>
+    	<div class="stockist">
+	    	<p><%= stockist.name %></p>
+	    	<p><%= stockist.address1 %></p>
+	    	<p><%= stockist.address2 %></p>
+	    	<p><%= stockist.address3 %></p>
+	    	<p><%= stockist.address4 %></p>
+	    	<p><a href="http://<%= stockist.website %>"><span class="longlink"><%= stockist.website %></span><span class="shortlink">website</span></a></p>
+	    </div>
+
+      <% if index == 2 %>
+        </div><div class="stockists-holder">
+      <% end %>
+    <% end %>
+    </div>
   </article>
  </section>

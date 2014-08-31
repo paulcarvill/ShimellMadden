@@ -10,7 +10,9 @@
     Loop through products in your Frontpage collection.
     This collection is created by default, but you must add products to it.
   {% endcomment %}
-  {% for product in collections.frontpage.products limit:9 %}
+
+  {% paginate collections.frontpage.products by 9 %}  
+  {% for product in collections.frontpage.products %}
 
     {% comment %}
       Change the grid item width by using classes from the grid in
@@ -21,8 +23,38 @@
     {% endcomment %}
     {% assign grid_item_width = 'large--one-third medium--one-half' %}
     {% include 'product-grid-item' %}
-
   {% endfor %}
+  
+  <div class="clearfix grid-item">
+  <ul class="pagination-custom">
+    {% if paginate.previous %}
+      <li><a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">&larr;</a></li>
+    {% else %}
+      <li class="disabled"><span>&larr;</span></li>
+    {% endif %}
 
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <li>
+          <a href="{{ part.url }}" title="">{{ part.title }}</a>
+        </li>
+      {% else %}
+        {% if part.title == paginate.current_page %}
+          <li class="active"><span>{{ part.title }}</span></li>
+        {% else %}
+          <li><span>{{ part.title }}</span></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if paginate.next %}
+      <li><a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">&rarr;</a></li>
+    {% else %}
+      <li class="disabled"><span>&rarr;</span></li>
+    {% endif %}
+  </ul>
   </div>
+
+
+   {% endpaginate %}
 </div>
