@@ -21,6 +21,9 @@ body .item {
 		opacity: 1;
 	}
 
+	.items .proj-name {
+		display: none
+	}
 	
 }
 
@@ -30,11 +33,27 @@ body .item {
 	}
 }
 
-.items .item a {
+.items article a {
 	width: 100%;
 	height: 100%;
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }
 
+@include media($tablet) {
+	.projects article a {
+		width: 100%;
+		height: 100%;
+		position:  absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+}
 .item .content-a p,
 .content-b,
 .content-b a {

@@ -85,9 +85,11 @@
         
         $('<div style="opacity: 0;" class="item item-' + (i+1) + '">' +
 
-          '<a href="/'+ resp[i].groupType.toLowerCase() + (resp[i].archived == true ? '/' : 's/') + resp[i].groupId + '">' + 
+          '<div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover">' +
 
-          '<div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
+          '<a href="/'+ (resp[i].archived == true ? 'archive' : resp[i].groupType.toLowerCase()) + '/' + resp[i].groupId + '">' + 
+
+          '<div class="content-a"><div class="content-b">' + 
 
           '<p><img src="'+assTri+'" class="down-triangle" /></p><p>' +
 
@@ -95,7 +97,7 @@
 
           '</p>' + resp[i].groupName + 
 
-          '</div></div></div></a><p class="proj-name">' +
+          '</div></div></a></div><p class="proj-name">' +
 
           (resp[i].name ? resp[i].name : resp[i].groupName) + 
 

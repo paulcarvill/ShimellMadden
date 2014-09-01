@@ -104,7 +104,11 @@ function doCarousel(){
 
         $('a.curr').removeClass('curr');
 
-        var indic = $(this).closest('article').find('.indicator');
+        if($('body').hasClass('home')) {
+            var indic = $('.indicator');
+        } else {
+            var indic = $(this).closest('article').find('.indicator');
+        }
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 

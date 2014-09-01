@@ -139,7 +139,8 @@ groups = Group.create([
 	{
 		name: "Symmetry",
 		description: "Ecord creation seeded lorem ipsum contain all the re.",
-		grouptype: "Collection"
+		grouptype: "Collection",
+		archived: true
 	},
 
 	###### PROJECTS ######
@@ -151,17 +152,20 @@ groups = Group.create([
 	{
 		name: "Key",
 		description: "Ecord creation seeded lorem ipsum contain all the re.",
-		grouptype: "Project"
+		grouptype: "Project",
+		archived: true
 	},
 	{
 		name: "Metric",
 		description: "Lorem ipsum contain all the record creation needed to seed.",
-		grouptype: "Project"
+		grouptype: "Project",
+		archived: true
 	},
 	{
 		name: "Test",
 		description: "Loreord creaed to seeon needin all the recum ipsum contatid.",
-		grouptype: "Project"
+		grouptype: "Project",
+		archived: true
 	},
 	{
 		name: "Project Five",
@@ -176,7 +180,8 @@ groups = Group.create([
 	{
 		name: "Project Seven",
 		description: "Ecord creation seeded lorem ipsum contain all the re.",
-		grouptype: "Project"
+		grouptype: "Project",
+		archived: true
 	},
 	{
 		name: "Project Eight",
@@ -209,6 +214,45 @@ categories = Category.create([
 	}
 ])
 
+stockists = Stockist.create([
+	{
+		name: "Lesley Craze Gallery",
+    	address1: "35 Clerkenwell Green",
+		address2: "London EC1R 0DU",
+    	website: "www.lesleycrazegallery.co.uk"
+	},
+	{
+		name: "Ruberg",
+    	address1: "21 Camden Passage",
+		address2: "London N1 8EA",
+    	website: "www.ruberg.co.uk"
+	},
+	{
+		name: "Sarah May jewellery",
+    	address1: "14 Hill Street",
+		address2: "London TW9 1TN",
+    	website: "www.sarahmayjewellery.com"
+	},
+	{
+		name: "Studio Fusion",
+    	address1: "Unit 1:06",
+		address2: "Oxo Tower Wharf",
+		address3: "London SE1 9PH",
+    	website: "www.studiofusiongallery.co.uk"
+	},
+	{
+		name: "The New Craftsmen",
+    	address1: "34 North Row",
+		address2: "London W1K 6DG",
+    	website: "www.thenewcraftsmen.com"
+	},
+	{
+		name: "Smid/STOCKHOLM",
+    	address1: "Skånegatan 70",
+		address2: "116 37 Stockholm",
+    	website: "www.smidstockholm.se"
+	}
+])
 
 
 Image.create([
