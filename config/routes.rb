@@ -1,8 +1,7 @@
 ShimellMadden::Application.routes.draw do
 
-  # admin  
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  
+
 
   # static pages and news
   root "items#homepage"
@@ -16,7 +15,8 @@ ShimellMadden::Application.routes.draw do
   get '/items', to: 'items#index'
 
   # projects, collections
-  type_regexp = Regexp.new([:projects, :collections, :archives].join("|"))
+  # the regex here describes the different 'types' that a group can be
+  type_regexp = Regexp.new([:projects, :collections].join("|"))
   resources :groups, path: ':type', constraints: { type: type_regexp }
 
   # archive
@@ -26,4 +26,8 @@ ShimellMadden::Application.routes.draw do
   # shop
   get '/shop/', to: 'pages#shop'
 
+  # admin  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
 end

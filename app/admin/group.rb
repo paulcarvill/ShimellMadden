@@ -38,7 +38,11 @@ ActiveAdmin.register Group do
     end
 
     f.inputs 'Group is a Collection or Project?' do
-      f.select :grouptype, Group::OPTIONS
+      f.input :grouptype, :collection => Group::OPTIONS, :as => :radio
+    end
+
+    f.inputs 'Add to archive?' do
+      f.input :archived, :as => :boolean, :label => 'Archived?'
     end
 
     f.inputs "Collection images" do
@@ -47,11 +51,15 @@ ActiveAdmin.register Group do
         p.input :small,  :label => 'small image', :hint => (if p.object.small? then f.template.image_tag(p.object.small.url(:thumb)) else p.template.content_tag(:span, "No small image yet") end )
         p.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove image'
         p.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
+        p.input :categories
         end
       end
+
+    
+
     f.actions
   end
 
   config.filters = false
-  permit_params :name, :description, :shopifyId, images_attributes: [:id, :large, :small, :_destroy]
+  permit_params :name, :description, :shopifyId, :archived, images_attributes: [:id, :homepage, :large, :small, :_destroy, category_ids: []]
 end

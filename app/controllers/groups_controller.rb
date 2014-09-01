@@ -47,14 +47,14 @@ class GroupsController < ApplicationController
     @categories = Category.all()
 
     if params['category']
-      @items = Category.find(params['category']).images.joins(:group).where(groups: { grouptype: 'Archive' }).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+      @items = Category.find(params['category']).images.joins(:group).where(groups: { archived: true }).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
     elsif params['date']
       date = Date.parse(params['date']);
       startofmonth = date.beginning_of_month
       endofmonth = date.end_of_month
-      @items = Image.joins(:group).where("groups.grouptype = ?", 'Archive').where("images.created_at >= ? and images.created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+      @items = Image.joins(:group).where("groups.archived = ?", true).where("images.created_at >= ? and images.created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
     else
-      @items = Image.joins(:group).where(groups: { grouptype: 'Archive' }).paginate(:page => params[:page], :per_page => 12)
+      @items = Image.joins(:group).where(groups: { archived: true }).paginate(:page => params[:page], :per_page => 12)
     end
 
     @months = Image.all().order("created_at DESC").map{|t| t.created_at.strftime("%B %Y")}.uniq 

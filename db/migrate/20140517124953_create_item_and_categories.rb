@@ -1,4 +1,4 @@
-class CreateItemAndCategories < ActiveRecord::Migration
+class CreateImageAndCategories < ActiveRecord::Migration
   def change
     create_table :categories_images, id: false do |t|
       t.integer :category_id

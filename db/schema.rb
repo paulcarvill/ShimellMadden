@@ -80,7 +80,8 @@ ActiveRecord::Schema.define(version: 20140831110720) do
     t.text     "name"
     t.text     "description"
     t.text     "shopifyId"
-    t.text     "grouptype"
+    t.string   "grouptype",   default: "Collection"
+    t.boolean  "archived"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
