@@ -25,8 +25,6 @@
       <% @items.each_with_index do |item, index| %>
         <div class="carousel<% if index == 0 %> active<% end %>">
           <img src="<%= item.large.url %>" />
-          
-          SSHHHHHHH .
           <% if @group.shopifyId %>
             <div class="notes shopthis">
                 <p><a href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a></p>

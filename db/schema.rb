@@ -105,18 +105,6 @@ ActiveRecord::Schema.define(version: 20140831110720) do
     t.datetime "updated_at"
   end
 
-  create_table "items", force: true do |t|
-    t.text     "name"
-    t.text     "description"
-    t.float    "price"
-    t.float    "shipping"
-    t.text     "shopifyid"
-    t.integer  "collection_id"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pages", force: true do |t|
     t.text     "name"
     t.text     "content"
