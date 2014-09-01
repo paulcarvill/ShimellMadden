@@ -41,6 +41,7 @@ ActiveAdmin.register Image do
       f.input :large, :label => 'big image', :hint => (if image.large then image_tag(image.large.url(:thumb)) else content_tag(:span, "No large image yet") end )
       f.input :small,  :label => 'small image', :hint => (if image.small? then image_tag(image.small.url(:thumb)) else content_tag(:span, "No small image yet") end )
       f.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
+      f.input :categories
     end
 
     f.actions
