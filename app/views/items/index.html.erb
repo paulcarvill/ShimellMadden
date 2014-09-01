@@ -18,13 +18,13 @@
                 <div class="content-a">
                   <div class="content-b">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p><% if item.group.archived %>Archive<% else %><%= item.group.grouptype %><% end %></p>
+                    <p><% if item.group.archived == true %>Archive<% else %><%= item.group.grouptype %><% end %></p>
                     <%= item.group.name %>
                   </div>
                 </div>
               </a>
           </div>
-          <p class="proj-name"><% if !item.group.archived %><%= item.group.name %><% else %><%= item.name %><% end %></p>
+          <p class="proj-name"><%= item.group.name %></p>
         </div>
       <% end %>
     </article>
