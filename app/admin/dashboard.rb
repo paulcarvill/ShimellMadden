@@ -103,22 +103,38 @@ ActiveAdmin.register_page "Dashboard" do
                 li "How to add a stockist"
                     ul do
                         li "Go to http://0.0.0.0:3000/admin/stockists"
+                        li "Click 'New Stockist' button"
+                        li "Add stockist name, address and website (in the format: www.websitename.com)"
+                        li "Click 'Create Stockist' button"
                     end
                 li "How to add a news story"
                     ul do
-                        li "Go to http://0.0.0.0:3000/admin/stockists"
+                        li "Go to http://0.0.0.0:3000/admin/news"
+                        li "Click 'News news' button"
+                        li "Add a headline"
+                        li "Add body text"
+                        li "Choose up to 3 images (optional) (XXXpx tall by XXXpx wide)"
                     end
                 li "How to edit the About page"
                     ul do
-                        li "Go to http://0.0.0.0:3000/admin/stockists"
+                        li "Go to http://0.0.0.0:3000/admin/pages"
+                        li "Click the 'Edit' link next to the page you want to edit"
+                        li "Make any changes"
+                        li "Click 'Update Page' button"
                     end
                 li "How to edit the Contact page"
                     ul do
-                        li "Go to http://0.0.0.0:3000/admin/stockists"
+                        li "Go to http://0.0.0.0:3000/admin/pages"
+                        li "Click the 'Edit' link next to the page you want to edit"
+                        li "Make any changes"
+                        li "Click 'Update Page' button"
                     end
                 li "How to edit the Commissioning page"
                     ul do
-                        li "Go to http://0.0.0.0:3000/admin/stockists"
+                        li "Go to http://0.0.0.0:3000/admin/pages"
+                        li "Click the 'Edit' link next to the page you want to edit"
+                        li "Make any changes"
+                        li "Click 'Update Page' button"
                     end
 
 

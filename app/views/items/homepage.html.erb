@@ -13,7 +13,7 @@
       <article>
         <% @items.each_with_index do |item, index| %>
           <div class="item item-<%= index+1 %>">
-          <% if item.group.grouptype == "Archive" %>
+          <% if item.group.archived == true %>
             <a href="/archive/<%= item.id %>">
           <% else %>
             <a href="/<%= item.group.grouptype.downcase %>s/<%= item.group.id %>">
@@ -23,7 +23,7 @@
                 <div class="content-b">
                   <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
                   <p><%= item.group.grouptype %></p>
-                  <% if item.group.grouptype != "Archive" %><%= item.group.name %><% else %><%= item.name %><% end %>
+                  <% if item.group.archived == true %><%= item.group.name %><% else %><%= item.name %><% end %>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@
         
         $('<div style="opacity: 0;" class="item item-' + (i+1) + '">' +
 
-          '<a href="/'+ resp[i].groupType.toLowerCase() + (resp[i].groupType == "Archive" ? '/' : 's/') + resp[i].groupId + '">' + 
+          '<a href="/'+ resp[i].groupType.toLowerCase() + (resp[i].archived == true ? '/' : 's/') + resp[i].groupId + '">' + 
 
           '<div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 

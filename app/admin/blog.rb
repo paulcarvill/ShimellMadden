@@ -46,13 +46,32 @@ ActiveAdmin.register Blog, as: "News" do
     f.inputs 'Details' do
       f.input :headline, :as => :string
       f.input :body, as: :html_editor
-      f.input :blogImage1, :as => :file, :hint => (f.template.image_tag(f.object.blogImage1.url, width: '50%') if f.object.blogImage1?)
-      f.input :blogImage2, :as => :file, :hint => (f.template.image_tag(f.object.blogImage2.url, width: '50%') if f.object.blogImage2?)
-      f.input :blogImage3, :as => :file, :hint => (f.template.image_tag(f.object.blogImage3.url, width: '50%') if f.object.blogImage3?)
     end
+
+    f.inputs 'Image 1' do
+      f.input :blogImage1, :as => :file, :hint => (f.template.image_tag(f.object.blogImage1.url, width: '50%') if f.object.blogImage1?)
+      if news.blogImage1?
+        f.input :blogImage1_delete, :as=>:boolean
+      end
+    end
+
+    f.inputs 'Image 2' do
+      f.input :blogImage2, :as => :file, :hint => (f.template.image_tag(f.object.blogImage2.url, width: '50%') if f.object.blogImage2?)
+      if news.blogImage2?
+        f.input :blogImage2_delete, :as=>:boolean
+      end
+    end
+
+    f.inputs 'Image 3' do
+      f.input :blogImage3, :as => :file, :hint => (f.template.image_tag(f.object.blogImage3.url, width: '50%') if f.object.blogImage3?)
+      if news.blogImage3?
+        f.input :blogImage3_delete, :as=>:boolean
+      end
+    end
+
     f.actions
   end
 
   config.filters = false
-  permit_params :headline, :body, :blogImage1, :blogImage2, :blogImage3
+  permit_params :headline, :body, :blogImage1, :blogImage2, :blogImage3, :blogImage1_delete, :blogImage2_delete, :blogImage3_delete
 end

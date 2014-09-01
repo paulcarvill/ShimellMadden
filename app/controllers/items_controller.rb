@@ -20,10 +20,10 @@ class ItemsController < ApplicationController
           # @homepageitems = Item.where(homepage: true).order("id ASC")
           @homepageitems = Image.all().where(homepage: true).order("id DESC")
 
-          @items = Image.all().order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
+          @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
         }
         format.json {
-          @items = Image.all().order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
+          @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
           if @items.length < 6
             session[:random_seed] = nil
           end
@@ -50,11 +50,11 @@ class ItemsController < ApplicationController
             @page = 1
           end
 
-          @items = Image.all().order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
+          @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
         }
         
         format.json {
-          @items = Image.all().order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
+          @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
 
           # delete the session seed value if they've seen all the items,
           # so next time they refresh the page they get a new item order

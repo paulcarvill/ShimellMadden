@@ -14,6 +14,8 @@ ActiveAdmin.register Group do
     attributes_table do
       row :name, :as => :string
       row :description, :as => :string
+      row :archived, :as => :string
+      row :grouptype, :as => :string
       row "Shopify link", :shopifyId, :as => :string
       group.images.each_with_index do |i, index|
           row "Image #{index}" do

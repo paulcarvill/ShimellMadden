@@ -10,7 +10,7 @@
       <% @items.each_with_index do |item, index| %>
         <div class="item item-<%= index+1 %>">
           
-          <% if item.group.grouptype == "Archive" %>
+          <% if item.group.archived == true %>
             <a href="/archive/<%= item.id %>">
           <% else %>
             <a href="/<%= item.group.grouptype.downcase %>s/<%= item.group.id %>">
@@ -21,12 +21,12 @@
                 <div class="content-b">
                   <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
                   <p><%= item.group.grouptype %></p>
-                  <% if item.group.grouptype != "Archive" %><%= item.group.name %><% else %><%= item.name %><% end %>
+                  <% if !item.group.archived %><%= item.group.name %><% else %><%= item.name %><% end %>
                 </div>
               </div>
             </div>
           </a>
-          <p class="proj-name"><% if item.group.grouptype != "Archive" %><%= item.group.name %><% else %><%= item.name %><% end %></p>
+          <p class="proj-name"><% if !item.group.archived %><%= item.group.name %><% else %><%= item.name %><% end %></p>
         </div>
       <% end %>
     </article>
@@ -55,7 +55,7 @@
         })
         $('<div style="opacity: 0;" class="item item-' + (i+1) + '">' + 
 
-          (resp[i].groupType == "Archive" ? ('<a href="/archive/' + resp[i].id + '">') : resp[i].groupType == "Project" ? ('<a href="/projects/' + resp[i].groupId + '">') : ('<a href="/collections/' + resp[i].groupId + '">')) + 
+          (resp[i].archived ? ('<a href="/archive/' + resp[i].id + '">') : resp[i].groupType == "Project" ? ('<a href="/projects/' + resp[i].groupId + '">') : ('<a href="/collections/' + resp[i].groupId + '">')) + 
 
           '<div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover"><div class="content-a"><div class="content-b">' + 
 
