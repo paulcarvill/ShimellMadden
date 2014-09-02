@@ -12,16 +12,10 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
         format.html {
-          if params[:page]
-            @page = params[:page]
-          else
-            @page = 1
-          end
-          # @homepageitems = Item.where(homepage: true).order("id ASC")
           @homepageitems = Image.all().where(homepage: true).order("id DESC")
-
           @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
         }
+        
         format.json {
           @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
           if @items.length < 6

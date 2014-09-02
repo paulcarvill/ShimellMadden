@@ -4,104 +4,91 @@
   </header>
 </div>
 
-<% if @page.to_i > 1 %>
-
-
-
-  <div id="items"> 
-    <section class="blog items">
-      <article>
-        <% @items.each_with_index do |item, index| %>
-          <div class="item item-<%= index+1 %>">
-          <% if item.group.archived == true %>
-            <a href="/archive/<%= item.id %>">
-          <% else %>
-            <a href="/<%= item.group.grouptype.downcase %>s/<%= item.group.id %>">
-          <% end %>
-            <div class="not-fullscreen background" style="background-image:url('<%= item.large.url %>'); background-size: cover;">
-              <div class="content-a">
-                <div class="content-b">
-                  <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                  <p><%= item.group.grouptype %></p>
-                  <% if item.group.archived == true %><%= item.group.name %><% else %><%= item.name %><% end %>
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-        <% end %>
-      </article>
-    </section>
-    <%= will_paginate @items %>
-  </div> <!-- end items -->
-
-
-
-<% else %>
-
-
-
-  <div id="items"> 
-    <section class="blog items">
-      <div id="my-carousel">
-        <% @homepageitems.each_with_index do |item, index| %>
-          <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.large.url %>'); background-size:cover;">
-          </div>
-        <% end %>
-        <div class="content-a">
-          <div class="content-b">
-            <h1><a href="/items"><img src="<%= asset_path "logotype.svg" %>" /></a></h1>
-          </div>
+<div id="items"> 
+  <section class="blog items">
+    <div id="my-carousel">
+      <% @homepageitems.each_with_index do |item, index| %>
+        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.large.url %>'); background-size:cover;">
         </div>
-        <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
-        <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
-        <p class="indicator"></p>
-      </div> <!-- end carousel -->
-    </section>
-  </div>
-
-
-  
-<% end %>
+      <% end %>
+      <div class="content-a">
+        <div class="content-b">
+          <h1><a href="/items"><img src="<%= asset_path "logotype.svg" %>" /></a></h1>
+        </div>
+      </div>
+      <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
+      <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+      <p class="indicator"></p>
+    </div> <!-- end carousel -->
+  </section>
+</div>
 
 <% content_for :perpagejs do %>
-<script>
 
+
+
+<!-- ****************************
+*    HANDLEBARS TEMPLATING SHIZ
+********************************* -->
+<script id="item-list-template" type="text/x-handlebars-template">
+  <div style="opacity: 0;" class="item item-{{num}}">
+    <div class="not-fullscreen background" style="background-image:url({{large}}); background-size: cover">
+      <a href="/{{ url this }}/{{groupId}}"> 
+        <div class="content-a">
+          <div class="content-b">
+            <p>
+              <img src="<%= asset_path "down-triangle.svg" %>" class="down-triangle" />
+            </p>
+            <p>{{ type this }}</p>
+            {{groupName}}
+          </div>
+        </div>
+      </a>
+    </div>
+    <p class="proj-name">{{groupName}}</p>
+  </div>
+</script>
+
+<script>
+  Handlebars.registerHelper("type", function(context){
+    return (context.archived) ? 'Archive': context.groupType;
+  });
+
+  Handlebars.registerHelper("url", function(context){
+    return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
+  });
+
+  var source   = $("#item-list-template").html();
+  var template = Handlebars.compile(source);
+</script>
+<!-- *********************************
+*    END OF HANDLEBARS TEMPLATING SHIZ
+************************************** -->
+
+
+
+
+<script>
   /* 
    *  this is for infinite scroll
   */
   var page = 1;
   var item = 6;
-  var assTri = '<%= asset_path "down-triangle.svg" %>';
 
   function getItems(pageNumber) {
     $.get('/items.json?page=' + page, function(resp){
+    
+      // removeprogress indicator/spinner
+      $('article img.progress').animate({ opacity : 0 }, function(){
+        this.remove();
+      })
       
+      // process response with handlebar template
       for(var i = 0; i < resp.length; i++) {
-
-        $('article img.progress').animate({ opacity : 0 }, function(){
-          this.remove();
-        })
-        
-        $('<div style="opacity: 0;" class="item item-' + (i+1) + '">' +
-
-          '<div class="not-fullscreen background" style="background-image:url('+resp[i].large+'); background-size: cover">' +
-
-          '<a href="/'+ (resp[i].archived == true ? 'archive' : resp[i].groupType.toLowerCase() + 's') + '/' + resp[i].groupId + '">' + 
-
-          '<div class="content-a"><div class="content-b">' + 
-
-          '<p><img src="'+assTri+'" class="down-triangle" /></p><p>' +
-
-          (resp[i].groupType == 'Project' ? ('Project') : ('Collection')) + 
-
-          '</p>' + resp[i].groupName + 
-
-          '</div></div></a></div><p class="proj-name">' +
-
-          (resp[i].name ? resp[i].name : resp[i].groupName) + 
-
-          '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
+        var context = resp[i];
+        context.num = i+1;
+        // and add it to the page
+        $(template(context)).appendTo($('article')).animate({ opacity : 1 }, 1500);
       }
 
       if(resp.length < 6) {

@@ -1,7 +1,4 @@
 class PagesController < ApplicationController
-  def index
-  	@items = Item.where(homepage: true).order("id ASC")
-  end
 
   def about
   	@page = Page.find(1)
