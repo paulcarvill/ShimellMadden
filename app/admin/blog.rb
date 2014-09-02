@@ -1,4 +1,4 @@
-ActiveAdmin.register Blog, as: "News" do
+ActiveAdmin.register Blog, as: "News story" do
   
   menu priority: 4, label: "News"
 
