@@ -5,6 +5,15 @@
 <meta name="twitter:image:src" content="http://178.62.4.10<%= @group.images.first.large.url %>">
 <meta name="twitter:domain" content="shimellandmadden.com">
 
+<meta property="og:title" content="<%= @group.name %>" />
+<meta property="og:site_name" content="Shimell and Madden, "/>
+<meta property="og:url" content="http://178.62.4.10/collections/<%= @group.id %>" />
+<meta property="og:description" content="<%= @group.description %>" />
+<meta property="fb:app_id" content="560942770677358" />
+<meta property="og:type" content="article" />
+
+
+
 <div id="navigation">
   <header>
     <%= render "shared/nav" %>
