@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
     if params[:type] == 'collections'
       @collections = Group.where(grouptype: 'Collection')
       @items = Image.where(group_id: params[:id]).rotate(1)
-      render "collections/show"
+      render "groups/collectionsshow"
     elsif params[:type] == 'projects'
       @project = Group.find(params[:id])
       @images = Image.where(group_id: params[:id])

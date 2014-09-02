@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>ShimellMadden</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 </head>
@@ -10,6 +9,7 @@
     <script type="text/javascript">document.getElementsByTagName('body')[0].className+=' js'</script>
     <%= yield %>
     <%= render "shared/footer" %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= yield :perpagejs %>
 </body>
