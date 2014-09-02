@@ -306,9 +306,17 @@ body {
     }    
   }
 
-  .projectitem article img.taller {
-    width: 100%;
-    margin-top: -50%;
+  @include media($mobile) {
+    .projectitem article img.taller {
+      width: 100%;
+      margin-top: -50%;
+    }
+  }
+
+  @include media($mobile) {
+    .collection .carousel img.taller {
+      margin-top: -50%;
+    }
   }
 
   .shop .archive-item {

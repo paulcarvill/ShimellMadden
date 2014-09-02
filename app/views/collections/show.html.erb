@@ -24,7 +24,7 @@
       <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
       <% @items.each_with_index do |item, index| %>
         <div class="carousel<% if index == 0 %> active<% end %>">
-          <img src="<%= item.large.url %>" />
+          <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />
           <% if @group.shopifyId %>
             <div class="notes shopthis">
                 <p><a href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a></p>
@@ -60,9 +60,9 @@
       }
     })
 
-    collectionCarouselAuto = window.setInterval(function(){
-      $('.carousel-next').click();
-    }, 4000)
+    // collectionCarouselAuto = window.setInterval(function(){
+    //   $('.carousel-next').click();
+    // }, 4000)
   })
 </script>
 <% end %>

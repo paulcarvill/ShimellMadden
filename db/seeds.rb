@@ -259,7 +259,7 @@ Image.create([
 	###### COLLECTION IMAGES ######
 	{
 		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
+		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio_small.jpg")),
 		group_id: groups[0].id,
 		homepage: true,
 		description: "Optional collection description text goes here."
@@ -273,7 +273,7 @@ Image.create([
 	},
 	{
 		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
+		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio_small.jpg")),
 		group_id: groups[2].id,
 		homepage: true
 	},
@@ -392,7 +392,7 @@ Image.create([
 
 	{
 		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
+		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio_small.jpg")),
 		group_id: groups[3].id,
 		homepage: true,
 		description: "Optional project description text goes here."
@@ -406,7 +406,7 @@ Image.create([
 	},
 	{
 		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
+		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio_small.jpg")),
 		group_id: groups[3].id,
 		homepage: true,
 		description: "Optional project description text goes here."

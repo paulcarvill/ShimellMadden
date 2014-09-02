@@ -8,8 +8,11 @@
   <section class="blog items">
     <div id="my-carousel">
       <% @homepageitems.each_with_index do |item, index| %>
-        <div class="carousel not-fullscreen background<% if index == 0 %> active<% end %>" style="background-image:url('<%= item.large.url %>'); background-size:cover;">
-        </div>
+        <style>
+          @media (max-width: 600px) { .b-<%=index %> { background-image:url('<%= item.small.url %>');  } }
+          @media (min-width: 601px) { .b-<%=index %> { background-image:url('<%= item.large.url %>');  } }
+        </style>
+        <div class="carousel not-fullscreen background b-<%=index %><% if index == 0 %> active<% end %>" style="background-size:cover;"></div>
       <% end %>
       <div class="content-a">
         <div class="content-b">
