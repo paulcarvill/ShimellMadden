@@ -29,7 +29,7 @@ module ApplicationHelper
       "News"
     elsif controller?("pages") && action?("contact")
       "Contact"
-    elsif controller?("pages") && action?("comissioning")
+    elsif controller?("pages") && action?("commissioning")
       "Commissioning"
   	elsif controller?("pages") && action?("shop")
   		"Shop"

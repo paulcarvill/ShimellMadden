@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   	@page = Page.find(1)
   end
 
-  def comissioning
+  def commissioning
   	@page = Page.find(2)
   end
   

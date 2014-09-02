@@ -6,7 +6,7 @@ ShimellMadden::Application.routes.draw do
   # static pages and news
   root "items#homepage"
   get '/about', to: 'pages#about'
-  get '/comissioning', to: 'pages#comissioning'
+  get '/commissioning', to: 'pages#commissioning'
   get '/contact', to: 'pages#contact'
   get '/stockists', to: 'pages#stockists'
   resources :blogs, :path => "news"
