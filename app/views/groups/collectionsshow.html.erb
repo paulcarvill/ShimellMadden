@@ -23,7 +23,7 @@
       <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
       <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
       <% @items.each_with_index do |item, index| %>
-        <div class="carousel<% if index == 0 %> active<% end %>">
+        <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
           <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />
           <% if @group.shopifyId %>
             <div class="notes shopthis">
@@ -60,9 +60,9 @@
       }
     })
 
-    // collectionCarouselAuto = window.setInterval(function(){
-    //   $('.carousel-next').click();
-    // }, 4000)
+    carouselAuto = window.setInterval(function(){
+      $('.carousel-next').click();
+    }, 4000)
   })
 </script>
 <% end %>

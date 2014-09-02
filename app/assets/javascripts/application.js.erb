@@ -68,8 +68,8 @@ function doCarousel(){
     }
 
     var carouselPrev = function(e){
-        if (e.which && typeof homepageCarouselAuto !== "undefined" && homepageCarouselAuto) {
-            window.clearInterval(homepageCarouselAuto);
+        if (e.which && typeof carouselAuto !== "undefined" && carouselAuto) {
+            window.clearInterval(carouselAuto);
         }
         
         $(items[current]).toggleClass('active');
@@ -91,8 +91,8 @@ function doCarousel(){
     }
 
     var carouselNext = function(e){
-        if (e.which && typeof homepageCarouselAuto !== "undefined" && homepageCarouselAuto) {
-            window.clearInterval(homepageCarouselAuto);
+        if (e.which && typeof carouselAuto !== "undefined" && carouselAuto) {
+            window.clearInterval(carouselAuto);
         }
 
         $(items[current]).toggleClass('active');

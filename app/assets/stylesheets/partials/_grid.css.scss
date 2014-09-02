@@ -306,6 +306,33 @@ body {
     }    
   }
 
+  .projectitem article img.taller {
+    width: auto;
+  }
+
+  .collection #my-carousel div.talll {
+    width: auto;
+    padding-left: 50%;
+    height: 1022px;
+  }
+
+  .collection #my-carousel div.talll img {
+    width: auto;
+    margin-left: -50%;
+    height: 100%;
+  }
+
+  @include media($desktop) {
+    .projectitem #my-carousel div.talll {
+      width: auto;
+      padding-left: 50%;
+    }
+
+    .projectitem #my-carousel div.talll img {
+      margin-left: -50%;
+    }
+  }
+
   @include media($mobile) {
     .projectitem article img.taller {
       width: 100%;

@@ -14,7 +14,7 @@
   <article style="position: relative;">
     <div id="my-carousel">
       <% @images.each_with_index do |item, index|%>
-        <div class="carousel<% if index == 0 %> active<% end %>">
+        <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
           <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />
         </div>
       <% end %>
@@ -30,7 +30,7 @@
 
  <% content_for :perpagejs do %>
 <script>
-    projectCarouselAuto = window.setInterval(function(){
+    carouselAuto = window.setInterval(function(){
       $('.carousel-next').click();
     }, 4000);
 </script>
