@@ -122,19 +122,20 @@
       getItems(page);
     });
 
-    $('h1 a').hover(
-      function(){
-        $('.content-a').toggleClass('hoverShadow');
-        window.clearInterval(homepageCarouselAuto);
-      },
-      function(){
-        $('.content-a').toggleClass('hoverShadow');
-        $('.carousel-next').click();
-        homepageCarouselAuto = window.setInterval(function(){
-          $('.carousel-next').click();
-        }, 4000);
-      }
-    );
+    if (!Modernizr.touch) {
+      $('h1').hover(
+        function(){
+          $('.content-a').toggleClass('hoverShadow');
+          window.clearInterval(carouselAuto);
+        },
+        function(){
+          $('.content-a').toggleClass('hoverShadow');
+          carouselAuto = window.setInterval(function(){
+            $('.carousel-next').click();
+          }, 4000);
+        }
+      );
+    }
 
     // transition from 'homepage' carousel to list of all items
     $('h1 a').click(function(e) {

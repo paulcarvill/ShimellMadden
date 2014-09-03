@@ -2,7 +2,6 @@
 @import "grid-settings";
 @import "neat";
 
-body.items,
 body.home,
 body.collections,
 body.collection {
@@ -14,6 +13,7 @@ body.collection {
   @include outer-container;
 }
 
+body.items,
 body.other {
   $max-width: 1200px;
   @include outer-container;
@@ -61,7 +61,13 @@ body {
   }
 
   aside {
-    @include span-columns(3);
+    @include media($desktop) {
+      width: 25%;
+      margin-right: 0;
+      padding-right: 22px;
+      float: left;
+    }
+
     @include media($mobile) {
       @include span-columns(4);
     }
@@ -73,7 +79,8 @@ body {
   }
 
   article {
-    @include span-columns(9);
+    float: left;
+    width: 75%;
   }
 
   @include media($tablet) {
@@ -105,7 +112,14 @@ body {
   }
 
   footer>div {
-  	@include span-columns(3 of 12);
+    float: left;
+  	width: 25%;
+    margin: 0;
+    padding-right: 22px;
+  }
+
+  footer>div:nth-child(4) {
+    padding-right: 0;
   }
 
   .items article,
@@ -126,8 +140,11 @@ body {
   }
 
   .item {
-    @include span-columns(6);
-    // height: 267px;
+    float: left;
+    width: 50%;
+    padding-right: $gutter/2;
+
+
     margin-bottom: $gutter;
 
     @include media($mobile) {
@@ -144,6 +161,9 @@ body {
   }
 
   .item-2 {
+    padding-left: $gutter/2;
+    padding-right: 0;
+
     // height: 429px;
     @include omega();
     @include media($mobile) {
@@ -173,7 +193,11 @@ body {
   }
 
   .item-4 {
-    @include span-columns(3 of 12);
+    padding-left: $gutter/2;
+    width: 25%;
+    margin-right: 0;
+    padding-right: 6px;
+
     // height: 146px;
     @include media($mobile) {
       @include span-columns(4);
@@ -187,7 +211,10 @@ body {
   }
 
   .item-5 {
-    @include span-columns(3 of 12);
+    width: 25%;
+    padding-left: 16px;
+    padding-right: 0;
+
     @include omega();
     // height: 146px;
 
@@ -203,7 +230,10 @@ body {
   }
 
   .item-6 {
-    @include span-columns(6 of 12);
+    padding-left: $gutter/2;
+    padding-right: 0;
+    width: 50%;
+    
     @include omega();
     // height: 301px;
     @include media($mobile) {
@@ -214,6 +244,17 @@ body {
     @include media($tablet) {
       @include span-columns(4);
       height: 360px !important;
+    }
+  }
+
+  @include media($mobile) {
+    .item,
+    .item-2,
+    .item-3,
+    .item-4,
+    .item-5,
+    .item-6 {
+      padding: 0;
     }
   }
 
@@ -235,7 +276,7 @@ body {
   .items .item-3 .not-fullscreen:before {
     content: "";
     display: block;
-    padding-top: 130%;
+    padding-top: 131%;
   }
 
   .collections article .carousel-item img,
@@ -251,8 +292,14 @@ body {
   }
 
   .archive-item {
-    @include span-columns(3 of 9);
-    
+
+    @include media($desktop) {
+      float: left;
+      width: 33%;
+      padding-right: 14px;
+      margin-right: 0;
+    }
+
     @include media($mobile) {
       margin-bottom: 15px;
     }
@@ -269,6 +316,21 @@ body {
 
     display: table;
     text-align: center;
+  }
+
+  @include media($desktop) {
+
+    .archive-item:nth-child(3n+2) {
+      padding-right: 7px;
+      padding-left: 8px;
+    }
+
+    .archive-item:nth-child(3n+3) {
+      padding-right: 0;
+      padding-left: 15px;
+      width: 34%;
+      // padding-left: 13px;
+    }
   }
 
   .inside {

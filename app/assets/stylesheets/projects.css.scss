@@ -1,7 +1,9 @@
 .projects .item-1,
 .projects .item-3,
 .projects .item-5 {
-	@include span-columns(6);
+	float: left;
+	width: 50%;
+	
 	height: 414px;
 	margin-bottom: 15px;
 }

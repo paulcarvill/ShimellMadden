@@ -16,7 +16,7 @@ div, h1 {
 }
 
 .content-a {
-	transition: background 1s;
+	transition: background 0.25s;
 }
 
 .hoverShadow {
@@ -74,7 +74,8 @@ background-position:50% 50%;
 .not-fullscreen .content-a,
 .fullscreen.not-overflow,
 .fullscreen.not-overflow .content-a {
-    overflow:hidden;
+    
+    position: relative;
 }
 
 .projects .not-fullscreen,
