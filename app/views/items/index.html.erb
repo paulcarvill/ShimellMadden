@@ -24,7 +24,7 @@
                 </div>
               </a>
           </div>
-          <p class="proj-name"><%= item.group.name %></p>
+          <p class="proj-name"><%= item.group.archived ? 'Archive' : item.group.grouptype %>: <%= item.group.name %></p>
         </div>
       <% end %>
     </article>
@@ -62,6 +62,8 @@
           (resp[i].groupType == "Project" ? ('Project') : (resp[i].groupType == "Collection" ? ('Collection') : "" ))+ 
 
           '</p>' + resp[i].groupName + '</div></div></a></div><p class="proj-name">' + 
+
+          (resp[i].archived ? 'Archive:' : resp[i].groupType) + ': ' +
 
           (resp[i].name ? resp[i].name : resp[i].groupName) + 
 
