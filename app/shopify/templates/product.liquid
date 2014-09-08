@@ -83,7 +83,7 @@
     <form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCartForm">
 
     {% comment %}   =====   QUANTITY   =====   {% endcomment %}
-      <label for="quantity" class="quantity-selector">Quantity</label>
+      {% comment %}<label for="quantity" class="quantity-selector">Quantity</label>{% endcomment %}
           <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
 
 
