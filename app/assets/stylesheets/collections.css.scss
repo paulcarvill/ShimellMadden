@@ -357,3 +357,74 @@ p.indicator {
 		color: #ff7e15;
 	}
 }
+
+@include media($desktop) {
+	body.collections,
+	body.collection {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		bottom: 0;
+	}
+
+	.collections #items,
+	.collection #items {
+		position: fixed;
+		top: 175px;
+		left: 22px;
+		right: 22px;
+		bottom: 22px;
+		width: auto;
+		float: none;
+		margin: 0;
+	}
+
+	.collections article,
+	.collections section,
+	.collections #my-carousel,
+	.collection article,
+	.collection section,
+	.collection #my-carousel {
+		height: 100%;
+	}
+
+	.collections article,
+	.collection article {
+		min-height: 0;
+	}
+
+	.collections .carousel,
+	.collections .carousel div,
+	.collection .carousel,
+	.collection .carousel div {
+		height: 100%;
+	}
+
+	body.collection #my-carousel div.talll {
+		width: 100%;
+		padding-left: 0;
+		height: 100%;
+	}
+
+	body.collection div.imgcontainer {
+		background-size: cover;
+		background-position: 50% 50%; 
+	}
+
+	div.talll div.imgcontainer {
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+@include media($mobile) {
+	.imgcontainer {
+		height: 241px;
+	}
+}
+
+
+
+

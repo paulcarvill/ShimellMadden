@@ -42,7 +42,10 @@
       <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
       <% @items.each_with_index do |item, index| %>
         <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
-          <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />
+
+          <div class="imgcontainer <%= item.large.height > item.large.width ? "taller" : "wider" %>" style="background-image: url(<%= item.large.url %>)"></div>
+          <!-- <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" /> -->
+
           <% if @group.shopifyId %>
             <div class="notes shopthis">
                 <p><a href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a></p>

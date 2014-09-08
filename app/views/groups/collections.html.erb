@@ -19,7 +19,9 @@
             <a href="/collections/<%= collection.id %>"><h2><%= collection.name %></h2></a></h2>
             <p><a href="/collections/<%= collection.id %>">View collection</a></p>
           </div>
-          <a href="/collections/<%= collection.id %>"><%= image_tag collection.images.first.large.url %></a>
+          <a href="/collections/<%= collection.id %>">
+            <div class="imgcontainer" style="background-size: cover; background-position: 50% 50%; background-image: url(<%= collection.images.first.large.url %>)"></div>
+          </a>
         </div>
         <% end %>
       </div>
@@ -32,8 +34,10 @@
 
 <% content_for :perpagejs do %>
 <script>
+// if not touch
     carouselAuto = window.setInterval(function(){
-      $('.carousel-next').click();
+      //$('.carousel-next').click();
     }, 4000);
+
 </script>
 <% end %>

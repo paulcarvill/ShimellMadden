@@ -19,7 +19,11 @@
             <%= if controller?("pages") && action?("shop") then "shoppage" end %>">
     <script type="text/javascript">document.getElementsByTagName('body')[0].className+=' js'</script>
     <%= yield %>
-    <%= render "shared/footer" %>
+
+    <% if not controller?("groups") && (action?("index") or action?("show")) && params[:type] == 'collections' %>
+      <%= render "shared/footer" %>
+    <% end %>
+
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= yield :perpagejs %>
