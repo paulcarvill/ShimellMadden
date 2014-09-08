@@ -34,10 +34,10 @@
 
 <% content_for :perpagejs do %>
 <script>
-// if not touch
-    carouselAuto = window.setInterval(function(){
-      //$('.carousel-next').click();
-    }, 4000);
-
+    if (!Modernizr.touch) {
+      carouselAuto = window.setInterval(function(){
+        $('.carousel-next').click();
+      }, 4000);
+    }
 </script>
 <% end %>
