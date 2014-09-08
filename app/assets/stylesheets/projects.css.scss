@@ -1,11 +1,12 @@
+.projects .item {
+	margin-bottom: 0;	
+}
+
 .projects .item-1,
 .projects .item-3,
 .projects .item-5 {
 	float: left;
 	width: 50%;
-	
-	height: 414px;
-	margin-bottom: 15px;
 }
 
 body.projects .item-2 {
@@ -13,7 +14,7 @@ body.projects .item-2 {
 }
 
 .projects .item-3 {
-	margin-top: -194px;
+	margin-top: -206px;
 }
 
 .projects .item-4 {
@@ -57,15 +58,11 @@ body.projects .item-2 {
 	border: 0;
 }
 
-.proj-name {
-	border-bottom: 1px solid #939393;
-	text-align: center;
-	padding: 10px 0;
-	color: #939393;
-	padding-bottom: 8px;
-}
-
 @include media($desktop) {
+
+	.proj-name {
+		display: none;
+	}
 
 	section.projects > h2 {
 		display: none;
@@ -89,10 +86,6 @@ body.projects .item-2 {
 
 	.projects .item-5 .not-fullscreen {
 		height: 379px;
-	}
-
-	.projects .item {
-		margin-bottom: 10px;
 	}
 
 	.projects .item:hover .proj-name {

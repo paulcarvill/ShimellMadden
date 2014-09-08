@@ -13,7 +13,7 @@ Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ex
 	},
 	{
 		name: "Contact",
-		content: "<p><em>Emma Simone Madden</em></p><p><a href=\"mailto:emma@shimellandmadden.com\">emma@shimellandmadden.com</a></p><p class=\"tel\"><em>Mobile: <a href=\"tel:+4407548887832\">+44 (0)7548 887832</a></em></p><br	/><p><em>Luke Shimell</em></p><p><a href=\"mailto:luke@shimellandmadden.com\">luke@shimellandmadden.com</a></p><p class=\"tel\"><em>Mobile: <a href=\"tel:+4407970075071\">+44 (0)7970 075071</a></em></p><br	/>",
+		content: "<p><em>Emma Simone Madden</em></p><p><a href=\"mailto:emma@shimellandmadden.com\">emma@shimellandmadden.com</a></p><p class=\"tel\"><em>Mobile <a href=\"tel:+4407548887832\">+44 (0)7548 887832</a></em></p><br	/><p><em>Luke Shimell</em></p><p><a href=\"mailto:luke@shimellandmadden.com\">luke@shimellandmadden.com</a></p><p class=\"tel\"><em>Mobile <a href=\"tel:+4407970075071\">+44 (0)7970 075071</a></em></p><br	/>",
 		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	}
 ])

@@ -14,8 +14,10 @@ body.collection {
 }
 
 body.items,
-body.other {
-  $max-width: 1200px;
+body.other,
+body.project,
+body.projects {
+  $max-width: 1366px;
   @include outer-container;
   padding: 0 22px;
   
@@ -81,6 +83,7 @@ body {
   article {
     float: left;
     width: 75%;
+    min-height: 600px;
   }
 
   @include media($tablet) {
@@ -179,7 +182,7 @@ body {
 
   .item-3 {
     // height: 627px;
-    margin-top: -21.5%;
+    margin-top: -21.6%;
 
     @include media($mobile) {
       @include span-columns(4);
@@ -226,6 +229,18 @@ body {
     @include media($tablet) {
       @include span-columns(4);
       height: 360px !important;
+    }
+  }
+
+  @include media($desktop) {
+    .projects .item-5 {
+      padding-left: 0;
+      padding-right: 11px;
+    }
+
+    .projects .item-4 {
+      width: 50%;
+      padding-right: 0px;
     }
   }
 
