@@ -20,7 +20,7 @@
     <script type="text/javascript">document.getElementsByTagName('body')[0].className+=' js'</script>
     <%= yield %>
 
-    <% if not controller?("groups") && (action?("index") or action?("show")) && params[:type] == 'collections' %>
+    <% if not action?("homepage") and not controller?("groups") && (action?("index") or action?("show")) && params[:type] == 'collections' %>
       <%= render "shared/footer" %>
     <% end %>
 
