@@ -117,8 +117,8 @@ $successGreen: #0a942a;
 
 // Width variables
 $siteWidth: 1180px;
-$gutter: 24px;
-$gridGutter: 24px; // can be a %, but nested grids will have smaller margins because of it
+$gutter: 22px;
+$gridGutter: 22px; // can be a %, but nested grids will have smaller margins because of it
 
 // Radius
 $radius: 3px;
@@ -2138,7 +2138,7 @@ header {
 
 
 header img {
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 6px;
 }
 
@@ -2159,6 +2159,8 @@ body nav {
 
 body header nav {
   padding-bottom: 10px;
+  height: 55px;
+  padding-top: 14px;
 }
 
 @include at-query ($max, $small) {
