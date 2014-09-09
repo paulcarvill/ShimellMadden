@@ -18,9 +18,7 @@
     <div id="contentcontainer">
     <%= yield %>
 
-    <% if not action?("homepage") and not controller?("groups") && (action?("index") or action?("show")) && params[:type] == 'collections' %>
-      <%= render "shared/footer" %>
-    <% end %>
+    <%= render "shared/footer" %>
 
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
