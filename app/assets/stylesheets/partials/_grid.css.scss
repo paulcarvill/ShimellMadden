@@ -17,8 +17,6 @@ body.items,
 body.other,
 body.project,
 body.projects {
-  $max-width: 1366px;
-  @include outer-container;
   padding: 0 22px;
   
   @include media($mobile) {
@@ -28,6 +26,11 @@ body.projects {
   @include media($tablet) {
     padding: 0 7px;
   }
+}
+
+#contentcontainer {
+  $max-width: 1366px;
+  @include outer-container;
 }
 
 body {

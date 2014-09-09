@@ -1,13 +1,10 @@
-<div id="navigation">
-  <header>
-    <%= render "shared/nav" %>
-  </header>
+<% content_for :subnav do %>
   <div id="subnav">
       <% @collections.each do |collection| %>
         <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
       <% end %>
   </div>
-</div>
+<% end %>
 
 <div id="items">
   <section class="blog collections">

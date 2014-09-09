@@ -15,11 +15,7 @@
 <meta property="og:type" content="article" />
 <% end %>
 
-
-<div id="navigation">
-  <header>
-    <%= render "shared/nav" %>
-  </header>
+  <% content_for :subnav do %>
   <div class="subnav">
     <nav>
       <% @collections.each do |coll| %>
@@ -27,7 +23,7 @@
       <% end %>
     </nav>
   </div>
-</div>
+  <% end %>
 
 <div id="items">
   <section class="blog collection">
