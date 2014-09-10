@@ -96,6 +96,13 @@ p.indicator {
 	color: #fff;
 }
 
+@include media($desktop) {
+	.collections footer,
+	.collection footer {
+		display: none;
+	}
+}
+
 .collections #my-carousel,
 .collection #my-carousel {
 	position: relative;
@@ -128,6 +135,7 @@ p.indicator {
 	border: 1px solid #fff;
 	padding: 5px;
 	margin: 15px;
+	height: auto !important;
 }
 
 .lessThanThree {
