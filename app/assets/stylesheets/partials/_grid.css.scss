@@ -388,6 +388,34 @@ body {
     }    
   }
 
+  div.wider {
+    background-size: cover;
+    background-position: 50% 50%;
+    @include media($tablet) {
+      width:100%;
+      height: 400px; 
+    }
+    @include media($desktop) {
+      width:100%;
+      height: 600px; 
+    }
+    @include media($mobile) {
+      width:100%;
+      height: 300px; 
+    }
+  }
+
+  .talll {
+    height: 100%;
+  }
+  div.taller {
+    background-size: contain;
+    width: auto;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    height: 100%;
+  }
+
   .projectitem article img.taller {
     width: auto;
   }
@@ -398,18 +426,7 @@ body {
     height: 1022px;
   }
 
-  .collection #my-carousel div.talll img {
-    width: auto;
-    margin-left: -50%;
-    height: 100%;
-  }
-
   @include media($desktop) {
-    .projectitem #my-carousel div.talll {
-      width: auto;
-      padding-left: 50%;
-    }
-
     .projectitem #my-carousel div.talll img {
       margin-left: -50%;
     }
