@@ -20,3 +20,4 @@ public/assets/**
 /tmp/librarian/
 /config/database.yml
 vendor/ruby
+/wraith/*

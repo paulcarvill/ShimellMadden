@@ -60,6 +60,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    anemone (0.7.2)
+      nokogiri (>= 1.3.0)
+      robotex (>= 1.0.0)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
@@ -123,6 +126,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
     i18n (0.6.9)
+    image_size (1.3.1)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
@@ -145,6 +149,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
+    log4r (1.1.10)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -165,6 +170,8 @@ GEM
     orm_adapter (0.5.0)
     paperclip-meta (1.1.0)
       paperclip (>= 3.0.2, < 5.0)
+    parallel (1.3.1)
+    phantomjs (1.9.7.1)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.4)
@@ -211,6 +218,7 @@ GEM
       ffi (>= 0.5.0)
     responders (1.0.0)
       railties (>= 3.2, < 5)
+    robotex (1.0.0)
     rubyzip (1.1.3)
     sass (3.2.19)
     sass-rails (4.0.2)
@@ -266,6 +274,15 @@ GEM
       rack (>= 1.0)
     websocket (1.0.7)
     will_paginate (3.0.6)
+    wraith (1.3.5)
+      anemone
+      image_size
+      log4r
+      nokogiri
+      parallel
+      rake
+      robotex
+      thor
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -291,6 +308,7 @@ DEPENDENCIES
   neat
   paperclip!
   paperclip-meta
+  phantomjs
   rails (= 4.1.0)
   rails-backbone
   rails_12factor
@@ -302,3 +320,4 @@ DEPENDENCIES
   uglifier (>= 2.2.1)
   unicorn
   will_paginate (~> 3.0)
+  wraith
