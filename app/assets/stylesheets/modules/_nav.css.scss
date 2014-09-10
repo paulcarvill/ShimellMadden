@@ -3,7 +3,7 @@ header {
   z-index: 100;
 }
 
-header img {
+header svg {
 	margin-top: 20px;
   @include media($desktop) {
     margin-top: 30px;

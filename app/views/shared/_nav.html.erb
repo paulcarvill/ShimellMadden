@@ -1,10 +1,47 @@
-<a href="/items"><img src="<%= asset_path "logo.svg" %>" width="32.3" height="37.4" /></a>
-<p class="nav-header"><span><%= nav() %></span><img style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" src="<%= asset_path "menu-closed.svg" %>" width="22" height="14" /></p>
+<a href="/items"><svg x="0px" y="0px"
+	 width="37.896px" height="44px">
+<g>
+	<g>
+		<path fill="#222222" d="M37.896,25.202l-1.799-0.015c-0.037,4.688-1.965,8.924-5.044,11.998L20.024,17.045L29.378,0H8.641
+			l0.726,1.326l0,0l0.089,0.168l3.121,5.713C5.165,9.857,0.063,16.933,0,24.898c-0.04,5.062,1.895,9.838,5.443,13.442
+			c3.55,3.607,8.291,5.617,13.354,5.658c0.051,0,0.103,0,0.154,0c4.363,0,8.388-1.489,11.603-3.985l2.156,3.941h2.052l-2.812-5.137
+			C35.568,35.396,37.854,30.566,37.896,25.202z M15.242,8.312c1.261-0.276,2.547-0.416,3.843-0.409
+			c1.249,0.014,2.479,0.162,3.669,0.434l-3.756,6.834L15.242,8.312z M23.652,6.701c-1.473-0.375-2.997-0.582-4.552-0.595
+			c-1.606-0.022-3.201,0.181-4.754,0.569l-2.679-4.887l14.688-0.006L23.652,6.701z M18.952,42.198c-0.047,0-0.095,0-0.14,0
+			c-4.582-0.035-8.876-1.854-12.088-5.118c-3.213-3.266-4.961-7.584-4.926-12.166C1.857,17.607,6.6,11.136,13.452,8.813
+			l16.228,29.604C26.735,40.783,23.002,42.198,18.952,42.198z"/>
+	</g>
+</g>
+</svg></a>
+<p class="nav-header"><span><%= nav() %></span>
+
+<svg id="closed" style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" width="22" height="14" x="0px" y="0px" width="22px" height="14px" viewBox="0 0 22 14" enable-background="new 0 0 22 14" xml:space="preserve">
+<g>
+	<g>
+		<rect fill="#9A9999" width="22" height="2"/>
+		<rect y="6" fill="#9A9999" width="22" height="2"/>
+		<rect y="12" fill="#9A9999" width="22" height="2"/>
+	</g>
+</g>
+</svg>
+
+<svg id="open" style="display: none; position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" width="22" height="14" x="0px" y="0px" width="22px" height="14px" viewBox="0 0 22 14" enable-background="new 0 0 22 14" xml:space="preserve">
+<rect fill="#FFFFFF" width="22" height="2"/>
+<rect y="6" fill="#9A9999" width="22" height="2"/>
+<rect y="12" fill="#FFFFFF" width="22" height="2"/>
+</svg>
+
+
+</p>
 <nav>
   <a href="/collections"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'collections' then " class=current" end %>>Collections</a>
   <a href="/archive"<%= if controller?("groups") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
   <a href="/projects"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'projects' then " class=current" end %>>Projects</a>
   <a href="/about"<%= if controller?("pages") && action?("about", "show") then " class=current" end %>>Information</a>
   <a href="https://shimell-and-madden-2.myshopify.com"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
-  <a href="#" class="totop"><img src="<%= asset_path 'up-arrow-grey.svg'%>" /></a>
+  <a href="#" class="totop"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="11.176px" height="10.062px" viewBox="0 0 11.176 10.062" enable-background="new 0 0 11.176 10.062" xml:space="preserve">
+<path fill="#A9A9A9" d="M10.619,10.613L-0.557,10.62L5.046,0.557L10.619,10.613z M2.846,8.618l4.378-0.002l-2.184-3.94L2.846,8.618z
+	"/>
+</svg></a>
 </nav>

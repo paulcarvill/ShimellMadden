@@ -126,12 +126,14 @@ $(function(){
             $('nav').toggleClass('woop');
             SM.revealed = false
             SM.menu.text(SM.menu_old);
-            $('.nav-header img').attr('src', '<%= asset_path 'menu-closed.svg' %>');
+            $('#open').hide();
+            $('#closed').show();
         } else {
             $('nav').toggleClass('woop');
             SM.menu_old = SM.menu.text();
             SM.menu.text("Menu");
-            $('.nav-header img').attr('src', '<%= asset_path 'menu-open.svg' %>');
+            $('#open').show();
+            $('#closed').hide();
             SM.revealed = true
         }
     })
