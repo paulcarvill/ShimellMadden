@@ -14,8 +14,6 @@ gem 'minitest'
 
 group :development do
 	gem "wraith"
-	gem "phantomjs"
-	# gem 'sqlite3'
 	gem 'mysql2', '>= 0.3'
 	gem 'capistrano', '3.2.1', require: false
 	gem 'capistrano-rails',   '~> 1.1', require: false

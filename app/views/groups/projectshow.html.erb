@@ -9,7 +9,7 @@
     <div id="my-carousel">
       <% @images.each_with_index do |item, index|%>
         <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
-          <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />
+          <div style="width:100%; height: 600px; background-size: cover; background-image: url(<%= item.large.url);" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" />
         </div>
       <% end %>
       <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>

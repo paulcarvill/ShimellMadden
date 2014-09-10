@@ -80,6 +80,7 @@ nav a:visited,
 #subnav a:active,
 #subnav a:visited {
 	color: #222;
+  -webkit-font-smoothing: antialiased;
 }
 
 nav.woop a {

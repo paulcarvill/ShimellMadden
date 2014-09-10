@@ -430,6 +430,7 @@ p.indicator {
 @include media($mobile) {
 	.imgcontainer {
 		height: 241px;
+		background-size: cover;
 	}
 }
 
