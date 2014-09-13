@@ -1,9 +1,12 @@
 @import "bourbon";
 @import "neat";
 
-a {
+a,
+a:visited,
+a:hover {
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
+  	color: #000;
 }
 
 a:active {

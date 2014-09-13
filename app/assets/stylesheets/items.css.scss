@@ -72,12 +72,13 @@ body .item {
 }
 
 .archiveitem aside p.desc {
-	padding-bottom: 1em;
 	margin-top: 8px;
 }
 
 .archiveitem aside p {
-	border-bottom: 1px solid #ccc;
+	@include media($desktop) {
+		border-bottom: 1px solid #ccc;
+	}
 	padding-top: 8px;
 	padding-bottom: 8px;
 }

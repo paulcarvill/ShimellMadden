@@ -25,12 +25,14 @@ module ApplicationHelper
   		"Archive"
   	elsif controller?("pages") && action?("about")
   		"About"
-    elsif controller?("pages") && action?("index")
+    elsif controller?("blogs") && action?("index")
       "News"
     elsif controller?("pages") && action?("contact")
       "Contact"
     elsif controller?("pages") && action?("commissioning")
       "Commissioning"
+    elsif controller?("pages") && action?("stockists")
+      "Stockists"
   	elsif controller?("pages") && action?("shop")
   		"Shop"
   	else

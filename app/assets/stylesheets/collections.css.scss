@@ -184,8 +184,8 @@ p.indicator {
 
 	.collections .collections-info h2 {
 		color: #f60;
-		margin-bottom: 14px;
-		padding-bottom: 12px;
+		margin-bottom: 12px;
+		padding-bottom: 10px;
 		border-bottom: 1px solid #999;
 	}
 
@@ -238,22 +238,8 @@ p.indicator {
 	}
 
 	.shopthis {
-		float: left;
-		position: static;
-		padding: 0;
-		margin: 0;
-		margin-top: 20px;
-	}
-
-	.notes {
-		float: left;
-		clear: left;
-		width: 100%;
-		display: block;
-		padding-top: 8px;
-		padding-bottom: 0;
-		border-top: 1px solid #ccc;
-		margin-top: 4px;
+		position: absolute;
+		right: 0;
 	}
 	
 	.collections #my-carousel {
@@ -380,7 +366,7 @@ p.indicator {
 	.collections #items,
 	.collection #items {
 		position: fixed;
-		top: 175px;
+		top: 167px;
 		left: 22px;
 		right: 22px;
 		bottom: 22px;

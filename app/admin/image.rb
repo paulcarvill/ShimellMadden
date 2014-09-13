@@ -14,6 +14,8 @@ ActiveAdmin.register Image do
 
   show do
     h3 image.id
+    h3 image.name
+    h3 image.description
     
     if image.large?
       div do

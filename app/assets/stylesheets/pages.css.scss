@@ -10,9 +10,28 @@ body.home {
 	overflow: hidden;
 }
 
+section {
+	margin-top: 22px;
+}
+
+.collections section,
+.other section {
+	margin-top: 14px;
+}
+
 div, h1 {
 	padding: 0;
 	margin: 0
+}
+
+aside p:nth-of-type(1) {
+	border-top: 1px solid #ccc;
+}
+
+.project aside p:nth-of-type(1) {
+	border-top: 0;
+	padding-top: 0;
+	margin-bottom: 1em;
 }
 
 .content-a {
@@ -195,8 +214,6 @@ body.home .carousel-item img {
 		margin-top: -16px;
 	}
 
-
-
 	#centerer h2 {
 		margin: 25px 0 0 0;
 	}
@@ -237,13 +254,15 @@ body header nav {
 	}
 }
 
-.stuck {
-	position: fixed;
-	top: 0;
-	left: 22px;
-	right: 22px;
-	z-index: 10;
-	width: auto;
+@include media($desktop) {
+	.stuck {
+		position: fixed;
+		top: 0;
+		left: 22px;
+		right: 22px;
+		z-index: 10;
+		width: auto;
+	}
 }
 
 .home footer {
@@ -254,16 +273,11 @@ body header nav {
 
 	.archiveitem aside p.desc,
 	.info aside p {
-		margin-bottom: 15px;
+		margin-bottom: 1em;
 	}
 
-	.info aside h2,
-	.contact aside h2,
-	.archive aside h2,
-	.archiveitem aside h2,
-	.archiveitem h3,
-	.projects h2,
-	.projectitem h2 {
+	.contact aside p {
+		margin-bottom: 0;
 	}
 
 	body #items {

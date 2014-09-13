@@ -32,12 +32,6 @@ body.projects .item-2 {
 	padding-top: 0;
 }
 
-@include media($mobile) {
-	.projectitem aside h2 {
-		padding-top: 8px;
-	}
-}
-
 .projects h2 {
 	border-top: 0;
 	border-bottom: 1px solid #999;
@@ -114,7 +108,7 @@ body.projects .item-2 {
 		clear: left;
 		width: 100%;
 		padding: 10px 0;
-		border-bottom: 1px solid #999;
+		border-bottom: 1px solid #aaa;
 	}
 
 	body.projects .item {

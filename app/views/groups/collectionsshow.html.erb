@@ -40,16 +40,14 @@
         <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
 
           <div class="imgcontainer <%= item.large.height > item.large.width ? "taller" : "wider" %>" style="background-image: url(<%= item.large.url %>)"></div>
-          <!-- <img src="<%= item.large.url %>" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" /> -->
-
-          <% if @group.shopifyId != "" %>
-            <div class="notes shopthis">
-                <p><a href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a></p>
-            </div>
-          <% end %>
         </div>
       <% end %>
       </div> <!-- end carousel -->
+      <% if @group.shopifyId != "" %>
+        <div class="notes shopthis">
+            <p><a href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a></p>
+        </div>
+      <% end %>
       <p class="indicator"></p>
     </article>
     <div class="notes bottomback">
