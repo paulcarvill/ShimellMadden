@@ -1,8 +1,8 @@
 json.array!(@items) do |item|
-  json.extract! item, :id, :homepage, :large, :small
+  json.extract! item, :id, :homepage, :itemImage
 
-  json.height item.large.height
-  json.width item.large.width
+  json.height item.itemImage.height
+  json.width item.itemImage.width
 
   json.extract! item, :group
 

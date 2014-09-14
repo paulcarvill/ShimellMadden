@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= yield :meta %>
 </head>
-<body class="<%= if controller?("items") && action?("homepage") then "home " elsif controller?("items") && action?("index") then "items " elsif controller?("groups") && action?("index") && params[:type] == 'collections' then "collections" elsif controller?("groups") && action?("show") && params[:type] == 'collections' then "collection" elsif controller?("pages") && action?("stockists") then "other stockists" elsif controller?("groups") && action?("index") && params[:type] == 'projects' then "projects" elsif controller?("groups") && action?("show") && params[:type] == 'projects' then "project" else "other " end %><%= if controller?("pages") && action?("shop") then "shoppage" end %>">
+<body class="<%== bodyclass() %>">
     <script type="text/javascript">document.getElementsByTagName('body')[0].className+=' js'</script>
 
     <div id="navigation">

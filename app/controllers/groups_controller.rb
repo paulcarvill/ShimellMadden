@@ -1,9 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show]
 
-  # GET /collections
-  # GET /collections.json
-
   def index
     if params[:type] == 'collections'
       @collections = Group.where(grouptype: 'Collection')
@@ -28,14 +25,14 @@ class GroupsController < ApplicationController
       numWider = nil;
 
       @images.each_with_index do |img, index|
-        if img.large.width > img.large.height
+        if img.itemImage.width > img.itemImage.height
           numWider = index
           break
         end
       end
 
       # if there is more than one image, and they're not ALL tall (so they are mixed height), and the last one IS tall, move it
-      if @images.length > 1 && numWider != nil && @images.last.large.height > @images.last.large.width
+      if @images.length > 1 && numWider != nil && @images.last.itemImage.height > @images.last.itemImage.width
         @images.to_a.insert(@images.length-1, @images.to_a.delete_at(numWider))
       end
       render "groups/projectshow"

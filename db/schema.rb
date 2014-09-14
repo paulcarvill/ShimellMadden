@@ -90,17 +90,12 @@ ActiveRecord::Schema.define(version: 20140910205039) do
     t.integer  "group_id"
     t.text     "name"
     t.text     "description"
-    t.string   "large_file_name"
-    t.string   "large_content_type"
-    t.integer  "large_file_size"
-    t.datetime "large_updated_at"
-    t.string   "small_file_name"
-    t.string   "small_content_type"
-    t.integer  "small_file_size"
-    t.datetime "small_updated_at"
+    t.string   "itemImage_file_name"
+    t.string   "itemImage_content_type"
+    t.integer  "itemImage_file_size"
+    t.datetime "itemImage_updated_at"
     t.boolean  "homepage"
-    t.text     "large_meta"
-    t.text     "small_meta"
+    t.text     "itemImage_meta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -114,6 +109,10 @@ ActiveRecord::Schema.define(version: 20140910205039) do
     t.datetime "image_updated_at"
   end
 
+  create_table "regions", force: true do |t|
+    t.text "name"
+  end
+
   create_table "stockists", force: true do |t|
     t.text     "name"
     t.text     "address1"
@@ -121,6 +120,7 @@ ActiveRecord::Schema.define(version: 20140910205039) do
     t.text     "address3"
     t.text     "address4"
     t.text     "website"
+    t.integer  "region_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

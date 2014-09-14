@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
         format.html {
-          @homepageitems = Image.all().where(homepage: true).order("id DESC").limit(1)
+          @homepageitems = Image.all().where(homepage: true).order("id DESC")
           @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
         }
         

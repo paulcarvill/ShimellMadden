@@ -3,8 +3,8 @@
     <div id="my-carousel">
       <% @homepageitems.each_with_index do |item, index| %>
         <style>
-          @media (max-width: 600px) { .b-<%=index %> { background-image:url('<%= item.small.url %>');  } }
-          @media (min-width: 601px) { .b-<%=index %> { background-image:url('<%= item.large.url %>');  } }
+          @media (max-width: 600px) { .b-<%=index %> { background-image:url('<%= item.itemImage.url %>');  } }
+          @media (min-width: 601px) { .b-<%=index %> { background-image:url('<%= item.itemImage.url %>');  } }
         </style>
         <div class="carousel not-fullscreen background b-<%=index %><% if index == 0 %> active<% end %>" style="background-size:cover;"></div>
       <% end %>
@@ -77,7 +77,7 @@
 ********************************* -->
 <script id="item-list-template" type="text/x-handlebars-template">
   <div style="opacity: 0;" class="item item-{{num}}">
-    <div class="not-fullscreen background" style="background-image:url({{large}}); background-size: cover">
+    <div class="not-fullscreen background" style="background-image:url({{itemImage}}); background-size: cover">
       <a href="/{{ url this }}/{{groupId}}"> 
         <div class="content-a">
           <div class="content-b">

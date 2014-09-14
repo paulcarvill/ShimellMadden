@@ -8,8 +8,8 @@
   <article style="position: relative;">
     <div id="my-carousel">
       <% @images.each_with_index do |item, index|%>
-        <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
-          <div style="background-image: url(<%= item.large.url %>);" class="<%= item.large.height > item.large.width ? "taller" : "wider" %>" /></div>
+        <div class="carousel<% if index == 0 %> active<% end %><% if item.itemImage.height > item.itemImage.width %> talll<% else %> widee<% end %>">
+          <div style="background-image: url(<%= item.itemImage.url %>);" class="<%= item.itemImage.height > item.itemImage.width ? "taller" : "wider" %>" /></div>
         </div>
       <% end %>
       <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>

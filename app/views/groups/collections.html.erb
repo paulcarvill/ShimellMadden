@@ -17,7 +17,7 @@
             <p><a href="/collections/<%= collection.id %>">View collection</a></p>
           </div>
           <a href="/collections/<%= collection.id %>">
-            <div class="imgcontainer" style="background-size: cover; background-position: 50% 50%; background-image: url(<%= collection.images.first.large.url %>)"></div>
+            <div class="imgcontainer" style="background-size: cover; background-position: 50% 50%; background-image: url(<%= collection.images.first.itemImage.url %>)"></div>
           </a>
         </div>
         <% end %>

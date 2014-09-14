@@ -40,3 +40,25 @@ module ApplicationHelper
   	end
   end
 end
+
+def bodyclass()
+  if controller?("items") && action?("homepage")
+    "home "
+  elsif controller?("items") && action?("index")
+    "items "
+  elsif controller?("groups") && action?("index") && params[:type] == 'collections'
+    "collections"
+  elsif controller?("groups") && action?("show") && params[:type] == 'collections'
+    "collection"
+  elsif controller?("pages") && action?("stockists")
+    "other stockists"
+  elsif controller?("groups") && action?("index") && params[:type] == 'projects'
+    "projects"
+  elsif controller?("groups") && action?("show") && params[:type] == 'projects'
+  "project"
+  elsif controller?("pages") && action?("shop")
+    "shoppage"
+  else
+    "other"
+  end
+end

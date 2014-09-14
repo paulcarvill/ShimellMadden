@@ -7,7 +7,7 @@ class CreateStockists < ActiveRecord::Migration
       t.text :address3
       t.text :address4
       t.text :website
-
+      t.integer :region_id
       t.timestamps
     end
   end

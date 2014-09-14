@@ -3,20 +3,20 @@
 <meta name="twitter:site" content="@Shimell_Madden">
 <meta name="twitter:title" content="<%= @group.name %>">
 <meta name="twitter:description" content="<%= @group.description %>">
-<meta name="twitter:image:src" content="http://178.62.4.10<%= @group.images.first.large.url %>">
+<meta name="twitter:image:src" content="http://178.62.4.10<%= @group.images.first.itemImage.url %>">
 <meta name="twitter:domain" content="shimellandmadden.com">
 
 <meta property="og:title" content="<%= @group.name %>" />
 <meta property="og:site_name" content="Shimell and Madden"/>
 <meta property="og:url" content="http://178.62.4.10/collections/<%= @group.id %>" />
 <meta property="og:description" content="<%= @group.description %>" />
-<meta property="og:image" content="http://178.62.4.10<%= @group.images.first.large.url %>" />
+<meta property="og:image" content="http://178.62.4.10<%= @group.images.first.itemImage.url %>" />
 <meta property="fb:app_id" content="560942770677358" />
 <meta property="og:type" content="article" />
 <% end %>
 
   <% content_for :subnav do %>
-  <div class="subnav">
+  <div id="subnav">
     <nav>
       <% @collections.each do |coll| %>
         <a href="/collections/<%= coll.id %>" <%= if coll.id == @group.id then "class=current" end %>><%= coll.name %></a>
@@ -37,9 +37,9 @@
       <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
       <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
       <% @items.each_with_index do |item, index| %>
-        <div class="carousel<% if index == 0 %> active<% end %><% if item.large.height > item.large.width %> talll<% else %> widee<% end %>">
+        <div class="carousel<% if index == 0 %> active<% end %><% if item.itemImage.height > item.itemImage.width %> talll<% else %> widee<% end %>">
 
-          <div class="imgcontainer <%= item.large.height > item.large.width ? "taller" : "wider" %>" style="background-image: url(<%= item.large.url %>)"></div>
+          <div class="imgcontainer <%= item.itemImage.height > item.itemImage.width ? "taller" : "wider" %>" style="background-image: url(<%= item.itemImage.url %>)"></div>
         </div>
       <% end %>
       </div> <!-- end carousel -->
@@ -76,7 +76,7 @@
     })
 
     carouselAuto = window.setInterval(function(){
-      $('.carousel-next').click();
+      //$('.carousel-next').click();
     }, 4000)
   })
 </script>

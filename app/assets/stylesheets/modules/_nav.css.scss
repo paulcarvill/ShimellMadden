@@ -8,6 +8,9 @@ header svg {
   @include media($desktop) {
     margin-top: 30px;
   }
+  @include media($tablet) {
+    margin-top: 30px;
+  }
 	margin-bottom: 6px;
 }
 

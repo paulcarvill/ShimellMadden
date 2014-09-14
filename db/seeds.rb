@@ -1,8 +1,7 @@
 pages = Page.create([
 	{
 		name: "About",
-		content: "<h2>About</h2><p>About us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
-Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+		content: "<h2>About</h2><p>About us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>",
 		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	},
 	{
@@ -214,43 +213,61 @@ categories = Category.create([
 	}
 ])
 
+regions = Region.create([
+	{
+		name: "UK"
+	},
+	{
+		name: "Sweden"
+	},
+	{
+		name: "US"
+	}
+])
+
 stockists = Stockist.create([
 	{
 		name: "Lesley Craze Gallery",
     	address1: "35 Clerkenwell Green",
 		address2: "London EC1R 0DU",
-    	website: "www.lesleycrazegallery.co.uk"
+    	website: "www.lesleycrazegallery.co.uk",
+    	region_id: regions[0].id
 	},
 	{
 		name: "Ruberg",
     	address1: "21 Camden Passage",
 		address2: "London N1 8EA",
-    	website: "www.ruberg.co.uk"
+    	website: "www.ruberg.co.uk",
+    	region_id: regions[0].id
 	},
 	{
 		name: "Sarah May jewellery",
     	address1: "14 Hill Street",
 		address2: "London TW9 1TN",
-    	website: "www.sarahmayjewellery.com"
+    	website: "www.sarahmayjewellery.com",
+    	region_id: regions[0].id
 	},
 	{
 		name: "Studio Fusion",
     	address1: "Unit 1:06",
 		address2: "Oxo Tower Wharf",
 		address3: "London SE1 9PH",
-    	website: "www.studiofusiongallery.co.uk"
+    	website: "www.studiofusiongallery.co.uk",
+    	region_id: regions[0].id
 	},
 	{
 		name: "The New Craftsmen",
     	address1: "34 North Row",
 		address2: "London W1K 6DG",
-    	website: "www.thenewcraftsmen.com"
+    	website: "www.thenewcraftsmen.com",
+    	region_id: regions[0].id
 	},
 	{
 		name: "Smid/STOCKHOLM",
     	address1: "Skånegatan 70",
 		address2: "116 37 Stockholm",
-    	website: "www.smidstockholm.se"
+    	website: "www.smidstockholm.se",
+    	region_id: regions[1].id
 	}
 ])
 
@@ -258,131 +275,111 @@ stockists = Stockist.create([
 Image.create([
 	###### COLLECTION IMAGES ######
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: true,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio.jpg")),
 		group_id: groups[1].id,
 		homepage: true,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: true
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio.jpg")),
 		group_id: groups[1].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
 		group_id: groups[1].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio.jpg")),
 		group_id: groups[1].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio.jpg")),
 		group_id: groups[1].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio.jpg")),
 		group_id: groups[0].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio.jpg")),
 		group_id: groups[1].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio.jpg")),
 		group_id: groups[2].id,
 		homepage: false,
 		description: "Optional collection description text goes here."
@@ -391,138 +388,117 @@ Image.create([
 	###### PROJECT IMAGES ######
 
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","1_1280_800_ratio.jpg")),
 		group_id: groups[3].id,
 		homepage: true,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","2_1280_800_ratio.jpg")),
 		group_id: groups[3].id,
 		homepage: true,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","3_1280_800_ratio.jpg")),
 		group_id: groups[3].id,
 		homepage: true,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","4_1280_800_ratio.jpg")),
 		group_id: groups[4].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","5_1280_800_ratio.jpg")),
 		group_id: groups[5].id,
 		homepage: false,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","6_1280_800_ratio.jpg")),
 		group_id: groups[6].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
 		group_id: groups[7].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
 		group_id: groups[8].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
 		group_id: groups[9].id,
 		homepage: false,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
 		group_id: groups[10].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio.jpg")),
 		group_id: groups[5].id,
 		homepage: false,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio.jpg")),
 		group_id: groups[7].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio.jpg")),
 		group_id: groups[7].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio.jpg")),
 		group_id: groups[8].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio.jpg")),
 		group_id: groups[3].id,
 		homepage: false,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio.jpg")),
 		group_id: groups[4].id,
 		homepage: false,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio.jpg")),
 		group_id: groups[5].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio.jpg")),
 		group_id: groups[6].id,
 		homepage: false
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio.jpg")),
 		group_id: groups[7].id,
 		homepage: false,
 		description: "Optional project description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio.jpg")),
 		group_id: groups[8].id,
 		homepage: false
 	},
 	###### ARCHIVE ITEMS ######
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","20_1280_800_ratio.jpg")),		
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st May 2013"),
@@ -531,8 +507,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","21_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("5th May 2013"),
@@ -541,8 +516,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","19_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st June 2013"),
@@ -551,8 +525,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","18_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st July 2013"),
@@ -560,8 +533,7 @@ Image.create([
 		name: "Archive Item 4"
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","17_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st July 2013"),
@@ -569,8 +541,7 @@ Image.create([
 		name: "Archive Item 5"
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","16_800_1280_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st July 2013"),
@@ -579,8 +550,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","15_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st September 2013"),
@@ -588,8 +558,7 @@ Image.create([
 		name: "Archive Item 6"
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","14_800_1280_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st November 2013"),
@@ -598,8 +567,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","13_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st November 2013"),
@@ -607,8 +575,7 @@ Image.create([
 		name: "Archive Item 9"
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","12_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st February 2014"),
@@ -617,8 +584,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","11_no_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","11_no_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","11_no_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st February 2014"),
@@ -626,8 +592,7 @@ Image.create([
 		name: "Archive Item 11"
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","10_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st August 2014"),
@@ -636,8 +601,7 @@ Image.create([
 		description: "Very long Optional description text goes here. Very long Optional description text goes here. Very long Optional description text goes here. Very long Optional description text goes here. Very long Optional description text goes here. Very long Optional description text goes here. "
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","9_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st August 2014"),
@@ -645,8 +609,7 @@ Image.create([
 		name: "Archive Item 13"
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","8_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st August 2014"),
@@ -655,8 +618,7 @@ Image.create([
 		description: "Optional description text goes here."
 	},
 	{
-		large: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
-		small: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio_small.jpg")),
+		itemImage: File.open(Rails.root.join("db/seeds/ShimellMaddenImages","7_1280_800_ratio.jpg")),
 		group_id: groups[11].id,
 		homepage: false,
 		created_at: Date.parse("1st August 2014"),

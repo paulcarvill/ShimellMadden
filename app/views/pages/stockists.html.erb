@@ -4,24 +4,51 @@
 </div>
 <% end %>
 
-<section class="blog contact info">
+<section class="blog contact info stockists">
   <aside>
-    <h2>Stockists</h2>    
+    <h2>Stockists</h2>
+    <div>
+    <% @stockists.group_by(&:region).each do |region, stockists| %>
+      <p><a href="/stockists?region=<%= region.id %>"><%= region.name %></a> (<%= stockists.count %>)</p>
+    <% end %>
+    </div>
   </aside>
+
   <article>
     <div class="stockists-holder">
-    <% @stockists.each_with_index do |stockist, index| %>
-    	<div class="stockist">
-	    	<p><%= stockist.name %></p>
-	    	<p><%= stockist.address1 %></p>
-	    	<p><%= stockist.address2 %></p>
-	    	<p><%= stockist.address3 %></p>
-	    	<p><%= stockist.address4 %></p>
-	    	<p><a href="http://<%= stockist.website %>"><span class="longlink"><%= stockist.website %></span><span class="shortlink">website</span></a></p>
-	    </div>
-
-      <% if index == 2 %>
-        </div><div class="stockists-holder">
+    <% if params[:region] %>
+      <% @stockists.group_by(&:region).each do |region, stockists| %>
+        <% if params[:region].to_i == region.id %>
+          <div style="clear: both; float: left; width: 100%; display: block; margin-bottom: 44px;">
+            <h2><%= region.name %></h2>
+            <% stockists.each do |stockist| %>
+              <div class="stockist">
+                <p><%= stockist.name %></p>
+                <p><%= stockist.address1 %></p>
+                <p><%= stockist.address2 %></p>
+                <p><%= stockist.address3 %></p>
+                <p><%= stockist.address4 %></p>
+                <p><a href="http://<%= stockist.website %>"><span class="longlink"><%= stockist.website %></span><span class="shortlink">website</span></a></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% @stockists.group_by(&:region).each do |region, stockists| %>
+        <div style="clear: both; float: left; width: 100%; display: block; margin-bottom: 44px;">
+          <h2><%= region.name %></h2>
+          <% stockists.each do |stockist| %>
+            <div class="stockist">
+              <p><%= stockist.name %></p>
+              <p><%= stockist.address1 %></p>
+              <p><%= stockist.address2 %></p>
+              <p><%= stockist.address3 %></p>
+              <p><%= stockist.address4 %></p>
+              <p><a href="http://<%= stockist.website %>"><span class="longlink"><%= stockist.website %></span><span class="shortlink">website</span></a></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
     </div>

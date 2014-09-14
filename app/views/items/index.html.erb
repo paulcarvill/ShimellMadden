@@ -3,7 +3,7 @@
     <article>
       <% @items.each_with_index do |item, index| %>
         <div class="item item-<%= index+1 %>">
-          <div class="not-fullscreen background" style="background-image:url('<%= item.small.url %>'); background-size: cover;">
+          <div class="not-fullscreen background" style="background-image:url('<%= item.itemImage.url %>'); background-size: cover;">
             <% if item.group.archived == true %>
               <a href="/archive/<%= item.id %>">
             <% else %>
@@ -45,7 +45,7 @@
         })
         $('<div style="opacity: 0;" class="item item-' + (i+1) + '">' + 
 
-          '<div class="not-fullscreen background" style="background-image:url('+resp[i].small+'); background-size: cover">' + 
+          '<div class="not-fullscreen background" style="background-image:url('+resp[i].itemImage+'); background-size: cover">' + 
 
           (resp[i].archived ? ('<a href="/archive/' + resp[i].id + '">') : resp[i].groupType == "Project" ? ('<a href="/projects/' + resp[i].groupId + '">') : ('<a href="/collections/' + resp[i].groupId + '">')) + 
 

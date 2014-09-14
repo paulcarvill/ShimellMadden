@@ -6,7 +6,7 @@
     <% @projects.each_with_index do |project, index| %>
       <div class="item item-<%= index+1 %>">
         <%= link_to group_path(project, type: "projects") do %>
-          <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.large.url %>'); background-size: cover">
+          <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.itemImage.url %>'); background-size: cover">
             <div class="content-a">
               <div class="content-b">
                 <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
@@ -47,7 +47,7 @@ function getItems(pageNumber) {
       // add new archive items to page 
       $('<div class="item item-' + (i+1) + '">' + 
         '<a href="/projects/' + resp[i].id + '">' +
-        '<div class="not-fullscreen background" style="background-image:url(' + resp[i].large + '); background-size: cover">' +
+        '<div class="not-fullscreen background" style="background-image:url(' + resp[i].itemImage + '); background-size: cover">' +
         '<div class="content-a"><div class="content-b"><img class="down-triangle" src="' + assTri + '" />' + 
         '<p>Projects</p>' + resp[i].name + '</div></div></div></a><p class="proj-name">' + 
         resp[i].name + '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);

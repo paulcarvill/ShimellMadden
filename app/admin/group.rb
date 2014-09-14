@@ -21,10 +21,7 @@ ActiveAdmin.register Group do
           row "Image #{index}" do
             columns do
               column do
-                (if i.large? then image_tag(i.large.url(:thumb)) else content_tag(:p, "No large image yet") end )
-              end
-              column do
-                (if i.small? then image_tag(i.small.url(:thumb)) else content_tag(:span, "No small image yet") end )
+                (if i.itemImage? then image_tag(i.itemImage.url(:small)) else content_tag(:p, "No image yet") end )
               end
             end
           end
@@ -49,8 +46,7 @@ ActiveAdmin.register Group do
 
     f.inputs "Collection images" do
       f.has_many :images do |p|
-        p.input :large, :label => 'big image', :hint => (if p.object.large? then f.template.image_tag(p.object.large.url(:thumb)) else p.template.content_tag(:span, "No large image yet") end )
-        p.input :small,  :label => 'small image', :hint => (if p.object.small? then f.template.image_tag(p.object.small.url(:thumb)) else p.template.content_tag(:span, "No small image yet") end )
+        p.input :itemImage,  :label => 'image', :hint => (if p.object.itemImage? then f.template.image_tag(p.object.itemImage.url(:small)) else p.template.content_tag(:span, "No image yet") end )
         p.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove image'
         p.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
         p.input :categories

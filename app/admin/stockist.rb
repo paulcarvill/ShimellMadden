@@ -10,6 +10,7 @@ ActiveAdmin.register Stockist do
       f.input :address3, :as => :string
       f.input :address4, :as => :string
       f.input :website, :as => :string
+      f.input :region
     end
 
     f.actions
@@ -17,5 +18,5 @@ ActiveAdmin.register Stockist do
 
   config.filters = false
 
-  permit_params :name, :address1, :address2, :address3, :address4, :website
+  permit_params :name, :address1, :address2, :address3, :address4, :website, :region_id
 end

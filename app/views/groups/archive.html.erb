@@ -27,7 +27,7 @@
       <div class="archive-item">
         <div class="table">
             <div style="display: inline-block; position: relative;">
-              <a href="/archive/<%= item.id %>"><img class="image" src="<%= asset_path item.small %>" style="margin: 0 auto; <%= if item.small.height > item.small.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" /></a>
+              <a href="/archive/<%= item.id %>"><img class="image" src="<%= asset_path item.itemImage %>" style="margin: 0 auto; <%= if item.itemImage.height > item.itemImage.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" /></a>
               <!-- info overlay -->
               <a class="overlaylink" href="/archive/<%= item.id %>">
                 <div class="item-overlay">
@@ -90,7 +90,7 @@ function getItems(pageNumber) {
       
       // add new archive items to page 
       $('<div class="archive-item"><div class="table"><div style="display: inline-block; position: relative;">' + 
-        '<a href="/archive/' + resp[i].id + '"><img class="image" src="' + resp[i].small + '" style="margin: 0 auto;' + (resp[i].height > resp[i].width ? "height: 220px; width: auto" : "height: auto; width: 100%") + '" /></a>' +
+        '<a href="/archive/' + resp[i].id + '"><img class="image" src="' + resp[i].itemImage + '" style="margin: 0 auto;' + (resp[i].height > resp[i].width ? "height: 220px; width: auto" : "height: auto; width: 100%") + '" /></a>' +
         '<a class="overlaylink" href="/archive/' + resp[i].id + '"><div class="item-overlay"><div class="tc">' + 
         '<img class="down-triangle" src="'+ assTri +'" />' + 
         '<p>' + resp[i].group.name + '</p>' + 

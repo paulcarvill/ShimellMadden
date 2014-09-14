@@ -60,7 +60,12 @@ p.indicator {
 	padding: 15px 15px;
 	color: #fff;
 	width: 25%;
-	max-width: 400px;
+	@include media($tablet) {
+		width: 25%;
+	}
+	@include media($desktop) {
+		max-width: 400px;
+	}
 	z-index: 9;
 }
 
@@ -102,6 +107,14 @@ p.indicator {
 		display: none;
 	}
 }
+
+@include media($tablet) {
+	.collections footer,
+	.collection footer {
+		display: none;
+	}
+}
+
 
 .collections #my-carousel,
 .collection #my-carousel {
@@ -155,6 +168,8 @@ p.indicator {
 
 @include media($mobile) {
 
+	.collections #subnav,
+	.collection #subnav,
 	.collections .carousel-prev,
 	.collections .carousel-next {
 		display: none;
@@ -413,13 +428,73 @@ p.indicator {
 	}
 }
 
+/* almost exact duplicate of above... sad-sass-face */
+@include media($tablet) {
+	body.collections,
+	body.collection {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		bottom: 0;
+	}
+
+	.collections #items,
+	.collection #items {
+		position: fixed;
+		top: 167px;
+		left: 7px;
+		right: 7px;
+		bottom: 7px;
+		width: auto;
+		float: none;
+		margin: 0;
+	}
+
+	.collections article,
+	.collections section,
+	.collections #my-carousel,
+	.collection article,
+	.collection section,
+	.collection #my-carousel {
+		height: 100%;
+	}
+
+	.collections article,
+	.collection article {
+		min-height: 0;
+	}
+
+	.collections .carousel,
+	.collections .carousel div,
+	.collection .carousel,
+	.collection .carousel div {
+		height: 100%;
+	}
+
+	body.collection #my-carousel div.talll {
+		width: 100%;
+		padding-left: 0;
+		height: 100%;
+	}
+
+	body.collection div.imgcontainer {
+		background-size: cover;
+		background-position: 50% 50%; 
+	}
+
+	div.talll div.imgcontainer {
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
 @include media($mobile) {
 	.imgcontainer {
 		height: 241px;
 		background-size: cover;
 	}
 }
-
-
 
 

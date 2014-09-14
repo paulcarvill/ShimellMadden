@@ -1,5 +1,5 @@
 json.array!(@items) do |item|
-  json.extract! item, :id, :homepage, :large, :small
+  json.extract! item, :id, :homepage, :itemImage
 
   json.archived item.group.archived
   json.groupType item.group.grouptype

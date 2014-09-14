@@ -1,5 +1,4 @@
 json.array!(@projects) do |project|
   json.extract! project, :id, :name
-  json.large project.images[0].large
-  json.small project.images[0].small
+  json.itemImage project.images[0].itemImage
 end
