@@ -43,7 +43,7 @@ div, h1 {
 
 .stockists aside div p {
 	padding: 8px 0;
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px solid $borderColor;
 	font-family: "DIN Next Pro Regular";
 	font-size: 1em;
 }
@@ -67,7 +67,7 @@ div, h1 {
 }
 
 aside p:nth-of-type(1) {
-	border-top: 1px solid #ccc;
+	border-top: 1px solid $borderColor;
 }
 
 .project aside p:nth-of-type(1) {
@@ -219,7 +219,6 @@ h1 svg {
 	border-top: 0;
 	margin-bottom: 16px;
 	padding-top: 0px;
-	color: #333;
 }
 
 .contact aside p:nth-of-type(1) {
@@ -352,12 +351,6 @@ body header nav {
 		width: 100%;
 	}
 
-	#subnav a,
-	#subnav a:visited,
-	#subnav a:active {
-		color: #999;
-	}
-
 	#subnav span {
 		display: inline;
 	}
@@ -375,7 +368,7 @@ body header nav {
 }
 
 .stockists section {
-	border-top: 1px solid #cbcbcb;
+	border-top: 1px solid $borderColor;
 }
 
 .stockists h2 {

@@ -9,9 +9,9 @@
           <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.itemImage.url %>'); background-size: cover">
             <div class="content-a">
               <div class="content-b">
-                <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                <p>Projects</p>
                 <%= project.name %>
+                <hr style="width: 150px" />
+                2011
               </div>
             </div>
           </div>
@@ -32,7 +32,6 @@
 */
 var page = 1;
 var item = 6;
-var assTri = '<%= asset_path 'down-triangle.svg' %>';
 
 function getItems(pageNumber) {
   $.get('/projects.json?page=' + page, function(resp){
@@ -48,7 +47,7 @@ function getItems(pageNumber) {
       $('<div class="item item-' + (i+1) + '">' + 
         '<a href="/projects/' + resp[i].id + '">' +
         '<div class="not-fullscreen background" style="background-image:url(' + resp[i].itemImage + '); background-size: cover">' +
-        '<div class="content-a"><div class="content-b"><img class="down-triangle" src="' + assTri + '" />' + 
+        '<div class="content-a"><div class="content-b">' + 
         '<p>Projects</p>' + resp[i].name + '</div></div></div></a><p class="proj-name">' + 
         resp[i].name + '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
     }

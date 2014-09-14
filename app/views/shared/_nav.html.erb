@@ -37,7 +37,7 @@
   <a href="/collections"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'collections' then " class=current" end %>>Collections</a>
   <a href="/archive"<%= if controller?("groups") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
   <a href="/projects"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'projects' then " class=current" end %>>Projects</a>
-  <a href="/about"<%= if controller?("pages") && action?("about", "show") then " class=current" end %>>Information</a>
+  <a href="/about"<%= if controller?("pages") && action?("about", "show") or action?("commissioning", "show") or action?("stockists", "show") or action?("contact", "show")then " class=current" end %>>Information</a>
   <a href="https://shimell-and-madden-2.myshopify.com"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
   <a href="#" class="totop"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="11.176px" height="10.062px" viewBox="0 0 11.176 10.062" enable-background="new 0 0 11.176 10.062" xml:space="preserve">

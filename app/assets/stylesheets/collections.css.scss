@@ -77,11 +77,6 @@ p.indicator {
 	color: #fff;
 }
 
-.collection-info h2 {
-	/*border-bottom: 1px solid #fff;*/
-	/*padding-bottom: 4px;*/
-}
-
 .collections-info p,
 .collection-info p {
 	padding-top: 8px;
@@ -201,7 +196,7 @@ p.indicator {
 		color: #f60;
 		margin-bottom: 12px;
 		padding-bottom: 10px;
-		border-bottom: 1px solid #999;
+		border-bottom: 1px solid $borderColor;
 	}
 
 	.collections .collections-info p {
@@ -302,7 +297,7 @@ p.indicator {
 	.collection .collection-info h2 {
 		color: #ff7e15;
 		margin-bottom: 10px;
-		border-bottom: 1px solid #aaa;
+		border-bottom: 1px solid $borderColor;
 		display: block;
 		padding-bottom: 10px;
 	}
@@ -313,23 +308,18 @@ p.indicator {
 		color: #ff7e15;
 	}
 
-	.collection article .collections-info p {
-		color: #333;
-	}
-
 	.collection article h2 {
 		border-top: 0;
-		border-bottom: 1px solid #aaa;
+		border-bottom: 1px solid $borderColor;
 		padding-bottom: 20px;
 		margin-bottom: 10px;
 	}
 
 	.collection .back {
-		border-top: 1px solid #aaa;
-		border-bottom: 1px solid #aaa;
+		border-top: 1px solid $borderColor;
+		border-bottom: 1px solid $borderColor;
 		margin-top: 10px;
 		padding: 10px 0;
-		color: #aaa;
 	}
 }
 
@@ -357,7 +347,7 @@ p.indicator {
 	.collections article .carousel-item .collections-info h2 {
 		color: #ff7e15;
 		margin-bottom: 10px;
-		border-bottom: 1px solid #aaa;
+		border-bottom: 1px solid $borderColor;
 		display: block;
 		padding-bottom: 10px;
 	}

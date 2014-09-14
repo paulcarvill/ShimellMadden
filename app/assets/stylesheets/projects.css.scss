@@ -34,13 +34,13 @@ body.projects .item-2 {
 
 .projects h2 {
 	border-top: 0;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid $borderColor;
 	padding-bottom: 20px;
 }
 
 .projectitem .topback {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid $borderColor;
+	border-bottom: 1px solid $borderColor;
 	padding-bottom: 4px;
 	padding-top: 4px;
 	margin-top: 8px;
@@ -108,7 +108,7 @@ body.projects .item-2 {
 		clear: left;
 		width: 100%;
 		padding: 10px 0;
-		border-bottom: 1px solid #aaa;
+		border-bottom: 1px solid $borderColor;
 	}
 
 	body.projects .item {
@@ -150,7 +150,7 @@ body.projects .item-2 {
 		clear: left;
 		width: 100%;
 		padding-bottom: 10px;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid $borderColor;
 		margin-bottom: 10px;
 	}
 }

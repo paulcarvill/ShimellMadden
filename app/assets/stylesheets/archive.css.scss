@@ -109,13 +109,8 @@ body .archive-item {
 		opacity: 1;
 	}
 
-	.item-overlay p {
-		color: #939393;
-	}
-
 	.tc {
 		display: block;
-		color: #939393;
 	}
 
 	.tc img {
@@ -215,7 +210,7 @@ ul.category-nav li ul {
 
 ul li {
 	padding: 13px 0 13px 0;
-	border-top: 1px solid #aaa;
+	border-top: 1px solid $borderColor;
 }
 
 ul.category-nav li ul li:first-of-type {
@@ -223,11 +218,11 @@ ul.category-nav li ul li:first-of-type {
 }
 
 ul.category-nav>li:last-of-type {
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px solid $borderColor;
 }
 
 ul li ul {
-	border-top: 1px solid #aaa;
+	border-top: 1px solid $borderColor;
 }
 
 ul li ul li {
@@ -239,7 +234,7 @@ ul li ul li:last-of-type {
 }
 
 ul:nth-of-type(2) {
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px solid $borderColor;
 }
 
 .bottomback {
@@ -292,8 +287,8 @@ body .inside-inside {
 		margin: 16px 0;
 		display: block;
 		width: 100%;
-		border-top: 1px solid #ccc;
-		border-bottom: 1px solid #ccc;
+		border-top: 1px solid $borderColor;
+		border-bottom: 1px solid $borderColor;
 		padding: 10px 0;
 	}
 

@@ -1,21 +1,38 @@
 @import "bourbon";
 @import "neat";
 
+$borderColor: #bbb;
+$rolloverColor: #444;
+$rolloverColorRGB: rgba(68, 68, 68, 0.8);
+
+$bodyText: #444;
+$bodyLink: #888;
+$bodyHover: #444;
+$bodyHighlight: #f90;
+
+$navLink: #444;
+$navHover: #888;
+$navActive: #888;
+
 a,
-a:visited,
-a:hover {
+a:visited {
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
-  	color: #000;
+  	color: $bodyLink;
 }
 
 a:active {
-	color: #f60 !important;
+	color: $bodyLink !important;
 }
 
-#mfPreviewBar,
-#mfPreviewBarShow {
-	display: none !important;
+a:hover {
+  	color: $bodyHover;
+}
+
+div,
+p,
+span {
+	color: $bodyText;
 }
 
 header * {
