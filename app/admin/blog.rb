@@ -18,28 +18,18 @@ ActiveAdmin.register Blog, as: "News story" do
     actions
   end
 
-  show :title => :headline do
-    div do
-      h3 news.headline
-    end
-    div do
-        simple_format news.body
-    end
-    if news.blogImage1?
-      div do
-          image_tag(news.blogImage1.url, width: '50%')
+  show do
+      attributes_table do
+        row :headline
+        row :body
+        row :img do |news|
+          if news.blogImage1?
+              image_tag(news.blogImage1.url, width: '50%')
+          else
+            content_tag(:span, "No image, will use default placeholder")
+          end
+        end
       end
-    end
-    if news.blogImage2?
-      div do
-          image_tag(news.blogImage2.url, width: '50%')
-      end
-    end
-    if news.blogImage3?
-      div do
-          image_tag(news.blogImage3.url, width: '50%')
-      end
-    end
   end
 
   form do |f|
@@ -50,21 +40,21 @@ ActiveAdmin.register Blog, as: "News story" do
 
     f.inputs 'Image 1' do
       f.input :blogImage1, :as => :file, :hint => (f.template.image_tag(f.object.blogImage1.url, width: '50%') if f.object.blogImage1?)
-      if news.blogImage1?
+      if f.object.blogImage1?
         f.input :blogImage1_delete, :as=>:boolean
       end
     end
 
     f.inputs 'Image 2' do
       f.input :blogImage2, :as => :file, :hint => (f.template.image_tag(f.object.blogImage2.url, width: '50%') if f.object.blogImage2?)
-      if news.blogImage2?
+      if f.object.blogImage2?
         f.input :blogImage2_delete, :as=>:boolean
       end
     end
 
     f.inputs 'Image 3' do
       f.input :blogImage3, :as => :file, :hint => (f.template.image_tag(f.object.blogImage3.url, width: '50%') if f.object.blogImage3?)
-      if news.blogImage3?
+      if f.object.blogImage3?
         f.input :blogImage3_delete, :as=>:boolean
       end
     end
