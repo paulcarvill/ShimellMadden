@@ -53,7 +53,11 @@ footer p,
 .topback a,
 .proj-name,
 .content-b p {
-	font-family: "DIN Next Pro Regular";
+	font-family: "GT-Walsheim", Helvetica;
+}
+
+.stockists aside div p {
+	font-family: "GT-Walsheim", Helvetica;
 }
 
 /*************************************
@@ -128,10 +132,7 @@ aside h2,
 aside p,
 aside a,
 .projects h2 {
-	// font-family: 'Freight Text Medium';
-	// font-family: 'Freight Text Light';
 	font-family: 'Freight Text Book';
-	// font-family: 'Freight Text Bold';
 }
 
 aside em {

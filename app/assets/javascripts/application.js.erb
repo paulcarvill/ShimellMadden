@@ -111,7 +111,7 @@ function doCarousel(){
         $('.carousel-next').remove();
         $('.indicator').remove();
     }
-}
+};
 
 $(function(){
 
@@ -144,4 +144,52 @@ $(function(){
 
 
     $('#my-carousel').each(doCarousel);
-})
+});
+
+// (function() {
+
+//   var css_href = '/fonts.css',
+//       isCached = window.localStorage && localStorage.font_css_cache;
+      
+//   function onEvent(el, event, callback) {
+//      if (el.addEventListener) {
+//         el.addEventListener(event, callback);
+//      } else if (el.attachEvent) {
+//         el.attachEvent('on' + event, callback);
+//      }
+//   }
+  
+//   function injectStyle(text) {
+//      var style = document.createElement('style');
+//      document.getElementsByTagName('head')[0].appendChild(style);
+//      if (style.styleSheet) {
+//         style.styleSheet.cssText = text;
+//      } else {
+//         style.innerHTML = text;
+//      }
+//   }
+
+//   function loadFonts() {
+//      if (isCached && (localStorage.font_css_cache_file === css_href)) {
+//         injectStyle(localStorage.font_css_cache);
+//      } else {
+//         var xhr = new XMLHttpRequest();
+//         xhr.open('GET', css_href, true);
+//         onEvent(xhr, 'load', function() {
+//            if (xhr.readyState === 4) {
+//               injectStyle(xhr.responseText);
+//               localStorage.font_css_cache = xhr.responseText;
+//               localStorage.font_css_cache_file = css_href;
+//            }
+//         });
+//         xhr.send();
+//      }
+//   }
+
+//   if (isCached) {
+//      loadFonts();
+//   } else {
+//      onEvent(window, 'load', loadFonts);
+//   }
+
+// })();
