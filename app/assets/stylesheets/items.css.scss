@@ -1,4 +1,27 @@
+#my-carousel.remove {
+	top: -100%;	
+	-webkit-transition: top 1s;
+	-moz-transition: top 1s;
+ 	-ms-transition: top 1s;
+  	-o-transition: top 1s;
+	transition: top 1s;
+}
 
+.pre-addition {
+	position: absolute;
+	top: 100%;
+	max-width: 1366px;
+	width: 100%;
+}
+
+.addition {
+	top: 0;	
+	-webkit-transition: top 1s;
+	-moz-transition: top 1s;
+ 	-ms-transition: top 1s;
+  	-o-transition: top 1s;
+	transition: top 1s;
+}
 
 body .item {
 	overflow: hidden;

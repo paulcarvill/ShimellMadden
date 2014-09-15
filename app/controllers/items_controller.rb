@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
         format.html {
           @homepageitems = Image.all().where(homepage: true).order("id DESC")
           @items = Image.includes(:group).where("group_id IS NOT NULL").order("RAND(#{random_seed})").paginate(:page => params[:page], :per_page => 6)
+          render :layout => false
         }
         
         format.json {

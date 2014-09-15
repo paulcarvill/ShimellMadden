@@ -1,213 +1,283 @@
-<div id="items"> 
-  <section class="blog items">
-    <div id="my-carousel">
-      <% @homepageitems.each_with_index do |item, index| %>
-        <style>
-          @media (max-width: 600px) { .b-<%=index %> { background-image:url('<%= item.itemImage.url %>');  } }
-          @media (min-width: 601px) { .b-<%=index %> { background-image:url('<%= item.itemImage.url %>');  } }
-        </style>
-        <div class="carousel not-fullscreen background b-<%=index %><% if index == 0 %> active<% end %>" style="background-size:cover;"></div>
-      <% end %>
-      <div class="content-a">
-        <div class="content-b">
-          <h1><a href="/items"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-   width="741.018px" height="66px" viewBox="0 0 741.018 66" enable-background="new 0 0 741.018 66" xml:space="preserve">
-<g>
-  <path fill="#FFFFFF" d="M605.728,2.845h-18.996v61.089h18.996c16.841,0,30.542-13.703,30.542-30.546
-    C636.27,16.548,622.568,2.845,605.728,2.845z M605.728,61.352H589.31V5.425h16.418c15.416,0,27.958,12.545,27.958,27.963
-    C633.686,48.808,621.144,61.352,605.728,61.352z"/>
-  <polygon fill="#FFFFFF" points="242.798,2.845 240.216,2.845 240.216,63.934 276.22,63.934 276.22,61.352 242.793,61.352   "/>
-  <rect x="107.939" y="2.845" fill="#FFFFFF" width="2.581" height="61.089"/>
-  <polygon fill="#FFFFFF" points="192.724,63.934 230.444,63.934 230.444,61.352 195.306,61.352 195.306,34.824 222.702,34.824 
-    222.702,32.243 195.306,32.243 195.306,5.425 230.444,5.425 230.444,2.845 192.724,2.845   "/>
-  <polygon fill="#FFFFFF" points="94.193,32.243 49.65,32.243 49.65,2.845 47.072,2.845 47.067,63.934 49.65,63.934 49.65,34.824 
-    94.193,34.824 94.191,63.934 96.775,63.934 96.775,2.845 94.193,2.845   "/>
-  <polygon fill="#FFFFFF" points="121.688,0.853 121.688,63.931 124.271,63.931 124.271,7.42 151.622,37.934 178.974,7.417 
-    178.974,63.934 181.556,63.934 181.556,0.853 151.622,34.144  "/>
-  <polygon fill="#FFFFFF" points="738.434,2.845 738.434,58.081 690.793,0.853 690.793,63.934 693.375,63.934 693.375,8.71 
-    741.012,65.939 741.018,2.845  "/>
-  <polygon fill="#FFFFFF" points="288.571,2.845 285.995,2.845 285.987,63.934 321.29,63.934 321.29,61.352 288.571,61.352   "/>
-  <polygon fill="#FFFFFF" points="388.901,0.853 388.901,63.931 391.481,63.931 391.481,7.42 418.833,37.934 446.187,7.417 
-    446.187,63.934 448.767,63.934 448.767,0.853 418.833,34.144  "/>
-  <path fill="#FFFFFF" d="M548.228,2.845h-19.002v61.089h19.002c16.836,0,30.538-13.703,30.538-30.546
-    C578.766,16.548,565.063,2.845,548.228,2.845z M548.228,61.352h-16.419V5.425h16.419c15.413,0,27.958,12.545,27.958,27.963
-    C576.186,48.808,563.641,61.352,548.228,61.352z"/>
-  <polygon fill="#FFFFFF" points="644.598,63.934 682.321,63.934 682.321,61.352 647.18,61.352 647.18,34.824 674.578,34.824 
-    674.578,32.243 647.18,32.243 647.18,5.425 682.321,5.425 682.321,2.845 644.598,2.845   "/>
-  <path fill="#FFFFFF" d="M378.774,39.023l-2.584-0.021c-0.053,6.728-2.814,12.809-7.24,17.22l-15.828-28.905l13.426-24.465h-29.764
-    l1.039,1.905l0,0l0.131,0.24l4.477,8.199c-10.633,3.804-17.953,13.959-18.045,25.394c-0.056,7.263,2.715,14.115,7.811,19.292
-    c5.096,5.176,11.902,8.061,19.165,8.117c0.074,0,0.148,0,0.218,0c6.266,0,12.043-2.136,16.651-5.72l3.101,5.659h2.94l-4.038-7.373
-    C375.433,53.654,378.712,46.724,378.774,39.023z M346.258,14.781c1.809-0.394,3.656-0.598,5.516-0.585
-    c1.791,0.019,3.555,0.232,5.266,0.62l-5.394,9.809L346.258,14.781z M358.329,12.473c-2.113-0.54-4.304-0.836-6.529-0.855
-    c-2.307-0.031-4.596,0.259-6.826,0.818l-3.843-7.013l21.077-0.009L358.329,12.473z M351.579,63.418c-0.062,0-0.133,0-0.199,0
-    c-6.572-0.052-12.73-2.662-17.347-7.348c-4.609-4.686-7.117-10.885-7.063-17.459c0.081-10.488,6.889-19.774,16.715-23.107
-    l23.289,42.487C362.754,61.384,357.396,63.418,351.579,63.418z"/>
-  <path fill="#FFFFFF" d="M18.376,28.815c-7.292-2.45-14.188-4.764-15.469-10.777C1.889,13.233,3.634,9.802,5.283,7.77
-    c2.572-3.181,6.691-5.156,10.75-5.156c3.188,0,9.149,0.987,13.269,7.596l2.22-1.383C28.023,3.219,22.376,0,16.033,0
-    C11.207,0,6.307,2.349,3.251,6.124c-2.836,3.497-3.862,7.923-2.898,12.459c1.59,7.473,9.524,10.136,17.195,12.71
-    c8.437,2.832,16.411,5.506,17.296,13.82c0.442,4.111-0.878,8.116-3.722,11.275c-3.251,3.613-8.097,5.771-12.971,5.771
-    c-9.639,0-13.958-7.222-15.376-9.596c-0.196-0.328-0.348-0.578-0.457-0.735l-2.131,1.517c0.084,0.117,0.198,0.312,0.346,0.559
-    c1.61,2.691,6.5,10.868,17.619,10.868c5.604,0,11.182-2.481,14.917-6.637c3.343-3.721,4.898-8.443,4.378-13.298
-    C36.38,34.857,26.818,31.647,18.376,28.815z"/>
-  <path fill="#FFFFFF" d="M457.27,63.929l2.997,0.005l5.078-9.991h47.832l5.098,9.991h2.885L489.215,1.296L457.27,63.929z
-     M466.639,51.391l22.576-44.413l22.661,44.413H466.639z"/>
-</g>
-</svg></a></h1>
-        </div>
-      </div>
-      <p class="carousel-prev"><svg style="height:100%" x="0px" y="0px"
-   width="21.06px" height="23.399px" viewBox="0 0 21.06 23.399" enable-background="new 0 0 21.06 23.399" xml:space="preserve">
-<path fill="#FFFFFF" d="M21.06,23.399L0,11.675L21.05,0L21.06,23.399z M4.117,11.678l14.94,8.319L19.052,3.396L4.117,11.678z"/>
-</svg></p>
-      <p class="carousel-next"><svg style="height:100%" x="0px" y="0px"
-   width="21.06px" height="23.399px" viewBox="0 0 21.06 23.399" enable-background="new 0 0 21.06 23.399" xml:space="preserve">
-<path fill="#FFFFFF" d="M0,0l21.06,11.725L0.01,23.399L0,0z M16.942,11.722L2.002,3.403l0.006,16.601L16.942,11.722z"/>
-</svg></p>
-      <p class="indicator"></p>
-    </div> <!-- end carousel -->
-  </section>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShimellMadden</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= yield :meta %>
+</head>
+<body class="<%== bodyclass() %>">
 
-<% content_for :perpagejs do %>
-
-
-
-<!-- ****************************
-*    HANDLEBARS TEMPLATING SHIZ
-********************************* -->
-<script id="item-list-template" type="text/x-handlebars-template">
-  <div style="opacity: 0;" class="item item-{{num}}">
-    <div class="not-fullscreen background" style="background-image:url({{itemImage}}); background-size: cover">
-      <a href="/{{ url this }}/{{groupId}}"> 
-        <div class="content-a">
-          <div class="content-b">
-            <p>
-              <img src="<%= asset_path "down-triangle.svg" %>" class="down-triangle" />
-            </p>
-            <p>{{ type this }}</p>
-            {{groupName}}
-          </div>
-        </div>
-      </a>
-    </div>
-    <p class="proj-name">{{ type this }}: {{groupName}}</p>
-  </div>
-</script>
-
-<script>
-  Handlebars.registerHelper("type", function(context){
-    return (context.archived) ? 'Archive': context.groupType;
-  });
-
-  Handlebars.registerHelper("url", function(context){
-    return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
-  });
-
-  var source   = $("#item-list-template").html();
-  var template = Handlebars.compile(source);
-</script>
-<!-- *********************************
-*    END OF HANDLEBARS TEMPLATING SHIZ
-************************************** -->
-
-
-
-
-<script>
-  /* 
-   *  this is for infinite scroll
-  */
-  var page = 1;
-  var item = 6;
-
-  function getItems(pageNumber) {
-    $.get('/items.json?page=' + page, function(resp){
+    <div id="contentcontainer">
     
-      // removeprogress indicator/spinner
-      $('article img.progress').animate({ opacity : 0 }, function(){
-        this.remove();
-      })
-      
-      // process response with handlebar template
-      for(var i = 0; i < resp.length; i++) {
-        var context = resp[i];
-        context.num = i+1;
-        // and add it to the page
-        $(template(context)).appendTo($('article')).animate({ opacity : 1 }, 1500);
-      }
+    <div id="items"> 
+      <section class="blog items">
+        <div id="my-carousel">
+          <% @homepageitems.each_with_index do |item, index| %>
+            <style>
+              @media (max-width: 600px) { .b-<%=index %> { background-image:url('<%= item.itemImage.url %>');  } }
+              @media (min-width: 601px) { .b-<%=index %> { background-image:url('<%= item.itemImage.url %>');  } }
+            </style>
+            <div class="carousel not-fullscreen background b-<%=index %><% if index == 0 %> active<% end %>" style="background-size:cover;"></div>
+          <% end %>
+          <div class="content-a">
+            <div class="content-b">
+              <h1><a href="/items"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="741.018px" height="66px" viewBox="0 0 741.018 66" enable-background="new 0 0 741.018 66" xml:space="preserve">
+    <g>
+      <path fill="#FFFFFF" d="M605.728,2.845h-18.996v61.089h18.996c16.841,0,30.542-13.703,30.542-30.546
+        C636.27,16.548,622.568,2.845,605.728,2.845z M605.728,61.352H589.31V5.425h16.418c15.416,0,27.958,12.545,27.958,27.963
+        C633.686,48.808,621.144,61.352,605.728,61.352z"/>
+      <polygon fill="#FFFFFF" points="242.798,2.845 240.216,2.845 240.216,63.934 276.22,63.934 276.22,61.352 242.793,61.352   "/>
+      <rect x="107.939" y="2.845" fill="#FFFFFF" width="2.581" height="61.089"/>
+      <polygon fill="#FFFFFF" points="192.724,63.934 230.444,63.934 230.444,61.352 195.306,61.352 195.306,34.824 222.702,34.824 
+        222.702,32.243 195.306,32.243 195.306,5.425 230.444,5.425 230.444,2.845 192.724,2.845   "/>
+      <polygon fill="#FFFFFF" points="94.193,32.243 49.65,32.243 49.65,2.845 47.072,2.845 47.067,63.934 49.65,63.934 49.65,34.824 
+        94.193,34.824 94.191,63.934 96.775,63.934 96.775,2.845 94.193,2.845   "/>
+      <polygon fill="#FFFFFF" points="121.688,0.853 121.688,63.931 124.271,63.931 124.271,7.42 151.622,37.934 178.974,7.417 
+        178.974,63.934 181.556,63.934 181.556,0.853 151.622,34.144  "/>
+      <polygon fill="#FFFFFF" points="738.434,2.845 738.434,58.081 690.793,0.853 690.793,63.934 693.375,63.934 693.375,8.71 
+        741.012,65.939 741.018,2.845  "/>
+      <polygon fill="#FFFFFF" points="288.571,2.845 285.995,2.845 285.987,63.934 321.29,63.934 321.29,61.352 288.571,61.352   "/>
+      <polygon fill="#FFFFFF" points="388.901,0.853 388.901,63.931 391.481,63.931 391.481,7.42 418.833,37.934 446.187,7.417 
+        446.187,63.934 448.767,63.934 448.767,0.853 418.833,34.144  "/>
+      <path fill="#FFFFFF" d="M548.228,2.845h-19.002v61.089h19.002c16.836,0,30.538-13.703,30.538-30.546
+        C578.766,16.548,565.063,2.845,548.228,2.845z M548.228,61.352h-16.419V5.425h16.419c15.413,0,27.958,12.545,27.958,27.963
+        C576.186,48.808,563.641,61.352,548.228,61.352z"/>
+      <polygon fill="#FFFFFF" points="644.598,63.934 682.321,63.934 682.321,61.352 647.18,61.352 647.18,34.824 674.578,34.824 
+        674.578,32.243 647.18,32.243 647.18,5.425 682.321,5.425 682.321,2.845 644.598,2.845   "/>
+      <path fill="#FFFFFF" d="M378.774,39.023l-2.584-0.021c-0.053,6.728-2.814,12.809-7.24,17.22l-15.828-28.905l13.426-24.465h-29.764
+        l1.039,1.905l0,0l0.131,0.24l4.477,8.199c-10.633,3.804-17.953,13.959-18.045,25.394c-0.056,7.263,2.715,14.115,7.811,19.292
+        c5.096,5.176,11.902,8.061,19.165,8.117c0.074,0,0.148,0,0.218,0c6.266,0,12.043-2.136,16.651-5.72l3.101,5.659h2.94l-4.038-7.373
+        C375.433,53.654,378.712,46.724,378.774,39.023z M346.258,14.781c1.809-0.394,3.656-0.598,5.516-0.585
+        c1.791,0.019,3.555,0.232,5.266,0.62l-5.394,9.809L346.258,14.781z M358.329,12.473c-2.113-0.54-4.304-0.836-6.529-0.855
+        c-2.307-0.031-4.596,0.259-6.826,0.818l-3.843-7.013l21.077-0.009L358.329,12.473z M351.579,63.418c-0.062,0-0.133,0-0.199,0
+        c-6.572-0.052-12.73-2.662-17.347-7.348c-4.609-4.686-7.117-10.885-7.063-17.459c0.081-10.488,6.889-19.774,16.715-23.107
+        l23.289,42.487C362.754,61.384,357.396,63.418,351.579,63.418z"/>
+      <path fill="#FFFFFF" d="M18.376,28.815c-7.292-2.45-14.188-4.764-15.469-10.777C1.889,13.233,3.634,9.802,5.283,7.77
+        c2.572-3.181,6.691-5.156,10.75-5.156c3.188,0,9.149,0.987,13.269,7.596l2.22-1.383C28.023,3.219,22.376,0,16.033,0
+        C11.207,0,6.307,2.349,3.251,6.124c-2.836,3.497-3.862,7.923-2.898,12.459c1.59,7.473,9.524,10.136,17.195,12.71
+        c8.437,2.832,16.411,5.506,17.296,13.82c0.442,4.111-0.878,8.116-3.722,11.275c-3.251,3.613-8.097,5.771-12.971,5.771
+        c-9.639,0-13.958-7.222-15.376-9.596c-0.196-0.328-0.348-0.578-0.457-0.735l-2.131,1.517c0.084,0.117,0.198,0.312,0.346,0.559
+        c1.61,2.691,6.5,10.868,17.619,10.868c5.604,0,11.182-2.481,14.917-6.637c3.343-3.721,4.898-8.443,4.378-13.298
+        C36.38,34.857,26.818,31.647,18.376,28.815z"/>
+      <path fill="#FFFFFF" d="M457.27,63.929l2.997,0.005l5.078-9.991h47.832l5.098,9.991h2.885L489.215,1.296L457.27,63.929z
+         M466.639,51.391l22.576-44.413l22.661,44.413H466.639z"/>
+    </g>
+    </svg></a></h1>
+            </div>
+          </div>
+          <p class="carousel-prev"><svg style="height:100%" x="0px" y="0px"
+       width="21.06px" height="23.399px" viewBox="0 0 21.06 23.399" enable-background="new 0 0 21.06 23.399" xml:space="preserve">
+    <path fill="#FFFFFF" d="M21.06,23.399L0,11.675L21.05,0L21.06,23.399z M4.117,11.678l14.94,8.319L19.052,3.396L4.117,11.678z"/>
+    </svg></p>
+          <p class="carousel-next"><svg style="height:100%" x="0px" y="0px"
+       width="21.06px" height="23.399px" viewBox="0 0 21.06 23.399" enable-background="new 0 0 21.06 23.399" xml:space="preserve">
+    <path fill="#FFFFFF" d="M0,0l21.06,11.725L0.01,23.399L0,0z M16.942,11.722L2.002,3.403l0.006,16.601L16.942,11.722z"/>
+    </svg></p>
+          <p class="indicator"></p>
+        </div> <!-- end carousel -->
 
-      if(resp.length < 6) {
-        $('footer').data('am-i-appeared', true);
-      } else {
-        $('footer').data('am-i-appeared', false);
-      }
+        <div class="pre-addition">
+          <div id="navigation">
+            <header>
+              <p class="nav-header"><span><%= nav() %></span>
 
-      item += resp.length;
+              <svg id="closed" style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" width="22" height="14" x="0px" y="0px" width="22px" height="14px" viewBox="0 0 22 14" enable-background="new 0 0 22 14" xml:space="preserve">
+              <g>
+                <g>
+                  <rect fill="#9A9999" width="22" height="2"/>
+                  <rect y="6" fill="#9A9999" width="22" height="2"/>
+                  <rect y="12" fill="#9A9999" width="22" height="2"/>
+                </g>
+              </g>
+              </svg>
 
-      $('footer').animate({ opacity : 1 } );
-      $('footer').appear();
-    });
-  }
-  
+              <svg id="open" style="display: none; position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" width="22" height="14" x="0px" y="0px" width="22px" height="14px" viewBox="0 0 22 14" enable-background="new 0 0 22 14" xml:space="preserve">
+              <rect fill="#FFFFFF" width="22" height="2"/>
+              <rect y="6" fill="#9A9999" width="22" height="2"/>
+              <rect y="12" fill="#FFFFFF" width="22" height="2"/>
+              </svg>
 
-  // this sets up the element we watch to check when it enters the viewport
-  // so we can load more content. in our case it's the footer
-  $('document').ready(function() {
 
-    $(document.body).on('appear', 'footer', function(e) {
-      var $this = $(this);
-      if ($this.data('am-i-appeared')) {
-        return;
-      }
-      $this.data('am-i-appeared', true);
-      page++;
-      getItems(page);
-    });
+              </p>
+              <nav>
+                <a href="/collections"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'collections' then " class=current" end %>>Collections</a>
+                <a href="/archive"<%= if controller?("groups") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
+                <a href="/projects"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'projects' then " class=current" end %>>Projects</a>
+                <a href="/about"<%= if controller?("pages") && action?("about", "show") or action?("commissioning", "show") or action?("stockists", "show") or action?("contact", "show")then " class=current" end %>>Information</a>
+                <a href="https://shimell-and-madden-2.myshopify.com"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
+                <a href="#" class="totop"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="11.176px" height="10.062px" viewBox="0 0 11.176 10.062" enable-background="new 0 0 11.176 10.062" xml:space="preserve">
+              <path fill="#A9A9A9" d="M10.619,10.613L-0.557,10.62L5.046,0.557L10.619,10.613z M2.846,8.618l4.378-0.002l-2.184-3.94L2.846,8.618z
+                "/>
+              </svg></a>
+              </nav>
+            </header>
+            <%= yield :subnav %>
+          </div>
+          <%= render "shared/footer" %>
+        </div>
+      </section>
+    </div>
 
-    if (!Modernizr.touch) {
-      $('h1').hover(
-        function(){
-          $('.content-a').toggleClass('hoverShadow');
-          window.clearInterval(carouselAuto);
-        },
-        function(){
-          $('.content-a').toggleClass('hoverShadow');
-          carouselAuto = window.setInterval(function(){
-            $('.carousel-next').click();
-          }, 4000);
-        }
-      );
-    }
+    <% content_for :perpagejs do %>
 
-    // transition from 'homepage' carousel to list of all items
-    $('h1 a').click(function(e) {
-      var x = $('#my-carousel');
-      var xHeight = x.outerHeight();
-      e.preventDefault();
 
-      // set URL
-      history.replaceState(null, null, "/items");
 
-      x.animate({top: -(xHeight)}, 1500, function(){
+    <!-- ****************************
+    *    HANDLEBARS TEMPLATING SHIZ
+    ********************************* -->
+    <script id="item-list-template" type="text/x-handlebars-template">
+      <div style="opacity: 0;" class="item item-{{num}}">
+        <div class="not-fullscreen background" style="background-image:url({{itemImage}}); background-size: cover">
+          <a href="/{{ url this }}/{{groupId}}"> 
+            <div class="content-a">
+              <div class="content-b">
+                {{groupName}}
+                <hr style="width: 150px; margin: 16px auto;">
+                <p>{{ type this }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <p class="proj-name">{{ type this }}: {{groupName}}</p>
+      </div>
+    </script>
 
-        $('#navigation').animate({ opacity : 1 }, function(){
-          $('header nav').waypoint('sticky');
-        })
-        
-        $('body').removeClass('home');
-        $('body').addClass('items');
-        x.remove();
-
-        $('#items section').append('<article style="min-height: ' + (xHeight-$('#navigation').height()) + 'px;" ><img class="progress" src="<%= asset_path "progress.gif" %>" width="34px" height="34px" style="width: 34px; height: 34px; position: absolute; left: 50%; top: 50%; margin: -17px 0 0 -17px;" /></article>');
-
-        getItems(page);
+    <script>
+      Handlebars.registerHelper("type", function(context){
+        return (context.archived) ? 'Archive': context.groupType;
       });
-    });
 
-    carouselAuto = window.setInterval(function(){
-      $('.carousel-next').click();
-    }, 4000)
-  });  
+      Handlebars.registerHelper("url", function(context){
+        return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
+      });
 
-</script>
-<% end %>
+      var source   = $("#item-list-template").html();
+      var template = Handlebars.compile(source);
+    </script>
+    <!-- *********************************
+    *    END OF HANDLEBARS TEMPLATING SHIZ
+    ************************************** -->
+
+
+
+
+    <script>
+      /* 
+       *  this is for infinite scroll
+      */
+      var page = 1;
+      var item = 6;
+
+      function getItems(pageNumber) {
+        $.get('/items.json?page=' + page, function(resp){
+        
+          // removeprogress indicator/spinner
+          $('article img.progress').animate({ opacity : 0 }, function(){
+            this.remove();
+          })
+          
+          // process response with handlebar template
+          for(var i = 0; i < resp.length; i++) {
+            var context = resp[i];
+            context.num = i+1;
+            // and add it to the page
+            $(template(context)).appendTo($('article')).animate({ opacity : 1 }, 1500);
+          }
+
+          if(resp.length < 6) {
+            $('footer').data('am-i-appeared', true);
+          } else {
+            $('footer').data('am-i-appeared', false);
+          }
+
+          item += resp.length;
+
+          $('footer').animate({ opacity : 1 } );
+          $('footer').appear();
+        });
+      }
+      
+
+      // this sets up the element we watch to check when it enters the viewport
+      // so we can load more content. in our case it's the footer
+      $('document').ready(function() {
+
+        $(document.body).on('appear', 'footer', function(e) {
+          var $this = $(this);
+          if ($this.data('am-i-appeared')) {
+            return;
+          }
+          $this.data('am-i-appeared', true);
+          page++;
+          getItems(page);
+        });
+
+        if (!Modernizr.touch) {
+          $('h1').hover(
+            function(){
+              $('.content-a').toggleClass('hoverShadow');
+              window.clearInterval(carouselAuto);
+            },
+            function(){
+              $('.content-a').toggleClass('hoverShadow');
+              carouselAuto = window.setInterval(function(){
+                $('.carousel-next').click();
+              }, 4000);
+            }
+          );
+        }
+
+        // transition from 'homepage' carousel to list of all items
+        $('h1 a').click(function(e) {
+          var x = $('#my-carousel');
+          var y = $('.pre-addition');
+
+          x.addClass('remove');
+          y.addClass('addition');
+
+          e.preventDefault();
+
+          changeHome = window.setTimeout(function(){
+
+            $('body').removeClass('home');
+            $('body').addClass('items');
+            
+            x.remove();
+            
+            $('#navigation').animate({ opacity : 1 }, function(){
+              $('header nav').waypoint('sticky');
+            })
+
+            $('footer').before('<article style="margin-top: 22px;"><img class="progress" src="<%= asset_path "progress.gif" %>" width="34px" height="34px" style="width: 34px; height: 34px; position: absolute; left: 50%; top: 50%; margin: -17px 0 0 -17px;" /></article>');
+  
+            getItems(page);
+          }, 1000)
+          
+        });
+
+        carouselAuto = window.setInterval(function(){
+          $('.carousel-next').click();
+        }, 4000)
+      });  
+
+    </script>
+    <% end %>
+    
+    <%= javascript_include_tag "application" %>
+    <%= yield :perpagejs %>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54430370-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  </div>
+</body>
+</html>

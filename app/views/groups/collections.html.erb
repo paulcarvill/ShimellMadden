@@ -1,23 +1,24 @@
-<% content_for :subnav do %>
-  <div id="subnav">
-      <% @collections.each do |collection| %>
-        <a href="/collections/<%= collection.id %>"><%= collection.name %></a>
-      <% end %>
-  </div>
-<% end %>
-
 <div id="items">
   <section class="blog collections">
     <article style="position: relative">
       <div id="my-carousel">
+        <div class="collections-info">
+          <h2>Collections</h2>
+          <% @collections.each do |collection| %>
+            <p><a href="/collections/<%= collection.id %>"><%= collection.name %></a></p>
+          <% end %>
+        </div>
         <% @collections.each_with_index do |collection, index| %>
         <div class="carousel<% if index == 0 %> active<% end %>">
-          <div class="collections-info">
-            <a href="/collections/<%= collection.id %>"><h2><%= collection.name %></h2></a></h2>
-            <p><a href="/collections/<%= collection.id %>">View collection</a></p>
-          </div>
           <a href="/collections/<%= collection.id %>">
-            <div class="imgcontainer" style="background-size: cover; background-position: 50% 50%; background-image: url(<%= collection.images.first.itemImage.url %>)"></div>
+            <div class="imgcontainer" style="background-size: cover; background-position: 50% 50%; background-image: url(<%= collection.images.first.itemImage.url %>)">
+              <div style="position: absolute; bottom:0; width: 30%; left: 35%; height: 50%; color: #fff; text-align: center;">
+                <h3 style="color: #fff; font-size: 30px;"><%= collection.name %></h3>
+                <hr style="font-size: 22px; width: 200px; margin: 16px auto;">
+                <%= collection.description %>
+                <p style="display: inline-block; color: #fff; margin: 2em 0; border: 1px solid #fff; padding: 0.5em 1em; font-size: 0.7em;">Read more about <%= collection.name %></p>
+              </div>
+            </div>
           </a>
         </div>
         <% end %>
