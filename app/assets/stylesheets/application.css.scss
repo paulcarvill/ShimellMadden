@@ -39,4 +39,8 @@ header * {
 @import "blog";
 
 //= require active_admin/editor/wysiwyg
- 
+
+@font-face {
+    font-family: 'GT-Walsheim';
+    src: url(/GT-Walsheim-Regular.woff);
+}
