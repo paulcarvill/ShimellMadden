@@ -115,7 +115,8 @@
         if(SM.revealed) {
             $('nav').toggleClass('woop');
             SM.revealed = false
-             $('.nav-header img').attr('src', '{{ "menu-closed.svg" | asset_url }}');
+            $('.nav-header img').addClass('bend');
+            // $('.nav-header img').attr('src', '{{ "menu-closed.svg" | asset_url }}');
         } else {
             $('nav').toggleClass('woop');
             $('.nav-header img').attr('src', '{{ "menu-open.svg" | asset_url }}');

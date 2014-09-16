@@ -14,6 +14,11 @@ $navLink: #444;
 $navHover: #888;
 $navActive: #888;
 
+html {
+     overflow-y: -moz-scrollbars-vertical;
+     overflow-y: scroll;
+}
+
 a,
 a:visited {
 	text-decoration: none;

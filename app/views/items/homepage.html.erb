@@ -117,6 +117,9 @@
             </header>
             <%= yield :subnav %>
           </div>
+
+          <article style="margin-top: 22px;"></article>
+
           <%= render "shared/footer" %>
         </div>
       </section>
@@ -251,8 +254,6 @@
             $('#navigation').animate({ opacity : 1 }, function(){
               $('header nav').waypoint('sticky');
             })
-
-            $('footer').before('<article style="margin-top: 22px;"></article>');
   
             getItems(page);
           }, 1000)

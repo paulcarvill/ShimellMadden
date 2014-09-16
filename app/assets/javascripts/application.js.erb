@@ -132,8 +132,10 @@ $(function(){
             $('nav').toggleClass('woop');
             SM.menu_old = SM.menu.text();
             SM.menu.text("Menu");
-            $('#open').show();
-            $('#closed').hide();
+            $('#closed').attr('class', 'bend');
+            window.setInterval(function(){
+                $('#open').show();
+            }, 1000);
             SM.revealed = true
         }
     })

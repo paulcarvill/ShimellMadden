@@ -310,7 +310,7 @@ body header nav {
 }
 
 .home footer {
-	opacity: 0;
+	display: none;
 }
 
 @include media($mobile) {

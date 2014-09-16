@@ -1,10 +1,16 @@
+#my-carousel {
+	-ms-transform:translate(0,0);
+	-webkit-transform:translate3d(0,0,0);
+	transform:translate3d(0,0,0);
+}
+
 #my-carousel.remove {
-	top: -100%;	
-	-webkit-transition: top 1s;
-	-moz-transition: top 1s;
- 	-ms-transition: top 1s;
-  	-o-transition: top 1s;
-	transition: top 1s;
+	-webkit-transition:-webkit-transform 1000ms ease;
+	transition:transform 1000ms ease;
+
+	-ms-transform:translate(0,-100%);
+	-webkit-transform:translate3d(0,-100%,0);
+	transform:translate3d(0,-100%,0)
 }
 
 .pre-addition {

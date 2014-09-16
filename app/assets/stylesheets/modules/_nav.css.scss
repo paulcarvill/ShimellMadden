@@ -3,6 +3,11 @@ header {
   z-index: 100;
 }
 
+.bend {
+  transition: transform 400ms ease;
+  transform: rotateX(90deg);
+}
+
 header svg {
 	margin-top: 20px;
   @include media($desktop) {
