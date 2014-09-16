@@ -178,11 +178,6 @@
       function getItems(pageNumber) {
         $.get('/items.json?page=' + page, function(resp){
         
-          // removeprogress indicator/spinner
-          $('article img.progress').animate({ opacity : 0 }, function(){
-            this.remove();
-          })
-          
           // process response with handlebar template
           for(var i = 0; i < resp.length; i++) {
             var context = resp[i];
@@ -199,6 +194,7 @@
 
           item += resp.length;
 
+          $('body').removeClass('home');
           $('footer').animate({ opacity : 1 } );
           $('footer').appear();
         });
@@ -216,7 +212,10 @@
           }
           $this.data('am-i-appeared', true);
           page++;
-          getItems(page);
+
+          window.setTimeout(function(){
+            getItems(page)
+          }, 1000);
         });
 
         if (!Modernizr.touch) {
@@ -246,7 +245,6 @@
 
           changeHome = window.setTimeout(function(){
 
-            $('body').removeClass('home');
             $('body').addClass('items');
             
             x.remove();

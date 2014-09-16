@@ -10,9 +10,8 @@ h1, h2, h3, h4, h5, h6, p {
 /* 23px */
 h2,
 h3,
-aside p,
 .stockist {
-	font-size: 1.45em;
+	font-size: 1.4em;
 }
 
 .stockist a {
@@ -55,6 +54,13 @@ footer p,
 *    end of font-sizes
 /*************************************/
 
+.item-overlay p {
+	color: #fff;
+}
+
+.archive .item-overlay p {
+	color: $bodyText;
+}
 
 .content-b {
 	color: $bodyHighlight;
@@ -112,18 +118,6 @@ aside p {
 	@include media($mobile) {
 		line-height: 1.3em;
 	}
-}
-
-aside h2,
-aside p,
-aside a,
-.projects h2 {
-	font-family: 'Freight Text Book';
-}
-
-aside em {
-	font-family: 'Freight Text Book';
-	font-style: italic;
 }
 
 aside .tel em {

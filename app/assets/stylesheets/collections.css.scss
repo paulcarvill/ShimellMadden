@@ -52,6 +52,24 @@ p.indicator {
 	margin-bottom: 0;
 }
 
+
+
+
+@include media($mobile) {
+	#my-carousel>.collections-info,
+	.aboutcoll {
+		display: none;
+	}
+
+	.collections-info h2 {
+		font-size: 22px;
+	}
+}
+
+
+
+
+
 .collections-info,
 .collection-info {
 	position: absolute;

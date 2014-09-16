@@ -20,6 +20,10 @@
 	left: 22px;
 	right: 22px;
 	margin: 0 auto;
+	@include media($mobile) {
+		left: 7px;
+		right: 7px;
+	}
 }
 
 .addition {
@@ -127,10 +131,6 @@ body .item {
 		/* orange */
 		background-color: rgba(255, 102, 0, 0.7);
 	}
-}
-
-.item-overlay p {
-	color: #fff;
 }
 
 .down-triangle {
