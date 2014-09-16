@@ -30,7 +30,8 @@ a:active {
 	color: $bodyLink !important;
 }
 
-a:hover {
+a:hover,
+.collection-info a:hover {
   	color: $bodyHover;
 }
 

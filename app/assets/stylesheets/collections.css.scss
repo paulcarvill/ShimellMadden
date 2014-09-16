@@ -79,8 +79,12 @@ p.indicator {
 
 .collections-info p,
 .collection-info p {
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding: 8px 0 10px 0;
+	line-height: 1.3em;
+}
+
+.collections-info p:last-of-type,
+.collection-info p:last-of-type {
 	border-bottom: 1px solid #fff;
 }
 
@@ -90,10 +94,6 @@ p.indicator {
 
 .collection-info p.collectionInfo img {
 	margin-top: -2px;
-}
-
-.shopthis a {
-	color: #fff;
 }
 
 @include media($desktop) {
@@ -137,13 +137,12 @@ p.indicator {
 }
 
 .shopthis {
-	position: absolute;
-	top: 0;
-	right: 0;
 	border: 1px solid #fff;
-	padding: 5px;
-	margin: 15px;
-	height: auto !important;
+	padding: 10px 15px;
+}
+
+.shopthis:hover {
+	border: 1px solid #444;
 }
 
 .lessThanThree {
@@ -325,6 +324,7 @@ p.indicator {
 
 .active {
 	display: block;
+	z-index: 5;
 }
 
 @include media($tablet) {
@@ -371,13 +371,17 @@ p.indicator {
 	.collections #items,
 	.collection #items {
 		position: fixed;
-		top: 167px;
+		top: 145px;
 		left: 22px;
 		right: 22px;
 		bottom: 22px;
 		width: auto;
 		float: none;
 		margin: 0;
+	}
+
+	.collection #items {
+		top: 167px;
 	}
 
 	.collections article,
@@ -433,7 +437,7 @@ p.indicator {
 	.collections #items,
 	.collection #items {
 		position: fixed;
-		top: 167px;
+		top: 145px;
 		left: 7px;
 		right: 7px;
 		bottom: 7px;

@@ -15,21 +15,13 @@ aside p,
 	font-size: 1.45em;
 }
 
-/* 15px */
-.collections-info p,
-.collection-info p,
-.topback {
-	font-size: 0.95em;
-}
-
 .stockist a {
 	font-size: 16px;
 }
 
-// h2,
-// .stockist a {
-// 	font-family: 'Freight Text Book';
-// }
+.collections-info h2 {
+	font-size: 36px;	
+}
 
 
 @include media($mobile) {
@@ -138,10 +130,8 @@ aside .tel em {
 	font-style: normal;
 }
 
-.home h2 a {
+.home h2 a,
+.collection-info a,
+.shopthis {
 	color: #fff;
-}
-
-.stockist a {
-	color: #999;
 }

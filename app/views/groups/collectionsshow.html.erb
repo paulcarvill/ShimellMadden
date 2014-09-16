@@ -29,8 +29,8 @@
   <section class="blog collection">
     <div class="collection-info">
       <h2><%= @group.name %></h2>
-      <p class="collectionDesc"><%= @group.description %></p>
-      <p class="collectionInfo"><a>Show info<img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" /></a></p>
+      <p><%= @group.description %></p>
+      <p><a href="/collections">Back to collections</a></p>
     </div>
     <article style="position: relative">
       <div id="my-carousel">
@@ -43,11 +43,14 @@
         </div>
       <% end %>
       </div> <!-- end carousel -->
+      
       <% if @group.shopifyId != "" %>
-        <div class="notes shopthis">
-            <p><a href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a></p>
+        <div style="position: absolute; bottom:0; width: 330px; left: 50%; margin-left: -165px; height: 15%; color: #fff; text-align: center;">
+            <a class="shopthis" href="https://shimell-and-madden-2.myshopify.com/collections/<%= @group.shopifyId %>">Shop <%= @group.name %></a>
         </div>
-      <% end %>
+       <% end %>
+     
+
       <p class="indicator"></p>
     </article>
     <div class="notes bottomback">

@@ -12,12 +12,14 @@
         <div class="carousel<% if index == 0 %> active<% end %>">
           <a href="/collections/<%= collection.id %>">
             <div class="imgcontainer" style="background-size: cover; background-position: 50% 50%; background-image: url(<%= collection.images.first.itemImage.url %>)">
-              <div style="position: absolute; bottom:0; width: 30%; left: 35%; height: 50%; color: #fff; text-align: center;">
-                <h3 style="color: #fff; font-size: 30px;"><%= collection.name %></h3>
-                <hr style="font-size: 22px; width: 200px; margin: 16px auto;">
-                <%= collection.description %>
-                <p style="display: inline-block; color: #fff; margin: 2em 0; border: 1px solid #fff; padding: 0.5em 1em; font-size: 0.7em;">Read more about <%= collection.name %></p>
+              
+              <div style="position: absolute; bottom:0; width: 330px; left: 50%; margin-left: -165px; height: 40%; color: #fff; text-align: center;">
+                <h3 style="color: #fff; font-size: 60px;"><%= collection.name %></h3>
+                <hr style="font-size: 22px; margin: 16px auto; border-style: solid;">
+                <p><%= collection.description %></p>  
+                <p style="display: inline-block; color: #fff; margin: 2em 0; border: 1px solid #fff; padding: 0.5em 1em; font-size: 0.8em;">Read more about <%= collection.name %></p>
               </div>
+              
             </div>
           </a>
         </div>
