@@ -118,7 +118,12 @@
             <%= yield :subnav %>
           </div>
 
-          <article style="margin-top: 22px;"></article>
+          <article style="margin-top: 22px;">
+          </article>
+
+          <div id="progress" style="display: none; float: none; clear: both; text-align: center;">
+            <img src="<%= asset_path "progress.gif" %>" style="width:22px;height:22px; margin: 0 auto;" />
+          </div>
 
           <%= render "shared/footer" %>
         </div>
@@ -177,7 +182,7 @@
 
       function getItems(pageNumber) {
         $.get('/items.json?page=' + page, function(resp){
-        
+
           // process response with handlebar template
           for(var i = 0; i < resp.length; i++) {
             var context = resp[i];
@@ -187,6 +192,7 @@
           }
 
           if(resp.length < 6) {
+            $('#progress').hide();
             $('footer').data('am-i-appeared', true);
           } else {
             $('footer').data('am-i-appeared', false);
@@ -213,6 +219,8 @@
           $this.data('am-i-appeared', true);
           page++;
 
+          $('#progress').show();
+
           window.setTimeout(function(){
             getItems(page)
           }, 1000);
@@ -233,8 +241,7 @@
           );
         }
 
-        // transition from 'homepage' carousel to list of all items
-        $('h1 a').click(function(e) {
+        function doTransition(e) {
           var x = $('#my-carousel');
           var y = $('.pre-addition');
 
@@ -256,7 +263,9 @@
             getItems(page);
           }, 1000)
           
-        });
+        }
+        // transition from 'homepage' carousel to list of all items
+        $('h1 a').click(doTransition);
 
         carouselAuto = window.setInterval(function(){
           $('.carousel-next').click();
