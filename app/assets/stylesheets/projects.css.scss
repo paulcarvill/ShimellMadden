@@ -52,6 +52,28 @@ body.projects .item-2 {
 	border: 0;
 }
 
+#projectnav {
+	height: 2em;
+	margin-top: 1em;
+}
+
+#projectnav p {
+	height: 1em;
+}
+
+#prev {
+	text-align: left;
+}
+
+#back {
+	text-align: center;
+}
+
+#next {
+	text-align: right;
+}
+
+
 @include media($desktop) {
 
 	.proj-name {

@@ -120,7 +120,7 @@ body {
 
   footer {
   	@include span-columns(12);
-    margin: 22px 0 0 0;
+    margin: 0;
   }
 
   footer>div {
@@ -403,6 +403,14 @@ body {
       @include span-columns(4 of 4);
       height: auto;
     }    
+  }
+
+  #projectnav {
+    @include span-columns(12);
+  }
+
+  #projectnav p {
+    @include span-columns(4);
   }
 
   div.wider {

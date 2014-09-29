@@ -18,6 +18,13 @@
     
     <p class="indicator"></p>
     
+    <div id="projectnav">
+      
+      <p id="prev"><% if @previous %><a href="/projects/<%= @previous.id %>">Previous item</a><% end %></p>
+      <p id="back"><%= link_to 'Back to Projects', groups_path %></p>
+      <p id="next"><% if @next %><a href="/projects/<%= @next.id %>">Next item</a><% end %></p>
+    </div>
+
     <p class="bottomback"><%= link_to 'Back to projects', groups_path %></p>
   </article>
  </section>

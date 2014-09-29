@@ -5,5 +5,4 @@ class Group < ActiveRecord::Base
 	
 	OPTIONS = ['Collection', 'Project']
 	validates_inclusion_of :grouptype, :in => OPTIONS
-
 end

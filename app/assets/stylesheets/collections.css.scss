@@ -16,7 +16,10 @@
 	width: 9px;
 	height: 9px;
 	border-radius: 50%;
-	background: gray;
+	border-color: #444;
+	border-style: solid;
+	background: none;
+	border-width: 1px;
 	display: inline-block;
 	margin: 0 3px;
 	@include media($mobile) {
@@ -27,7 +30,7 @@
 }
 
 .indicator a.curr {
-	background: #fff;	
+	background: #444;	
 	-webkit-transition: background 1s;
     -moz-transition: background 1s;
     -ms-transition: background 1s;
@@ -40,10 +43,11 @@
 }
 
 p.indicator {
-	position: absolute;
+	height: 3em;
+	padding-top: 1em;
 	display: block;
 	width: 100%;
-	bottom: 20px;
+	border-bottom: 1px solid #bbb;
 	text-align: center;
 	margin-bottom: 0;
 }
@@ -52,8 +56,19 @@ p.indicator {
 	margin-bottom: 0;
 }
 
+.readmore {
+	display: inline-block;
+	color: #fff;
+	margin: 2em 0;
+	border: 1px solid #fff;
+	padding: 10px 15px;
+	font-size: 0.8em;
+}
 
-
+.readmore:hover {
+	color: #444;
+	border-color: #444;
+}
 
 @include media($mobile) {
 	#my-carousel>.collections-info,
@@ -85,6 +100,10 @@ p.indicator {
 		max-width: 400px;
 	}
 	z-index: 9;
+}
+
+.collections-info a:hover {
+	color: #444;
 }
 
 .collections-info h2,

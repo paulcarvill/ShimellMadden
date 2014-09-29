@@ -14,11 +14,17 @@ class GroupsController < ApplicationController
 
   def show
     if params[:type] == 'collections'
+      
       @collections = Group.where(grouptype: 'Collection')
       @items = Image.where(group_id: params[:id]).rotate(1)
       render "groups/collectionsshow"
+    
     elsif params[:type] == 'projects'
-      @project = Group.find(params[:id])
+
+      @project = Group.find_by!(id: params[:id], grouptype: 'project')
+      @previous = Group.where("id < ?", params[:id]).where(grouptype: 'Project').order(:id).last   
+      @next = Group.where("id > ?", params[:id]).where(grouptype: 'Project').order(:id).first 
+
       @images = Image.where(group_id: params[:id])
 
       numImages = @images.length;

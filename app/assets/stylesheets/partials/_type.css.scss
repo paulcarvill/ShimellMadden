@@ -18,10 +18,18 @@ h3,
 	font-size: 16px;
 }
 
+.collection-info h2,
 .collections-info h2 {
 	font-size: 36px;	
 }
 
+.aboutcoll {
+	font-size: 22px;
+}
+
+.aboutcoll .readmore {
+	font-size: 16px;
+}
 
 @include media($mobile) {
 	.info h2 {
@@ -56,10 +64,6 @@ footer p,
 
 .item-overlay p {
 	color: #fff;
-}
-
-.archive .item-overlay p {
-	color: $bodyText;
 }
 
 .content-b {
