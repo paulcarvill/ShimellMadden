@@ -11,7 +11,7 @@ body.home {
 }
 
 section {
-	margin-top: 14px;
+	margin-top: 0;
 	@include media($tablet) {
 		margin-top: 22px;
 	}
@@ -20,9 +20,11 @@ section {
 	}
 }
 
+.other section {
+	padding-bottom: 22px;
+}
+
 @include media($desktop) {
-	.collections section,
-	.collection section,
 	.info section {
 		margin-top: 14px;
 	}

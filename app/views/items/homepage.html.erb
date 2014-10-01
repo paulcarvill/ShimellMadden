@@ -17,9 +17,9 @@
           <a href="https://shimell-and-madden-2.myshopify.com/">Shop</a>
         </p>
         <p id="homepagelinks">
-          <a href="http://instagram.com/Shimell_Madden/">Instagram</a>
-          <a href="https://www.facebook.com/pages/Shimell-and-Madden/153510408023083">Facebook</a>
-          <a href="https://twitter.com/Shimell_Madden">Twitter</a>
+          <a target="_blank" href="http://instagram.com/Shimell_Madden/">Instagram</a>
+          <a target="_blank" href="https://www.facebook.com/pages/Shimell-and-Madden/153510408023083">Facebook</a>
+          <a target="_blank" href="https://twitter.com/Shimell_Madden">Twitter</a>
         </p>
         <div id="my-carousel">
           <% @homepageitems.each_with_index do |item, index| %>
@@ -31,7 +31,7 @@
           <% end %>
           <div class="content-a">
             <div class="content-b">
-              <h1><a href="/items"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <h1><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        width="741.018px" height="66px" viewBox="0 0 741.018 66" enable-background="new 0 0 741.018 66" xml:space="preserve">
                 <g>
                   <path fill="#FFFFFF" d="M605.728,2.845h-18.996v61.089h18.996c16.841,0,30.542-13.703,30.542-30.546
@@ -73,7 +73,7 @@
                   <path fill="#FFFFFF" d="M457.27,63.929l2.997,0.005l5.078-9.991h47.832l5.098,9.991h2.885L489.215,1.296L457.27,63.929z
                      M466.639,51.391l22.576-44.413l22.661,44.413H466.639z"/>
                 </g>
-                </svg></a>
+                </svg>
               </h1>
             </div>
           </div>
@@ -128,7 +128,7 @@
           </div>
 
           <article style="margin-top: 22px;">
-            <div id="progress" style="display: none; float: none; width: 100%; height: 100%; clear: both; text-align: center; margin: 200px 0 200px 0">
+            <div id="progress" style="display: none; float: left; width: 100%; height: 100%; clear: both; text-align: center; margin: 200px 0 200px 0">
               <img src="<%= asset_path "progress.gif" %>" style="float: none; width:22px;height:22px; margin: 0 auto;" />
             </div>
           </article>
@@ -203,7 +203,7 @@
           }
 
           if(resp.length < 6) {
-            //$('#progress').hide();
+            $('#progress').hide();
             $('footer').data('am-i-appeared', true);
           } else {
               $('footer').data('am-i-appeared', false);

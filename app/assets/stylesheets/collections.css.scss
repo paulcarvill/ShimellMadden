@@ -76,7 +76,7 @@ p.indicator {
 
 .collection-spec {
 	position: absolute;
-	bottom:0;
+	bottom:6px;
 	width: 330px;
 	left: 50%;
 	margin-left: -165px;
@@ -426,7 +426,7 @@ p.indicator {
 	.collections #items,
 	.collection #items {
 		position: fixed;
-		top: 145px;
+		top: 159px;
 		left: 22px;
 		right: 22px;
 		bottom: 22px;
@@ -436,7 +436,18 @@ p.indicator {
 	}
 
 	.collection #items {
-		top: 167px;
+		top: 181px;
+	}
+
+	.projects section,
+	.other .archive,
+	.other .archiveitem,
+	.project .projectitem {
+		margin-top: 22px;
+	}
+
+	.other .info {
+		margin-top: 14px;
 	}
 
 	.collections article,
