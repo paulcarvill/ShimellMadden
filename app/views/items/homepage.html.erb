@@ -128,11 +128,11 @@
           </div>
 
           <article style="margin-top: 22px;">
+            <div id="progress" style="display: none; float: none; width: 100%; height: 100%; clear: both; text-align: center; margin: 200px 0 200px 0">
+              <img src="<%= asset_path "progress.gif" %>" style="float: none; width:22px;height:22px; margin: 0 auto;" />
+            </div>
           </article>
 
-          <div id="progress" style="display: none; float: none; clear: both; text-align: center;">
-            <img src="<%= asset_path "progress.gif" %>" style="width:22px;height:22px; margin: 0 auto;" />
-          </div>
 
           <%= render "shared/footer" %>
         </div>
@@ -192,16 +192,18 @@
       function getItems(pageNumber, initialScroll) {
         $.get('/items.json?page=' + page, function(resp){
 
+          //$('#progress').hide();
+
           // process response with handlebar template
           for(var i = 0; i < resp.length; i++) {
             var context = resp[i];
             context.num = i+1;
             // and add it to the page
-            $(template(context)).appendTo($('article')).animate({ opacity : 1 }, 1500);
+            $(template(context)).insertBefore($('#progress')).animate({ opacity : 1 }, 1500);
           }
 
           if(resp.length < 6) {
-            $('#progress').hide();
+            //$('#progress').hide();
             $('footer').data('am-i-appeared', true);
           } else {
               $('footer').data('am-i-appeared', false);

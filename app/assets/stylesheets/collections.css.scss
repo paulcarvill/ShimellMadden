@@ -12,6 +12,10 @@
 	color: #fff;
 }
 
+.home .indicator {
+	display: none;
+}
+
 .indicator a {
 	width: 9px;
 	height: 9px;
@@ -68,6 +72,20 @@ p.indicator {
 .readmore:hover {
 	color: #444;
 	border-color: #444;
+}
+
+.collection-spec {
+	position: absolute;
+	bottom:0;
+	width: 330px;
+	left: 50%;
+	margin-left: -165px;
+	height: 15%;
+	color: #fff;
+	text-align: center;
+	@include media($mobile) {
+		display: none;
+	}
 }
 
 @include media($mobile) {

@@ -148,7 +148,7 @@ background-position:50% 50%;
 }
 
 @include media($mobile) {
-	body.items .not-fullscreen {
+	body.home .pre-addition .not-fullscreen {
 		height: 225px;
 	}
 }

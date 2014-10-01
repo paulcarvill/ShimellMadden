@@ -28,23 +28,29 @@
 
 #homepagelinks {
 	position: absolute;
-	top: 22px;
-	right: 22px;
-	padding: 8px 8px 0 0;
+	top: 44px;
+	right: 44px;
+	padding: 0;
 	color: #fff;
 	z-index: 200;
 	font-size: 12px;
 	text-align: right;
+	@include media($mobile) {
+		display: none;
+	}
 }
 
 #shoplinks {
 	position: absolute;
-	top: 22px;
-	left: 22px;
-	padding: 8px 0 0 8px;
+	top: 44px;
+	left: 44px;
+	padding: 0;
 	color: #fff;
 	z-index: 200;
 	font-size: 12px;
+	@include media($mobile) {
+		display: none;
+	}
 }
 
 #shoplinks a,
@@ -53,6 +59,10 @@
 #homepagelinks a:visited {
 	color: #fff;
 	padding: 0 4px;
+}
+
+#homepagelinks a:last-of-type {
+	padding: 0;
 }
 
 #shoplinks a:hover,
@@ -90,7 +100,7 @@ body .item {
 		opacity: 1;
 	}
 
-	.items .proj-name {
+	.home .proj-name {
 		display: none
 	}
 	
@@ -178,11 +188,11 @@ body .item {
 		@include span-columns(4);
 	}
 
-	body.items .item {
+	body.home .item {
 		height: 262px !important;
 	}
 
-	body.items .item .content-a {
+	body.home .item .content-a {
 		display: none;
 	}
 }
