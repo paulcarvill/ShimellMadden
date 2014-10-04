@@ -29,6 +29,20 @@ ActiveAdmin.register Blog, as: "News story" do
             content_tag(:span, "No image, will use default placeholder")
           end
         end
+        row :img do |news|
+          if news.blogImage2?
+              image_tag(news.blogImage2.url, width: '50%')
+          else
+            content_tag(:span, "No image, will use default placeholder")
+          end
+        end
+        row :img do |news|
+          if news.blogImage3?
+              image_tag(news.blogImage3.url, width: '50%')
+          else
+            content_tag(:span, "No image, will use default placeholder")
+          end
+        end
       end
   end
 

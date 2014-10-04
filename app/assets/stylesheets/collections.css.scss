@@ -200,8 +200,9 @@ p.indicator {
 	border: 1px solid #444;
 }
 
-.lessThanThree {
+body .lessThanThree {
 	position: static;
+	height: 600px;
 }
 
 .collection-info .collectionDesc {

@@ -59,5 +59,5 @@ ActiveAdmin.register Group do
   end
 
   config.filters = false
-  permit_params :name, :description, :shopifyId, :archived, images_attributes: [:id, :homepage, :large, :small, :_destroy, category_ids: []]
+  permit_params :name, :description, :shopifyId, :archived, :grouptype, images_attributes: [:id, :homepage, :itemImage, :_destroy, category_ids: []]
 end
