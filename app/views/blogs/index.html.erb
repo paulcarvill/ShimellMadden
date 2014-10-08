@@ -18,15 +18,15 @@
 
       <!-- if multiple images in news item, do a carousel -->
         <% if blog.blogImage1_file_name and blog.blogImage2_file_name %>
-        <div id="my-carousel" style="height: auto">
-          <div class="carousel not-fullscreen background" style="height: auto; opacity: 1">
+        <div id="my-carousel">
+          <div class="carousel active background">
             <%= image_tag blog.blogImage1 %>
           </div>
-          <div class="carousel not-fullscreen background">
+          <div class="carousel background">
             <%= image_tag blog.blogImage2 %>
           </div>
           <% if blog.blogImage3_file_name %>
-            <div class="carousel not-fullscreen background">
+            <div class="carousel background">
               <%= image_tag blog.blogImage3 %>
             </div>
           <% end %>
@@ -69,7 +69,6 @@
 
       // get paginated news items
       $.get('/news.json?page=' + page, function(resp){
-        history.replaceState(null, null, "/news?page=" + page);
 
         for(var i = 0; i < resp.length; i++) {
 
@@ -83,14 +82,14 @@
             img1 = '<img src="<%= asset_path "about.jpg" %>" />';
           }
           if (resp[i].blogImage2) {
-            img2 = '<div class="carousel not-fullscreen background"><img src="'+resp[i].blogImage2+'" /></div>';
+            img2 = '<div class="carousel background"><img src="'+resp[i].blogImage2+'" /></div>';
           }
           if (resp[i].blogImage3) {
-            img3 = '<div class="carousel not-fullscreen background"><img src="'+resp[i].blogImage3+'" /></div>';
+            img3 = '<div class="carousel background"><img src="'+resp[i].blogImage3+'" /></div>';
           }
 
           if (img1 && img2) {
-            images = '<div id="my-carousel" style="height: auto"><div class="carousel active not-fullscreen background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3+'</div>';
+            images = '<div id="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3+'</div>';
             buttons = '<p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p><p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p><p class="indicator"></p>';
           } else {
             images = img1;

@@ -43,6 +43,8 @@ function doCarousel(){
         $('.active').addClass('lessThanThree');
     }
 
+    console.log(items);
+
     var carouselPrev = function(e){
         if (e.which && typeof carouselAuto !== "undefined" && carouselAuto) {
             window.clearInterval(carouselAuto);
