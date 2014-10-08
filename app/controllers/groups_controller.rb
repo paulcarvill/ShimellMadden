@@ -55,12 +55,12 @@ class GroupsController < ApplicationController
       date = Date.parse(params['date']);
       startofmonth = date.beginning_of_month
       endofmonth = date.end_of_month
-      @items = Image.joins(:group).where("groups.archived = ?", true).where("images.created_at >= ? and images.created_at <= ?", startofmonth, endofmonth).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+      @items = Image.joins(:group).where("groups.archived = ?", true).where("images.date >= ? and images.date <= ?", startofmonth, endofmonth).order("date DESC").paginate(:page => params[:page], :per_page => 12)
     else
       @items = Image.joins(:group).where(groups: { archived: true }).paginate(:page => params[:page], :per_page => 12)
     end
 
-    @months = Image.all().order("created_at DESC").map{|t| t.created_at.strftime("%B %Y")}.uniq 
+    @months = Image.all().order("date DESC").map{|t| t.date != nil ? t.date.strftime("%B %Y") : t.created_at.strftime("%B %Y")}.uniq 
     render "groups/archive"
   end
 

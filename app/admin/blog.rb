@@ -5,6 +5,7 @@ ActiveAdmin.register Blog, as: "News story" do
   index do
     selectable_column
     column :headline
+    column :date
     column :body do |news|
       simple_format news.body
     end
@@ -22,6 +23,7 @@ ActiveAdmin.register Blog, as: "News story" do
       attributes_table do
         row :headline
         row :body
+        row :date
         row :img do |news|
           if news.blogImage1?
               image_tag(news.blogImage1.url, width: '50%')
@@ -50,6 +52,7 @@ ActiveAdmin.register Blog, as: "News story" do
     f.inputs 'Details' do
       f.input :headline, :as => :string
       f.input :body, as: :html_editor
+      f.input :date
     end
 
     f.inputs 'Image 1' do
@@ -77,5 +80,5 @@ ActiveAdmin.register Blog, as: "News story" do
   end
 
   config.filters = false
-  permit_params :headline, :body, :blogImage1, :blogImage2, :blogImage3, :blogImage1_delete, :blogImage2_delete, :blogImage3_delete
+  permit_params :headline, :body, :date, :blogImage1, :blogImage2, :blogImage3, :blogImage1_delete, :blogImage2_delete, :blogImage3_delete
 end

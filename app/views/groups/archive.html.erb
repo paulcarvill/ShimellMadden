@@ -33,7 +33,7 @@
                 <div class="item-overlay">
                   <div class="tc">
                     <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p><%= item.group.name %></p>
+                    <p><%= if item.group then item.group.name end %></p>
                   </div>
                 </div>
               </a>
@@ -93,7 +93,7 @@ function getItems(pageNumber) {
         '<a href="/archive/' + resp[i].id + '"><img class="image" src="' + resp[i].itemImage + '" style="margin: 0 auto;' + (resp[i].height > resp[i].width ? "height: 220px; width: auto" : "height: auto; width: 100%") + '" /></a>' +
         '<a class="overlaylink" href="/archive/' + resp[i].id + '"><div class="item-overlay"><div class="tc">' + 
         '<img class="down-triangle" src="'+ assTri +'" />' + 
-        '<p>' + resp[i].group.name + '</p>' + 
+        '<p>' + (resp[i].group != undefined ? resp[i].group.name : "" )+ '</p>' + 
         '</div></div></a></div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
     }
 

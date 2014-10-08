@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910205039) do
+ActiveRecord::Schema.define(version: 20141008223108) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140910205039) do
     t.string   "blogImage3_content_type"
     t.integer  "blogImage3_file_size"
     t.datetime "blogImage3_updated_at"
+    t.date     "date"
   end
 
   create_table "categories", force: true do |t|
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140910205039) do
     t.boolean  "archived"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "images", force: true do |t|
@@ -98,6 +100,8 @@ ActiveRecord::Schema.define(version: 20140910205039) do
     t.text     "itemImage_meta"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
+    t.boolean  "archived"
   end
 
   create_table "pages", force: true do |t|

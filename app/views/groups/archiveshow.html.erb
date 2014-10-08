@@ -2,7 +2,7 @@
   <aside>
     <h2>Archive</h2>
     <h3><%= @item.name %></h3>
-    <p class="desc"><%= @item.description %></p>
+    <p class="desc"><%= @item.date.strftime("%d.%m.%Y") %> <%= @item.description %></p>
     <p class="topback"><%= link_to 'Back to archive', archive_path %></p>
   </aside>
   <article style="position: relative;">

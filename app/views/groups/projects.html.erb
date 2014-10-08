@@ -11,7 +11,7 @@
               <div class="content-b">
                 <%= project.name %>
                 <hr style="width: 150px; margin: 16px auto;" />
-                <p>2011</p>
+                <p><%= if project.date? then project.date.strftime("%Y") else project.created_at.strftime("%Y") end %></p>
               </div>
             </div>
           </div>

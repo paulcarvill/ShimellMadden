@@ -7,6 +7,7 @@ ActiveAdmin.register Group do
     column :name
     column :description
     column :shopifyId
+    column :date
     actions
   end
 
@@ -16,6 +17,7 @@ ActiveAdmin.register Group do
       row :description, :as => :string
       row :archived, :as => :string
       row :grouptype, :as => :string
+      row :date
       row "Shopify link", :shopifyId, :as => :string
       group.images.each_with_index do |i, index|
           row "Image #{index}" do
@@ -34,6 +36,7 @@ ActiveAdmin.register Group do
       f.input :name, :as => :string
       f.input :description, :as => :string
       f.input :shopifyId, :as => :string
+      f.input :date
     end
 
     f.inputs 'Group is a Collection or Project?' do
@@ -59,5 +62,5 @@ ActiveAdmin.register Group do
   end
 
   config.filters = false
-  permit_params :name, :description, :shopifyId, :archived, :grouptype, images_attributes: [:id, :homepage, :itemImage, :_destroy, category_ids: []]
+  permit_params :name, :description, :date, :shopifyId, :archived, :grouptype, images_attributes: [:id, :homepage, :itemImage, :_destroy, category_ids: []]
 end

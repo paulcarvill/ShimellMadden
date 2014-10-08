@@ -5,6 +5,8 @@ ActiveAdmin.register Image do
   index do
     selectable_column
     column :id
+    column :date
+    column :archived
     column "image" do |image|
       image_tag(image.itemImage.url(:small), width: '50%')
     end
@@ -16,7 +18,9 @@ ActiveAdmin.register Image do
     h3 image.id
     h3 image.name
     h3 image.description
-    h3 image.group.name
+    h3 image.archived
+    if image.group then h3 image.group.name end
+    h3 image.date
     div do
         image_tag(image.itemImage.url, width: '50%')
     end
@@ -32,11 +36,13 @@ ActiveAdmin.register Image do
       f.input :itemImage,  :label => 'image', :hint => (if image.itemImage? then image_tag(image.itemImage.url(:small)) else content_tag(:span, "No image yet") end )
       f.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
       f.input :categories
+      f.input :date
+      f.input :archived
     end
 
     f.actions
   end
 
   config.filters = false
-  permit_params :itemImage, :name, :description, :homepage, :archive, :group_id, category_ids: []
+  permit_params :itemImage, :date, :name, :archived, :description, :homepage, :archive, :group_id, category_ids: []
 end

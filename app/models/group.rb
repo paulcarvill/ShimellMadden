@@ -4,5 +4,5 @@ class Group < ActiveRecord::Base
 	accepts_nested_attributes_for :images, :allow_destroy => true
 	
 	OPTIONS = ['Collection', 'Project']
-	validates_inclusion_of :grouptype, :in => OPTIONS
+	#validates_inclusion_of :grouptype, :in => OPTIONS
 end
