@@ -149,7 +149,7 @@
     <script id="item-list-template" type="text/x-handlebars-template">
       <div style="opacity: 0;" class="item item-{{num}}">
         <div class="not-fullscreen background" style="background-image:url({{itemImage}}); background-size: cover">
-          <a href="/{{ url this }}/{{groupId}}"> 
+          <a href="/{{ url this }}/{{ getid this }}"> 
             <div class="content-a">
               <div class="content-b">
                 {{groupName}}
@@ -164,6 +164,10 @@
     </script>
 
     <script>
+      Handlebars.registerHelper("getid", function(context){
+        return (context.archived) ? context.id: context.groupId;
+      });
+
       Handlebars.registerHelper("type", function(context){
         return (context.archived) ? 'Archive': context.groupType;
       });
