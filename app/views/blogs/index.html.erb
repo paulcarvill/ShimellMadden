@@ -9,7 +9,7 @@
   <% @blogs.each do |blog| %>
     <div class="news-item">
       <aside>
-        <h2><%= blog.date.strftime("%d.%m.%Y")%> </h2>
+        <h2><%= if blog.date then blog.date.strftime("%d.%m.%Y") end %> </h2>
         <h2><%= blog.headline %></h2>
         <%= blog.body.html_safe %> 
       </aside>
