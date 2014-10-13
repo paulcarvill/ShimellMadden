@@ -18,6 +18,7 @@
 //= require ./_waypoints.min.js
 //= require ./waypoints-sticky.min.js
 //= require ./handlebars-v2.0.0.js
+//= require ./enquire.min.js
 
 
 /* make mobile touches faster */
@@ -42,8 +43,6 @@ function doCarousel(){
         $('#my-carousel').addClass('short');
         $('.active').addClass('lessThanThree');
     }
-
-    console.log(items);
 
     var carouselPrev = function(e){
         if (e.which && typeof carouselAuto !== "undefined" && carouselAuto) {
@@ -142,7 +141,23 @@ $(function(){
   
 
     /* sticky header */
-    $('body:not(.home) header nav').waypoint('sticky');
+    enquire.register("screen and (max-width:768px)", {
+      match : function() {
+        $('body:not(.home) .nav-header').waypoint('sticky');
+      },
+      unmatch : function() {
+        $('body:not(.home) .nav-header').waypoint('unsticky');
+      }
+    });
+
+    enquire.register("screen and (min-width:769px)", {
+      match : function() {
+        $('body:not(.home) nav').waypoint('sticky');
+      },
+      unmatch : function() {
+        $('body:not(.home) nav').waypoint('unsticky');
+      }
+    }); 
 
 
     $('#my-carousel').each(doCarousel);

@@ -304,16 +304,22 @@ body header nav {
 	}
 }
 
-@include media($desktop) {
-	.stuck {
-		position: fixed;
-		top: 0;
-		left: 22px;
-		right: 22px;
-		z-index: 20;
-		width: auto;
+
+.stuck {
+	position: fixed;
+	top: 0;
+	left: 22px;
+	right: 22px;
+	z-index: 20;
+	width: auto;
+	background: #fff;
+
+	@include media($mobile) {
+		left: 7px;
+		right: 7px;
 	}
 }
+
 
 .home footer {
 	display: none;

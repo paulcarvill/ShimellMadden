@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
       @collections = Group.where(grouptype: 'Collection')
       render "groups/collections"
     elsif params[:type] == 'projects'
-      @projects = Group.where(grouptype: 'Project').paginate(:page => params[:page], :per_page => 5)
+      @projects = Group.where(grouptype: 'Project', archived: false).paginate(:page => params[:page], :per_page => 5)
       render "groups/projects"      
     end
   end
@@ -50,14 +50,15 @@ class GroupsController < ApplicationController
     @categories = Category.all()
 
     if params['category']
-      @items = Category.find(params['category']).images.joins(:group).where(groups: { archived: true }).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+      @items = Category.find(params['category']).images.where("archived = ?", true ).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
     elsif params['date']
       date = Date.parse(params['date']);
       startofmonth = date.beginning_of_month
       endofmonth = date.end_of_month
-      @items = Image.joins(:group).where("groups.archived = ?", true).where("images.date >= ? and images.date <= ?", startofmonth, endofmonth).order("date DESC").paginate(:page => params[:page], :per_page => 12)
+      @items = Image.where("archived = ?", true).where("date >= ? and date <= ?", startofmonth, endofmonth).order("date DESC").paginate(:page => params[:page], :per_page => 12)
     else
-      @items = Image.joins(:group).where(groups: { archived: true }).paginate(:page => params[:page], :per_page => 12)
+      # show all archive items, paginated
+      @items = Image.where("archived = ?", true).paginate(:page => params[:page], :per_page => 12)
     end
 
     @months = Image.all().order("date DESC").map{|t| t.date != nil ? t.date.strftime("%B %Y") : t.created_at.strftime("%B %Y")}.uniq 

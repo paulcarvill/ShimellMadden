@@ -187,6 +187,7 @@
 
 
     <script>
+
       /* 
        *  this is for infinite scroll
       */
@@ -229,9 +230,24 @@
       $('document').ready(function() {
 
         $('nav').appear();
-        $('header nav').waypoint('sticky');
 
+        enquire.register("screen and (max-width:768px)", {
+          match : function() {
+            $('.nav-header').waypoint('sticky');
+          },
+          unmatch : function() {
+            $('.nav-header').waypoint('unsticky');
+          }
+        });
 
+        enquire.register("screen and (min-width:769px)", {
+          match : function() {
+            $('nav').waypoint('sticky');
+          },
+          unmatch : function() {
+            $('nav').waypoint('unsticky');
+          }
+        });        
 
         $(document.body).on('appear', 'nav', function(e) {
           var $this = $(this);
