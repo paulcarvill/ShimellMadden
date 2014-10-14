@@ -5,4 +5,13 @@ class Group < ActiveRecord::Base
 	
 	OPTIONS = ['Collection', 'Project']
 	#validates_inclusion_of :grouptype, :in => OPTIONS
+
+	before_save :archive_images
+
+	def archive_images
+		self.images.each do |img|
+			img.archived = self.archived
+			img.save
+		end
+	end
 end
