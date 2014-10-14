@@ -44,7 +44,6 @@ ActiveAdmin.register Image do
   end
 
   filter :group
-  config.filters = false
 
   config.filters = true
   permit_params :itemImage, :date, :name, :archived, :description, :homepage, :archive, :group_id, category_ids: []

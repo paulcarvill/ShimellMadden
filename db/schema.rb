@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20141008223108) do
     t.text     "description"
     t.text     "shopifyId"
     t.string   "grouptype",   default: "Collection"
-    t.boolean  "archived"
+    t.boolean  "archived",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20141008223108) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.boolean  "archived"
+    t.boolean  "archived",               default: false
   end
 
   create_table "pages", force: true do |t|

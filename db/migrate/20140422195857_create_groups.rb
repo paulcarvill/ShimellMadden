@@ -5,7 +5,7 @@ class CreateGroups < ActiveRecord::Migration
       t.text :description
       t.text :shopifyId
       t.string :grouptype, :default => "Collection"
-      t.boolean :archived
+      t.boolean :archived, :default => false
       t.timestamps
     end
   end

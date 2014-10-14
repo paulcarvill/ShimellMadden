@@ -3,14 +3,14 @@
 <meta name="twitter:site" content="@Shimell_Madden">
 <meta name="twitter:title" content="<%= @group.name %>">
 <meta name="twitter:description" content="<%= @group.description %>">
-<meta name="twitter:image:src" content="http://178.62.4.10<%= @group.images.first.itemImage.url %>">
+<meta name="twitter:image:src" content="http://178.62.4.10<%= @group.images.first.img_url_large %>">
 <meta name="twitter:domain" content="shimellandmadden.com">
 
 <meta property="og:title" content="<%= @group.name %>" />
 <meta property="og:site_name" content="Shimell and Madden"/>
 <meta property="og:url" content="http://178.62.4.10/collections/<%= @group.id %>" />
 <meta property="og:description" content="<%= @group.description %>" />
-<meta property="og:image" content="http://178.62.4.10<%= @group.images.first.itemImage.url %>" />
+<meta property="og:image" content="http://178.62.4.10<%= @group.images.first.img_url_large %>" />
 <meta property="fb:app_id" content="560942770677358" />
 <meta property="og:type" content="article" />
 <% end %>
@@ -39,7 +39,7 @@
       <% @items.each_with_index do |item, index| %>
         <div class="carousel<% if index == 0 %> active<% end %><% if item.itemImage.height > item.itemImage.width %> talll<% else %> widee<% end %>">
 
-          <div class="imgcontainer <%= item.itemImage.height > item.itemImage.width ? "taller" : "wider" %>" style="background-image: url(<%= item.itemImage.url %>)"></div>
+          <div class="imgcontainer <%= item.itemImage.height > item.itemImage.width ? "taller" : "wider" %>" style="background-image: url(<%= item.img_url_large %>)"></div>
         </div>
       <% end %>
       </div> <!-- end carousel -->

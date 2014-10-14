@@ -2,11 +2,11 @@
   <aside>
     <h2>Archive</h2>
     <h3><%= @item.name %></h3>
-    <p class="desc"><%= @item.date.strftime("%d.%m.%Y") %> <%= @item.description %></p>
+    <p class="desc"><%= if @item.date then @item.date.strftime("%d.%m.%Y") else @item.created_at.strftime("%d.%m.%Y") end %><br /><%= @item.description %></p>
     <p class="topback"><%= link_to 'Back to archive', archive_path %></p>
   </aside>
   <article style="position: relative;">
-    <img src="<%= @item.itemImage.url %>" class="<%= if @item.itemImage.height > @item.itemImage.width then "tall" else "" end %>" />
+    <img src="<%= @item.img_url_large %>" class="<%= if @item.itemImage.height > @item.itemImage.width then "tall" else "" end %>" />
     <p class="bottomback"><%= link_to 'Back to archive', archive_path %></p>
   </article>
 </section>

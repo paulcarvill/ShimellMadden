@@ -8,6 +8,7 @@ ActiveAdmin.register Group do
     column :description
     column :shopifyId
     column :date
+    column :archived
     actions
   end
 
@@ -61,6 +62,8 @@ ActiveAdmin.register Group do
     f.actions
   end
 
-  config.filters = false
+  filter :grouptype, as: :select, collection: [["collection", 'collection'], ["project", 'project']]
+  config.filters = true
+
   permit_params :name, :description, :date, :shopifyId, :archived, :grouptype, images_attributes: [:id, :homepage, :itemImage, :_destroy, category_ids: []]
 end

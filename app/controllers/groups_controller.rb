@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
       @collections = Group.where(grouptype: 'Collection')
       render "groups/collections"
     elsif params[:type] == 'projects'
-      @projects = Group.where(grouptype: 'Project', archived: false).paginate(:page => params[:page], :per_page => 5)
+      @projects = Group.where("grouptype = ? and archived != ?",'Project', true).paginate(:page => params[:page], :per_page => 5)
       render "groups/projects"      
     end
   end

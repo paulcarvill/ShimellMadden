@@ -7,4 +7,12 @@ class Image < ActiveRecord::Base
 
   	validates_attachment_content_type :itemImage, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
 
+  	def img_url_small
+    	itemImage.url(:small)
+	end
+
+	def img_url_large
+    	itemImage.url(:large)
+	end
+
 end
