@@ -30,6 +30,7 @@ window.addEventListener('load', function() {
 /* carousel */
 function doCarousel(el){
     
+    console.log(el);
     var current = 0;
     var items = [];
 
@@ -94,9 +95,13 @@ function doCarousel(el){
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
-    $('.carousel-prev', el).click(carouselPrev);
-
-    $('.carousel-next', el).click(carouselNext)
+    if($('body').hasClass('collections')) {
+        $('.carousel-prev').click(carouselPrev);
+        $('.carousel-next').click(carouselNext)
+    } else {
+        $('.carousel-prev', el).click(carouselPrev);
+        $('.carousel-next', el).click(carouselNext)
+    }
 
     var clas="";
     for (var i = 0; i < items.length; i++) {
