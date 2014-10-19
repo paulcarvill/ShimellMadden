@@ -61,7 +61,11 @@ function doCarousel(el){
         // put next on next element
         (current-1) < 0 ? $(items[items.length-1]).toggleClass('next') : $(items[current-1]).toggleClass('next');
 
-        $('a.curr', el).removeClass('curr');
+        if($('body').hasClass('collections')) {
+            $('a.curr').removeClass('curr');
+        } else {
+            $('a.curr', el).removeClass('curr');
+        }
 
         var indic = $(el).closest('article').find('.indicator');
         $(indic).children('a:eq('+current+')').addClass('curr');
@@ -84,7 +88,11 @@ function doCarousel(el){
         // put next on next element
         (current+1) == items.length ? $(items[0]).toggleClass('next') : $(items[current+1]).toggleClass('next');
 
-        $('a.curr', el).removeClass('curr');
+        if($('body').hasClass('collections')) {
+            $('a.curr').removeClass('curr');
+        } else {
+            $('a.curr', el).removeClass('curr');
+        }
 
         if($('body').hasClass('home')) {
             var indic = $('.indicator');
@@ -109,7 +117,11 @@ function doCarousel(el){
         } else {
             clas = "";
         }
-        $('.indicator', el).append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+        if($('body').hasClass('collections')) {
+            $('.indicator').append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+        } else {
+            $('.indicator', el).append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+        }
     }
 
     if(items.length < 2){

@@ -13,10 +13,10 @@
 	transform:translate3d(0,-100%,0)
 }
 
-.pre-addition {
+.pre-addition,
+.pre-pre-addition {
 	position: absolute;
 	top: 100%;
-	max-width: 1366px;
 	left: 22px;
 	right: 22px;
 	margin: 0 auto;
@@ -26,6 +26,11 @@
 	}
 }
 
+.pre-pre-addition {
+	max-width: 1366px;
+}
+
+
 #homepagelinks {
 	position: absolute;
 	top: 44px;
@@ -33,7 +38,7 @@
 	padding: 0;
 	color: #fff;
 	z-index: 200;
-	font-size: 12px;
+	font-size: 16px;
 	text-align: right;
 	@include media($mobile) {
 		display: none;
@@ -47,7 +52,7 @@
 	padding: 0;
 	color: #fff;
 	z-index: 200;
-	font-size: 12px;
+	font-size: 16px;
 	@include media($mobile) {
 		display: none;
 	}
