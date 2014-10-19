@@ -10,7 +10,7 @@
             <div class="content-a">
               <div class="content-b">
                 <%= project.name %>
-                <hr style="width: 150px; margin: 16px auto;" />
+                <hr>
                 <p><%= if project.date? then project.date.strftime("%Y") else project.created_at.strftime("%Y") end %></p>
               </div>
             </div>
@@ -36,6 +36,8 @@ var item = 6;
 function getItems(pageNumber) {
   $.get('/projects.json?page=' + page, function(resp){
 
+    console.log(resp[0]);
+
     for(var i = 0; i < resp.length; i++) {
       
       // when response arrives, hide progeress indicator
@@ -48,7 +50,9 @@ function getItems(pageNumber) {
         '<a href="/projects/' + resp[i].id + '">' +
         '<div class="not-fullscreen background" style="background-image:url(' + resp[i].large + '); background-size: cover">' +
         '<div class="content-a"><div class="content-b">' + 
-        '<p>Projects</p>' + resp[i].name + '</div></div></div></a><p class="proj-name">' + 
+        resp[i].name + '<hr />' +
+        '<p>' + (resp[i].date ? new Date(resp[i].date).getFullYear() : new Date(resp[i].created_at).getFullYear()) + '</p>' +
+        '</div></div></div></a><p class="proj-name">' + 
         resp[i].name + '</p></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
     }
 

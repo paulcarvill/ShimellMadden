@@ -73,6 +73,11 @@ body.projects .item-2 {
 	text-align: right;
 }
 
+.content-b hr {
+	width: 150px;
+	margin: 16px auto;
+}
+
 
 @include media($desktop) {
 
