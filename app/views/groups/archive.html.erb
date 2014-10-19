@@ -32,8 +32,9 @@
               <a class="overlaylink" href="/archive/<%= item.id %>">
                 <div class="item-overlay">
                   <div class="tc">
-                    <img class="down-triangle" src="<%= asset_path "down-triangle.svg" %>" />
-                    <p><%= if item.group then item.group.name end %></p>
+                    <span><%= item.name %></span>
+                    <hr/>
+                    <%= if item.date? then item.date.strftime("%Y") else item.created_at.strftime("%Y") end %>                 
                   </div>
                 </div>
               </a>

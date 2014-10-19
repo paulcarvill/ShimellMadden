@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.news-item aside p {
+	line-height: 1.8em;
+}
+
+.news-item aside  {
+	overflow-y: scroll;
+}
+
 @include media($desktop) {
 	body .news-item, 
 	body .news-item article {

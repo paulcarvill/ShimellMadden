@@ -78,6 +78,22 @@ body.projects .item-2 {
 	margin: 16px auto;
 }
 
+.tc {
+	color: #fff;
+}
+
+.tc span {
+	color: #f90;
+}
+
+.tc hr {
+	width: 150px;
+	margin: 16px auto;
+}
+
+.projects footer {
+	margin-top: 22px;
+}
 
 @include media($desktop) {
 

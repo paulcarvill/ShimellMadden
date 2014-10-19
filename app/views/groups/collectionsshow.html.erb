@@ -29,7 +29,7 @@
   <section class="blog collection">
     <div class="collection-info">
       <h2><%= @group.name %></h2>
-      <p><%= @group.description %></p>
+      <% if @group.description %><p><%= @group.description %></p><% end %>
       <p><a href="/collections">Back to collections</a></p>
     </div>
     <article style="position: relative">

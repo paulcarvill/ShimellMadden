@@ -386,18 +386,11 @@ body header nav {
 	border: none;
 }
 
-.shortlink {
-	display: none;
-}
-
 @include media($tablet) {
 	.shortlink {
 		display: inline;
 	}
 
-	.longlink {
-		display: none;
-	}
 }
 
 @include media($mobile) {
@@ -405,9 +398,6 @@ body header nav {
 		display: inline;
 	}
 
-	.longlink {
-		display: none;
-	}
 }
 
 .stockists-holder {
