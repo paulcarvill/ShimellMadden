@@ -37,14 +37,11 @@ function doCarousel(el){
         items.push(this)
     })
 
-    console.log(el);
-    console.log(items);
-
     $(items[current+1]).toggleClass('next');
 
     if(items.length < 3) {
         $('.my-carousel', el).addClass('short');
-        $('.active', el).addClass('lessThanThree');
+        //$('.active', el).addClass('lessThanThree');
     }
 
     var carouselPrev = function(e){
