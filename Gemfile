@@ -64,3 +64,4 @@ gem 'active_admin_editor'
 gem 'active_skin'
 
 gem 'shopify_theme'
+gem 'seed_dump'
