@@ -28,20 +28,23 @@ window.addEventListener('load', function() {
 
 
 /* carousel */
-function doCarousel(){
+function doCarousel(el){
     
     var current = 0;
     var items = [];
 
-    $('div.carousel', this).each(function(){
+    $('div.carousel', el).each(function(){
         items.push(this)
     })
+
+    console.log(el);
+    console.log(items);
 
     $(items[current+1]).toggleClass('next');
 
     if(items.length < 3) {
-        $('.my-carousel').addClass('short');
-        $('.active').addClass('lessThanThree');
+        $('.my-carousel', el).addClass('short');
+        $('.active', el).addClass('lessThanThree');
     }
 
     var carouselPrev = function(e){
@@ -55,21 +58,20 @@ function doCarousel(){
           current = items.length - 1
         }
         // take next off next element and put active on it
-        $('.next').toggleClass('next');
+        $('.next', el).toggleClass('next');
         $(items[current]).toggleClass('active');
 
         // put next on next element
         (current-1) < 0 ? $(items[items.length-1]).toggleClass('next') : $(items[current-1]).toggleClass('next');
 
-        $('a.curr').removeClass('curr');
+        $('a.curr', el).removeClass('curr');
 
-        var indic = $(this).closest('article').find('.indicator');
+        var indic = $(el).closest('article').find('.indicator');
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
     var carouselNext = function(e){
 
-        console.log(items);
         if (e.which && typeof carouselAuto !== "undefined" && carouselAuto) {
             window.clearInterval(carouselAuto);
         }
@@ -85,19 +87,19 @@ function doCarousel(){
         // put next on next element
         (current+1) == items.length ? $(items[0]).toggleClass('next') : $(items[current+1]).toggleClass('next');
 
-        $('a.curr').removeClass('curr');
+        $('a.curr', el).removeClass('curr');
 
         if($('body').hasClass('home')) {
             var indic = $('.indicator');
         } else {
-            var indic = $(this).closest('article').find('.indicator');
+            var indic = $(el).closest('article').find('.indicator');
         }
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
-    $('.carousel-prev').click(carouselPrev);
+    $('.carousel-prev', el).click(carouselPrev);
 
-    $('.carousel-next').click(carouselNext)
+    $('.carousel-next', el).click(carouselNext)
 
     var clas="";
     for (var i = 0; i < items.length; i++) {
@@ -106,7 +108,7 @@ function doCarousel(){
         } else {
             clas = "";
         }
-        $('.indicator').append('<a href="#" class="'+clas+'"><span>dot</span></a>');
+        $('.indicator', el).append('<a href="#" class="'+clas+'"><span>dot</span></a>');
     }
 
     if(items.length < 2){
@@ -162,7 +164,9 @@ $(function(){
     }); 
 
 
-    $('.my-carousel').each(doCarousel);
+    $('.my-carousel').each(function(){
+        new doCarousel(this);
+    })
 });
 
 // (function() {

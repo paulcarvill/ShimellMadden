@@ -432,6 +432,9 @@ body {
 
   .talll {
     height: 100%;
+    @include media($desktop) {
+      height: 600px; 
+    }
   }
 
   div.taller {
