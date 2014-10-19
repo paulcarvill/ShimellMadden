@@ -18,7 +18,7 @@
 
       <!-- if multiple images in news item, do a carousel -->
         <% if blog.blogImage1_file_name and blog.blogImage2_file_name %>
-        <div id="my-carousel">
+        <div id="my-carousel" class="my-carousel">
           <div class="carousel active background">
             <%= image_tag blog.img_url1_large %>
           </div>
@@ -89,7 +89,7 @@
           }
 
           if (img1 && img2) {
-            images = '<div id="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3+'</div>';
+            images = '<div id="my-carousel" class="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3+'</div>';
             buttons = '<p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p><p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p><p class="indicator"></p>';
           } else {
             images = img1;
@@ -106,7 +106,7 @@
 
         // run carousel on new items
         var pp = (page*3)-4;
-        $('.news-item:gt('+pp+') #my-carousel').each(doCarousel);
+        $('.news-item:gt('+pp+') .my-carousel').each(doCarousel);
 
       });
 

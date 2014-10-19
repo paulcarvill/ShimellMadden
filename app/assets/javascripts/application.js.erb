@@ -40,7 +40,7 @@ function doCarousel(){
     $(items[current+1]).toggleClass('next');
 
     if(items.length < 3) {
-        $('#my-carousel').addClass('short');
+        $('.my-carousel').addClass('short');
         $('.active').addClass('lessThanThree');
     }
 
@@ -68,6 +68,8 @@ function doCarousel(){
     }
 
     var carouselNext = function(e){
+
+        console.log(items);
         if (e.which && typeof carouselAuto !== "undefined" && carouselAuto) {
             window.clearInterval(carouselAuto);
         }
@@ -160,7 +162,7 @@ $(function(){
     }); 
 
 
-    $('#my-carousel').each(doCarousel);
+    $('.my-carousel').each(doCarousel);
 });
 
 // (function() {

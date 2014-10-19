@@ -21,7 +21,7 @@
           <a target="_blank" href="https://www.facebook.com/pages/Shimell-and-Madden/153510408023083">Facebook</a>
           <a target="_blank" href="https://twitter.com/Shimell_Madden">Twitter</a>
         </p>
-        <div id="my-carousel">
+        <div id="my-carousel" class="my-carousel">
           <% @homepageitems.each_with_index do |item, index| %>
             <style>
               @media (max-width: 600px) { .b-<%=index %> { background-image:url('<%= item.img_url_small %>');  } }

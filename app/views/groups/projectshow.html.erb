@@ -6,7 +6,7 @@
     <p class="topback"><%= link_to 'Back to projects', groups_path %></p>
   </aside>
   <article style="position: relative;">
-    <div id="my-carousel">
+    <div id="my-carousel" class="my-carousel">
       <% @images.each_with_index do |item, index|%>
         <div class="carousel<% if index == 0 %> active<% end %><% if item.itemImage.height > item.itemImage.width %> talll<% else %> widee<% end %>">
           <div style="background-image: url(<%= item.img_url_large %>);" class="<%= item.itemImage.height > item.itemImage.width ? "taller" : "wider" %>" /></div>
