@@ -1,12 +1,36 @@
 class Blog < ActiveRecord::Base
-	has_attached_file :blogImage1
-	has_attached_file :blogImage2
-	has_attached_file :blogImage3
+	has_attached_file :blogImage1, :styles => { :small => "640x400>", :large => "1280x800>" }
+	has_attached_file :blogImage2, :styles => { :small => "640x400>", :large => "1280x800>" }
+	has_attached_file :blogImage3, :styles => { :small => "640x400>", :large => "1280x800>" }
 
 	validates_attachment_content_type :blogImage1, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
   	validates_attachment_content_type :blogImage2, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
   	validates_attachment_content_type :blogImage3, :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"]
 	
+	def img_url1_small
+    	blogImage1.url(:small)
+	end
+
+	def img_url1_large
+    	blogImage1.url(:large)
+	end
+
+	def img_url2_small
+    	blogImage2.url(:small)
+	end
+
+	def img_url2_large
+    	blogImage2.url(:large)
+	end
+
+	def img_url3_small
+    	blogImage3.url(:small)
+	end
+
+	def img_url3_large
+    	blogImage3.url(:large)
+	end
+
 	self.per_page = 3
 	before_save :destroy_image?
 

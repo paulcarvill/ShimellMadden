@@ -20,14 +20,14 @@
         <% if blog.blogImage1_file_name and blog.blogImage2_file_name %>
         <div id="my-carousel">
           <div class="carousel active background">
-            <%= image_tag blog.blogImage1 %>
+            <%= image_tag blog.img_url1_large %>
           </div>
           <div class="carousel background">
-            <%= image_tag blog.blogImage2 %>
+            <%= image_tag blog.img_url2_large %>
           </div>
           <% if blog.blogImage3_file_name %>
             <div class="carousel background">
-              <%= image_tag blog.blogImage3 %>
+              <%= image_tag blog.img_url3_large %>
             </div>
           <% end %>
           <!-- carousel navigation -->
@@ -38,7 +38,7 @@
         <!-- else use a single news item image -->
         <% else %>
           <% if blog.blogImage1_file_name %>
-            <%= image_tag blog.blogImage1 %>
+            <%= image_tag blog.img_url1_large %>
           <% else %>
             <img src="<%= asset_path "about.jpg" %>" />
           <% end %>
