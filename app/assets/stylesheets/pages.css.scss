@@ -269,6 +269,11 @@ body.home .carousel-item img {
 	}
 }
 
+.other #subnav {
+	padding-bottom: 11px;
+	border-bottom: 1px solid #bbb;
+}
+
 #subnav span {
 	display: none;
 }
@@ -376,10 +381,6 @@ body header nav {
 	float: left;
 	width: 33%;
 	margin-bottom: 22px;
-}
-
-.stockists section {
-	border-top: 1px solid $borderColor;
 }
 
 .stockists h2 {
