@@ -34,7 +34,7 @@
                   <div class="tc">
                     <span><%= item.name %></span>
                     <hr/>
-                    <%= if item.date? then item.date.strftime("%Y") else item.created_at.strftime("%Y") end %>                 
+                    <%= if item.date? then item.date.strftime("%Y") else item.created_at.strftime("%Y") end %>
                   </div>
                 </div>
               </a>
@@ -93,8 +93,9 @@ function getItems(pageNumber) {
       $('<div class="archive-item"><div class="table"><div style="display: inline-block; position: relative;">' + 
         '<a href="/archive/' + resp[i].id + '"><img class="image" src="' + resp[i].large + '" style="margin: 0 auto;' + (resp[i].height > resp[i].width ? "height: 220px; width: auto" : "height: auto; width: 100%") + '" /></a>' +
         '<a class="overlaylink" href="/archive/' + resp[i].id + '"><div class="item-overlay"><div class="tc">' + 
-        '<img class="down-triangle" src="'+ assTri +'" />' + 
-        '<p>' + (resp[i].group != undefined ? resp[i].group.name : "" )+ '</p>' + 
+        '<span>' + resp[i].name + '</span><hr/>' +
+        (resp[i].date ? new Date(resp[i].date).getFullYear() : new Date(resp[i].created_at).getFullYear()) +
+        '</div>' + 
         '</div></div></a></div></div></div>').appendTo($('article')).animate({ opacity : 1 }, 1500);
     }
 
