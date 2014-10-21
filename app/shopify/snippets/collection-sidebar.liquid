@@ -1,29 +1,24 @@
 <h1>Shop</h1>
 
-<p>
-{% if collection.handle == 'all' %}
-I am on the automatic or regular /collections/all page.
-{% elsif collection.handle %}
-I am on a regular collection page (smart or custom).
-{% elsif collection.current_type %}
-I am on an automatic product type collection page: {{ collection.current_type }}
-{% elsif collection.current_vendor %}
-I am on an automatic vendor collection page.
-{% endif %}
-</p>
-
-
 {% assign current_coll = collection.title %}
 
 <div class="filters">
 
 {% comment %} ===== LIST TYPES ======= {% endcomment %}
 {% if collections.frontpage.all_types.size > 0 %}
-<h3 class="tog">Type <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
+<h3 class="tog {% if collection.current_type %}{% else %}closed{% endif %}">Type <svg id="icon-dropdown_closed_idle" viewBox="0 0 1024 1024"><path class="path1" d="M512 1024c-281.6 0-512-230.4-512-512s230.4-512 512-512 512 230.4 512 512-230.4 512-512 512zM512 73.143c-241.371 0-438.857 197.486-438.857 438.857s197.486 438.857 438.857 438.857c241.371 0 438.857-197.486 438.857-438.857s-197.486-438.857-438.857-438.857z" />
+  <path class="path2" d="M256 475.429h512v73.143h-512v-73.143z" />
+  <path class="path3" d="M475.429 256h73.143v512h-73.143v-512z" />
+</svg></h3>
 <ul {% if collection.current_type %}{% else %}style="display: none;"{% endif %}>
   {% for type in collections.frontpage.all_types %}
-      <li>
-        {{ type | link_to_type }}{% if collection.current_type == type %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}
+      <li {% if collection.current_type == type %}class="current"{% endif %}>
+        {{ type | link_to_type }}{% if collection.current_type == type %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+          <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
+            <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
+            <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
+          </svg>
+        </a>{% endif %}
       </li>
   {% endfor %}
 </ul>
@@ -31,17 +26,30 @@ I am on an automatic vendor collection page.
 
 
 {% comment %} ===== NEW ARRIVALS ======= {% endcomment %}
-<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a> {% if collection.sort_by == "created-descending" %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</h3>
+<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a> {% if collection.sort_by == "created-descending" %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+  <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
+            <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
+            <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
+          </svg>
+</a>{% endif %}</h3>
 
 
 
 {% comment %} ===== LIST COLLECTIONS ======= {% endcomment %}
-<h3 class="tog">Collections <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
+<h3 class="tog {% if collection.title != "Frontpage" and collection.handle %}{% else %}closed{% endif %}">Collections<svg id="icon-dropdown_closed_idle" viewBox="0 0 1024 1024"><path class="path1" d="M512 1024c-281.6 0-512-230.4-512-512s230.4-512 512-512 512 230.4 512 512-230.4 512-512 512zM512 73.143c-241.371 0-438.857 197.486-438.857 438.857s197.486 438.857 438.857 438.857c241.371 0 438.857-197.486 438.857-438.857s-197.486-438.857-438.857-438.857z" />
+  <path class="path2" d="M256 475.429h512v73.143h-512v-73.143z" />
+  <path class="path3" d="M475.429 256h73.143v512h-73.143v-512z" />
+</svg></h3>
 <ul {% if collection.title != "Frontpage" and collection.handle %}{% else %}style="display: none;"{% endif %}>
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
     {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-      <li><a href="{{ collection.url }}">{{ collection_title }}</a>{% if collection.title == current_coll %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</li>
+      <li {% if collection.title == current_coll %}class="current"{% endif %}><a href="{{ collection.url }}">{{ collection_title }}</a>{% if collection.title == current_coll %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+        <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
+            <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
+            <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
+          </svg>
+      </a>{% endif %}</li>
   {% endunless %}
 {% endfor %}
 </ul>
@@ -50,22 +58,43 @@ I am on an automatic vendor collection page.
 
 {% comment %} ===== LIST PRICES ======= {% endcomment %}
 
-<h3 class="tog">Price range <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
-<ul {% if collection.sort_by and collection.sort_by != "created-descending" and collection.sort_by != "created-ascending" %}{% else %}style="display: none;"{% endif %}>
-  <li><a href="/collections/frontpage?sort_by=price-ascending">Lowest first</a>{% if collection.sort_by == 'price-ascending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</li>
-  <li><a href="/collections/frontpage?sort_by=price-descending">Highest first</a>{% if collection.sort_by == 'price-descending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>{% endif %}</li>
+<h3 class="tog {% if collection.sort_by == 'price-descending' or collection.sort_by == 'price-ascending' %}{% else %}closed{% endif %}">Price range <svg id="icon-dropdown_closed_idle" viewBox="0 0 1024 1024"><path class="path1" d="M512 1024c-281.6 0-512-230.4-512-512s230.4-512 512-512 512 230.4 512 512-230.4 512-512 512zM512 73.143c-241.371 0-438.857 197.486-438.857 438.857s197.486 438.857 438.857 438.857c241.371 0 438.857-197.486 438.857-438.857s-197.486-438.857-438.857-438.857z" />
+  <path class="path2" d="M256 475.429h512v73.143h-512v-73.143z" />
+  <path class="path3" d="M475.429 256h73.143v512h-73.143v-512z" />
+</svg></h3>
+<ul {% if collection.sort_by != 'price-ascending' and collection.sort_by != 'price-descending' %}style="display:none"{% else %}{% endif %}>
+  <li {% if collection.sort_by == 'price-ascending' %}class="current"{% else %}{% endif %}><a href="/collections/frontpage?sort_by=price-ascending">Lowest first</a>{% if collection.sort_by == 'price-ascending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+    <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
+      <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
+      <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
+    </svg>
+  </a>{% endif %}</li>
+  <li {% if collection.sort_by == 'price-descending' %}class="current"{% else %}{% endif %}><a href="/collections/frontpage?sort_by=price-descending">Highest first</a>{% if collection.sort_by == 'price-descending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+    <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
+      <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
+      <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
+    </svg>
+  </a>{% endif %}</li>
 </ul>
 
 
 
 {% comment %} ===== LIST VARIANTS ======= {% endcomment %}
 
-<h3 class="tog">Materials <img style="float: right; padding-top: 3px" class="down-triangle" <img src="{{ 'down-arrow-grey.svg' | asset_url }}" /></h3>
-<ul {% if collection.handle == "frontpage" and collection.sort_by == nil %}{% else %}style="display: none;"{% endif %}>
+<h3 class="tog closed">Materials <svg id="icon-dropdown_closed_idle" viewBox="0 0 1024 1024"><path class="path1" d="M512 1024c-281.6 0-512-230.4-512-512s230.4-512 512-512 512 230.4 512 512-230.4 512-512 512zM512 73.143c-241.371 0-438.857 197.486-438.857 438.857s197.486 438.857 438.857 438.857c241.371 0 438.857-197.486 438.857-438.857s-197.486-438.857-438.857-438.857z" />
+  <path class="path2" d="M256 475.429h512v73.143h-512v-73.143z" />
+  <path class="path3" d="M475.429 256h73.143v512h-73.143v-512z" />
+</svg></h3>
+<ul style="display:none">
     {% for tag in collections.frontpage.all_tags %}
-      <li>
+      <li {% if current_tags contains tag %}class="current"{% else %}{% endif %}>
        {% if current_tags contains tag %}
-        {{ tag }}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">&times;</a>
+        {{ tag }}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+          <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
+            <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
+            <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
+          </svg>
+        </a>
       {% else %}
         <a href="/collections/frontpage/{{ tag | handle }}">{{ tag }}</a>
       {% endif %}

@@ -39,6 +39,7 @@
       <div class="display-table" style="height: 100%;">
         <div class="display-table-cell">
           <p>{{ product.title }}</p>
+          <hr/>
           <p>
             {% if product.price_varies %}From{% endif %}
             {{ product.price | money }}

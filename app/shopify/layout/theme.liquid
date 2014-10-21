@@ -128,16 +128,7 @@
     $(function(){
       var toggle = 0;
       $('.filters>h3.tog').click(function(){
-        if (!$(this).data('toggle')) {
-          $(this).data('toggle', 0);
-        }
-        if ($(this).data('toggle') == 0 ) {
-          $('img', this).attr('src',  '{{ "up-arrow-grey.svg" | asset_url }}' );
-          $(this).data('toggle', 1);
-        } else {
-          $('img', this).attr('src',  '{{ "down-arrow-grey.svg" | asset_url }}' );
-          $(this).data('toggle', 0);
-        }
+        $(this).toggleClass('closed');
         $(this).next().toggle();
       })
     })
