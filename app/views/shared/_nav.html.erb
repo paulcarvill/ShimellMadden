@@ -39,9 +39,10 @@
   <a href="/projects"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'projects' then " class=current" end %>>Projects</a>
   <a href="/about"<%= if controller?("pages") && action?("about", "commissioning", "stockists", "contact")then " class=current" end %>>Information</a>
   <a href="https://shimell-and-madden-2.myshopify.com"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
-  <a href="#" class="totop"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="11.176px" height="10.062px" viewBox="0 0 11.176 10.062" enable-background="new 0 0 11.176 10.062" xml:space="preserve">
-<path fill="#A9A9A9" d="M10.619,10.613L-0.557,10.62L5.046,0.557L10.619,10.613z M2.846,8.618l4.378-0.002l-2.184-3.94L2.846,8.618z
-	"/>
-</svg></a>
+  <a href="#" class="totop">
+  	<svg id="icon-arrow_small_up_idle" viewBox="0 0 1024 1024">
+		<path class="path1" d="M285.257 486.4l51.2 51.2 138.971-149.943v380.343h73.143v-380.343l138.971 149.943 51.2-51.2-226.743-248.686z" />
+		<path class="path2" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857c241.371 0 438.857 197.486 438.857 438.857s-197.486 438.857-438.857 438.857z" />
+	</svg>
+  </a>
 </nav>

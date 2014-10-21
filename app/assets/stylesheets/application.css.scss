@@ -20,7 +20,8 @@ html {
 }
 
 a,
-a:visited {
+a:visited,
+nav a.totop {
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
   	color: $bodyLink;
@@ -31,7 +32,8 @@ a:active {
 }
 
 a:hover,
-.collection-info a:hover {
+.collection-info a:hover,
+nav a.totop:hover {
   	color: $bodyHover;
 }
 
