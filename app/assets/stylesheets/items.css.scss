@@ -27,6 +27,11 @@
 }
 
 .pre-pre-addition {
+	left: 0;
+	right: 0;
+}
+
+.pre-pre-addition {
 	max-width: 1366px;
 }
 
@@ -44,12 +49,10 @@
 		display: none;
 	}
 }
-
-#shoplogo,
 #shoplinks {
 	position: absolute;
 	top: 44px;
-	left: 76px;
+	left: 44px;
 	padding: 0;
 	color: #fff;
 	z-index: 200;
@@ -59,9 +62,8 @@
 	}
 }
 
-#shoplogo {
-	top: 35px;
-	left: 44px;
+#shoplinks svg {
+	vertical-align: middle;	
 }
 
 #shoplinks a,

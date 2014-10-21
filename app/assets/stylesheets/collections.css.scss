@@ -31,10 +31,9 @@
 	width: 9px;
 	height: 9px;
 	border-radius: 50%;
-	border-color: #444;
 	border-style: solid;
-	background: none;
-	border-width: 1px;
+	background: #fff;;
+	border-width: 0;
 	display: inline-block;
 	margin: 0 3px;
 	@include media($mobile) {
@@ -44,8 +43,12 @@
 	}
 }
 
+.project .indicator a:not(.curr) {
+	border-width: 1px;
+}
+
 .indicator a.curr {
-	background: #444;	
+	background: rgb(52, 52, 52);	
 	-webkit-transition: background 1s;
     -moz-transition: background 1s;
     -ms-transition: background 1s;
