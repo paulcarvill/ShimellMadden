@@ -3,7 +3,14 @@
     <h2>Archive</h2>
     <h3><%= @item.name %></h3>
     <p class="desc"><%= if @item.date then @item.date.strftime("%d.%m.%Y") else @item.created_at.strftime("%d.%m.%Y") end %><br /><%= @item.description %></p>
-    <p class="topback"><%= link_to 'Back to archive', archive_path %></p>
+    <p class="topback">
+      <a href="/archive">
+        <svg id="icon-arrow_small_left_idle" viewBox="0 0 1024 1024">
+          <path class="path1" d="M486.4 738.743l51.2-51.2-149.943-138.971h380.343v-73.143h-380.343l149.943-138.971-51.2-51.2-248.686 226.743z" />
+          <path class="path2" d="M0 512c0 281.6 230.4 512 512 512s512-230.4 512-512-230.4-512-512-512-512 230.4-512 512zM950.857 512c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857z" />
+        </svg>Back to archive
+      </a>
+    </p>
   </aside>
   <article style="position: relative;">
     <img src="<%= @item.img_url_large %>" class="<%= if @item.itemImage.height > @item.itemImage.width then "tall" else "" end %>" />

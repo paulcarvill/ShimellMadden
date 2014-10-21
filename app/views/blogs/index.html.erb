@@ -30,9 +30,9 @@
               <%= image_tag blog.img_url3_large %>
             </div>
           <% end %>
-          <!-- carousel navigation -->
-          <p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p>
-          <p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p>
+          
+          <%= render "shared/carouselnav" %>
+
           <p class="indicator"></p>
         </div> <!-- end carousel -->
         <!-- else use a single news item image -->

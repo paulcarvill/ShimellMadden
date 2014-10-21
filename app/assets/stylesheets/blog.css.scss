@@ -6,10 +6,6 @@
 	border: 0;
 }
 
-.news-item aside p {
-	line-height: 1.8em;
-}
-
 @include media($desktop) {
 	body .news-item, 
 	body .news-item article {

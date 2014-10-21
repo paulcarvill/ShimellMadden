@@ -45,10 +45,11 @@
 	}
 }
 
+#shoplogo,
 #shoplinks {
 	position: absolute;
 	top: 44px;
-	left: 44px;
+	left: 76px;
 	padding: 0;
 	color: #fff;
 	z-index: 200;
@@ -56,6 +57,11 @@
 	@include media($mobile) {
 		display: none;
 	}
+}
+
+#shoplogo {
+	top: 35px;
+	left: 44px;
 }
 
 #shoplinks a,
