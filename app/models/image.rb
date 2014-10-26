@@ -15,4 +15,12 @@ class Image < ActiveRecord::Base
     	itemImage.url(:large)
 	end
 
+	before_save :dupe_date
+
+	def dupe_date
+		if !self.date
+			self.date = self.created_at
+		end
+	end
+
 end

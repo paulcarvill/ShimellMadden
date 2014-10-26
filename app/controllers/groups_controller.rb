@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
     @categories = Category.all()
 
     if params['category']
-      @items = Category.find(params['category']).images.where("archived = ?", true ).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+      @items = Category.find(params['category']).images.where("archived = ?", true ).order("date DESC").paginate(:page => params[:page], :per_page => 12)
     elsif params['date']
       date = Date.parse(params['date']);
       startofmonth = date.beginning_of_month
@@ -58,7 +58,7 @@ class GroupsController < ApplicationController
       @items = Image.where("archived = ?", true).where("date >= ? and date <= ?", startofmonth, endofmonth).order("date DESC").paginate(:page => params[:page], :per_page => 12)
     else
       # show all archive items, paginated
-      @items = Image.where("archived = ?", true).paginate(:page => params[:page], :per_page => 12)
+      @items = Image.where("archived = ?", true).order("date DESC").paginate(:page => params[:page], :per_page => 12)
     end
 
     @months = Image.all().order("date DESC").map{|t| t.date != nil ? t.date.strftime("%B %Y") : t.created_at.strftime("%B %Y")}.uniq 
