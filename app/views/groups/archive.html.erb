@@ -5,14 +5,21 @@
     <h2>Archive</h2>
 
     <ul class="category-nav">
-    <li>Category <img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path 'down-arrow-grey.svg'%>" />
+    <li>Category <svg class="status" x="0px" y="0px"
+   viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+<path d="M14,28C6.3,28,0,21.7,0,14S6.3,0,14,0s14,6.3,14,14S21.7,28,14,28z M14,2C7.4,2,2,7.4,2,14
+  c0,6.6,5.4,12,12,12c6.6,0,12-5.4,12-12C26,7.4,20.6,2,14,2z"/><rect x="7" y="13" width="14" height="2"/><rect x="13" y="7" width="2" height="14"/></svg>
+
       <ul <%= if params['category'] == nil then raw('style="display: none"') end %>>
       <% @categories.each do |category| %>
         <li><a href="?category=<%= category.id %>" <%= if category.id.to_s == params['category'] then raw("class='current'") end %>><%= category.name %></a><%= if category.id.to_s == params['category'] then raw('<a style="float:right" class="current" href="/archive">&times;</a>') end %></li>
       <% end %>
       </ul>
     </li>
-    <li>Date <img style="float: right; padding-top: 3px" class="down-triangle" src="<%= asset_path 'down-arrow-grey.svg'%>" />
+    <li>Date <svg class="status" x="0px" y="0px"
+   viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+<path d="M14,28C6.3,28,0,21.7,0,14S6.3,0,14,0s14,6.3,14,14S21.7,28,14,28z M14,2C7.4,2,2,7.4,2,14
+  c0,6.6,5.4,12,12,12c6.6,0,12-5.4,12-12C26,7.4,20.6,2,14,2z"/><rect x="7" y="13" width="14" height="2"/><rect x="13" y="7" width="2" height="14"/></svg>
       <ul <%= if params['date'] == nil then raw('style="display: none"') end %>>
         <% @months.each do | month | %>
           <li><a href="?date=<%= month %>" <%= if month == params['date'] then raw("class='current'") end %>><%= month %></a><%= if month == params['date'] then raw('<a style="float:right" class="current" href="/archive">&times;</a>') end %></li>
@@ -52,16 +59,7 @@
 $(function(){
   var toggle = 0;
   $('.category-nav>li').click(function(){
-    if (!$(this).data('toggle')) {
-      $(this).data('toggle', 0);
-    }
-    if ($(this).data('toggle') == 0 ) {
-      $('img', this).attr('src', '<%= asset_path "up-arrow-grey.svg" %>');
-      $(this).data('toggle', 1);
-    } else {
-      $('img', this).attr('src', '<%= asset_path "down-arrow-grey.svg" %>');
-      $(this).data('toggle', 0);
-    }
+    $(this).toggleClass('open');
     $(this).closest('li').find('ul').toggle();
   })
 

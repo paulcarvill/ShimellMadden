@@ -11,6 +11,7 @@ ActiveAdmin.register Image do
       image_tag(image.itemImage.url(:small), width: '50%')
     end
     column :homepage
+    column :tile
     actions
   end
 
@@ -38,6 +39,7 @@ ActiveAdmin.register Image do
       f.input :categories
       f.input :date
       f.input :archived
+      f.input :tile
     end
 
     f.actions
@@ -46,5 +48,5 @@ ActiveAdmin.register Image do
   filter :group
 
   config.filters = true
-  permit_params :itemImage, :date, :name, :archived, :description, :homepage, :archive, :group_id, category_ids: []
+  permit_params :itemImage, :date, :name, :archived, :description, :homepage, :archive, :group_id, :tile, category_ids: []
 end

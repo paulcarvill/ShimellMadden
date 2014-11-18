@@ -29,7 +29,7 @@ window.addEventListener('load', function() {
 
 /* carousel */
 function doCarousel(el){
-    
+    console.log(el);
     var current = 0;
     var items = [];
 
@@ -41,7 +41,6 @@ function doCarousel(el){
 
     if(items.length < 3) {
         $('.my-carousel', el).addClass('short');
-        //$('.active', el).addClass('lessThanThree');
     }
 
     var carouselPrev = function(e){
@@ -115,6 +114,7 @@ function doCarousel(el){
     if($('body').is('.collections, .project')) {
         indic = $('.indicator');
     } else {
+
         indic = $('.indicator', el);
     }
 
@@ -181,54 +181,6 @@ $(function(){
 
 
     $('.my-carousel').each(function(){
-        new doCarousel(this);
+        doCarousel(this);
     })
 });
-
-// (function() {
-
-//   var css_href = '/fonts.css',
-//       isCached = window.localStorage && localStorage.font_css_cache;
-      
-//   function onEvent(el, event, callback) {
-//      if (el.addEventListener) {
-//         el.addEventListener(event, callback);
-//      } else if (el.attachEvent) {
-//         el.attachEvent('on' + event, callback);
-//      }
-//   }
-  
-//   function injectStyle(text) {
-//      var style = document.createElement('style');
-//      document.getElementsByTagName('head')[0].appendChild(style);
-//      if (style.styleSheet) {
-//         style.styleSheet.cssText = text;
-//      } else {
-//         style.innerHTML = text;
-//      }
-//   }
-
-//   function loadFonts() {
-//      if (isCached && (localStorage.font_css_cache_file === css_href)) {
-//         injectStyle(localStorage.font_css_cache);
-//      } else {
-//         var xhr = new XMLHttpRequest();
-//         xhr.open('GET', css_href, true);
-//         onEvent(xhr, 'load', function() {
-//            if (xhr.readyState === 4) {
-//               injectStyle(xhr.responseText);
-//               localStorage.font_css_cache = xhr.responseText;
-//               localStorage.font_css_cache_file = css_href;
-//            }
-//         });
-//         xhr.send();
-//      }
-//   }
-
-//   if (isCached) {
-//      loadFonts();
-//   } else {
-//      onEvent(window, 'load', loadFonts);
-//   }
-
-// })();

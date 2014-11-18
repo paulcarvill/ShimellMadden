@@ -26,15 +26,15 @@
             <%= image_tag blog.img_url2_large %>
           </div>
           <% if blog.blogImage3_file_name %>
-            <div class="carousel background">
-              <%= image_tag blog.img_url3_large %>
-            </div>
+          <div class="carousel background">
+            <%= image_tag blog.img_url3_large %>
+          </div>
           <% end %>
           
           <%= render "shared/carouselnav" %>
 
           <p class="indicator"></p>
-        </div> <!-- end carousel -->
+        </div> <!-- end my-carousel -->
         <!-- else use a single news item image -->
         <% else %>
           <% if blog.blogImage1_file_name %>
@@ -89,8 +89,8 @@
           }
 
           if (img1 && img2) {
-            images = '<div id="my-carousel" class="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3+'</div>';
-            buttons = '<p class="carousel-prev"><img src="<%= asset_path "left-arrow.svg"%>" alt="&laquo;" style="height:100%" /></p><p class="carousel-next"><img src="<%= asset_path "right-arrow.svg"%>" alt="&raquo;" style="height:100%" /></p><p class="indicator"></p>';
+            images = '<div id="my-carousel" class="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3;
+            buttons = '<p class="carousel-prev"><svg id="icon-arrow_big_left_idle" viewBox="0 0 1024 1024"><path class="path1" d="M1024 512c0 282.77-229.23 512-512 512s-512-229.23-512-512c0-282.77 229.23-512 512-512s512 229.23 512 512z" /><path class="path2" d="M689.231 764.062l-454.892-252.062 454.892-252.062v504.123zM317.046 512l332.8 185.108v-370.215l-332.8 185.108z" /></svg></p><p class="carousel-next"><svg id="icon-arrow_big_right_idle" viewBox="0 0 1024 1024"><path class="path1" d="M1024 512c0 282.77-229.23 512-512 512s-512-229.23-512-512c0-282.77 229.23-512 512-512s512 229.23 512 512z" /><path class="path2" d="M334.769 259.938l454.892 252.062-454.892 252.062v-504.123zM374.154 326.892v370.215l332.8-185.108-332.8-185.108z" /></svg></p><p class="indicator"></p></div>';
           } else {
             images = img1;
           }
@@ -105,8 +105,10 @@
         }
 
         // run carousel on new items
-        var pp = (page*3)-4;
-        $('.news-item:gt('+pp+') .my-carousel').each(doCarousel);
+        var pp = (page-1)*3;
+        $('.news-item:gt('+pp+') .my-carousel').each(function(){
+          doCarousel(this);
+        });
 
       });
 

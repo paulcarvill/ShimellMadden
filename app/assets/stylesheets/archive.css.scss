@@ -241,6 +241,22 @@ body .inside-inside {
 	display: table-cell;
 }
 
+.status {
+	float: right;
+	width: 20px;
+	height: 20px;
+	color: #888;
+	fill: currentcolor;;
+}
+
+.status:hover {
+	color: #f90;
+}
+
+.category-nav li.open rect:nth-of-type(2) {
+	display: none;
+}
+
 @include media($mobile) {
 	ul li ul {
 		display: none;

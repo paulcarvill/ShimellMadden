@@ -29,6 +29,15 @@
         {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
         <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="productPhotoImg">
       
+        {% if collection %}
+        <div style="width: 100%; margin-top: 16px; border-top: 1px solid #444;">
+        {% if collection.previous_product %}<a style="float: left" href="{{collection.previous_product }}">Previous</a>{% endif %}
+        <a href="/" style="display: inline; margin: 0 auto;">Back to shop</a>
+        {% if collection.next_product %}{% if collection.previous_product %}{% endif %}<a style="float: right" href="{{collection.next_product }}">Next</a>
+        {% endif %}
+        </div>
+   {% endif %}
+
         {% comment %}
         Create thumbnails if we have more than one product image
         {% endcomment %}
@@ -139,6 +148,7 @@
           <p>UK orders are sent via Royal Mail Special Delivery&trade;</p>
           <p>International orders are sent via Royal Mail International Signed For&trade;</p>
         </div>
+
     </div>
   </div>
 </div>
