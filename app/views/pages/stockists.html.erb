@@ -4,12 +4,18 @@
 </div>
 <% end %>
 
+<% content_for :infopagetop do %>
+<div style="width: 100%; height: 400px; display: block; float: none; clear: left; background-image: url(<%= asset_path "22_crop.jpg" %>); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; text-align: center; display: table">
+  <h2 style="display: table-cell; vertical-align: middle; color: #fff; font-size: 2em">Stockists</h2>
+</div>
+<% end %>
+
 <section class="blog contact info stockists">
   <aside>
     <h2>Stockists</h2>
     <div>
     <% @stockists.group_by(&:region).each do |region, stockists| %>
-      <p><a href="/stockists?region=<%= region.id %>"><%= region.name %></a> (<%= stockists.count %>)</p>
+      <p><a href="/stockists?region=<%= region.id %>"><%= region.name %></a> - <%= stockists.count %></p>
     <% end %>
     </div>
   </aside>

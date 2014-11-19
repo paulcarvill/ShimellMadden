@@ -116,13 +116,18 @@ h2 {
 	margin-bottom: 0;
 }
 
-aside p {
+aside p,
+.info article div p {
 	padding-top: 8px;
 	line-height: 1.5em;
 
 	@include media($mobile) {
 		line-height: 1.3em;
 	}
+}
+
+.info article h2 {
+	border: 0;
 }
 
 aside .tel em {
