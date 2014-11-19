@@ -232,8 +232,29 @@ body .lessThanThree {
 	cursor: pointer;
 }
 
+.collections .item-overlay:hover {
+	opacity: 1;
+}
+
+.collection-box {
+	float: left;
+	padding: 0;
+	margin: 0;
+	width: 50%;
+	height: 50%;
+}
+
 @include media($mobile) {
 
+	.collection-box {
+		width: 100%;
+		height: 300px;
+	}
+
+	.collections .tc {
+		display: table-cell;
+	}
+	
 	.collections #subnav,
 	.collection #subnav,
 	.collections .carousel-prev,
@@ -426,6 +447,10 @@ body .lessThanThree {
 
 	.collections article .carousel-item .collections-info h2 a {
 		color: #ff7e15;
+	}
+
+	.collections .tc {
+		display: table-cell;
 	}
 }
 
