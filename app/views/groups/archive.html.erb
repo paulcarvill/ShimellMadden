@@ -32,9 +32,9 @@
   <article>
     <% @items.each_with_index do |item, index| %>
       <div class="archive-item">
-        <div class="table">
-            <div style="display: inline-block; position: relative;">
-              <a href="/archive/<%= item.id %>"><img class="image" src="<%= asset_path item.img_url_large %>" style="margin: 0 auto; <%= if item.itemImage.height > item.itemImage.width then "height: 220px; width: auto" else "height: auto; width: 100%" end %>" /></a>
+        <div class="table" style="width: 100%;">
+            <div style="display: inline-block; position: relative; width: 100%;">
+              <a href="/archive/<%= item.id %>"><div class="image" style="display: block; height: 100%; width: 100%; background-image: url(<%= asset_path item.img_url_large %>); margin: 0 auto; height: 200px; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%" /></div></a>
               <!-- info overlay -->
               <a class="overlaylink" href="/archive/<%= item.id %>">
                 <div class="item-overlay">
