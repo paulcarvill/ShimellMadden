@@ -61,7 +61,7 @@ class GroupsController < ApplicationController
       @items = Image.where("archived = ?", true).order("date DESC").paginate(:page => params[:page], :per_page => 12)
     end
 
-    @months = Image.all().order("date DESC").map{|t| t.date != nil ? t.date.strftime("%B %Y") : t.created_at.strftime("%B %Y")}.uniq 
+    @months = Image.all().order("date DESC").map{|t| t.date.strftime("%B %Y")}.uniq 
     render "groups/archive"
   end
 
