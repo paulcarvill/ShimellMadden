@@ -519,9 +519,15 @@ body .lessThanThree {
 		height: 100%;
 	}
 
-	body.collection div.imgcontainer {
+	body.collection div.imgcontainer,
+	body.collections div.imgcontainer {
 		background-size: cover;
 		background-position: 50% 50%; 
+	}
+
+	body.collections div.imgcontainer {
+		width: 100%;
+		height: 100%;
 	}
 
 	div.talll div.imgcontainer {
