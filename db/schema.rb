@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117225826) do
+ActiveRecord::Schema.define(version: 20141123201850) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20141117225826) do
     t.date     "date"
     t.boolean  "archived",               default: false
     t.boolean  "tile"
+    t.integer  "weight",                 default: 0
   end
 
   create_table "pages", force: true do |t|

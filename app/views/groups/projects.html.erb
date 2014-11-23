@@ -6,7 +6,7 @@
     <% @projects.each_with_index do |project, index| %>
       <div class="item item-<%= index+1 %>">
         <%= link_to group_path(project, type: "projects") do %>
-          <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.img_url_large %>'); background-size: cover">
+          <div class="not-fullscreen background" style="background-image:url('<%= project.images.first.img_url_large %>'); background-size: cover; background-position: 50% <%= if project.images.first.weight == 0 then "50%" elsif project.images.first.weight ==  1 then "0" else "100%" end %>">
             <div class="content-a">
               <div class="content-b">
                 <%= project.name %>
@@ -32,11 +32,10 @@
 */
 var page = 1;
 var item = 6;
+var weights = [50, 0, 100];
 
 function getItems(pageNumber) {
   $.get('/projects.json?page=' + page, function(resp){
-
-    console.log(resp[0]);
 
     for(var i = 0; i < resp.length; i++) {
       
@@ -48,7 +47,7 @@ function getItems(pageNumber) {
       // add new archive items to page 
       $('<div class="item item-' + (i+1) + '">' + 
         '<a href="/projects/' + resp[i].id + '">' +
-        '<div class="not-fullscreen background" style="background-image:url(' + resp[i].large + '); background-size: cover">' +
+        '<div class="not-fullscreen background" style="background-image:url(' + resp[i].large + '); background-size: cover; background-position: 50% '+ weights[resp[i].weight] +'%;">' +
         '<div class="content-a"><div class="content-b">' + 
         resp[i].name + '<hr />' +
         '<p>' + (resp[i].date ? new Date(resp[i].date).getFullYear() : new Date(resp[i].created_at).getFullYear()) + '</p>' +

@@ -51,7 +51,7 @@ ActiveAdmin.register Blog, as: "News story" do
   form do |f|
     f.inputs 'Details' do
       f.input :headline, :as => :string
-      f.input :body
+      f.input :body, as: :html_editor
       f.input :date
     end
 

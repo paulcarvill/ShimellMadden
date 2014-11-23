@@ -54,6 +54,9 @@ ActiveAdmin.register Group do
         p.input :_destroy, :as=>:boolean, :required => false, :label => 'Remove image'
         p.input :homepage, :as=>:boolean, :required => false, :label => 'Add to homepage carousel?'
         p.input :categories
+        p.inputs 'Weight image to top or bottom?' do
+          p.input :weight, :collection => Image::OPTIONS, :as => :select, include_blank: false
+        end
         end
       end
 
@@ -65,5 +68,5 @@ ActiveAdmin.register Group do
   filter :grouptype, as: :select, collection: [["collection", 'collection'], ["project", 'project']]
   config.filters = true
 
-  permit_params :name, :description, :date, :shopifyId, :archived, :grouptype, images_attributes: [:id, :homepage, :itemImage, :_destroy, category_ids: []]
+  permit_params :name, :description, :date, :shopifyId, :archived, :grouptype, images_attributes: [:id, :homepage, :itemImage, :_destroy, :weight, category_ids: []]
 end

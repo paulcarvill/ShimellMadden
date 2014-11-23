@@ -1,5 +1,5 @@
 json.array!(@items) do |item|
-  json.extract! item, :id, :homepage
+  json.extract! item, :id, :homepage, :weight
 
   json.small item.img_url_small
   json.large item.img_url_large

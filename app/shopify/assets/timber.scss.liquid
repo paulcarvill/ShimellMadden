@@ -116,7 +116,7 @@ $errorRedBg: lighten($errorRed, 55%);
 $successGreen: #0a942a;
 
 // Width variables
-$siteWidth: 1180px;
+$siteWidth: 1366px;
 $gutter: 22px;
 $gridGutter: 22px; // can be a %, but nested grids will have smaller margins because of it
 
@@ -2164,7 +2164,7 @@ body nav {
 body header nav {
   padding-bottom: 10px;
   height: 55px;
-  padding-top: 14px;
+  padding-top: 12px;
 }
 
 @include at-query ($max, $small) {
@@ -2216,7 +2216,7 @@ nav a,
 
 nav a,
 .filters {
-  font-size: 1.1em;
+  font-size: 1.125em;
 }
 
 
@@ -2668,3 +2668,9 @@ h3[data-toggle='1'] {
 .tog.closed + ul {
   display: none;
 }
+
+header svg {
+  margin-top: 30px;
+  margin-bottom: 6px;
+}
+

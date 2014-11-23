@@ -40,6 +40,9 @@ ActiveAdmin.register Image do
       f.input :date
       f.input :archived
       f.input :tile
+      f.inputs 'Weight image to top or bottom?' do
+        f.input :weight, :collection => Image::OPTIONS, :as => :select, include_blank: false
+      end
     end
 
     f.actions
@@ -48,5 +51,5 @@ ActiveAdmin.register Image do
   filter :group
 
   config.filters = true
-  permit_params :itemImage, :date, :name, :archived, :description, :homepage, :archive, :group_id, :tile, category_ids: []
+  permit_params :itemImage, :date, :name, :archived, :description, :homepage, :archive, :group_id, :tile, :weight, category_ids: []
 end
