@@ -266,6 +266,30 @@
         });
       }
       
+      function doTransition(e) {
+        var x = $('#my-carousel');
+        var y = $('.pre-addition');
+
+        x.addClass('remove');
+        y.addClass('addition');
+
+        e.preventDefault();
+
+        changeHome = window.setTimeout(function(){
+
+          $('body').addClass('items');
+
+          x.remove();
+          
+          $('#navigation').animate({ opacity : 1 }, function(){
+            $('header nav').waypoint('sticky');
+          })
+
+          getItems(page);
+        }, 1000)
+
+      }
+
 
       // this sets up the element we watch to check when it enters the viewport
       // so we can load more content. in our case it's the footer
@@ -290,6 +314,9 @@
             $('nav').waypoint('unsticky');
           }
         });        
+
+        // transition from 'homepage' carousel to list of all items
+        $('h1').click(doTransition);
 
         $(document.body).on('appear', 'nav', function(e) {
           var $this = $(this);
