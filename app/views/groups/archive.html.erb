@@ -34,7 +34,7 @@
       <div class="archive-item">
         <div class="table" style="width: 100%;">
             <div style="display: inline-block; position: relative; width: 100%;">
-              <a href="/archive/<%= item.id %>"><div class="image" style="display: block; height: 100%; width: 100%; background-image: url(<%= asset_path item.img_url_large %>); margin: 0 auto; height: 200px; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%" /></div></a>
+              <a href="/archive/<%= item.id %>"><div class="image" style="display: block; height: 100%; width: 100%; background-image: url(<%= asset_path item.img_url_large %>); margin: 0 auto; height: 200px; background-size: cover; background-repeat: no-repeat;  background-position: 50% <%= if item.weight == 0 then "50%" elsif item.weight ==  1 then "0" else "100%" end %>" /></div></a>
               <!-- info overlay -->
               <a class="overlaylink" href="/archive/<%= item.id %>">
                 <div class="item-overlay">
@@ -76,6 +76,7 @@ $(function(){
 var page = 1;
 var item = 6;
 var assTri = '<%= asset_path 'down-triangle.svg' %>';
+var weights = [50, 0, 100];
 
 function getItems(pageNumber) {
   $.get('/archive.json?page=' + page, function(resp){
@@ -88,8 +89,13 @@ function getItems(pageNumber) {
       })
       
       // add new archive items to page 
-      $('<div class="archive-item"><div class="table"><div style="display: inline-block; position: relative;">' + 
-        '<a href="/archive/' + resp[i].id + '"><img class="image" src="' + resp[i].large + '" style="margin: 0 auto;' + (resp[i].height > resp[i].width ? "height: 220px; width: auto" : "height: auto; width: 100%") + '" /></a>' +
+      $('<div class="archive-item"><div class="table"><div style="display: inline-block; position: relative; width: 100%">' + 
+        '<a href="/archive/' + resp[i].id + '">' +
+
+        '<div class="image" style="display: block; height: 100%; width: 100%; background-image: url('+resp[i].small+'); margin: 0 auto; height: 200px; background-size: cover; background-repeat: no-repeat;  background-position: 50%  ' + (item.weight == 0 ? "50%" : item.weight ==  1 ? "0" : "100%") + '" /></div>' +
+
+
+        '</a>' +
         '<a class="overlaylink" href="/archive/' + resp[i].id + '"><div class="item-overlay"><div class="tc">' + 
         '<span>' + resp[i].name + '</span><hr/>' +
         (resp[i].date ? new Date(resp[i].date).getFullYear() : new Date(resp[i].created_at).getFullYear()) +

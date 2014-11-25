@@ -35,7 +35,7 @@ ActiveAdmin.register Group do
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs 'Collection/Project details' do
       f.input :name, :as => :string
-      f.input :description, :as => :string
+      f.input :description, as: :html_editor
       f.input :shopifyId, :as => :string
       f.input :date
     end
