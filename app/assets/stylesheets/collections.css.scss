@@ -170,12 +170,24 @@ p.indicator {
 	.collection footer {
 		display: none;
 	}
+	.collection-box>span {
+		display: none;
+	}
 }
 
 @include media($tablet) {
 	.collections footer,
 	.collection footer {
 		display: none;
+	}
+	.imgcontainer {
+		height: 341px;
+		background-size: cover;
+	}
+	.collection-box>span {
+		display: block;
+		text-align: center;
+		padding-top: 12px;
 	}
 }
 
@@ -420,7 +432,17 @@ body .lessThanThree {
 	z-index: 5;
 }
 
+.collections .table {
+	display: block;
+	height: 100%;
+}
+
 @include media($tablet) {
+
+	.collections .tc {
+		display: none;
+	}
+
 	.collections .carousel-item {
 		display: block;
 		margin: 0 0 15px 0;
@@ -447,10 +469,6 @@ body .lessThanThree {
 
 	.collections article .carousel-item .collections-info h2 a {
 		color: #ff7e15;
-	}
-
-	.collections .tc {
-		display: table-cell;
 	}
 }
 
@@ -599,6 +617,16 @@ body .lessThanThree {
 }
 
 @include media($mobile) {
+	.collections .tc {
+		display: none;
+	}
+
+	.collection-box>span {
+		display: block;
+		text-align: center;
+		padding-top: 12px;
+	}
+
 	.imgcontainer {
 		height: 241px;
 		background-size: cover;

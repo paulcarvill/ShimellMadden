@@ -2,42 +2,25 @@
   <section class="blog collections">
     <article style="position: relative">
 
-
-
         <% @collections.each_with_index do |collection, index| %>
 
         <div class="collection-box">
           <div class="imgcontainer" style="background-image: url(<%= collection.images.first.img_url_large %>)">
-            <div class="table" style="display: block; height: 100%">
-              <!-- info overlay -->
-                <a class="overlaylink" href="/collections/<%= collection.id %>">
-                  <div class="item-overlay" style="height:100%;">
-                    <div class="tc" style="height:100%">
-                      <span style="color: #fff"><%= collection.name %></span>
-                      <hr/>
-                      <%= collection.description.html_safe %>
-                    </div>
+            <div class="table">
+              <a class="overlaylink" href="/collections/<%= collection.id %>">
+                <div class="item-overlay" style="height:100%;">
+                  <div class="tc" style="height:100%">
+                    <span style="color: #fff"><%= collection.name %></span>
+                    <hr/>
+                    <%= collection.description.html_safe %>
                   </div>
-                </a>
-              </div>
+                </div>
+              </a>
             </div>
+          </div>
+          <span><%= collection.name %></span>
         </div>
-
         <% end %>
-
-
-
-
     </article>
   </section>
 </div>
-
-<% content_for :perpagejs do %>
-<script>
-    if (!Modernizr.touch) {
-      carouselAuto = window.setInterval(function(){
-        //$('.carousel-next').click();
-      }, 4000);
-    }
-</script>
-<% end %>
