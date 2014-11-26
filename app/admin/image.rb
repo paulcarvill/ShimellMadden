@@ -12,6 +12,9 @@ ActiveAdmin.register Image do
     end
     column :homepage
     column :tile
+    column "dimensions" do |image|
+      "w: #{image.itemImage.width}, h: #{image.itemImage.height}"
+    end
     actions
   end
 
@@ -25,6 +28,8 @@ ActiveAdmin.register Image do
     div do
         image_tag(image.itemImage.url, width: '50%')
     end
+    h3 image.itemImage.width
+    h3 image.itemImage.height
   end
 
   form do |f|
