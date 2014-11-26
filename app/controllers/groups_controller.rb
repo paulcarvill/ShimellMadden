@@ -37,10 +37,7 @@ class GroupsController < ApplicationController
         end
       end
 
-      # if there is more than one image, and they're not ALL tall (so they are mixed height), and the last one IS tall, move it
-      if @images.length > 1 && numWider != nil && @images.last.itemImage.height > @images.last.itemImage.width
-        @images.to_a.insert(@images.length-1, @images.to_a.delete_at(numWider))
-      end
+      
       render "groups/projectshow"
     end
   end
