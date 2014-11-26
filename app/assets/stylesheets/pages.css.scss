@@ -58,6 +58,9 @@ div, h1 {
 	#next span {
 		display: none;
 	}
+	.logotype {
+		display: none;
+	}
 }
 
 @include media($footerlinksshow) {
@@ -186,6 +189,9 @@ h1 svg {
 	width: 56%;
 	max-width: 800px;
 	cursor: pointer;
+	@include media($tablet) {
+		width: auto;
+	}
 }
 
 .home .content-b h2 {
