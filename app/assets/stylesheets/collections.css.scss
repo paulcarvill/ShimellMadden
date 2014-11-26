@@ -437,6 +437,12 @@ body .lessThanThree {
 	height: 100%;
 }
 
+body.collection div.imgcontainer,
+body.collections div.imgcontainer {
+	background-size: cover;
+	background-position: 50% 50%; 
+}
+	
 @include media($tablet) {
 
 	.collections .tc {
@@ -535,12 +541,6 @@ body .lessThanThree {
 		width: 100%;
 		padding-left: 0;
 		height: 100%;
-	}
-
-	body.collection div.imgcontainer,
-	body.collections div.imgcontainer {
-		background-size: cover;
-		background-position: 50% 50%; 
 	}
 
 	body.collections div.imgcontainer {
