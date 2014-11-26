@@ -33,55 +33,17 @@
               <h1><%= render 'shared/logotype' %><%= render 'shared/logo' %></h1>
             </div>
           </div>
-          <p class="carousel-prev">
-            <svg id="icon-arrow_big_left_idle" viewBox="0 0 1024 1024">
-              <path class="path1" d="M1024 512c0 282.77-229.23 512-512 512s-512-229.23-512-512c0-282.77 229.23-512 512-512s512 229.23 512 512z" />
-              <path class="path2" d="M689.231 764.062l-454.892-252.062 454.892-252.062v504.123zM317.046 512l332.8 185.108v-370.215l-332.8 185.108z" />
-            </svg>
-          </p>
-          <p class="carousel-next">
-            <svg id="icon-arrow_big_right_idle" viewBox="0 0 1024 1024">                
-                <path class="path1" d="M1024 512c0 282.77-229.23 512-512 512s-512-229.23-512-512c0-282.77 229.23-512 512-512s512 229.23 512 512z" />
-                <path class="path2" d="M334.769 259.938l454.892 252.062-454.892 252.062v-504.123zM374.154 326.892v370.215l332.8-185.108-332.8-185.108z" />
-            </svg>
-          </p>
+          <p class="carousel-prev"><%= render 'shared/rightarrow' %></p>
+          <p class="carousel-next"><%= render 'shared/leftarrow' %></p>
           <p class="indicator"></p>
         </div> <!-- end carousel -->
 
         <div class="pre-addition">
-          <div id="navigation">
-            <header>
-              <p class="nav-header"><span><%= nav() %></span>
-                <svg id="closed" style="position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" width="22" height="14" x="0px" y="0px" width="22px" height="14px" viewBox="0 0 22 14" enable-background="new 0 0 22 14" xml:space="preserve">
-                  <g>
-                    <g>
-                      <rect fill="#9A9999" width="22" height="2"/>
-                      <rect y="6" fill="#9A9999" width="22" height="2"/>
-                      <rect y="12" fill="#9A9999" width="22" height="2"/>
-                    </g>
-                  </g>
-                </svg>
-                <svg id="open" style="display: none; position: absolute; right: 0; top: 14px; padding: 0; margin: 0;" width="22" height="14" x="0px" y="0px" width="22px" height="14px" viewBox="0 0 22 14" enable-background="new 0 0 22 14" xml:space="preserve">
-                  <rect fill="#FFFFFF" width="22" height="2"/>
-                  <rect y="6" fill="#9A9999" width="22" height="2"/>
-                  <rect y="12" fill="#FFFFFF" width="22" height="2"/>
-                </svg>
-              </p>
-              <nav>
-                <a href="/collections"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'collections' then " class=current" end %>>Collections</a>
-                <a href="/archive"<%= if controller?("groups") && action?("archive", "archiveshow") then " class=current" end %>>Archive</a>
-                <a href="/projects"<%= if controller?("groups") && action?("index", "show") && params[:type] == 'projects' then " class=current" end %>>Projects</a>
-                <a href="/about"<%= if controller?("pages") && action?("about", "show") or action?("commissioning", "show") or action?("stockists", "show") or action?("contact", "show")then " class=current" end %>>Information</a>
-                <a href="https://shimell-and-madden-2.myshopify.com"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
-                <a href="#" class="totop"><%= render 'shared/arrowupidle' %></a>
-              </nav>
-            </header>
-            <%= yield :subnav %>
-          </div>
+          <%= render 'shared/sitenav', :logo => false %>
           <div class="pre-pre-addition">
             <article style="margin-top: 22px;">
-              <div id="progress" style="display: none; float: left; width: 100%;height: 100%;clear:both;text-align:center; margin: 200px 0 200px 0">
-                <img src="<%= asset_path "progress.gif" %>" style="float: none; width:22px;height:22px; margin: 0 auto;" />
+              <div id="progress">
+                <img src="<%= asset_path "progress.gif" %>" />
               </div>
             </article>
           <%= render "shared/footer" %>
@@ -91,62 +53,8 @@
     </div>
 
     <% content_for :perpagejs do %>
-
-    <!-- ****************************
-    *    HANDLEBARS TEMPLATING SHIZ
-    ********************************* -->
-    <script id="item-list-template" type="text/x-handlebars-template">
-      <div style="opacity: 0;" class="item item-{{num}}">
-        <div class="not-fullscreen background" style="background-image:url({{large}}); background-size: cover; background-position: 50% {{ position this }}">
-          <a href="/{{ url this }}/{{ getid this }}"> 
-            <div class="content-a">
-              <div class="content-b">
-                {{groupName}}
-                <hr style="width: 150px; margin: 16px auto;">
-                <p>{{ type this }}</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <p class="proj-name">{{ type this }}: {{groupName}}</p>
-      </div>
-    </script>
-
+    <%= render 'shared/handlebars' %>
     <script>
-      Handlebars.registerHelper("getid", function(context){
-        return (context.archived) ? context.id: context.groupId;
-      });
-
-      Handlebars.registerHelper("type", function(context){
-        return (context.archived) ? 'Archive': context.groupType;
-      });
-
-      Handlebars.registerHelper("url", function(context){
-        return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
-      });
-
-      Handlebars.registerHelper("position", function(context){
-        if (context.weight == 0) {
-          return "50%"
-        } else if (context.weight == 1) {
-          return "0"
-        } else {
-          return "100%"
-        }
-      });
-
-      var source   = $("#item-list-template").html();
-      var template = Handlebars.compile(source);
-    </script>
-    <!-- *********************************
-    *    END OF HANDLEBARS TEMPLATING SHIZ
-    ************************************** -->
-
-
-
-
-    <script>
-
       /* 
        *  this is for infinite scroll
       */
@@ -155,8 +63,6 @@
 
       function getItems(pageNumber, initialScroll) {
         $.get('/items.json?page=' + page, function(resp){
-
-          //$('#progress').hide();
 
           // process response with handlebar template
           for(var i = 0; i < resp.length; i++) {
@@ -178,8 +84,6 @@
           $('footer').animate({ opacity : 1 } );
           $('footer').appear();
           $('footer').show();
-          
-
         });
       }
       
@@ -212,24 +116,8 @@
 
         $('nav').appear();
 
-        enquire.register("screen and (max-width:768px)", {
-          match : function() {
-            $('header').waypoint('sticky');
-          },
-          unmatch : function() {
-            $('header').waypoint('unsticky');
-          }
-        });
-
-        enquire.register("screen and (min-width:769px)", {
-          match : function() {
-            $('nav').waypoint('sticky');
-          },
-          unmatch : function() {
-            $('nav').waypoint('unsticky');
-          }
-        });        
-
+        $('header').waypoint('sticky');
+        
         // transition from 'homepage' carousel to list of all items
         $('h1').click(doTransition);
 
@@ -279,15 +167,7 @@
     
     <%= javascript_include_tag "application" %>
     <%= yield :perpagejs %>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-54430370-1', 'auto');
-      ga('send', 'pageview');
-  </script>
+    <%= render 'shared/ga' %>
   </div>
 </body>
 </html>

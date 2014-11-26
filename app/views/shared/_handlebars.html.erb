@@ -1,0 +1,49 @@
+<!-- ****************************
+*    HANDLEBARS TEMPLATING SHIZ
+********************************* -->
+<script id="item-list-template" type="text/x-handlebars-template">
+  <div style="opacity: 0;" class="item item-{{num}}">
+    <div class="not-fullscreen background" style="background-image:url({{large}}); background-size: cover; background-position: 50% {{ position this }}">
+      <a href="/{{ url this }}/{{ getid this }}"> 
+        <div class="content-a">
+          <div class="content-b">
+            {{groupName}}
+            <hr style="width: 150px; margin: 16px auto;">
+            <p>{{ type this }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p class="proj-name">{{ type this }}: {{groupName}}</p>
+  </div>
+</script>
+
+<script>
+  Handlebars.registerHelper("getid", function(context){
+    return (context.archived) ? context.id: context.groupId;
+  });
+
+  Handlebars.registerHelper("type", function(context){
+    return (context.archived) ? 'Archive': context.groupType;
+  });
+
+  Handlebars.registerHelper("url", function(context){
+    return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
+  });
+
+  Handlebars.registerHelper("position", function(context){
+    if (context.weight == 0) {
+      return "50%"
+    } else if (context.weight == 1) {
+      return "0"
+    } else {
+      return "100%"
+    }
+  });
+
+  var source   = $("#item-list-template").html();
+  var template = Handlebars.compile(source);
+</script>
+<!-- *********************************
+*    END OF HANDLEBARS TEMPLATING SHIZ
+************************************** -->
