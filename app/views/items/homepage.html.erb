@@ -42,6 +42,28 @@
           <%= render 'shared/sitenav', :logo => false %>
           <div class="pre-pre-addition">
             <article style="margin-top: 22px;">
+
+              <!-- item -->
+              <% @items.each_with_index do |item, index| %>
+              <div class="item item-<%= index+1 %>">
+                <div class="not-fullscreen background" style="background-image:url(<%= item.img_url_small %>); background-size: cover; background-position: 50% <%= item.weight %>">
+                  <a href="/{{ url this }}/{{ getid this }}"> 
+                    <div class="content-a">
+                      <div class="content-b">
+                        <%= item.group.name %>
+                        <hr style="width: 150px; margin: 16px auto;">
+                        <p><%= item.group.grouptype %></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <p class="proj-name">{{ type this }}: {{groupName}}</p>
+              </div>
+              <% end %>
+              <!-- /item -->
+
+
+
               <div id="progress">
                 <img src="<%= asset_path "progress.gif" %>" />
               </div>
@@ -58,7 +80,7 @@
       /* 
        *  this is for infinite scroll
       */
-      var page = 1;
+      var page = 2;
       var item = 6;
 
       function getItems(pageNumber, initialScroll) {
@@ -88,25 +110,10 @@
       }
       
       function doTransition(e) {
-        var x = $('#my-carousel');
-        var y = $('.pre-addition');
-
-        x.addClass('remove');
-        y.addClass('addition');
-
         e.preventDefault();
-
-        changeHome = window.setTimeout(function(){
-
-          $('body').addClass('items');
-          
-          $('#navigation').animate({ opacity : 1 }, function(){
-            $('header').waypoint('sticky');
-          })
-
-          getItems(page);
-        }, 1000)
-
+        $('html,body').animate({
+          scrollTop: $('.pre-addition').offset().top
+        }, 1000);
       }
 
 

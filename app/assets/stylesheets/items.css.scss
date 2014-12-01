@@ -4,13 +4,11 @@
 	transform:translate3d(0,0,0);
 }
 
-#my-carousel.remove {
-	-webkit-transition:-webkit-transform 1000ms ease;
-	transition:transform 1000ms ease;
+body.remove {
+	-webkit-transition:top 1000ms ease;
+	transition:top 1000ms ease;
 
-	-ms-transform:translate(0,-100%);
-	-webkit-transform:translate3d(0,-100%,0);
-	transform:translate3d(0,-100%,0)
+	top: -100%;
 }
 
 .pre-addition,
