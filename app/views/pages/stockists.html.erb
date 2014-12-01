@@ -11,14 +11,6 @@
 <% end %>
 
 <section class="blog contact info stockists">
-  <aside>
-    <h2>Stockists</h2>
-    <div>
-    <% @stockists.group_by(&:region).each do |region, stockists| %>
-      <p><a href="/stockists?region=<%= region.id %>"><%= region.name %></a> - <%= stockists.count %></p>
-    <% end %>
-    </div>
-  </aside>
 
   <article>
     <div class="stockists-holder">
@@ -59,4 +51,14 @@
     <% end %>
     </div>
   </article>
+
+  <aside>
+    <h2>Stockists</h2>
+    <div>
+    <% @stockists.group_by(&:region).each do |region, stockists| %>
+      <p><a href="/stockists?region=<%= region.id %>"><%= region.name %></a> - <%= stockists.count %></p>
+    <% end %>
+    </div>
+  </aside>
+  
  </section>

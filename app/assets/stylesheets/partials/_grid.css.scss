@@ -87,7 +87,7 @@ body {
   }
 
   article {
-    float: left;
+    float: right;
     @include media($desktop) {
       width: 75%;
       min-height: 600px;

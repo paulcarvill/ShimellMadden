@@ -166,7 +166,6 @@ p.indicator {
 }
 
 @include media($desktop) {
-	.collections footer,
 	.collection footer {
 		display: none;
 	}
@@ -176,7 +175,6 @@ p.indicator {
 }
 
 @include media($tablet) {
-	.collections footer,
 	.collection footer {
 		display: none;
 	}
@@ -253,7 +251,7 @@ body .lessThanThree {
 	padding: 0;
 	margin: 0;
 	width: 50%;
-	height: 50%;
+	height: 300px;
 }
 
 @include media($mobile) {
@@ -479,7 +477,6 @@ body.collections div.imgcontainer {
 }
 
 @include media($desktop) {
-	body.collections,
 	body.collection {
 		position: fixed;
 		top: 0;
@@ -489,7 +486,6 @@ body.collections div.imgcontainer {
 		bottom: 0;
 	}
 
-	.collections #items,
 	.collection #items {
 		position: fixed;
 		top: 159px;
@@ -565,8 +561,6 @@ body.collections div.imgcontainer {
 		margin: 0;
 		bottom: 0;
 	}
-
-	.collections #items,
 	.collection #items {
 		position: fixed;
 		top: 145px;
