@@ -12,7 +12,7 @@ namespace :dump do
 
   task :barrier do
     remote = ENV['REMOTE']
-    raise "Need a REMOTE file” unless remote
+    raise "Need a REMOTE file" unless remote
     file = ENV['FILE']
     raise "Need a FILE" unless file
 
