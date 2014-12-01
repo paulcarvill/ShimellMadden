@@ -178,14 +178,12 @@ p.indicator {
 	.collection footer {
 		display: none;
 	}
+	.collection-box>span {
+		display: none;
+	}
 	.imgcontainer {
 		height: 341px;
 		background-size: cover;
-	}
-	.collection-box>span {
-		display: block;
-		text-align: center;
-		padding-top: 12px;
 	}
 }
 
@@ -251,7 +249,7 @@ body .lessThanThree {
 	padding: 0;
 	margin: 0;
 	width: 50%;
-	height: 300px;
+	height: 341px;
 }
 
 @include media($mobile) {
@@ -501,6 +499,7 @@ body.collections div.imgcontainer {
 		top: 181px;
 	}
 
+	.collections section,
 	.projects section,
 	.other .archive,
 	.other .archiveitem,

@@ -7,6 +7,7 @@ ActiveAdmin.register Image do
     column :id
     column :date
     column :archived
+    column :group
     column "image" do |image|
       image_tag(image.itemImage.url(:small), width: '50%')
     end

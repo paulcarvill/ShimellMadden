@@ -1,12 +1,12 @@
 pages = Page.create([
 	{
 		name: "About",
-		content: "<h2>About</h2><p>About us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>",
+		content: "<p>About us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>",
 		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	},
 	{
 		name: "Commissioning",
-		content: "<h2>Commissioning</h2><p>Commissioning us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
+		content: "<p>Commissioning us lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
 		image: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
 	},
@@ -25,7 +25,9 @@ blogs = Blog.create([
 		headline: "News headline one",
 		body: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p><p>
 Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
-		blogImage1: File.open(Rails.root.join("db/seeds/news","news1.jpg"))
+		blogImage1: File.open(Rails.root.join("db/seeds/news","news1.jpg")),
+		blogImage2: File.open(Rails.root.join("db/seeds/news","news2.jpg")),
+		blogImage3: File.open(Rails.root.join("db/seeds/news","news3.jpg"))
 	},
 	{
 		headline: "News headline two",

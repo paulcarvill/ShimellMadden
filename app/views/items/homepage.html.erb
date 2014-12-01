@@ -50,14 +50,14 @@
                   <a href="/{{ url this }}/{{ getid this }}"> 
                     <div class="content-a">
                       <div class="content-b">
-                        <%= item.group.name %>
+                        <%= if item.group then item.group.name else "Archive" end %>
                         <hr style="width: 150px; margin: 16px auto;">
-                        <p><%= item.group.grouptype %></p>
+                        <p><%= if item.group then item.group.grouptype else "Archive" end %></p>
                       </div>
                     </div>
                   </a>
                 </div>
-                <p class="proj-name">{{ type this }}: {{groupName}}</p>
+                <p class="proj-name"><%= if item.group then (item.group.grouptype + ": " + item.group.name) else "Archive" end %></p>
               </div>
               <% end %>
               <!-- /item -->
