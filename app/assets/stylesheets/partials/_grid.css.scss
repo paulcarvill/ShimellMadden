@@ -96,7 +96,8 @@ body {
 
   @include media($tablet) {
     .projects article,
-    .archive article, {
+    .archive article,
+    .info article {
       @include span-columns(4);
     }
     .archive aside {

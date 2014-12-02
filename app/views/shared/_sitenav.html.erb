@@ -3,6 +3,7 @@
     <% if logo %><a href="/"><%= render 'shared/smalllogo' %></a><% end %>
 
     <!-- used only for mobile views -->
+    <div>
     <p class="nav-header"><span><%= nav() %></span>
       <%= render 'shared/closed' %>
       <%= render 'shared/open' %>  
@@ -17,6 +18,7 @@
       <a href="https://shimell-and-madden-2.myshopify.com"<%= if controller?("pages") && action?("shop") then " class=current" end %>>Shop</a>
       <a href="#" class="totop"><%= render 'shared/arrowupidle' %></a>
     </nav>
+    </div>
   </header>
 
   <%= yield :subnav %>

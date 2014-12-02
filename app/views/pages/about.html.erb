@@ -5,9 +5,8 @@
 <% end %>
 
 <% content_for :infopagetop do %>
-<div style="display: block; width: 100%; float: none; clear: left; text-align: center; display: table">
-	<img style="display: block; width: 100%; float: none; clear: left; text-align: center; display: table" src="<%= asset_path "18_crop.jpg" %>" />
-	<!-- <h2>About</h2> -->
+<div id="info-header" style="background-image: url(<%= asset_path "18_crop.jpg" %>)">
+	<h2>About</h2>
 </div>
 <% end %>
 
@@ -15,7 +14,7 @@
 	
 
   <article>
-  	<div style="width: 60%">
+  	<div>
     	<%= @page.content.html_safe %>
     </div>
   </article>

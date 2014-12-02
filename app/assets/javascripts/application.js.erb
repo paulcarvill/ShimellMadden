@@ -158,27 +158,8 @@ $(function(){
         }
     })
   
-
-    /* sticky header */
-    enquire.register("screen and (max-width:768px)", {
-      match : function() {
-        $('body:not(.home) .nav-header').waypoint('sticky');
-      },
-      unmatch : function() {
-        $('body:not(.home) .nav-header').waypoint('unsticky');
-      }
-    });
-
-    enquire.register("screen and (min-width:769px)", {
-      match : function() {
-        $('body:not(.home) nav').waypoint('sticky');
-      },
-      unmatch : function() {
-        $('body:not(.home) nav').waypoint('unsticky');
-      }
-    }); 
-
-
+    $('body:not(.home) header>div').waypoint('sticky');
+    
     $('.my-carousel').each(function(){
         doCarousel(this);
     })

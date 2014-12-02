@@ -24,11 +24,44 @@ section {
 }
 
 #progress {
-	display: none; float: left; width: 100%;height: 100%;clear:both;text-align:center; margin: 30px 0 30px 0;
+	display: none;
+	float: left;
+	width: 100%;
+	height: 100%;
+	clear:both;
+	text-align:center;
+	margin: 30px 0 30px 0;
 }
 
 #progress img {
-	float: none; width:22px;height:22px; margin: 0 auto;
+	float: none;
+	width:22px;
+	height:22px;
+	margin: 0 auto;
+}
+
+#info-header {
+	clear: left;
+	position: relative;
+	width: 100%;
+	display: table;
+	background-size: cover;
+	height: 341px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+#info-header h2 {
+	display: table-cell;
+	vertical-align: middle;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	color: #fff;
 }
 
 @include media($desktop) {
@@ -39,6 +72,10 @@ section {
 	.logoonly {
 		display: none;
 	}
+	.info article>div {
+		width: 60%
+	}
+
 }
 
 @include media($tablet) {
@@ -46,6 +83,9 @@ section {
 	.collection section,
 	.info section {
 		margin-top: 14px;
+	}
+	#info-header {
+		height: 200px;
 	}
 }
 
@@ -88,6 +128,9 @@ div, h1 {
 	}
 	.logotype {
 		display: none;
+	}
+	#info-header {
+		height: 120px;
 	}
 }
 

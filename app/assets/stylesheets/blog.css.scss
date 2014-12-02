@@ -24,6 +24,15 @@
 	}
 }
 
+@include media($tablet) {
+	body .news-item, 
+	body .news-item article,
+	body .news-item #my-carousel,
+	body .news-item .carousel {
+		min-height: 300px;
+	}
+}
+
 @include media($mobile) {
 	body .news-item, 
 	body .news-item article,
