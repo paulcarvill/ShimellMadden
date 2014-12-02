@@ -2586,9 +2586,8 @@ h3[data-toggle='1'] {
 #icon-shopping_cart_idle {
   width: 24px;
   height: 24px;
-  vertical-align: middle;
-  position: relative;
-  top: -2px;
+  vertical-align: top;
+  margin-top: 1px;
 }
 
 #icon-shopping_cart_idle .path1 {
@@ -2672,5 +2671,11 @@ h3[data-toggle='1'] {
 header svg {
   margin-top: 30px;
   margin-bottom: 6px;
+}
+
+@media (max-width: 800px) {
+  #cartToggle span {
+    display: none;
+  }
 }
 
