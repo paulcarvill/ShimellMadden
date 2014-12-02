@@ -73,9 +73,18 @@ section {
 		display: none;
 	}
 	.info article>div {
-		width: 60%
+		width: 50%;
+		margin-left: 10%;
 	}
-
+	.stockists article>div {
+		width: auto;
+	}
+	.news article>div {
+		margin-left: 0;
+	}
+	section:not(.news) aside p {
+		padding-top: 0;
+	}
 }
 
 @include media($tablet) {
@@ -86,6 +95,20 @@ section {
 	}
 	#info-header {
 		height: 200px;
+	}
+	.info article>div,
+	.info aside {
+		width: 50%;
+		margin: 0 auto;
+	}
+	.stockists article>div,
+	.stockists aside,
+	.news article>div,
+	.news aside {
+		width: auto;
+	}
+	.stockists aside {
+		display: none;
 	}
 }
 
