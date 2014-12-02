@@ -47,7 +47,7 @@
               <% @items.each_with_index do |item, index| %>
               <div class="item item-<%= index+1 %>">
                 <div class="not-fullscreen background" style="background-image:url(<%= item.img_url_small %>); background-size: cover; background-position: 50% <%= item.weight %>">
-                  <a href="/{{ url this }}/{{ getid this }}"> 
+                  <a href="/<%= if item.group then item.group.grouptype.pluralize.downcase else "archive" end %>/<%= if item.group then item.group.id else item.id end %>">
                     <div class="content-a">
                       <div class="content-b">
                         <%= if item.group then item.group.name else "Archive" end %>

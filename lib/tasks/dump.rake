@@ -2,23 +2,10 @@ require 'erb'
 require 'yaml'
 
 namespace :dump do
-  desc "Fails if FILE doesn't exists"
-  task :barrier do
-    file = ENV['FILE']
-    raise "Need a FILE" unless file
-
-    File.exists?(file) or raise "No file found (path given by FILE)"
-  end
+  
 
   task :barrier do
-    remote = ENV['REMOTE']
-    raise "Need a REMOTE file" unless remote
-    file = ENV['FILE']
-    raise "Need a FILE" unless file
-
-    # here you copy remote into file
-    # via scp (prefered) or http GET
-    do_whatever_is_needed or raise "Can’t retrieve #{remote}"
+    system "scp root@178.62.4.10:/tmp/dump_production.sql.gz tmp/dump_production.sql.gz"
   end
 
   desc "Export the database"
@@ -35,15 +22,13 @@ namespace :dump do
 
   desc "Import a database"
   task :import => :barrier do
-    file = ENV['FILE']
-    raise "Need a FILE" unless file
-
+    
     env = ENV['RAILS_ENV']
     raise "Need a RAILS_ENV" unless env
     raise "Import on production is forbidden" if env == "production"
 
     db_config = current_db_config(env)
-    system "gzip -d -c #{file} | #{mysql(db_config)}"
+    system "gzip -d -c tmp/dump_production.sql.gz | #{mysql(db_config)}"
   end
 
   def current_db_config(env)
