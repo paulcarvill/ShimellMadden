@@ -100,7 +100,7 @@ function doCarousel(el){
         $(indic).children('a:eq('+current+')').addClass('curr');
     }
 
-    if($('body').hasClass('collections')) {
+    if($('body').hasClass('collection')) {
         $('.carousel-prev').click(carouselPrev);
         $('.carousel-next').click(carouselNext)
     } else {
@@ -163,4 +163,8 @@ $(function(){
     $('.my-carousel').each(function(){
         doCarousel(this);
     })
+
+    carouselAuto = window.setInterval(function(){
+      $('.carousel-next').click();
+    }, 4000);
 });

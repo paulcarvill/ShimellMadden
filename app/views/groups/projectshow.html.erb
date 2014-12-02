@@ -2,7 +2,7 @@
   
   <aside>
     <h2><%= @project.name %></h2>
-    <p class="desc"><%= @project.description %></p>
+    <p class="desc"><%= @project.description.html_safe %></p>
     <p class="topback">
       <a href="/projects"><svg id="icon-arrow_small_left_idle" viewBox="0 0 1024 1024">
           <path class="path1" d="M486.4 738.743l51.2-51.2-149.943-138.971h380.343v-73.143h-380.343l149.943-138.971-51.2-51.2-248.686 226.743z" />
