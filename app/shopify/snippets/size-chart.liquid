@@ -10,7 +10,7 @@
     {% assign size_index = forloop.index0 %}
   {% endif %}
 {% endfor %}
-{% if has_size %}
+
 <script>
 /*
 * $ lightbox_me
@@ -33,13 +33,15 @@
 Shopify.OptionSelectors.prototype.buildSelectors=function(){for(var c=0;c<this.product.optionNames().length;c++){var e=new Shopify.SingleOptionSelector(this,c,this.product.optionNames()[c],this.product.optionValues(c));e.element.disabled=false;this.selectors.push(e)}var b=this.selectorDivClass;var a=this.product.optionNames();var d=Shopify.map(this.selectors,function(f){var i=document.createElement("div");i.setAttribute("class",b);
 	/*if(a.length>1){var h=document.createElement("label");h.htmlFor=f.element.id;h.innerHTML=f.name;i.appendChild(h)}*/
 	i.appendChild(f.element);
-	if(f.index==={{ size_index }}){var g=jQuery('#size-chart-trigger');var gg = jQuery('#shipping-info-trigger'); g.click(function(){jQuery("#size-chart").lightbox_me({centered: true});return false}); gg.click(function(){jQuery("#shipping-info").lightbox_me({centered: true});return false}); }return i});return d};
+	if(f.index==={{ size_index }}){var g=jQuery('#size-chart-trigger');var gg = jQuery('#shipping-info-trigger'); var ggg = jQuery('#refund-policy-trigger'); g.click(function(){jQuery("#size-chart").lightbox_me({centered: true});return false}); gg.click(function(){jQuery("#shipping-info").lightbox_me({centered: true});return false}); ggg.click(function(e){e.preventDefault();jQuery("#refund-policy").lightbox_me({centered: true});return false});}return i});return d};
 </script>
 <div id="size-chart" style="display:none" class="rte">{{ pages.size-chart.content }}</div>
 <div id="shipping-info" style="display:none" class="rte">{{ pages.shipping-info.content }}</div>
+<div id="refund-policy" style="display:none" class="rte">{{ pages.refund-policy.content }}</div>
 <style>
 #size-chart { background:white; padding:25px; text-align:center; z-index:10000 !important; width: 600px;}
 #shipping-info { background:white; padding:25px; text-align:center; z-index:10000 !important; width: 600px;}
+#refund-policy { background:white; padding:25px; text-align:left; z-index:10000 !important; width: 600px;}
 </style>
-{% endif %}
+
 {% endif %}
