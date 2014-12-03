@@ -90,7 +90,7 @@
 
           if (img1 && img2) {
             images = '<div id="my-carousel" class="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3;
-            buttons = '<p class="carousel-prev"><svg id="icon-arrow_big_left_idle" viewBox="0 0 1024 1024"><path class="path1" d="M1024 512c0 282.77-229.23 512-512 512s-512-229.23-512-512c0-282.77 229.23-512 512-512s512 229.23 512 512z" /><path class="path2" d="M689.231 764.062l-454.892-252.062 454.892-252.062v504.123zM317.046 512l332.8 185.108v-370.215l-332.8 185.108z" /></svg></p><p class="carousel-next"><svg id="icon-arrow_big_right_idle" viewBox="0 0 1024 1024"><path class="path1" d="M1024 512c0 282.77-229.23 512-512 512s-512-229.23-512-512c0-282.77 229.23-512 512-512s512 229.23 512 512z" /><path class="path2" d="M334.769 259.938l454.892 252.062-454.892 252.062v-504.123zM374.154 326.892v370.215l332.8-185.108-332.8-185.108z" /></svg></p><p class="indicator"></p></div>';
+            buttons = '<p class="carousel-prev"><%= render "shared/leftarrow" %></p><p class="carousel-next"><%= render "shared/rightarrow" %></p><p class="indicator"></p></div>';
           } else {
             images = img1;
           }
