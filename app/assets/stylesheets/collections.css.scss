@@ -252,6 +252,16 @@ body .lessThanThree {
 	height: 341px;
 }
 
+@include media($desktop) {
+	.collection-box {
+		padding: 0 0 22px 11px;
+	}
+
+	.collection-box:nth-child(2n+1) {
+		padding: 0 11px 22px 0;
+	}
+}
+
 @include media($mobile) {
 
 	.collection-box {
@@ -547,7 +557,6 @@ body.collections div.imgcontainer {
 
 /* almost exact duplicate of above... sad-sass-face */
 @include media($tablet) {
-	body.collections,
 	body.collection {
 		position: fixed;
 		top: 0;
