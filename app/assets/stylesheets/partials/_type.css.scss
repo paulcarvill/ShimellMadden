@@ -10,8 +10,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* 23px */
 h2,
-h3,
-.stockist {
+h3 {
 	font-size: 1.4em;
 }
 
@@ -124,6 +123,11 @@ aside p,
 	@include media($mobile) {
 		line-height: 1.3em;
 	}
+}
+
+.info article div.stockist p,
+.info article div p:nth-child(1) {
+	padding-top: 0;
 }
 
 .info article h2 {
