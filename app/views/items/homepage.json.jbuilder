@@ -4,9 +4,8 @@ json.array!(@items) do |item|
   json.small item.img_url_small
   json.large item.img_url_large
   json.archived item.archived
-  json.groupArchived item.group.archived
-  json.groupType item.group.grouptype
-  json.groupName item.group.name
-  json.groupId item.group.id
+  json.groupType item.group.grouptype unless item.group.nil?
+  json.groupName item.group.name unless item.group.nil?
+  json.groupId item.group.id unless item.group.nil?
   
 end
