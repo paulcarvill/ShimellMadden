@@ -4,10 +4,7 @@
     <h2><%= @project.name %></h2>
     <p class="desc"><%= @project.description.html_safe %></p>
     <p class="topback">
-      <a href="/projects"><svg id="icon-arrow_small_left_idle" viewBox="0 0 1024 1024">
-          <path class="path1" d="M486.4 738.743l51.2-51.2-149.943-138.971h380.343v-73.143h-380.343l149.943-138.971-51.2-51.2-248.686 226.743z" />
-          <path class="path2" d="M0 512c0 281.6 230.4 512 512 512s512-230.4 512-512-230.4-512-512-512-512 230.4-512 512zM950.857 512c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857z" />
-        </svg>Back to projects</a></p>
+      <a href="/projects"><%= render 'shared/leftarrowsmall' %>Back to projects</a></p>
   </aside>
   <article style="position: relative;">
     <div id="my-carousel" class="my-carousel">
@@ -26,16 +23,16 @@
     <div id="projectnav">
       
       <p id="prev">
-        <% if @previous %><a href="/projects/<%= @previous.id %>"><svg id="icon-arrow_small_left_idle" viewBox="0 0 1024 1024"><path class="path1" d="M486.4 738.743l51.2-51.2-149.943-138.971h380.343v-73.143h-380.343l149.943-138.971-51.2-51.2-248.686 226.743z" />
-        <path class="path2" d="M0 512c0 281.6 230.4 512 512 512s512-230.4 512-512-230.4-512-512-512-512 230.4-512 512zM950.857 512c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857z" />
-        </svg><span>Previous item</span></a><% end %>
+        <% if @previous %>
+        <a href="/projects/<%= @previous.id %>">
+          <%= render 'shared/leftarrowsmall' %>
+          <span>Previous item</span>
+        </a>
+        <% end %>
       </p>
       <p id="back"><%= link_to 'Back to Projects', groups_path %></p>
       <p id="next">
-        <% if @next %><a href="/projects/<%= @next.id %>"><span>Next item</span><svg id="icon-arrow_small_right_idle" viewBox="0 0 1024 1024">
-            <path class="path1" d="M537.6 285.257l-51.2 51.2 149.943 138.971h-380.343v73.143h380.343l-149.943 138.971 51.2 51.2 248.686-226.743z" />
-            <path class="path2" d="M1024 512c0-281.6-230.4-512-512-512s-512 230.4-512 512 230.4 512 512 512 512-230.4 512-512zM73.143 512c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857z" />
-          </svg></a><% end %>
+        <% if @next %><a href="/projects/<%= @next.id %>"><span>Next item</span><%= render 'shared/rightarrowsmall' %></a><% end %>
       </p>
     </div>
 

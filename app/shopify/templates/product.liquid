@@ -30,13 +30,33 @@
         <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="productPhotoImg">
       
         {% if collection %}
-        <div style="width: 100%; margin-top: 16px; border-top: 1px solid #444;">
-        {% if collection.previous_product %}<a style="float: left" href="{{collection.previous_product }}">Previous</a>{% endif %}
-        <a href="/" style="display: inline; margin: 0 auto;">Back to shop</a>
-        {% if collection.next_product %}{% if collection.previous_product %}{% endif %}<a style="float: right" href="{{collection.next_product }}">Next</a>
-        {% endif %}
+        <div id="projectnav">
+          <p id="prev">
+            {% if collection.previous_product %}
+            <a href="{{collection.previous_product }}">
+              <svg id="icon-arrow_small_left_idle" viewBox="0 0 1024 1024"><path class="path1" d="M486.4 738.743l51.2-51.2-149.943-138.971h380.343v-73.143h-380.343l149.943-138.971-51.2-51.2-248.686 226.743z" />
+        <path class="path2" d="M0 512c0 281.6 230.4 512 512 512s512-230.4 512-512-230.4-512-512-512-512 230.4-512 512zM950.857 512c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857z" />
+        </svg>
+              <span>Previous item</span>
+            </a>
+            {% endif %}
+          </p>
+          
+          <p id="back"><a href="/" style="display: inline; margin: 0 auto;">Back to shop</a></p>
+      
+          <p id="next">
+            {% if collection.next_product %}
+            <a style="float: right" href="{{collection.next_product }}">
+              <span>Next item</span>
+              <svg id="icon-arrow_small_right_idle" viewBox="0 0 1024 1024">
+            <path class="path1" d="M537.6 285.257l-51.2 51.2 149.943 138.971h-380.343v73.143h380.343l-149.943 138.971 51.2 51.2 248.686-226.743z" />
+            <path class="path2" d="M1024 512c0-281.6-230.4-512-512-512s-512 230.4-512 512 230.4 512 512 512 512-230.4 512-512zM73.143 512c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857z" />
+          </svg>
+            </a>
+            {% endif %}
+          </p>
         </div>
-   {% endif %}
+        {% endif %}
 
         {% comment %}
         Create thumbnails if we have more than one product image

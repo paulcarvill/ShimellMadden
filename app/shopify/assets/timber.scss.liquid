@@ -2492,7 +2492,6 @@ footer a {
 
 footer div {
  padding-top: 4px;
- padding-bottom: 100px;
 }
 
 footer div p {
@@ -2673,9 +2672,71 @@ header svg {
   margin-bottom: 6px;
 }
 
+.smalladdress {
+  display: none;
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+  .fulladdress {
+    display: none;
+  }
+  .smalladdress {
+    display: block;
+  }
+}
+
 @media (max-width: 800px) {
   #cartToggle span {
     display: none;
   }
+  
 }
 
+#icon-arrow_small_left_idle,
+#icon-arrow_small_right_idle {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+  color: currentcolor;
+  position: relative;
+  top: -2px;
+}
+#icon-arrow_small_left_idle .path1,
+#icon-arrow_small_right_idle .path1 {
+  fill: currentcolor;
+}
+#icon-arrow_small_left_idle .path2,
+#icon-arrow_small_right_idle .path2 {
+  fill: currentcolor;
+}
+.projectnav #icon-arrow_small_left_idle,
+.projectnav #icon-arrow_small_right_idle {
+  vertical-align: top;
+  top: -4px;
+}
+
+
+#icon-arrow_small_right_idle {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+#projectnav {
+  height: 2em;
+  margin-top: 1em;
+}
+
+#projectnav p {
+  height: 1em;
+  float: left;
+  width: 32.55069%;
+}
+
+#projectnav #prev {
+  text-align: left;
+}
+
+#projectnav p a {
+  text-decoration: none;
+}
