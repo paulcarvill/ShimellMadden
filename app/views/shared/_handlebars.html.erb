@@ -3,7 +3,7 @@
 ********************************* -->
 <script id="item-list-template" type="text/x-handlebars-template">
   <div style="opacity: 0;" class="item item-{{num}}">
-    <div class="not-fullscreen background" style="background-image:url({{large}}); background-size: cover; background-position: 50% {{ position this }}">
+    <div class="not-fullscreen background" style="background-image:url({{imagesize this}}); background-size: cover; background-position: 50% {{ position this }}">
       <a href="/{{ url this }}/{{ getid this }}"> 
         <div class="content-a">
           <div class="content-b">
@@ -29,6 +29,10 @@
 
   Handlebars.registerHelper("url", function(context){
     return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
+  });
+
+  Handlebars.registerHelper("imagesize", function(context){
+    return context.num == 3 ? context.large: context.small;
   });
 
   Handlebars.registerHelper("position", function(context){
