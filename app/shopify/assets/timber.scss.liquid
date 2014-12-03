@@ -2231,17 +2231,11 @@ nav a,
     }
 }
 
-
 @include at-query ($max, $small) {
-  nav a:nth-child(1) {
-      border-top: none;
-  }
-}
-
-@include at-query ($max, $small) {
- .woop { 
-  max-height: 400px;
-  background: #cbcbcb;
+ .woop {
+  height: auto;
+  max-height: 100%;
+  padding-top: 0;
  }
 
  #navigation {
@@ -2251,6 +2245,7 @@ nav a,
  .nav-header {
   margin: 0 10px;
   border-bottom: none;
+  font-size: 1.125em;
  }
 
 }
@@ -2571,10 +2566,6 @@ h3[data-toggle='1'] {
   color: red;
 }
 
-#size-chart-trigger {
-  
-}
-
 @font-face {
     font-family: 'GT-Walsheim';
     src: url(' {{ "icons.eot" | asset_url }} ');
@@ -2689,7 +2680,9 @@ header svg {
   #cartToggle span {
     display: none;
   }
-  
+  #cartToggle {
+    position: static;
+  }
 }
 
 #icon-arrow_small_left_idle,
