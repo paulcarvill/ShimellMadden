@@ -1,10 +1,8 @@
 ShimellMadden::Application.routes.draw do
 
-  
-
-
   # static pages and news
   root "items#homepage"
+
   get '/about', to: 'pages#about'
   get '/commissioning', to: 'pages#commissioning'
   get '/contact', to: 'pages#contact'
@@ -12,7 +10,7 @@ ShimellMadden::Application.routes.draw do
   resources :blogs, :path => "news"
 
   # homepage (all items)
-  get '/items', to: 'items#index'
+  get '/items', to: 'items#homepage'
 
   # projects, collections
   # the regex here describes the different 'types' that a group can be

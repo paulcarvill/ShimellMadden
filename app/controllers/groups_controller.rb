@@ -36,8 +36,6 @@ class GroupsController < ApplicationController
           break
         end
       end
-
-      
       render "groups/projectshow"
     end
   end
