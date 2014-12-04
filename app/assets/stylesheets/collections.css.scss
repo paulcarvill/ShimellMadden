@@ -262,6 +262,17 @@ body .lessThanThree {
 	}
 }
 
+@include media($tablet) {
+	.collection-box {
+		padding: 0 0 22px 11px;
+		height: auto;
+	}
+
+	.collection-box:nth-child(2n+1) {
+		padding: 0 11px 22px 0;
+	}
+}
+
 @include media($mobile) {
 
 	.collection-box {
