@@ -22,9 +22,11 @@
 
 <ul class="pagination-custom">
   {% if paginate.previous %}
-    <li><a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">&larr;</a></li>
+    <li><a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}"><svg id="icon-arrow_small_left_idle" viewBox="0 0 1024 1024"><path class="path1" d="M486.4 738.743l51.2-51.2-149.943-138.971h380.343v-73.143h-380.343l149.943-138.971-51.2-51.2-248.686 226.743z" />
+        <path class="path2" d="M0 512c0 281.6 230.4 512 512 512s512-230.4 512-512-230.4-512-512-512-512 230.4-512 512zM950.857 512c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857z" />
+        </svg></a></li>
   {% else %}
-    <li class="disabled"><span>&larr;</span></li>
+    <li class="disabled"><span></span></li>
   {% endif %}
 
   {% for part in paginate.parts %}
@@ -42,8 +44,11 @@
   {% endfor %}
 
   {% if paginate.next %}
-    <li><a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">&rarr;</a></li>
+    <li><a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}"><svg id="icon-arrow_small_right_idle" viewBox="0 0 1024 1024">
+            <path class="path1" d="M537.6 285.257l-51.2 51.2 149.943 138.971h-380.343v73.143h380.343l-149.943 138.971 51.2 51.2 248.686-226.743z" />
+            <path class="path2" d="M1024 512c0-281.6-230.4-512-512-512s-512 230.4-512 512 230.4 512 512 512 512-230.4 512-512zM73.143 512c0-241.371 197.486-438.857 438.857-438.857s438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857s-438.857-197.486-438.857-438.857z" />
+          </svg></a></li>
   {% else %}
-    <li class="disabled"><span>&rarr;</span></li>
+    <li class="disabled"><span></span></li>
   {% endif %}
 </ul>

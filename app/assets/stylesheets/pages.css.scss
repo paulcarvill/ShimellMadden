@@ -92,6 +92,9 @@ section {
 	section:not(.news) aside p {
 		padding-top: 0;
 	}
+	section.archiveitem aside p {
+		padding-top: 8px;
+	}
 }
 
 @include media($tablet) {

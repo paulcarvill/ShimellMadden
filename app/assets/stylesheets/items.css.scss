@@ -104,7 +104,8 @@ body.remove {
 }
 
 #shoplinks a:hover,
-#homepagelinks a:hover,
+#shoplinks a:hover span,
+#homepagelinks a:hover span,
 #shoplinks a:active,
 #homepagelinks a:active {
 	color: #444;
