@@ -28,7 +28,7 @@
   });
 
   Handlebars.registerHelper("url", function(context){
-    return (context.archived) ? 'archive': (context.groupType.toLowerCase() + 's');
+    return (context.archived) ? 'archive': context.groupType ? (context.groupType.toLowerCase() + 's') : "";
   });
 
   Handlebars.registerHelper("imagesize", function(context){
