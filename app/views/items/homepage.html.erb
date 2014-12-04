@@ -36,14 +36,11 @@
           <p class="carousel-prev"><%= render 'shared/leftarrow' %></p>
           <p class="carousel-next"><%= render 'shared/rightarrow' %></p>
           <p class="indicator"></p>
-        </div> <!-- end carousel -->
-
+        </div>
         <div class="pre-addition">
           <%= render 'shared/sitenav', :logo => false %>
           <div class="pre-pre-addition">
             <article style="margin-top: 22px;">
-
-              <!-- item -->
               <% @items.each_with_index do |item, index| %>
               <div class="item item-<%= index+1 %>">
                 <div class="not-fullscreen background" style="background-image:url(<%= if index == 2 then item.img_url_large else item.img_url_small end %>); background-size: cover; background-position: 50% <%= item.weight %>">
@@ -60,10 +57,6 @@
                 <p class="proj-name"><%= if item.group then (item.group.grouptype + ": " + item.group.name) else "Archive" end %></p>
               </div>
               <% end %>
-              <!-- /item -->
-
-
-
               <div id="progress">
                 <img src="<%= asset_path "progress.gif" %>" />
               </div>
@@ -73,77 +66,51 @@
         </div>
       </section>
     </div>
-
     <% content_for :perpagejs do %>
     <%= render 'shared/handlebars' %>
     <script>
-      /* 
-       *  this is for infinite scroll
-      */
       var page = 2;
       var item = 6;
-
       function getItems(pageNumber, initialScroll) {
         $.get('/items.json?page=' + page, function(resp){
-
-          // process response with handlebar template
           for(var i = 0; i < resp.length; i++) {
             var context = resp[i];
             context.num = i+1;
-            // and add it to the page
             $(template(context)).insertBefore($('#progress')).animate({ opacity : 1 }, 1500);
           }
-
           if(resp.length < 6) {
             $('#progress').hide();
             $('footer').data('am-i-appeared', true);
           } else {
               $('footer').data('am-i-appeared', false);
           }
-
           item += resp.length;
-
           $('footer').animate({ opacity : 1 } );
           $('footer').appear();
           $('footer').show();
         });
       }
-      
       function doTransition(e) {
         e.preventDefault();
         $('html,body').animate({
           scrollTop: $('.pre-addition').offset().top
         }, 1000);
       }
-
-
-      // this sets up the element we watch to check when it enters the viewport
-      // so we can load more content. in our case it's the footer
       $('document').ready(function() {
-
         $('nav').appear();
-
         $('header').waypoint('sticky');
-        
-        // transition from 'homepage' carousel to list of all items
         $('h1').click(doTransition);
-
         $(document.body).on('appear', 'nav', function(e) {
           var $this = $(this);
           if ($this.data('am-i-appeared')) {
             return;
           }
           $this.data('am-i-appeared', true);
-
           $('#progress').show();
-
           window.setTimeout(function(){
             getItems(page, true)
           }, 500);
-        });     
-
-
-
+        }); 
         $(document.body).on('appear', 'footer', function(e) {
           var $this = $(this);
           if ($this.data('am-i-appeared')) {
@@ -151,27 +118,14 @@
           }
           $this.data('am-i-appeared', true);
           page++;
-
           $('#progress').show();
-
           window.setTimeout(function(){
             getItems(page)
           }, 1000);
         });
-
-
-
-        carouselAuto = window.setInterval(function(){
-          $('.carousel-next').click();
-        }, 4000)
       });  
-
     </script>
     <% end %>
-
-
-
-    
     <%= javascript_include_tag "application" %>
     <%= yield :perpagejs %>
     <%= render 'shared/ga' %>
