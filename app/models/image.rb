@@ -17,8 +17,21 @@ class Image < ActiveRecord::Base
 	end
 
 	def dupe_date
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts self.created_at
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+		puts "* * * * * * * * * * * * * * * * * *"
+
 		if !self.date
-			self.date = self.created_at
+			self.date = DateTime.now
 		end
 	end
 
