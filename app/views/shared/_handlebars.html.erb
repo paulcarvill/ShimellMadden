@@ -7,7 +7,7 @@
       <a href="/{{ url this }}/{{ getid this }}"> 
         <div class="content-a">
           <div class="content-b">
-            {{groupName}}
+            {{getGroupName this}}
             <hr style="width: 150px; margin: 16px auto;">
             <p>{{ type this }}</p>
           </div>
@@ -19,12 +19,16 @@
 </script>
 
 <script>
+  Handlebars.registerHelper("getGroupName", function(context){
+    return (context.groupName) ? context.groupName : (context.name) ? context.name : "Archive";
+  });
+
   Handlebars.registerHelper("getid", function(context){
     return (context.archived) ? context.id: context.groupId;
   });
 
   Handlebars.registerHelper("type", function(context){
-    return (context.archived) ? 'Archive': context.groupType;
+    return (context.archived) ?  new Date(context.date).getFullYear() : context.groupType;
   });
 
   Handlebars.registerHelper("url", function(context){

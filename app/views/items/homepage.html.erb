@@ -58,9 +58,9 @@
                   <a href="/<%= if item.group then item.group.grouptype.pluralize.downcase else "archive" end %>/<%= if item.group then item.group.id else item.id end %>">
                     <div class="content-a">
                       <div class="content-b">
-                        <%= if item.group then item.group.name else "Archive" end %>
+                        <%= if item.group then item.group.name elsif item.name then item.name else "Archive" end %>
                         <hr style="width: 150px; margin: 16px auto;">
-                        <p><%= if item.group then item.group.grouptype else "Archive" end %></p>
+                        <p><%= if item.group then item.group.grouptype elsif item.date then item.date.strftime("%Y") else "Archive" end %></p>
                       </div>
                     </div>
                   </a>
