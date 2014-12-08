@@ -39,11 +39,3 @@
     <p class="bottomback"><%= link_to 'Back to projects', groups_path %></p>
   </article>
  </section>
-
- <% content_for :perpagejs do %>
-<script>
-    carouselAuto = window.setInterval(function(){
-      $('.carousel-next').click();
-    }, 4000);
-</script>
-<% end %>
