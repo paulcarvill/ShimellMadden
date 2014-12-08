@@ -54,7 +54,7 @@
             <article style="margin-top: 22px;">
               <% @items.each_with_index do |item, index| %>
               <div class="item item-<%= index+1 %>">
-                <div class="not-fullscreen background" style="background-image:url(<%= item.img_url_large %>); background-size: cover; background-position: 50% <%= if item.weight == 0 then %>50%<% elsif item.weight == 1 then %>0<% else %>100%<% end %>">
+                <div class="not-fullscreen background" style="background-image:url(<%= item.img_url_large %>); background-size: cover; background-position: 50% <% if item.weight == 0 then %>50%<% elsif item.weight == 1 then %>0<% else %>100%<% end %>">
                   <a href="/<%= if item.group then item.group.grouptype.pluralize.downcase else "archive" end %>/<%= if item.group then item.group.id else item.id end %>">
                     <div class="content-a">
                       <div class="content-b">
