@@ -686,7 +686,7 @@ body {
 .main-content {
   display: block;
   margin-top: $gutter;
-  padding-bottom: $gutter*2;
+  padding-bottom: 0;
 }
 
 /*============================================================================
@@ -1628,6 +1628,21 @@ label.error {
   padding-left: 0;
   margin: 0 0 $gutter;
   width: 100%;
+  text-align: center;
+}
+
+.pagination-custom>span {
+  margin: 0 10px;
+}
+
+.pagination-custom>span:nth-child(1) {
+  float: left;
+  margin: 0;
+}
+
+.pagination-custom>span:last-of-type {
+  float: right;
+  margin: 0;
 }
 
 .pagination-custom > li {
@@ -1890,11 +1905,11 @@ label.error {
 .site-footer {
   background-color: $colorFooterBg;
   
-  padding: $gutter 0;
+  padding: 0;
   color: $colorFooterText;
 
   @include at-query ($min, $large) {
-    padding: $gutter*2 0;
+    padding: 0;
   }
 }
 
@@ -2293,6 +2308,11 @@ nav a,
   margin: 0;
 }
 
+.grid-item h1,
+.grid-item h2 {
+  font-weight: normal;
+}
+
 #productPrice {
   font-size: 1.25em;
   display: block;
@@ -2509,6 +2529,12 @@ footer a {
 
 .rte h2 {
   border-top: 1px solid #939393;
+}
+
+.rtenosub h2 {
+  border-bottom: 1px solid #939393;
+  padding-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .rte h3 {

@@ -71,7 +71,8 @@ p.indicator {
 }
 
 .collection article p.indicator {
-	margin-bottom: 0;
+	position: absolute;
+	bottom: 0;
 }
 
 .readmore {
@@ -124,9 +125,9 @@ p.indicator {
 	left: 0;
 	padding: 15px 15px;
 	color: #fff;
-	width: 25%;
+	width: 300px;
 	@include media($tablet) {
-		width: 25%;
+		width: 300px;
 	}
 	@include media($desktop) {
 		max-width: 400px;

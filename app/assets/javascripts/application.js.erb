@@ -86,7 +86,7 @@ function doCarousel(el){
         // put next on next element
         (current+1) == items.length ? $(items[0]).toggleClass('next') : $(items[current+1]).toggleClass('next');
 
-        if($('body').is('.collections, .project')) {
+        if($('body').is('.collection, .project')) {
             $('a.curr').removeClass('curr');
         } else {
             $('a.curr', el).removeClass('curr');
@@ -110,7 +110,7 @@ function doCarousel(el){
 
     var clas="";
     var indic;
-    if($('body').is('.collections, .project')) {
+    if($('body').is('.collection, .project')) {
         indic = $('.indicator');
     } else {
 
@@ -123,6 +123,7 @@ function doCarousel(el){
         } else {
             clas = "";
         }
+        console.log('here');
         indic.append('<a href="#" class="'+clas+'"><span>dot</span></a>');
     }
 

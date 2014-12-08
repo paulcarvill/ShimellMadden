@@ -13,8 +13,9 @@
 		overflow: hidden;
 	}
 
-	body .news #my-carousel {
-		height: auto;
+	body .news #my-carousel,
+	body .news-item .carousel {
+		height: 500px;
 	}
 
 	.news p.indicator {
@@ -27,9 +28,9 @@
 @include media($tablet) {
 	body .news-item, 
 	body .news-item article,
-	body .news-item #my-carousel,
+	body .news #my-carousel,
 	body .news-item .carousel {
-		min-height: 300px;
+		min-height: 400px;
 	}
 }
 
@@ -38,6 +39,6 @@
 	body .news-item article,
 	body .news-item #my-carousel,
 	body .news-item .carousel {
-		min-height: 300px;
+		min-height: 241px;
 	}
 }

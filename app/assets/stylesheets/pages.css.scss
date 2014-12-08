@@ -30,6 +30,14 @@ section {
 	margin-bottom: 44px;
 }
 
+.stockists-holder-inner:nth-of-type(n+2) {
+	border-top: 1px solid #444;
+}
+
+.stockists-holder-inner.stockist-solo {
+	border-top: none;
+}
+
 #progress {
 	display: none;
 	float: left;
@@ -79,9 +87,8 @@ section {
 	.logoonly {
 		display: none;
 	}
-	.info article>div {
-		width: 50%;
-		margin-left: 10%;
+	.info article>div:not(.stockists-holder) {
+		width: 66%;
 	}
 	.stockists article>div {
 		width: auto;
@@ -363,7 +370,7 @@ body.home .carousel-item img {
 
 	.carousel-prev,
 	.carousel-next {
-		margin-top: -16px;
+		margin-top: -25px;
 	}
 
 	#centerer h2 {
@@ -376,7 +383,7 @@ body.home .carousel-item img {
 }
 
 .other #subnav {
-	padding-bottom: 11px;
+	padding-bottom: 14px;
 }
 
 #subnav span {

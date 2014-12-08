@@ -101,7 +101,6 @@ nav a.current,
 
 h2 {
 	color: #ff7e15;
-	border-top: 1px solid $borderColor;
 	padding-top: 8px;
 	margin-bottom: 32px;
 
@@ -109,6 +108,14 @@ h2 {
 		margin: 0;
 		padding: 0;
 	}
+}
+
+.archiveitem aside h3,
+.projectitem aside h2,
+.news-item aside h2:nth-of-type(2) {
+	border-bottom: 1px solid #bbb;
+	padding: 8px 0;
+	margin-bottom: 8px;
 }
 
 .project h2 {
@@ -119,12 +126,9 @@ aside p,
 .info article div p {
 	padding-top: 8px;
 	line-height: 1.5em;
-
-	@include media($mobile) {
-		line-height: 1.3em;
-	}
 }
 
+.info article #my-carousel p,
 .info article div.stockist p,
 .info article div p:nth-child(1) {
 	padding-top: 0;

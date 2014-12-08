@@ -19,15 +19,12 @@
       <!-- if multiple images in news item, do a carousel -->
         <% if blog.blogImage1_file_name and blog.blogImage2_file_name %>
         <div id="my-carousel" class="my-carousel">
-          <div class="carousel active background">
-            <%= image_tag blog.img_url1_large %>
+          <div class="carousel active background" style="background: url(<%= blog.img_url1_large %>) 50% 50% no-repeat; background-size: cover;">
           </div>
-          <div class="carousel background">
-            <%= image_tag blog.img_url2_large %>
+          <div class="carousel background" style="background: url(<%= blog.img_url2_large %>) 50% 50% no-repeat; background-size: cover;">
           </div>
           <% if blog.blogImage3_file_name %>
-          <div class="carousel background">
-            <%= image_tag blog.img_url3_large %>
+          <div class="carousel background" style="background: url(<%= blog.img_url3_large %>) 50% 50% no-repeat; background-size: cover;">
           </div>
           <% end %>
           
@@ -82,14 +79,14 @@
             img1 = '<img src="<%= asset_path "about.jpg" %>" />';
           }
           if (resp[i].blogImage2) {
-            img2 = '<div class="carousel background"><img src="'+resp[i].blogImage2+'" /></div>';
+            img2 = '<div class="carousel background" style="background: url('+resp[i].blogImage2+') 50% 50% no-repeat; background-size: cover;"></div>';
           }
           if (resp[i].blogImage3) {
-            img3 = '<div class="carousel background"><img src="'+resp[i].blogImage3+'" /></div>';
+            img3 = '<div class="carousel backgroundstyle="background: url('+resp[i].blogImage3+') 50% 50% no-repeat; background-size: cover;"></div>';
           }
 
           if (img1 && img2) {
-            images = '<div id="my-carousel" class="my-carousel" style="height: auto"><div class="carousel active background"><img src="'+resp[i].blogImage1+'" /></div>'+img2+img3;
+            images = '<div id="my-carousel" class="my-carousel" style="height: auto"><div class="carousel active background style="background: url('+resp[i].blogImage1+') 50% 50% no-repeat; background-size: cover;"></div>'+img2+img3;
             buttons = '<p class="carousel-prev"><%= render "shared/leftarrow" %></p><p class="carousel-next"><%= render "shared/rightarrow" %></p><p class="indicator"></p></div>';
           } else {
             images = img1;
