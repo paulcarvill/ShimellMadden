@@ -106,9 +106,11 @@ section {
 
 @include media($tablet) {
 	.collections section,
-	.collection section,
 	.info section {
 		margin-top: 14px;
+	}
+	.collection section {
+		margin-top: 0;
 	}
 	#info-header {
 		height: 200px;

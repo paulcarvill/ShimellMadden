@@ -441,6 +441,9 @@ body {
 
   .talll {
     height: 300px;
+    @include media($tablet) {
+      height: 500px; 
+    }
     @include media($desktop) {
       height: 600px; 
     }
