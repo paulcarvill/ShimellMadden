@@ -267,6 +267,15 @@ background-position:50% 50%;
 	}
 }
 
+@include media($tablet) {
+	body.home .pre-addition .not-fullscreen {
+		height: 320px;
+	}
+	body.home .item .content-a {
+		display: none;
+	}
+}
+
 /* content centering styles */
 .content-a {
     display:table;
@@ -437,6 +446,10 @@ body header nav {
 	background: #fff;
 
 	@include media($mobile) {
+		left: 7px;
+		right: 7px;
+	}
+	@include media($tablet) {
 		left: 7px;
 		right: 7px;
 	}
