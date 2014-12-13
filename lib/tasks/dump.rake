@@ -5,7 +5,7 @@ namespace :dump do
   
 
   task :barrier do
-    system "scp root@178.62.4.10:/tmp/dump_production.sql.gz tmp/dump_production.sql.gz"
+    system "scp root@www.shimellandmadden.com:/tmp/dump_production.sql.gz tmp/dump_production.sql.gz"
   end
 
   desc "Export the database"
