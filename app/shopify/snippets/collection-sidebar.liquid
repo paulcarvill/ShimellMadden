@@ -13,7 +13,7 @@
 <ul {% if collection.current_type %}{% else %}style="display: none;"{% endif %}>
   {% for type in collections.frontpage.all_types %}
       <li {% if collection.current_type == type %}class="current"{% endif %}>
-        {{ type | link_to_type }}{% if collection.current_type == type %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+        {{ type | link_to_type }}{% if collection.current_type == type %}<a style="float:right" class="current" href="https://shop.shimellandmadden.com/">
           <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
             <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
             <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
@@ -26,7 +26,7 @@
 
 
 {% comment %} ===== NEW ARRIVALS ======= {% endcomment %}
-<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a> {% if collection.sort_by == "created-descending" %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+<h3><a href="/collections/frontpage?sort_by=created-descending">New arrivals</a> {% if collection.sort_by == "created-descending" %}<a style="float:right" class="current" href="https://shop.shimellandmadden.com/">
   <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
             <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
             <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
@@ -44,7 +44,7 @@
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
     {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-      <li {% if collection.title == current_coll %}class="current"{% endif %}><a href="{{ collection.url }}">{{ collection_title }}</a>{% if collection.title == current_coll %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+      <li {% if collection.title == current_coll %}class="current"{% endif %}><a href="{{ collection.url }}">{{ collection_title }}</a>{% if collection.title == current_coll %}<a style="float:right" class="current" href="https://shop.shimellandmadden.com/">
         <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
             <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
             <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
@@ -63,13 +63,13 @@
   <path class="path3" d="M475.429 256h73.143v512h-73.143v-512z" />
 </svg></h3>
 <ul {% if collection.sort_by != 'price-ascending' and collection.sort_by != 'price-descending' %}style="display:none"{% else %}{% endif %}>
-  <li {% if collection.sort_by == 'price-ascending' %}class="current"{% else %}{% endif %}><a href="/collections/frontpage?sort_by=price-ascending">Lowest first</a>{% if collection.sort_by == 'price-ascending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+  <li {% if collection.sort_by == 'price-ascending' %}class="current"{% else %}{% endif %}><a href="/collections/frontpage?sort_by=price-ascending">Lowest first</a>{% if collection.sort_by == 'price-ascending' %}<a style="float:right" class="current" href="https://shop.shimellandmadden.com/">
     <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
       <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
       <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
     </svg>
   </a>{% endif %}</li>
-  <li {% if collection.sort_by == 'price-descending' %}class="current"{% else %}{% endif %}><a href="/collections/frontpage?sort_by=price-descending">Highest first</a>{% if collection.sort_by == 'price-descending' %}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+  <li {% if collection.sort_by == 'price-descending' %}class="current"{% else %}{% endif %}><a href="/collections/frontpage?sort_by=price-descending">Highest first</a>{% if collection.sort_by == 'price-descending' %}<a style="float:right" class="current" href="https://shop.shimellandmadden.com/">
     <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
       <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
       <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
@@ -89,7 +89,7 @@
     {% for tag in collections.frontpage.all_tags %}
       <li {% if current_tags contains tag %}class="current"{% else %}{% endif %}>
        {% if current_tags contains tag %}
-        {{ tag }}<a style="float:right" class="current" href="https://shimell-and-madden-2.myshopify.com/">
+        {{ tag }}<a style="float:right" class="current" href="https://shop.shimellandmadden.com/">
           <svg id="icon-search_active_idle" viewBox="0 0 1024 1024">
             <path class="path1" d="M512 0c-281.6 0-512 230.4-512 512s230.4 512 512 512 512-230.4 512-512-230.4-512-512-512zM512 950.857c-241.371 0-438.857-197.486-438.857-438.857s197.486-438.857 438.857-438.857 438.857 197.486 438.857 438.857c0 241.371-197.486 438.857-438.857 438.857z" />
             <path class="path2" d="M687.543 285.257l-175.543 175.543-175.543-175.543-51.2 51.2 175.543 175.543-175.543 175.543 51.2 51.2 175.543-175.543 175.543 175.543 51.2-51.2-175.543-175.543 175.543-175.543z" />
