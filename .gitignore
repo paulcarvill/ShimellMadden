@@ -21,3 +21,4 @@ public/assets/**
 /config/database.yml
 vendor/ruby
 /wraith/*
+/app/shopify/config.yml
