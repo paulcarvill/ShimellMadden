@@ -1,3 +1,20 @@
+<% content_for :meta do %>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Shimell_Madden">
+<meta name="twitter:title" content="About Shimell and Madden">
+<meta name="twitter:description" content="Shimell and Madden occupy that space where craft, art and fashion intersect. High quality and hand-crafted, their jewellery explores themes of science, nature and time.">
+<meta name="twitter:image:src" content="<%= asset_path "18_crop.jpg" %>">
+<meta name="twitter:domain" content="shimellandmadden.com">
+
+<meta property="og:title" content="About Shimell and Madden" />
+<meta property="og:site_name" content="Shimell and Madden"/>
+<meta property="og:url" content="http://www.shimellandmadden.com/about" />
+<meta property="og:description" content="Shimell and Madden occupy that space where craft, art and fashion intersect. High quality and hand-crafted, their jewellery explores themes of science, nature and time." />
+<meta property="og:image" content="<%= asset_path "18_crop.jpg" %>" />
+<meta property="fb:app_id" content="560942770677358" />
+<meta property="og:type" content="article" />
+<% end %>
+
 <% content_for :subnav do %>
   <div id="subnav">
     <%= render "shared/subnav" %>

@@ -1,3 +1,20 @@
+<% content_for :meta do %>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Shimell_Madden">
+<meta name="twitter:title" content="<%= @blogs.first.headline %>">
+<meta name="twitter:description" content="<%= @blogs.first.body %>">
+<meta name="twitter:image:src" content="http://www.shimellandmadden.com<%= @blogs.first.img_url1_large %>">
+<meta name="twitter:domain" content="shimellandmadden.com">
+
+<meta property="og:title" content="<%= @blogs.first.headline %>" />
+<meta property="og:site_name" content="Shimell and Madden"/>
+<meta property="og:url" content="http://www.shimellandmadden.com/news/<%= @blogs.first.id %>" />
+<meta property="og:description" content="<%= @blogs.first.body %>" />
+<meta property="og:image" content="http://www.shimellandmadden.com<%= @blogs.first.img_url1_large %>" />
+<meta property="fb:app_id" content="560942770677358" />
+<meta property="og:type" content="article" />
+<% end %>
+
 <% content_for :subnav do %>
 <div id="subnav">
   <%= render "shared/subnav" %>

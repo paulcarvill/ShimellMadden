@@ -1,3 +1,20 @@
+<% content_for :meta do %>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Shimell_Madden">
+<meta name="twitter:title" content="<%= @collections.first.name %>">
+<meta name="twitter:description" content="<%= @collections.first.description %>">
+<meta name="twitter:image:src" content="http://www.shimellandmadden.com<%= @collections.first.images.first.img_url_large %>">
+<meta name="twitter:domain" content="shimellandmadden.com">
+
+<meta property="og:title" content="<%= @collections.first.name %>" />
+<meta property="og:site_name" content="Shimell and Madden"/>
+<meta property="og:url" content="http://www.shimellandmadden.com/collections/" />
+<meta property="og:description" content="<%= @collections.first.description %>" />
+<meta property="og:image" content="http://www.shimellandmadden.com<%= @collections.first.images.first.img_url_large %>" />
+<meta property="fb:app_id" content="560942770677358" />
+<meta property="og:type" content="article" />
+<% end %>
+
 <div id="items">
   <section class="blog collections">
     <article style="position: relative">

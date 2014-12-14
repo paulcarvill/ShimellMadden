@@ -1,3 +1,20 @@
+<% content_for :meta do %>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Shimell_Madden">
+<meta name="twitter:title" content="<%= @project.name %>">
+<meta name="twitter:description" content="<%= @project.description %>">
+<meta name="twitter:image:src" content="http://www.shimellandmadden.com<%= @project.images.first.img_url_large %>">
+<meta name="twitter:domain" content="shimellandmadden.com">
+
+<meta property="og:title" content="<%= @project.name %>" />
+<meta property="og:site_name" content="Shimell and Madden"/>
+<meta property="og:url" content="http://www.shimellandmadden.com/projects/<%= @project.id %>" />
+<meta property="og:description" content="<%= @project.description %>" />
+<meta property="og:image" content="http://www.shimellandmadden.com<%= @project.images.first.img_url_large %>" />
+<meta property="fb:app_id" content="560942770677358" />
+<meta property="og:type" content="article" />
+<% end %>
+
 <section class="blog projectitem">
   
   <aside>
