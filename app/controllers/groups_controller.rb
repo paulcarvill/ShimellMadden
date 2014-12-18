@@ -44,9 +44,9 @@ class GroupsController < ApplicationController
   def archive
     @categories = Category.all()
 
-    if params['category']
+    if params['category'] && params['category'] != ""
       @items = Category.find(params['category']).images.where("archived = ?", true ).order("date DESC").paginate(:page => params[:page], :per_page => 12)
-    elsif params['date']
+    elsif params['date'] && params['date'] != ""
       date = Date.parse("1-1-#{params['date']}");
       startofyear = date.beginning_of_year
       endofyear = date.end_of_year

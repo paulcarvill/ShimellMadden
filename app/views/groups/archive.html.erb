@@ -100,11 +100,13 @@ $(function(){
 */
 var page = 1;
 var item = 6;
+var category = "<%=params['category'] %>";
+var date = "<%=params['date'] %>";
 var assTri = '<%= asset_path 'down-triangle.svg' %>';
 var weights = [50, 0, 100];
 
 function getItems(pageNumber) {
-  $.get('/archive.json?page=' + page, function(resp){
+  $.get('/archive.json?page=' + page + '&category=' + category + '&date=' + date, function(resp){
 
     for(var i = 0; i < resp.length; i++) {
       
