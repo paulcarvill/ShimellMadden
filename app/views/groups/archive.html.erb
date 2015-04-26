@@ -59,7 +59,7 @@
       <div class="archive-item">
         <div class="table" style="width: 100%;">
             <div style="display: inline-block; position: relative; width: 100%;">
-              <a href="/archive/<%= item.id %>"><div class="image" style="display: block; height: 100%; width: 100%; background-image: url(<%= asset_path item.img_url_large %>); margin: 0 auto; height: 200px; background-size: cover; background-repeat: no-repeat;  background-position: 50% <%= if item.weight == 0 then "50%" elsif item.weight ==  1 then "0" else "100%" end %>" /></div></a>
+              <a href="/archive/<%= item.id %>"><div class="image" style="display: block; height: 100%; width: 100%; background-image: url(<%= asset_path item.img_url_large %>); margin: 0 auto; height: 200px; background-size: cover; background-repeat: no-repeat;  background-position: 50% <%= if item.weight == "0" then "50%" elsif item.weight ==  1 then "0" else "100%" end %>" /></div></a>
               <!-- info overlay -->
               <a class="overlaylink" href="/archive/<%= item.id %>">
                 <div class="item-overlay">
