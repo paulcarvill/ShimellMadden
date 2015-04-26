@@ -8,7 +8,7 @@ class BlogsController < ApplicationController
     else
       @page = 1
     end
-  	@blogs = Blog.all.order('date DESC')paginate(:page => params[:page], :per_page => 3)
+  	@blogs = Blog.all.order("date DESC").paginate(:page => params[:page], :per_page => 3)
   end
 
   def show
